@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ciqcyo1jehrui"]
+[gd_scene load_steps=3 format=3 uid="uid://ciqcyo1jehrui"]
 
 [ext_resource type="Script" uid="uid://djgkhntvooq7w" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="PackedScene" uid="uid://bh8lnh1jk1jgv" path="res://scenes/fade_transition.tscn" id="2_ekxnf"]
 
 [node name="main_menu" type="Node2D"]
 
@@ -39,6 +40,16 @@ text = "How to Play"
 position = Vector2(144, 32)
 zoom = Vector2(2, 2)
 
+[node name="fade_transition" parent="." instance=ExtResource("2_ekxnf")]
+visible = false
+offset_left = -256.0
+offset_top = -232.0
+offset_right = 536.0
+offset_bottom = 264.0
+
+[node name="Fade_timer" type="Timer" parent="fade_transition"]
+
 [connection signal="pressed" from="button_manager/play" to="button_manager" method="_on_play_pressed"]
 [connection signal="pressed" from="button_manager/learn" to="button_manager" method="_on_learn_pressed"]
 [connection signal="pressed" from="button_manager/htp" to="button_manager" method="_on_htp_pressed"]
+[connection signal="timeout" from="fade_transition/Fade_timer" to="button_manager" method="_on_fade_timer_timeout"]
