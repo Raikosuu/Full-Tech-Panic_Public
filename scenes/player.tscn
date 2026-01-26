@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://demqpuvfguk8d"]
 
-[ext_resource type="Texture2D" uid="uid://c1865ox0us64j" path="res://assets/DinoSprites - mort.png" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://c1865ox0us64j" path="res://assets/character/DinoSprites - mort.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bnn76hxj50tn1" path="res://scripts/player.gd" id="1_g2els"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]

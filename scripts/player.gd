@@ -48,8 +48,8 @@ var character_direction: Vector2 = Vector2.ZERO
 
 func _physics_process(delta):
     # Get input direction
-    character_direction.x = Input.get_axis("move_left", "move_right")
-    character_direction.y = Input.get_axis("move_up", "move_down")
+	character_direction.x = Input.get_axis("move_left", "move_right")
+	character_direction.y = Input.get_axis("move_up", "move_down")
     
     # Normalize so diagonal speed is consistent
     character_direction = character_direction.normalized()
@@ -64,13 +64,13 @@ func _physics_process(delta):
     if character_direction != Vector2.ZERO:
         # Accelerate toward movement
         velocity = lerp(velocity, character_direction * movement_speed, delta * ACCEL)
-        if sprite.animation != "run":
-            sprite.animation = "run"
+		if sprite.animation != "run":
+			sprite.animation = "run"
     else:
         # Decelerate when idle
         velocity = velocity.move_toward(Vector2.ZERO, movement_speed * delta * ACCEL)
-        if sprite.animation != "idle":
-            sprite.animation = "idle"
+		if sprite.animation != "idle":
+			sprite.animation = "idle"
     
     # Apply movement
     move_and_slide()

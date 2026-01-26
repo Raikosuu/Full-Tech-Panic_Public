@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7fkwwi1ruah"
-path="res://.godot/imported/Small-8-Direction-Characters_by_AxulArt.png-489c345176e2f9434ef44e0a1808edc9.ctex"
+uid="uid://c1865ox0us64j"
+path="res://.godot/imported/DinoSprites - mort.png-7b496da989fcf6de201c482ed9f49ad6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Small-8-Direction-Characters_by_AxulArt.png"
-dest_files=["res://.godot/imported/Small-8-Direction-Characters_by_AxulArt.png-489c345176e2f9434ef44e0a1808edc9.ctex"]
+source_file="res://assets/character/DinoSprites - mort.png"
+dest_files=["res://.godot/imported/DinoSprites - mort.png-7b496da989fcf6de201c482ed9f49ad6.ctex"]
 
 [params]
 
