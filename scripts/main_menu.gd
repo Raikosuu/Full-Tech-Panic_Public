@@ -8,6 +8,5 @@ func _on_play_pressed() -> void:
 func _on_learn_pressed() -> void:
 	pass # Replace with function body.
 
-
 func _on_htp_pressed() -> void:
 	pass # Replace with function body.

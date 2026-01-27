@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://b0nvcgpoypl62"]
+[gd_scene load_steps=11 format=4 uid="uid://b0nvcgpoypl62"]
 
 [ext_resource type="PackedScene" uid="uid://demqpuvfguk8d" path="res://scenes/player.tscn" id="1_w5aja"]
 [ext_resource type="Texture2D" uid="uid://vgq806bcs4q" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="1_ycayy"]
 [ext_resource type="Texture2D" uid="uid://bxnkyr5imokua" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Room_Builder_free_16x16.png" id="2_bw6k5"]
+[ext_resource type="PackedScene" uid="uid://biqydsgf677p2" path="res://scenes/npc.tscn" id="4_bw6k5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rurhu"]
 texture = ExtResource("2_bw6k5")
@@ -2553,3 +2554,11 @@ movement_speed = 120.0
 position = Vector2(0, 1)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
+
+[node name="npc" parent="." instance=ExtResource("4_bw6k5")]
+position = Vector2(-95, 105)
+
+[node name="PathFollow2D" parent="npc/Path2D" index="0"]
+position = Vector2(-2, -7)
+
+[editable path="npc"]
