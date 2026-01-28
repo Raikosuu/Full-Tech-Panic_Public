@@ -2555,6 +2555,11 @@ zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
 [node name="NPC1" parent="." instance=ExtResource("5_y3j0m")]
-position = Vector2(76, 104)
+position = Vector2(68, 102)
+
+[node name="PathFollow2D" parent="NPC1" index="0"]
+position = Vector2(-17, -21)
+rotates = false
+loop = false
 
 [editable path="NPC1"]
