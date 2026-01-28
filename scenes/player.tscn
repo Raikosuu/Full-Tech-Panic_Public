@@ -84,14 +84,14 @@ radius = 4.0
 height = 10.0
 
 [node name="player" type="CharacterBody2D"]
-position = Vector2(0, -9)
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_tuyoq")
