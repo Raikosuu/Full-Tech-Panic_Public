@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://di6c82vetinpd"]
+[gd_scene load_steps=3 format=3 uid="uid://di6c82vetinpd"]
+
+[ext_resource type="Script" uid="uid://c61235cbcitkf" path="res://scripts/seats.gd" id="1_m3nl5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_psav7"]
-radius = 16.27882
+radius = 8.0
 
 [node name="seats" type="Area2D"]
-collision_mask = 2
+script = ExtResource("1_m3nl5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_psav7")
