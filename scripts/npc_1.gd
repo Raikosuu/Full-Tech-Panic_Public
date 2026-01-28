@@ -4,7 +4,7 @@ const SPEED: float = 30.0
 
 @export var seats: Node2D
 @onready var nav_agent := $NavigationAgent2D
-@onready var anim_sprite := $AnimatedSprite2D   # reference to your sprite
+@onready var anim_sprite := $AnimatedSprite2D  
 
 func _ready() -> void:
 	makepath()
@@ -27,6 +27,11 @@ func _physics_process(_delta: float) -> void:
 			anim_sprite.play("walk")
 		else:
 			anim_sprite.play("idle")
+	
+		if global_position.distance_to(seats.global_position) < 5.0:
+			velocity = Vector2.ZERO
+			global_position = seats.global_position   # snap to seat
+			
 
 func makepath() -> void:
 	if seats:
