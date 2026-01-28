@@ -2563,10 +2563,136 @@ position_smoothing_enabled = true
 
 [node name="NPC1" parent="." node_paths=PackedStringArray("seats") instance=ExtResource("5_y3j0m")]
 position = Vector2(68, 102)
-seats = NodePath("../seats")
+seats = [NodePath("../seat/seats"), NodePath("../seat/seats2"), NodePath("../seat/seats3"), NodePath("../seat/seats4"), NodePath("../seat/seats5"), NodePath("../seat/seats6"), NodePath("../seat/seats7"), NodePath("../seat/seats8"), NodePath("../seat/seats9"), NodePath("../seat/seats10"), NodePath("../seat/seats11"), NodePath("../seat/seats12"), NodePath("../seat/seats13"), NodePath("../seat/seats14"), NodePath("../seat/seats15"), NodePath("../seat/seats16"), NodePath("../seat/seats17"), NodePath("../seat/seats18"), NodePath("../seat/seats19"), NodePath("../seat/seats20"), NodePath("../seat/seats21"), NodePath("../seat/seats22")]
+
+[node name="NPC2" parent="." node_paths=PackedStringArray("seats") instance=ExtResource("5_y3j0m")]
+position = Vector2(-72, -64)
+seats = [NodePath("../seat/seats"), NodePath("../seat/seats2"), NodePath("../seat/seats3"), NodePath("../seat/seats4"), NodePath("../seat/seats5"), NodePath("../seat/seats6"), NodePath("../seat/seats7"), NodePath("../seat/seats8"), NodePath("../seat/seats9"), NodePath("../seat/seats10"), NodePath("../seat/seats11"), NodePath("../seat/seats12"), NodePath("../seat/seats13"), NodePath("../seat/seats14"), NodePath("../seat/seats15"), NodePath("../seat/seats16"), NodePath("../seat/seats17"), NodePath("../seat/seats18"), NodePath("../seat/seats19"), NodePath("../seat/seats20"), NodePath("../seat/seats21"), NodePath("../seat/seats22")]
+
+[node name="NPC3" parent="." node_paths=PackedStringArray("seats") instance=ExtResource("5_y3j0m")]
+position = Vector2(0, -40)
+seats = [NodePath("../seat/seats"), NodePath("../seat/seats2"), NodePath("../seat/seats3"), NodePath("../seat/seats4"), NodePath("../seat/seats5"), NodePath("../seat/seats6"), NodePath("../seat/seats7"), NodePath("../seat/seats8"), NodePath("../seat/seats9"), NodePath("../seat/seats10"), NodePath("../seat/seats11"), NodePath("../seat/seats12"), NodePath("../seat/seats13"), NodePath("../seat/seats14"), NodePath("../seat/seats15"), NodePath("../seat/seats16"), NodePath("../seat/seats17"), NodePath("../seat/seats18"), NodePath("../seat/seats19"), NodePath("../seat/seats20"), NodePath("../seat/seats21"), NodePath("../seat/seats22")]
+
+[node name="NPC4" parent="." node_paths=PackedStringArray("seats") instance=ExtResource("5_y3j0m")]
+position = Vector2(120, -61)
+seats = [NodePath("../seat/seats"), NodePath("../seat/seats2"), NodePath("../seat/seats3"), NodePath("../seat/seats4"), NodePath("../seat/seats5"), NodePath("../seat/seats6"), NodePath("../seat/seats7"), NodePath("../seat/seats8"), NodePath("../seat/seats9"), NodePath("../seat/seats10"), NodePath("../seat/seats11"), NodePath("../seat/seats12"), NodePath("../seat/seats13"), NodePath("../seat/seats14"), NodePath("../seat/seats15"), NodePath("../seat/seats16"), NodePath("../seat/seats17"), NodePath("../seat/seats18"), NodePath("../seat/seats19"), NodePath("../seat/seats20"), NodePath("../seat/seats21"), NodePath("../seat/seats22")]
+
+[node name="NPC5" parent="." node_paths=PackedStringArray("seats") instance=ExtResource("5_y3j0m")]
+position = Vector2(12, 32)
+seats = [NodePath("../seat/seats"), NodePath("../seat/seats2"), NodePath("../seat/seats3"), NodePath("../seat/seats4"), NodePath("../seat/seats5"), NodePath("../seat/seats6"), NodePath("../seat/seats7"), NodePath("../seat/seats8"), NodePath("../seat/seats9"), NodePath("../seat/seats10"), NodePath("../seat/seats11"), NodePath("../seat/seats12"), NodePath("../seat/seats13"), NodePath("../seat/seats14"), NodePath("../seat/seats15"), NodePath("../seat/seats16"), NodePath("../seat/seats17"), NodePath("../seat/seats18"), NodePath("../seat/seats19"), NodePath("../seat/seats20"), NodePath("../seat/seats21"), NodePath("../seat/seats22")]
+
+[node name="NPC6" parent="." node_paths=PackedStringArray("seats") instance=ExtResource("5_y3j0m")]
+position = Vector2(-24, 80)
+seats = [NodePath("../seat/seats"), NodePath("../seat/seats2"), NodePath("../seat/seats3"), NodePath("../seat/seats4"), NodePath("../seat/seats5"), NodePath("../seat/seats6"), NodePath("../seat/seats7"), NodePath("../seat/seats8"), NodePath("../seat/seats9"), NodePath("../seat/seats10"), NodePath("../seat/seats11"), NodePath("../seat/seats12"), NodePath("../seat/seats13"), NodePath("../seat/seats14"), NodePath("../seat/seats15"), NodePath("../seat/seats16"), NodePath("../seat/seats17"), NodePath("../seat/seats18"), NodePath("../seat/seats19"), NodePath("../seat/seats20"), NodePath("../seat/seats21"), NodePath("../seat/seats22")]
+
+[node name="NPC7" parent="." node_paths=PackedStringArray("seats") instance=ExtResource("5_y3j0m")]
+position = Vector2(24, 64)
+seats = [NodePath("../seat/seats"), NodePath("../seat/seats2"), NodePath("../seat/seats3"), NodePath("../seat/seats4"), NodePath("../seat/seats5"), NodePath("../seat/seats6"), NodePath("../seat/seats7"), NodePath("../seat/seats8"), NodePath("../seat/seats9"), NodePath("../seat/seats10"), NodePath("../seat/seats11"), NodePath("../seat/seats12"), NodePath("../seat/seats13"), NodePath("../seat/seats14"), NodePath("../seat/seats15"), NodePath("../seat/seats16"), NodePath("../seat/seats17"), NodePath("../seat/seats18"), NodePath("../seat/seats19"), NodePath("../seat/seats20"), NodePath("../seat/seats21"), NodePath("../seat/seats22")]
+
+[node name="NPC8" parent="." node_paths=PackedStringArray("seats") instance=ExtResource("5_y3j0m")]
+position = Vector2(-24, 56)
+seats = [NodePath("../seat/seats"), NodePath("../seat/seats2"), NodePath("../seat/seats3"), NodePath("../seat/seats4"), NodePath("../seat/seats5"), NodePath("../seat/seats6"), NodePath("../seat/seats7"), NodePath("../seat/seats8"), NodePath("../seat/seats9"), NodePath("../seat/seats10"), NodePath("../seat/seats11"), NodePath("../seat/seats12"), NodePath("../seat/seats13"), NodePath("../seat/seats14"), NodePath("../seat/seats15"), NodePath("../seat/seats16"), NodePath("../seat/seats17"), NodePath("../seat/seats18"), NodePath("../seat/seats19"), NodePath("../seat/seats20"), NodePath("../seat/seats21"), NodePath("../seat/seats22")]
+
+[node name="NPC9" parent="." node_paths=PackedStringArray("seats") instance=ExtResource("5_y3j0m")]
+position = Vector2(-24, -61)
+seats = [NodePath("../seat/seats"), NodePath("../seat/seats2"), NodePath("../seat/seats3"), NodePath("../seat/seats4"), NodePath("../seat/seats5"), NodePath("../seat/seats6"), NodePath("../seat/seats7"), NodePath("../seat/seats8"), NodePath("../seat/seats9"), NodePath("../seat/seats10"), NodePath("../seat/seats11"), NodePath("../seat/seats12"), NodePath("../seat/seats13"), NodePath("../seat/seats14"), NodePath("../seat/seats15"), NodePath("../seat/seats16"), NodePath("../seat/seats17"), NodePath("../seat/seats18"), NodePath("../seat/seats19"), NodePath("../seat/seats20"), NodePath("../seat/seats21"), NodePath("../seat/seats22")]
+
+[node name="NPC10" parent="." node_paths=PackedStringArray("seats") instance=ExtResource("5_y3j0m")]
+position = Vector2(16, -61)
+seats = [NodePath("../seat/seats"), NodePath("../seat/seats2"), NodePath("../seat/seats3"), NodePath("../seat/seats4"), NodePath("../seat/seats5"), NodePath("../seat/seats6"), NodePath("../seat/seats7"), NodePath("../seat/seats8"), NodePath("../seat/seats9"), NodePath("../seat/seats10"), NodePath("../seat/seats11"), NodePath("../seat/seats12"), NodePath("../seat/seats13"), NodePath("../seat/seats14"), NodePath("../seat/seats15"), NodePath("../seat/seats16"), NodePath("../seat/seats17"), NodePath("../seat/seats18"), NodePath("../seat/seats19"), NodePath("../seat/seats20"), NodePath("../seat/seats21"), NodePath("../seat/seats22")]
+
+[node name="NPC11" parent="." node_paths=PackedStringArray("seats") instance=ExtResource("5_y3j0m")]
+position = Vector2(-72, 102)
+seats = [NodePath("../seat/seats"), NodePath("../seat/seats2"), NodePath("../seat/seats3"), NodePath("../seat/seats4"), NodePath("../seat/seats5"), NodePath("../seat/seats6"), NodePath("../seat/seats7"), NodePath("../seat/seats8"), NodePath("../seat/seats9"), NodePath("../seat/seats10"), NodePath("../seat/seats11"), NodePath("../seat/seats12"), NodePath("../seat/seats13"), NodePath("../seat/seats14"), NodePath("../seat/seats15"), NodePath("../seat/seats16"), NodePath("../seat/seats17"), NodePath("../seat/seats18"), NodePath("../seat/seats19"), NodePath("../seat/seats20"), NodePath("../seat/seats21"), NodePath("../seat/seats22")]
+
+[node name="NPC12" parent="." node_paths=PackedStringArray("seats") instance=ExtResource("5_y3j0m")]
+position = Vector2(12, 102)
+seats = [NodePath("../seat/seats"), NodePath("../seat/seats2"), NodePath("../seat/seats3"), NodePath("../seat/seats4"), NodePath("../seat/seats5"), NodePath("../seat/seats6"), NodePath("../seat/seats7"), NodePath("../seat/seats8"), NodePath("../seat/seats9"), NodePath("../seat/seats10"), NodePath("../seat/seats11"), NodePath("../seat/seats12"), NodePath("../seat/seats13"), NodePath("../seat/seats14"), NodePath("../seat/seats15"), NodePath("../seat/seats16"), NodePath("../seat/seats17"), NodePath("../seat/seats18"), NodePath("../seat/seats19"), NodePath("../seat/seats20"), NodePath("../seat/seats21"), NodePath("../seat/seats22")]
+
+[node name="NPC13" parent="." node_paths=PackedStringArray("seats") instance=ExtResource("5_y3j0m")]
+position = Vector2(88, 40)
+seats = [NodePath("../seat/seats"), NodePath("../seat/seats2"), NodePath("../seat/seats3"), NodePath("../seat/seats4"), NodePath("../seat/seats5"), NodePath("../seat/seats6"), NodePath("../seat/seats7"), NodePath("../seat/seats8"), NodePath("../seat/seats9"), NodePath("../seat/seats10"), NodePath("../seat/seats11"), NodePath("../seat/seats12"), NodePath("../seat/seats13"), NodePath("../seat/seats14"), NodePath("../seat/seats15"), NodePath("../seat/seats16"), NodePath("../seat/seats17"), NodePath("../seat/seats18"), NodePath("../seat/seats19"), NodePath("../seat/seats20"), NodePath("../seat/seats21"), NodePath("../seat/seats22")]
+
+[node name="NPC14" parent="." node_paths=PackedStringArray("seats") instance=ExtResource("5_y3j0m")]
+position = Vector2(-24, 8)
+seats = [NodePath("../seat/seats"), NodePath("../seat/seats2"), NodePath("../seat/seats3"), NodePath("../seat/seats4"), NodePath("../seat/seats5"), NodePath("../seat/seats6"), NodePath("../seat/seats7"), NodePath("../seat/seats8"), NodePath("../seat/seats9"), NodePath("../seat/seats10"), NodePath("../seat/seats11"), NodePath("../seat/seats12"), NodePath("../seat/seats13"), NodePath("../seat/seats14"), NodePath("../seat/seats15"), NodePath("../seat/seats16"), NodePath("../seat/seats17"), NodePath("../seat/seats18"), NodePath("../seat/seats19"), NodePath("../seat/seats20"), NodePath("../seat/seats21"), NodePath("../seat/seats22")]
+
+[node name="NPC15" parent="." node_paths=PackedStringArray("seats") instance=ExtResource("5_y3j0m")]
+position = Vector2(16, -24)
+seats = [NodePath("../seat/seats"), NodePath("../seat/seats2"), NodePath("../seat/seats3"), NodePath("../seat/seats4"), NodePath("../seat/seats5"), NodePath("../seat/seats6"), NodePath("../seat/seats7"), NodePath("../seat/seats8"), NodePath("../seat/seats9"), NodePath("../seat/seats10"), NodePath("../seat/seats11"), NodePath("../seat/seats12"), NodePath("../seat/seats13"), NodePath("../seat/seats14"), NodePath("../seat/seats15"), NodePath("../seat/seats16"), NodePath("../seat/seats17"), NodePath("../seat/seats18"), NodePath("../seat/seats19"), NodePath("../seat/seats20"), NodePath("../seat/seats21"), NodePath("../seat/seats22")]
+
+[node name="NPC16" parent="." node_paths=PackedStringArray("seats") instance=ExtResource("5_y3j0m")]
+position = Vector2(-104, -58)
+seats = [NodePath("../seat/seats"), NodePath("../seat/seats2"), NodePath("../seat/seats3"), NodePath("../seat/seats4"), NodePath("../seat/seats5"), NodePath("../seat/seats6"), NodePath("../seat/seats7"), NodePath("../seat/seats8"), NodePath("../seat/seats9"), NodePath("../seat/seats10"), NodePath("../seat/seats11"), NodePath("../seat/seats12"), NodePath("../seat/seats13"), NodePath("../seat/seats14"), NodePath("../seat/seats15"), NodePath("../seat/seats16"), NodePath("../seat/seats17"), NodePath("../seat/seats18"), NodePath("../seat/seats19"), NodePath("../seat/seats20"), NodePath("../seat/seats21"), NodePath("../seat/seats22")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_y3j0m")
 
-[node name="seats" parent="." instance=ExtResource("5_rurhu")]
+[node name="seat" type="Node2D" parent="."]
+
+[node name="seats" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(-138, -24)
+
+[node name="seats2" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(-104, -24)
+
+[node name="seats3" parent="seat" instance=ExtResource("5_rurhu")]
 position = Vector2(-72, -24)
+
+[node name="seats4" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(-40, -24)
+
+[node name="seats5" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(40, -24)
+
+[node name="seats6" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(72, -24)
+
+[node name="seats7" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(104, -24)
+
+[node name="seats8" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(136, -24)
+
+[node name="seats9" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(136, 24)
+
+[node name="seats10" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(104, 24)
+
+[node name="seats11" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(72, 24)
+
+[node name="seats12" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(40, 24)
+
+[node name="seats13" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(-40, 24)
+
+[node name="seats14" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(-72, 24)
+
+[node name="seats15" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(-104, 24)
+
+[node name="seats16" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(-136, 24)
+
+[node name="seats17" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(-136, 72)
+
+[node name="seats18" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(-104, 72)
+
+[node name="seats19" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(-72, 72)
+
+[node name="seats20" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(56, 72)
+
+[node name="seats21" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(88, 72)
+
+[node name="seats22" parent="seat" instance=ExtResource("5_rurhu")]
+position = Vector2(120, 72)
