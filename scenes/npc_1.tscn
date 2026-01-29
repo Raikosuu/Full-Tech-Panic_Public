@@ -102,9 +102,11 @@ position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_ttshn")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 5.0
+path_desired_distance = 1.0
 target_desired_distance = 5.0
+path_max_distance = 30.0
 avoidance_enabled = true
+max_neighbors = 20
 debug_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
