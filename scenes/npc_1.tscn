@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://2ueng3iip43a"]
 
 [ext_resource type="Texture2D" uid="uid://ch3yjsway5b7f" path="res://assets/character/DinoSprites - tard.png" id="1_8dm1u"]
-[ext_resource type="Script" uid="uid://pwigievipai2" path="res://scripts/npc_1.gd" id="1_ttshn"]
+[ext_resource type="Script" uid="uid://pwigievipai2" path="res://scripts/npc_main.gd" id="1_ttshn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8dm1u"]
 atlas = ExtResource("1_8dm1u")

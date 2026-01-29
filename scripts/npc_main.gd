@@ -2,13 +2,15 @@ extends CharacterBody2D
 
 const SPEED: float = 40.0
 
-@export var seats: Array[Area2D] 
+@export var seats: Array[Node] = []
 @onready var nav_agent := $NavigationAgent2D
 @onready var anim_sprite := $AnimatedSprite2D
 
 var target_seat: Area2D = null
 
 func _ready() -> void:
+	#get all seats from group
+	seats = get_tree().get_nodes_in_group("computer_seats")
 	find_vacant_seat()
 	
 
