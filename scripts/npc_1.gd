@@ -23,8 +23,22 @@ func _physics_process(_delta: float) -> void:
 		target_seat.occupy()
 		target_seat = null
 	else:
+		
+		var current_agent_position = global_position
+		var next_path_position = nav_agent.get_next_path_position()
+		var new_velocity = current_agent_position.direction_to(next_path_position) * SPEED
+		
+		if nav_agent.avoidance_enabled:
+			nav_agent.set_velocity(new_velocity)
+		else:
+			_on_navigation_agent_2d_velocity_computed(new_velocity)
+			
+		"""
 		var dir = (nav_agent.get_next_path_position() - global_position).normalized()
 		velocity = dir * SPEED
+		"""
+		
+		
 		move_and_slide()
 
 		# Flip horizontally depending on direction
@@ -51,3 +65,8 @@ func find_vacant_seat() -> void:
 	if nearest:
 		target_seat = nearest
 		nav_agent.target_position = nearest.global_position
+
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity):
+	velocity = safe_velocity
+	pass # Replace with function body.

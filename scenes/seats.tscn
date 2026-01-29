@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c61235cbcitkf" path="res://scripts/seats.gd" id="1_m3nl5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_psav7"]
-radius = 8.062258
+radius = 5.0
 
 [node name="seats" type="Area2D"]
 collision_mask = 2
