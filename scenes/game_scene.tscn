@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://b0nvcgpoypl62"]
+[gd_scene load_steps=13 format=4 uid="uid://b0nvcgpoypl62"]
 
 [ext_resource type="PackedScene" uid="uid://demqpuvfguk8d" path="res://scenes/player.tscn" id="1_w5aja"]
 [ext_resource type="Texture2D" uid="uid://vgq806bcs4q" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="1_ycayy"]
 [ext_resource type="Texture2D" uid="uid://bxnkyr5imokua" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Room_Builder_free_16x16.png" id="2_bw6k5"]
 [ext_resource type="PackedScene" uid="uid://di6c82vetinpd" path="res://scenes/seats.tscn" id="5_rurhu"]
-[ext_resource type="PackedScene" uid="uid://2ueng3iip43a" path="res://scenes/npc_1.tscn" id="5_y3j0m"]
 [ext_resource type="PackedScene" uid="uid://bvvwyojvr5lid" path="res://scenes/npc_spawn.tscn" id="6_rurhu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rurhu"]
@@ -2563,9 +2562,6 @@ zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
 [node name="npc_handler" type="Node2D" parent="."]
-
-[node name="NPC1" parent="npc_handler" instance=ExtResource("5_y3j0m")]
-position = Vector2(36, 104)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
