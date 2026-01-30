@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://2ueng3iip43a"]
 
 [ext_resource type="Texture2D" uid="uid://ch3yjsway5b7f" path="res://assets/character/DinoSprites - tard.png" id="1_8dm1u"]
-[ext_resource type="Script" uid="uid://pwigievipai2" path="res://scripts/npc_main.gd" id="1_ttshn"]
+[ext_resource type="Script" uid="uid://pwigievipai2" path="res://scripts/npc_1.gd" id="1_ttshn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8dm1u"]
 atlas = ExtResource("1_8dm1u")
@@ -103,8 +103,8 @@ shape = SubResource("CapsuleShape2D_ttshn")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 1.0
 target_desired_distance = 5.0
-path_max_distance = 30.0
 avoidance_enabled = true
+radius = 7.0
 max_neighbors = 20
 debug_enabled = true
 
