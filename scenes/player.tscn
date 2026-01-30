@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://demqpuvfguk8d"]
+[gd_scene load_steps=13 format=3 uid="uid://demqpuvfguk8d"]
 
 [ext_resource type="Texture2D" uid="uid://c1865ox0us64j" path="res://assets/character/DinoSprites - mort.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bnn76hxj50tn1" path="res://scripts/player.gd" id="1_g2els"]
@@ -35,10 +35,6 @@ region = Rect2(192, 0, 24, 24)
 atlas = ExtResource("1_3vyb7")
 region = Rect2(216, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
-atlas = ExtResource("1_3vyb7")
-region = Rect2(240, 0, 24, 24)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_qlg0r"]
 animations = [{
 "frames": [{
@@ -70,9 +66,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_smehm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ur7pv")
 }],
 "loop": true,
 "name": &"run",
@@ -80,7 +73,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tuyoq"]
-radius = 4.0
+radius = 3.0
 height = 10.0
 
 [node name="player" type="CharacterBody2D"]
