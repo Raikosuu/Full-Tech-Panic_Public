@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckkdgjk2ljmr8"]
+
+[ext_resource type="Texture2D" uid="uid://baa6shhf0xfvt" path="res://assets/wait meter/under_progress-bar.png" id="1_4dfvb"]
+[ext_resource type="Texture2D" uid="uid://b58gjbknieggp" path="res://assets/wait meter/overlay_progress-bar.png" id="2_8fpg8"]
+[ext_resource type="Texture2D" uid="uid://hamcb3yk3evi" path="res://assets/wait meter/progress_progress-bar.png" id="3_7dpgd"]
+
+[node name="patience" type="Node2D"]
+
+[node name="wait_meter" type="TextureProgressBar" parent="."]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 114.0
+offset_bottom = 42.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_4dfvb")
+texture_over = ExtResource("2_8fpg8")
+texture_progress = ExtResource("3_7dpgd")
+
+[node name="Timer" type="Timer" parent="wait_meter"]
