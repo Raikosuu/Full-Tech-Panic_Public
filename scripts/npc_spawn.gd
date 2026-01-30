@@ -26,3 +26,7 @@ func _on_timer_timeout() -> void:
 		get_parent().get_node("npc_handler").add_child(npcs)
 		
 		spawn_count += 1
+		
+		#spawn at random intervals
+		$Timer.wait_time = randf_range(3, 8)
+		$Timer.start()
