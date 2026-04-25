@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmnrxxnvcm8xm"]
+
+[ext_resource type="Texture2D" uid="uid://482ial2ydp4u" path="res://assets/Computer parts/DDR4_RAM.png" id="1_13k6a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bpva"]
+size = Vector2(32, 8)
+
+[node name="RAM_Module" type="Node2D"]
+
+[node name="Ddr4Ram" type="Sprite2D" parent="."]
+texture = ExtResource("1_13k6a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ddr4Ram"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_6bpva")

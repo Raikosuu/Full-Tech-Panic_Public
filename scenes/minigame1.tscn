@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://qwl8tcya73tq"]
+
+[ext_resource type="PackedScene" uid="uid://cmnrxxnvcm8xm" path="res://scenes/ram_module.tscn" id="1_hyuno"]
+
+[node name="Minigame1" type="Node2D"]
+
+[node name="RAM_Module" parent="." instance=ExtResource("1_hyuno")]
+position = Vector2(0, -8)
