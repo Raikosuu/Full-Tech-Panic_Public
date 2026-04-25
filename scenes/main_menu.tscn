@@ -13,30 +13,29 @@ script = ExtResource("1_l6cm7")
 
 [node name="play" type="Button" parent="button_manager"]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 16.0
-offset_right = 208.0
-offset_bottom = 56.0
+offset_left = -64.0
+offset_top = -72.0
+offset_right = 64.0
+offset_bottom = -32.0
 text = "Play"
 
 [node name="learn" type="Button" parent="button_manager"]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 64.0
-offset_right = 208.0
-offset_bottom = 104.0
+offset_left = -64.0
+offset_top = -24.0
+offset_right = 64.0
+offset_bottom = 16.0
 text = "Learn"
 
 [node name="htp" type="Button" parent="button_manager"]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 112.0
-offset_right = 208.0
-offset_bottom = 152.0
+offset_left = -64.0
+offset_top = 24.0
+offset_right = 64.0
+offset_bottom = 64.0
 text = "How to Play"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(144, 32)
 zoom = Vector2(2, 2)
 
 [connection signal="pressed" from="button_manager/play" to="button_manager" method="_on_play_pressed"]
