@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://pgpcgeywpbc5"]
 
-[ext_resource type="Script" uid="uid://dxv6nfcme5su2" path="res://scripts/ram_drag.gd" id="1_6bpva"]
+[ext_resource type="Script" uid="uid://dxv6nfcme5su2" path="res://scripts/drag_cont.gd" id="1_6bpva"]
 [ext_resource type="Texture2D" uid="uid://482ial2ydp4u" path="res://assets/Computer parts/DDR4_RAM.png" id="1_13k6a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6bpva"]
