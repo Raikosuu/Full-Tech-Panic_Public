@@ -7,7 +7,7 @@
 bounce = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6bpva"]
-size = Vector2(32, 8)
+size = Vector2(56, 12)
 
 [node name="RAM_Module" type="Node2D"]
 
@@ -18,7 +18,10 @@ physics_material_override = SubResource("PhysicsMaterial_6bpva")
 script = ExtResource("1_6bpva")
 
 [node name="Ddr4Ram" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(9.536743e-07, 0)
+scale = Vector2(1.7195122, 1.6666666)
 texture = ExtResource("1_13k6a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_6bpva")
