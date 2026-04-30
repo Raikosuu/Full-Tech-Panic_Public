@@ -28,6 +28,6 @@ color = Color(3.4172833e-06, 0.7733686, 0.27711436, 1)
 position = Vector2(89, 21.5)
 shape = SubResource("RectangleShape2D_hyuno")
 
-[node name="RAMslot" parent="Mother Board" instance=ExtResource("2_o2b5h")]
-position = Vector2(17, -13)
+[node name="snapzone" parent="Mother Board" instance=ExtResource("2_o2b5h")]
+position = Vector2(26, -13)
 accepted_components = Array[NodePath]([NodePath("../../RAM_Module")])
