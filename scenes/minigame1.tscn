@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca3nouy6qvt8t"]
+[gd_scene load_steps=5 format=3 uid="uid://ca3nouy6qvt8t"]
 
 [ext_resource type="PackedScene" uid="uid://pgpcgeywpbc5" path="res://scenes/ram_module.tscn" id="1_hyuno"]
 [ext_resource type="PackedScene" uid="uid://bhph80goxwfn5" path="res://scenes/snap_zone.tscn" id="2_o2b5h"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o2b5h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyuno"]
 size = Vector2(178, 43)
 
 [node name="Minigame1" type="Node2D"]
+
+[node name="RAM_Module" parent="." instance=ExtResource("1_hyuno")]
+position = Vector2(0, -38)
+physics_material_override = SubResource("PhysicsMaterial_o2b5h")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(7, 7)
@@ -26,7 +32,4 @@ shape = SubResource("RectangleShape2D_hyuno")
 
 [node name="snapzone" parent="Mother Board" instance=ExtResource("2_o2b5h")]
 position = Vector2(35, -9)
-accepted_components = Array[NodePath]([NodePath("")])
-
-[node name="RAM_Module" parent="." instance=ExtResource("1_hyuno")]
-position = Vector2(0, -38)
+accepted_components = Array[NodePath]([NodePath("../../RAM_Module")])
