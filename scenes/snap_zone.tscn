@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhph80goxwfn5"]
 
-[ext_resource type="Script" uid="uid://cix02ah8enkhw" path="res://scripts/ram_slot.gd" id="1_dpm3d"]
+[ext_resource type="Script" uid="uid://cix02ah8enkhw" path="res://scripts/snap_zone.gd" id="1_dpm3d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2b5h"]
 size = Vector2(30.625, 9.75)
 
-[node name="RAMslot" type="Area2D"]
+[node name="snapzone" type="Area2D"]
 script = ExtResource("1_dpm3d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
