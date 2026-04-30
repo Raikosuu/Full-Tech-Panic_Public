@@ -2564,7 +2564,6 @@ position_smoothing_enabled = true
 [node name="npc_handler" type="Node2D" parent="."]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_y3j0m")
 
 [node name="comp_seats" type="Node2D" parent="."]

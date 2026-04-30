@@ -8,9 +8,6 @@ size = Vector2(178, 43)
 
 [node name="Minigame1" type="Node2D"]
 
-[node name="RAM_Module" parent="." instance=ExtResource("1_hyuno")]
-position = Vector2(0, -36)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(7, 7)
 
@@ -29,4 +26,7 @@ shape = SubResource("RectangleShape2D_hyuno")
 
 [node name="snapzone" parent="Mother Board" instance=ExtResource("2_o2b5h")]
 position = Vector2(35, -9)
-accepted_components = Array[NodePath]([NodePath("../../RAM_Module")])
+accepted_components = Array[NodePath]([NodePath("")])
+
+[node name="RAM_Module" parent="." instance=ExtResource("1_hyuno")]
+position = Vector2(0, -38)
