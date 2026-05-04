@@ -24,7 +24,6 @@ WiringData="*res://scripts/wiring_data.gd"
 window/size/viewport_width=426
 window/size/viewport_height=240
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [dotnet]
 
