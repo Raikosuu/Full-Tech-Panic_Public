@@ -15,10 +15,16 @@ run/main_scene="uid://ciqcyo1jehrui"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+WiringData="*res://scripts/wiring_data.gd"
+
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=426
+window/size/viewport_height=240
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [dotnet]
 

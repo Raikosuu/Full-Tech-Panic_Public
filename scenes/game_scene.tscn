@@ -2558,7 +2558,7 @@ movement_speed = 120.0
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(0, 1)
-zoom = Vector2(4, 4)
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="npc_handler" type="Node2D" parent="."]
