@@ -21,7 +21,7 @@ var time_left: float
 var game_active: bool = false
 
 @onready var wire_pool = $WirePool
-@onready var connector = $Connector
+@onready var connector = $rj45_connector
 @onready var crimp_btn = $CrimpButton
 @onready var feedback = $FeedbackLabel
 @onready var timer_bar = $TimerBar
@@ -33,7 +33,7 @@ func _ready():
 	start_game()
 
 func start_game():
-	feedback.text = ""
+	#feedback.text = ""
 	time_left = time_limit
 	game_active = true
 
@@ -51,13 +51,36 @@ func start_game():
 		wire.global_position = Vector2(40 + i * 34, 150)
 		wire.setup(shuffled[i].color, shuffled[i].stripe, shuffled[i].name)
 
+var flash_timer: float = 0.0
+
 func _process(delta):
 	if not game_active:
 		return
+
 	time_left -= delta
 	timer_bar.value = time_left
+	_update_timer_color()
+
+	# Flash effect under 25%
+	if time_left < time_limit * 0.25:
+		flash_timer += delta
+		timer_bar.modulate.a = 1.0 if fmod(flash_timer, 0.5) < 0.25 else 0.3
+	else:
+		flash_timer = 0.0
+		timer_bar.modulate.a = 1.0
+
 	if time_left <= 0:
 		_on_time_up()
+
+func _update_timer_color():
+	var fill_style = timer_bar.get_theme_stylebox("fill").duplicate()
+	if time_left > time_limit * 0.5:
+		fill_style.bg_color = Color(0.13, 0.80, 0.27)
+	elif time_left > time_limit * 0.25:
+		fill_style.bg_color = Color(0.93, 0.70, 0.05)
+	else:
+		fill_style.bg_color = Color(0.90, 0.15, 0.15)
+	timer_bar.add_theme_stylebox_override("fill", fill_style)
 
 func on_wire_placed(slot_index: int, wire_name: String):
 	pass   # hook for future logic (sound, particles, etc.)

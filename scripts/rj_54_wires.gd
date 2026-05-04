@@ -19,7 +19,7 @@ var free_point: Vector2
 const STEPS: int = 14
 
 @onready var line: Line2D = $Line2D
-@onready var handle: Area2D = $GrabHandle
+@onready var handle: Area2D = $Line2D/GrabHandle
 
 func _ready():
 	home_position = global_position

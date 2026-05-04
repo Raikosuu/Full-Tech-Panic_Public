@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr2c5l1ltegv2"]
+
+[ext_resource type="PackedScene" uid="uid://bwtk5x0j4t04a" path="res://scenes/slot.tscn" id="1_5sl3w"]
+[ext_resource type="Script" uid="uid://c2ivdhhlsosyo" path="res://scripts/rj45_connector.gd" id="1_21b2q"]
+
+[node name="rj45_connector" type="Node2D"]
+script = ExtResource("1_21b2q")
+
+[node name="Slots" type="Node2D" parent="."]
+
+[node name="slot" parent="Slots" instance=ExtResource("1_5sl3w")]
+position = Vector2(-88, -16)
+
+[node name="slot2" parent="Slots" instance=ExtResource("1_5sl3w")]
+position = Vector2(-64, -16)
+
+[node name="slot3" parent="Slots" instance=ExtResource("1_5sl3w")]
+position = Vector2(-40, -16)
+
+[node name="slot4" parent="Slots" instance=ExtResource("1_5sl3w")]
+position = Vector2(-16, -16)
+
+[node name="slot5" parent="Slots" instance=ExtResource("1_5sl3w")]
+position = Vector2(8, -16)
+
+[node name="slot6" parent="Slots" instance=ExtResource("1_5sl3w")]
+position = Vector2(32, -16)
+
+[node name="slot7" parent="Slots" instance=ExtResource("1_5sl3w")]
+position = Vector2(56, -16)
+
+[node name="slot8" parent="Slots" instance=ExtResource("1_5sl3w")]
+position = Vector2(80, -16)

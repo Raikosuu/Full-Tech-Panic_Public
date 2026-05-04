@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwtk5x0j4t04a"]
 
-[ext_resource type="Script" uid="uid://c2ivdhhlsosyo" path="res://scripts/slot.gd" id="1_4v6ba"]
+[ext_resource type="Script" uid="uid://c13lu4sayxds5" path="res://scripts/slot.gd" id="1_4v6ba"]
 
 [node name="slot" type="Node2D"]
 script = ExtResource("1_4v6ba")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Highlight" type="ColorRect" parent="."]
 offset_left = -5.0
 offset_top = -15.0
 offset_right = 5.0

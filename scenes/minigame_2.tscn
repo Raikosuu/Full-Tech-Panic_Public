@@ -1,6 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://db1wu067rccdq"]
+[gd_scene load_steps=5 format=3 uid="uid://db1wu067rccdq"]
 
 [ext_resource type="Script" uid="uid://dq1phrwj5iari" path="res://scripts/minigame_2.gd" id="1_xdwh2"]
+[ext_resource type="PackedScene" uid="uid://cr2c5l1ltegv2" path="res://scenes/rj_45_connector.tscn" id="2_ju4f3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju4f3"]
+bg_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uiylj"]
+bg_color = Color(0.13333334, 0.8, 0.26666668, 1)
 
 [node name="minigame2" type="Node2D"]
 script = ExtResource("1_xdwh2")
+
+[node name="WirePool" type="Node2D" parent="."]
+position = Vector2(207, 225)
+
+[node name="rj45_connector" parent="." instance=ExtResource("2_ju4f3")]
+position = Vector2(223, 111)
+
+[node name="CrimpButton" type="Button" parent="."]
+offset_left = 294.0
+offset_top = 161.0
+offset_right = 357.0
+offset_bottom = 192.0
+text = "CRIMP!"
+
+[node name="TimerBar" type="ProgressBar" parent="."]
+offset_left = 37.0
+offset_top = 9.0
+offset_right = 380.0
+offset_bottom = 36.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ju4f3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uiylj")
+max_value = 30.0
+value = 30.0
