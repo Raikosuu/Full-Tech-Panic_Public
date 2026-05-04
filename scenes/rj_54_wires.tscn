@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://crq1kqu4tq65h"]
+
+[ext_resource type="Script" uid="uid://di8fbi06d1m0d" path="res://scripts/rj_54_wires.gd" id="1_bt54w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bt54w"]
+radius = 14.080128
+
+[node name="rj54_wires" type="Node2D"]
+script = ExtResource("1_bt54w")
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 4.0
+
+[node name="GrabHandle" type="Area2D" parent="Line2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Line2D/GrabHandle"]
+shape = SubResource("CircleShape2D_bt54w")
