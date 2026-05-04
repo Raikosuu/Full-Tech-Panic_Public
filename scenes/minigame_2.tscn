@@ -13,10 +13,10 @@ bg_color = Color(0.13333334, 0.8, 0.26666668, 1)
 script = ExtResource("1_xdwh2")
 
 [node name="WirePool" type="Node2D" parent="."]
-position = Vector2(207, 225)
+position = Vector2(224, 218)
 
 [node name="rj45_connector" parent="." instance=ExtResource("2_ju4f3")]
-position = Vector2(223, 111)
+position = Vector2(267, 104)
 
 [node name="CrimpButton" type="Button" parent="."]
 offset_left = 294.0

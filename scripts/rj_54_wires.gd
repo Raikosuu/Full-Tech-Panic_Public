@@ -23,10 +23,14 @@ const STEPS: int = 14
 
 func _ready():
 	home_position = global_position
-	anchor_point = global_position + Vector2(0, -40)
+	# free_point is the grab handle (bottom, where player grabs)
 	free_point = global_position
+	# anchor_point is the fixed top end (where wire comes from)
+	anchor_point = global_position + Vector2(0, -60)
+	handle.global_position = free_point
 	_build_line()
 	_apply_colors()
+	queue_redraw()
 
 func setup(color: Color, stripe: bool, name_id: String):
 	wire_color = color
@@ -62,13 +66,15 @@ func _apply_colors():
 		line.gradient = null
 
 func _draw():
+	# Don't draw if not initialized
+	if free_point == Vector2.ZERO and anchor_point == Vector2.ZERO:
+		return
+
 	var tip = to_local(free_point)
 	var anc = to_local(anchor_point)
-	# Copper tip
 	draw_circle(tip, 3.0, Color(0.8, 0.7, 0.1))
 	draw_circle(tip, 2.0, Color(1.0, 0.9, 0.3))
-	# Insulation cap
-	draw_rect(Rect2(anc - Vector2(3,3), Vector2(6,6)), wire_color)
+	draw_rect(Rect2(anc - Vector2(3, 3), Vector2(6, 6)), wire_color)
 
 func _input(event: InputEvent):
 	if slotted:
@@ -80,6 +86,7 @@ func _input(event: InputEvent):
 				touch_index = event.index
 				drag_offset = global_position - event.position
 				_start_drag()
+				get_viewport().set_input_as_handled()  # ← stops other wires from seeing this touch
 		else:
 			if event.index == touch_index:
 				touch_index = -1
@@ -88,6 +95,7 @@ func _input(event: InputEvent):
 	elif event is InputEventScreenDrag:
 		if event.index == touch_index:
 			_move_to(event.position + drag_offset)
+			get_viewport().set_input_as_handled()  # ← only dragging wire processes this
 
 	elif event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -95,6 +103,7 @@ func _input(event: InputEvent):
 				if not dragging and _handle_hit(event.global_position):
 					drag_offset = global_position - event.global_position
 					_start_drag()
+					get_viewport().set_input_as_handled()  # ← consume click
 			else:
 				if dragging:
 					_end_drag()
@@ -102,6 +111,7 @@ func _input(event: InputEvent):
 	elif event is InputEventMouseMotion:
 		if dragging:
 			_move_to(event.global_position + drag_offset)
+			get_viewport().set_input_as_handled()  # ← only active wire moves
 
 func _handle_hit(pos: Vector2) -> bool:
 	var local = handle.to_local(pos)
@@ -114,7 +124,8 @@ func _start_drag():
 
 func _move_to(world_pos: Vector2):
 	free_point = world_pos
-	anchor_point = home_position + Vector2(0, -40)
+	# anchor stays fixed at home top
+	anchor_point = home_position + Vector2(0, -60)
 	handle.global_position = free_point
 	_build_line()
 	queue_redraw()
@@ -145,6 +156,14 @@ func _return_home():
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	tween.tween_method(_move_to, free_point, home_position, 0.25)
+	# Reset anchor after tween
+	tween.tween_callback(func():
+		anchor_point = home_position + Vector2(0, -60)
+		free_point = home_position
+		handle.global_position = free_point
+		_build_line()
+		queue_redraw()
+	)
 
 func unslot():
 	slotted = false
