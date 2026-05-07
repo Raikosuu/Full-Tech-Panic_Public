@@ -13,6 +13,8 @@ size = Vector2(178, 43)
 [node name="RAM_Module" parent="." instance=ExtResource("1_hyuno")]
 position = Vector2(0, -38)
 physics_material_override = SubResource("PhysicsMaterial_o2b5h")
+lock_rotation = true
+freeze_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(7, 7)

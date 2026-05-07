@@ -1,18 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://mplosgveg612"]
+[gd_scene load_steps=6 format=3 uid="uid://mplosgveg612"]
 
-[ext_resource type="Texture2D" uid="uid://bdxwqxf4ng50t" path="res://assets/Computer parts/SystemUnit/SU_Main.png" id="1_aexwn"]
+[ext_resource type="Texture2D" uid="uid://e7txdmshf8sk" path="res://assets/Computer parts/SystemUnit/SU_Main.png" id="1_aexwn"]
 [ext_resource type="Texture2D" uid="uid://ch5wvsfuxxk8l" path="res://assets/Computer parts/SystemUnit/SU_Panel.png" id="2_3hgok"]
-[ext_resource type="Texture2D" uid="uid://cw5tliy5lk5ml" path="res://assets/Computer parts/SystemUnit/SU_Screw.png" id="3_uwf42"]
+[ext_resource type="Texture2D" uid="uid://bl4pt5t35q8o2" path="res://assets/Computer parts/Motherboard.png" id="2_uwf42"]
+[ext_resource type="Texture2D" uid="uid://bdgpaut3jjctr" path="res://assets/Computer parts/SystemUnit/SU_Battery.png" id="3_ur2q4"]
+[ext_resource type="Texture2D" uid="uid://ed782i1hjv0p" path="res://assets/Computer parts/SystemUnit/SU_Screw.png" id="3_uwf42"]
 
 [node name="SystemUnit" type="Node2D"]
 
 [node name="SuMain" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
 texture = ExtResource("1_aexwn")
 
+[node name="Motherboard" type="Sprite2D" parent="."]
+position = Vector2(-3.761582e-37, 6.0000005)
+scale = Vector2(0.8295454, 0.93292683)
+texture = ExtResource("2_uwf42")
+flip_h = true
+
+[node name="SuBattery" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("3_ur2q4")
+
 [node name="SuPanel" type="Sprite2D" parent="."]
-position = Vector2(-1, 1)
 texture = ExtResource("2_3hgok")
 
-[node name="SuScrew" type="Sprite2D" parent="."]
-position = Vector2(-1, 1)
+[node name="screws" type="Node2D" parent="."]
+
+[node name="SuScrew" type="Sprite2D" parent="screws"]
+position = Vector2(-15, -17)
+texture = ExtResource("3_uwf42")
+
+[node name="SuScrew2" type="Sprite2D" parent="screws"]
+position = Vector2(14, 22)
+texture = ExtResource("3_uwf42")
+
+[node name="SuScrew3" type="Sprite2D" parent="screws"]
+position = Vector2(-15, 22)
+texture = ExtResource("3_uwf42")
+
+[node name="SuScrew4" type="Sprite2D" parent="screws"]
+position = Vector2(14, -17)
 texture = ExtResource("3_uwf42")
