@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://mplosgveg612"]
+
+[ext_resource type="Texture2D" uid="uid://bdxwqxf4ng50t" path="res://assets/Computer parts/SystemUnit/SU_Main.png" id="1_aexwn"]
+[ext_resource type="Texture2D" uid="uid://ch5wvsfuxxk8l" path="res://assets/Computer parts/SystemUnit/SU_Panel.png" id="2_3hgok"]
+[ext_resource type="Texture2D" uid="uid://cw5tliy5lk5ml" path="res://assets/Computer parts/SystemUnit/SU_Screw.png" id="3_uwf42"]
+
+[node name="SystemUnit" type="Node2D"]
+
+[node name="SuMain" type="Sprite2D" parent="."]
+texture = ExtResource("1_aexwn")
+
+[node name="SuPanel" type="Sprite2D" parent="."]
+position = Vector2(-1, 1)
+texture = ExtResource("2_3hgok")
+
+[node name="SuScrew" type="Sprite2D" parent="."]
+position = Vector2(-1, 1)
+texture = ExtResource("3_uwf42")
