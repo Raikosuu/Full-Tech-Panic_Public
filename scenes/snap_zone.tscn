@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cix02ah8enkhw" path="res://scripts/snap_zone.gd" id="1_dpm3d"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2b5h"]
-size = Vector2(30.625, 9.75)
+[sub_resource type="CircleShape2D" id="CircleShape2D_3438l"]
+radius = 9.0
 
 [node name="snapzone" type="Area2D"]
 script = ExtResource("1_dpm3d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_o2b5h")
+shape = SubResource("CircleShape2D_3438l")
