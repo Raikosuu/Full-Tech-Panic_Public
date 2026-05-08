@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl4pt5t35q8o2"
-path="res://.godot/imported/Motherboard.png-b1203352f6a0736e0086d3deb7f1d468.ctex"
+uid="uid://bufk8b7ghrd2t"
+path="res://.godot/imported/MB-CPU_ins.png-3af1fa423193735c8a5c78ec99f84c27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Computer parts/Motherboard.png"
-dest_files=["res://.godot/imported/Motherboard.png-b1203352f6a0736e0086d3deb7f1d468.ctex"]
+source_file="res://assets/Computer parts/Motherboard states/MB-CPU_ins.png"
+dest_files=["res://.godot/imported/MB-CPU_ins.png-3af1fa423193735c8a5c78ec99f84c27.ctex"]
 
 [params]
 
