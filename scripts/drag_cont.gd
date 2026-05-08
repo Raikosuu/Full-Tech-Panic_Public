@@ -6,6 +6,7 @@ var is_grabbed: bool = false
 var touch_index: int = -1
 var drag_offset: Vector2 = Vector2.ZERO
 var snapped: bool = false
+var component_type: String = ""
 
 func _ready() -> void:
 	gravity_scale = 0	# no falling on spawn

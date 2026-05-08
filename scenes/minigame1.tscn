@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca3nouy6qvt8t"]
+[gd_scene load_steps=6 format=3 uid="uid://ca3nouy6qvt8t"]
 
 [ext_resource type="PackedScene" uid="uid://pgpcgeywpbc5" path="res://scenes/ram_module.tscn" id="1_hyuno"]
+[ext_resource type="Script" uid="uid://dgl1ug8oq3ox4" path="res://scripts/RAMscript.gd" id="2_hsioi"]
 [ext_resource type="PackedScene" uid="uid://bhph80goxwfn5" path="res://scenes/snap_zone.tscn" id="2_o2b5h"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o2b5h"]
@@ -15,6 +16,7 @@ position = Vector2(0, -38)
 physics_material_override = SubResource("PhysicsMaterial_o2b5h")
 lock_rotation = true
 freeze_mode = 1
+script = ExtResource("2_hsioi")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(7, 7)
@@ -32,6 +34,7 @@ color = Color(3.4172833e-06, 0.7733686, 0.27711436, 1)
 position = Vector2(89, 21.5)
 shape = SubResource("RectangleShape2D_hyuno")
 
-[node name="snapzone" parent="Mother Board" instance=ExtResource("2_o2b5h")]
+[node name="RAMsnapzone" parent="Mother Board" instance=ExtResource("2_o2b5h")]
 position = Vector2(35, -9)
 accepted_components = Array[NodePath]([NodePath("../../RAM_Module")])
+accepted_type = "RAM"
