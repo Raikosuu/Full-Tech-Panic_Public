@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://t6monse15254"]
+
+[ext_resource type="Texture2D" uid="uid://bmx0p0dunb3oo" path="res://assets/Computer parts/CPU.png" id="1_5i68j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16h3v"]
+
+[node name="CPU" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5i68j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_16h3v")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://hqijequt6jg7"]
+
+[ext_resource type="Texture2D" uid="uid://bl4pt5t35q8o2" path="res://assets/Computer parts/Motherboard states/Motherboard.png" id="1_uajp5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqnev"]
+size = Vector2(34, 31)
+
+[node name="MoBo" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uajp5")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_gqnev")
