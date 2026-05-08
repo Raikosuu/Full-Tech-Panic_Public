@@ -19,7 +19,7 @@ func _on_body_entered(body: Node) -> void:
 		return
 	if not "component_type" in body:
 		return
-	if body.component_type != accepted_type:  # wrong part — ignore
+	if body.component_type != accepted_type:
 		return
 	if body.snapped:
 		return
@@ -28,8 +28,12 @@ func _on_body_entered(body: Node) -> void:
 		_preview = Sprite2D.new()
 		_preview.texture = sprite.texture
 		_preview.modulate = preview_modulate
-		_preview.scale = sprite.scale
+		_preview.scale = body.scale * sprite.scale
+		_preview.rotation = body.rotation + sprite.rotation
 		_preview.centered = sprite.centered
+		_preview.offset = sprite.offset
+		_preview.flip_h = sprite.flip_h  # copy horizontal flip
+		_preview.flip_v = sprite.flip_v  # copy vertical flip too just in case
 		add_child(_preview)
 		_preview.global_position = global_position
 

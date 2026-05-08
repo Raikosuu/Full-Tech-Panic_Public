@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcg8ruhd4vc5n"]
+
+[ext_resource type="Texture2D" uid="uid://ch5wvsfuxxk8l" path="res://assets/Computer parts/SystemUnit/SU_Panel.png" id="1_g5wu7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adlao"]
+size = Vector2(35, 45)
+
+[node name="SU_panel" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_g5wu7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_adlao")

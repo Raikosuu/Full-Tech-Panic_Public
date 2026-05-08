@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ctcloopj2ks3u" path="res://assets/Computer parts/Graphics_Card.png" id="1_pesfy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pesfy"]
-size = Vector2(35, 16)
+size = Vector2(35, 15)
 
 [node name="GraphicsCard" type="RigidBody2D"]
 
@@ -11,5 +11,5 @@ size = Vector2(35, 16)
 texture = ExtResource("1_pesfy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -2)
+position = Vector2(0.5, -1.5)
 shape = SubResource("RectangleShape2D_pesfy")

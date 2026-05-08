@@ -83,7 +83,7 @@ func _release() -> void:
 	is_grabbed = false
 	linear_velocity = Vector2.ZERO #kill momentum
 	freeze = false		# unfreeze so it can fall
-	gravity_scale = 0	# enable gravity on drop
+	gravity_scale = 0	# enable or disable gravity on drop
 	set_physics_process(false)
 	emit_signal("released", self)
 

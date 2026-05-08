@@ -1,3 +1,38 @@
-[gd_scene format=3 uid="uid://pwgp33d01o16"]
+[gd_scene load_steps=7 format=3 uid="uid://pwgp33d01o16"]
+
+[ext_resource type="PackedScene" uid="uid://hqijequt6jg7" path="res://scenes/mo_bo.tscn" id="1_8f04i"]
+[ext_resource type="PackedScene" uid="uid://rhxauoy66x4e" path="res://scenes/system_unit.tscn" id="1_xsi8y"]
+[ext_resource type="Script" uid="uid://chjytmmg3ww1f" path="res://scripts/MOBOscript.gd" id="3_cn6rf"]
+[ext_resource type="PackedScene" uid="uid://duno78x0srmi8" path="res://scenes/su_battery.tscn" id="3_ebvq3"]
+[ext_resource type="PackedScene" uid="uid://bhph80goxwfn5" path="res://scenes/snap_zone.tscn" id="4_cn6rf"]
+[ext_resource type="Script" uid="uid://mxawbst031b8" path="res://scripts/BATTERYscript.gd" id="5_fpq7e"]
 
 [node name="Minigame1_v2" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(6, 6)
+
+[node name="SU_main" parent="." instance=ExtResource("1_xsi8y")]
+
+[node name="MoBo" parent="." instance=ExtResource("1_8f04i")]
+position = Vector2(44, 12)
+script = ExtResource("3_cn6rf")
+
+[node name="SU_Battery" parent="." instance=ExtResource("3_ebvq3")]
+position = Vector2(36, -15)
+script = ExtResource("5_fpq7e")
+
+[node name="snapzones" type="Node2D" parent="."]
+
+[node name="Battery_snapzone" parent="snapzones" instance=ExtResource("4_cn6rf")]
+position = Vector2(10, -15)
+scale = Vector2(0.5, 0.5)
+accepted_components = Array[NodePath]([NodePath("../../SU_Battery")])
+accepted_type = "BATTERY"
+
+[node name="MoBo_snapzone" parent="snapzones" instance=ExtResource("4_cn6rf")]
+position = Vector2(0, 9)
+accepted_components = Array[NodePath]([NodePath("../../MoBo")])
+accepted_type = "MOBO"
+
+[node name="Screws" type="Node2D" parent="."]
