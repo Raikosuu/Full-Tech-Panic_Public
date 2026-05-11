@@ -1,13 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccxttvxg0gs8"]
+[gd_scene load_steps=3 format=3 uid="uid://ccxttvxg0gs8"]
 
 [ext_resource type="Texture2D" uid="uid://ed782i1hjv0p" path="res://assets/Computer parts/SystemUnit/SU_Screw.png" id="1_ktxl3"]
-[ext_resource type="Script" uid="uid://iwn0en6xyp1y" path="res://scripts/screw.gd" id="1_x8gdb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8gdb"]
 size = Vector2(2, 2)
 
 [node name="Screws" type="RigidBody2D"]
-script = ExtResource("1_x8gdb")
 
 [node name="SuScrew" type="Sprite2D" parent="."]
 texture = ExtResource("1_ktxl3")
