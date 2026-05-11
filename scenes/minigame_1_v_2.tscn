@@ -24,6 +24,7 @@ script = ExtResource("3_cn6rf")
 [node name="snapzone" parent="MoBo" index="2"]
 accepted_components = Array[NodePath]([NodePath("../../CPU")])
 accepted_type = "CPU"
+preview_modulate = null
 remove_component = true
 target_sprite = NodePath("../Sprite2D")
 snapped_texture = ExtResource("4_vlne0")
@@ -43,11 +44,19 @@ position = Vector2(10, -15)
 scale = Vector2(0.5, 0.5)
 accepted_components = Array[NodePath]([NodePath("../../SU_Battery")])
 accepted_type = "BATTERY"
+preview_modulate = null
+remove_component = null
+target_sprite = null
+allow_preview = null
 
 [node name="MoBo_snapzone" parent="snapzones" instance=ExtResource("4_cn6rf")]
 position = Vector2(0, 9)
 accepted_components = Array[NodePath]([NodePath("../../MoBo")])
 accepted_type = "MOBO"
+preview_modulate = null
+remove_component = null
+target_sprite = null
+allow_preview = null
 
 [node name="Screws" type="Node2D" parent="."]
 visible = false
