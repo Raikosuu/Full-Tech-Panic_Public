@@ -1,10 +1,12 @@
 extends Marker2D
 
+# Imports the NPCs
 @onready var npc_scenes = [
 	preload("res://scenes/npc_1.tscn"),
 	preload("res://scenes/npc_2.tscn")
 ]
 
+# Set Limits for Spawn
 var max_spawn = 22
 var spawn_count = 0
 

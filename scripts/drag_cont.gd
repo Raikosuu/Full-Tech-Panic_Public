@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 		set_physics_process(false)
 		return
 
-	if is_grabbed:
+	if is_grabbed: 
 		# Check for mouse release
 		if touch_index == -1 and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			_release()
@@ -62,7 +62,7 @@ func _input(event: InputEvent) -> void:
 	elif event is InputEventScreenDrag and event.index == touch_index:
 		pass
 
-func _is_point_inside(local_pos: Vector2) -> bool:
+func _is_point_inside(local_pos: Vector2) -> bool: # This detects cursor or finger inside the object
 	for child in get_children():
 		if child is CollisionShape2D and child.shape:
 			var shape = child.shape
@@ -74,7 +74,7 @@ func _is_point_inside(local_pos: Vector2) -> bool:
 
 func _grab() -> void:
 	is_grabbed = true
-	linear_velocity = Vector2.ZERO
+	linear_velocity = Vector2.ZERO # wont be affected by physics when grabbed
 	freeze_mode = RigidBody2D.FREEZE_MODE_KINEMATIC
 	freeze = true		# stay kinematic while dragging so we control position directly
 	set_physics_process(true)
@@ -83,7 +83,7 @@ func _release() -> void:
 	is_grabbed = false
 	linear_velocity = Vector2.ZERO #kill momentum
 	freeze = false		# unfreeze so it can fall
-	gravity_scale = 0	# enable or disable gravity on drop
+	gravity_scale = 0	# enable or disable gravity on drop. Set to 1 ro enable physics on release
 	set_physics_process(false)
 	emit_signal("released", self)
 
