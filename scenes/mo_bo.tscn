@@ -6,6 +6,7 @@
 size = Vector2(30, 27.5)
 
 [node name="MoBo" type="RigidBody2D"]
+lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.86363643, 0.8689025)

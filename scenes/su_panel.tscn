@@ -6,6 +6,7 @@
 size = Vector2(35, 45)
 
 [node name="SU_panel" type="RigidBody2D"]
+lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_g5wu7")

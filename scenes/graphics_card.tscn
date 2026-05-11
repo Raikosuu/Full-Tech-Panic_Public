@@ -6,6 +6,7 @@
 size = Vector2(35, 15)
 
 [node name="GraphicsCard" type="RigidBody2D"]
+lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_pesfy")
