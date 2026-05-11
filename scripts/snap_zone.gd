@@ -29,7 +29,9 @@ func _on_body_entered(body: Node) -> void:
 		return
 	if body.snapped:
 		return
-	if not body.is_grabbed:   # NEW: only show preview if the object is being grabbed
+	if not allow_preview:   # NEW: respect the allow_preview flag
+		return
+	if not body.is_grabbed: # NEW: only show preview if the object is being grabbed
 		return
 	
 	# Makes a preview of the object's position when snapped to position
@@ -46,7 +48,6 @@ func _on_body_entered(body: Node) -> void:
 		_preview.flip_v = sprite.flip_v  
 		add_child(_preview)
 		_preview.global_position = global_position
-
 
 func _on_body_exited(body: Node) -> void:
 	if not "snapped" in body:
