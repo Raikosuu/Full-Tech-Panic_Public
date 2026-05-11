@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcg8ruhd4vc5n"]
+[gd_scene load_steps=6 format=3 uid="uid://bcg8ruhd4vc5n"]
 
+[ext_resource type="Script" uid="uid://eylnd6gf1gvm" path="res://scripts/panel.gd" id="1_adlao"]
 [ext_resource type="Texture2D" uid="uid://ch5wvsfuxxk8l" path="res://assets/Computer parts/SystemUnit/SU_Panel.png" id="1_g5wu7"]
+[ext_resource type="PackedScene" uid="uid://ccxttvxg0gs8" path="res://scenes/screws.tscn" id="2_adlao"]
+[ext_resource type="PackedScene" uid="uid://bhph80goxwfn5" path="res://scenes/snap_zone.tscn" id="4_uw3r2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adlao"]
 size = Vector2(35, 45)
 
 [node name="SU_panel" type="RigidBody2D"]
 lock_rotation = true
+script = ExtResource("1_adlao")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_g5wu7")
@@ -14,3 +18,33 @@ texture = ExtResource("1_g5wu7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 2.5)
 shape = SubResource("RectangleShape2D_adlao")
+
+[node name="screws" type="Node2D" parent="."]
+
+[node name="Screws" parent="screws" instance=ExtResource("2_adlao")]
+position = Vector2(-15, -17)
+
+[node name="snapzone" parent="screws/Screws" instance=ExtResource("4_uw3r2")]
+scale = Vector2(0.1, 0.1)
+accepted_components = Array[NodePath]([NodePath("..")])
+
+[node name="Screws2" parent="screws" instance=ExtResource("2_adlao")]
+position = Vector2(14, -17)
+
+[node name="snapzone" parent="screws/Screws2" instance=ExtResource("4_uw3r2")]
+scale = Vector2(0.1, 0.1)
+accepted_components = Array[NodePath]([NodePath("..")])
+
+[node name="Screws3" parent="screws" instance=ExtResource("2_adlao")]
+position = Vector2(-15, 22)
+
+[node name="snapzone" parent="screws/Screws3" instance=ExtResource("4_uw3r2")]
+scale = Vector2(0.1, 0.1)
+accepted_components = Array[NodePath]([NodePath("..")])
+
+[node name="Screws4" parent="screws" instance=ExtResource("2_adlao")]
+position = Vector2(14, 22)
+
+[node name="snapzone" parent="screws/Screws4" instance=ExtResource("4_uw3r2")]
+scale = Vector2(0.1, 0.1)
+accepted_components = Array[NodePath]([NodePath("..")])

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://duno78x0srmi8" path="res://scenes/su_battery.tscn" id="3_ebvq3"]
 [ext_resource type="PackedScene" uid="uid://bhph80goxwfn5" path="res://scenes/snap_zone.tscn" id="4_cn6rf"]
 [ext_resource type="Script" uid="uid://mxawbst031b8" path="res://scripts/BATTERYscript.gd" id="5_fpq7e"]
-[ext_resource type="PackedScene" uid="uid://ccxttvxg0gs8" path="res://scenes/screws.tscn" id="7_s6qws"]
+[ext_resource type="PackedScene" uid="uid://bcg8ruhd4vc5n" path="res://scenes/su_panel.tscn" id="8_s7b8k"]
 
 [node name="Minigame1_v2" type="Node2D"]
 
@@ -36,7 +36,5 @@ position = Vector2(0, 9)
 accepted_components = Array[NodePath]([NodePath("../../MoBo")])
 accepted_type = "MOBO"
 
-[node name="Screws" type="Node2D" parent="."]
-
-[node name="Screws" parent="Screws" instance=ExtResource("7_s6qws")]
-position = Vector2(-52, 7)
+[node name="SU_panel" parent="." instance=ExtResource("8_s7b8k")]
+position = Vector2(-59, -7)
