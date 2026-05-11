@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://pwgp33d01o16"]
+[gd_scene load_steps=9 format=3 uid="uid://pwgp33d01o16"]
 
 [ext_resource type="PackedScene" uid="uid://hqijequt6jg7" path="res://scenes/mo_bo.tscn" id="1_8f04i"]
 [ext_resource type="PackedScene" uid="uid://rhxauoy66x4e" path="res://scenes/system_unit.tscn" id="1_xsi8y"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bhph80goxwfn5" path="res://scenes/snap_zone.tscn" id="4_cn6rf"]
 [ext_resource type="Script" uid="uid://mxawbst031b8" path="res://scripts/BATTERYscript.gd" id="5_fpq7e"]
 [ext_resource type="PackedScene" uid="uid://ccxttvxg0gs8" path="res://scenes/screws.tscn" id="7_s6qws"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s6qws"]
 
 [node name="Minigame1_v2" type="Node2D"]
 
@@ -49,3 +51,9 @@ position = Vector2(-66, 10)
 
 [node name="Screws4" parent="Screws" instance=ExtResource("7_s6qws")]
 position = Vector2(-45, -8)
+
+[node name="ESD Mat" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ESD Mat"]
+position = Vector2(0, 43)
+shape = SubResource("WorldBoundaryShape2D_s6qws")
