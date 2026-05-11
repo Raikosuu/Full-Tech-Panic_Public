@@ -11,7 +11,7 @@
 [node name="Minigame1_v2" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(6, 6)
+zoom = Vector2(8, 8)
 
 [node name="SU_main" parent="." instance=ExtResource("1_xsi8y")]
 
