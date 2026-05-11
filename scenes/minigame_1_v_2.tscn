@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://pwgp33d01o16"]
+[gd_scene load_steps=10 format=3 uid="uid://pwgp33d01o16"]
 
 [ext_resource type="PackedScene" uid="uid://hqijequt6jg7" path="res://scenes/mo_bo.tscn" id="1_8f04i"]
 [ext_resource type="PackedScene" uid="uid://rhxauoy66x4e" path="res://scenes/system_unit.tscn" id="1_xsi8y"]
 [ext_resource type="Script" uid="uid://chjytmmg3ww1f" path="res://scripts/MOBOscript.gd" id="3_cn6rf"]
 [ext_resource type="PackedScene" uid="uid://duno78x0srmi8" path="res://scenes/su_battery.tscn" id="3_ebvq3"]
 [ext_resource type="PackedScene" uid="uid://bhph80goxwfn5" path="res://scenes/snap_zone.tscn" id="4_cn6rf"]
+[ext_resource type="Texture2D" uid="uid://bufk8b7ghrd2t" path="res://assets/Computer parts/Motherboard states/MB-CPU_ins.png" id="4_vlne0"]
 [ext_resource type="Script" uid="uid://mxawbst031b8" path="res://scripts/BATTERYscript.gd" id="5_fpq7e"]
+[ext_resource type="PackedScene" uid="uid://t6monse15254" path="res://scenes/cpu.tscn" id="6_s7b8k"]
 [ext_resource type="PackedScene" uid="uid://ccxttvxg0gs8" path="res://scenes/screws.tscn" id="7_s6qws"]
 
 [node name="Minigame1_v2" type="Node2D"]
@@ -16,12 +18,23 @@ zoom = Vector2(8, 8)
 [node name="SU_main" parent="." instance=ExtResource("1_xsi8y")]
 
 [node name="MoBo" parent="." instance=ExtResource("1_8f04i")]
-position = Vector2(44, 12)
+position = Vector2(46, 22)
 script = ExtResource("3_cn6rf")
+
+[node name="snapzone" parent="MoBo" index="2"]
+accepted_components = Array[NodePath]([NodePath("../../CPU")])
+accepted_type = "CPU"
+remove_component = true
+target_sprite = NodePath("../Sprite2D")
+snapped_texture = ExtResource("4_vlne0")
+allow_preview = false
 
 [node name="SU_Battery" parent="." instance=ExtResource("3_ebvq3")]
 position = Vector2(36, -15)
 script = ExtResource("5_fpq7e")
+
+[node name="CPU" parent="." instance=ExtResource("6_s7b8k")]
+position = Vector2(40, 1)
 
 [node name="snapzones" type="Node2D" parent="."]
 
@@ -37,6 +50,9 @@ accepted_components = Array[NodePath]([NodePath("../../MoBo")])
 accepted_type = "MOBO"
 
 [node name="Screws" type="Node2D" parent="."]
+visible = false
 
 [node name="Screws" parent="Screws" instance=ExtResource("7_s6qws")]
 position = Vector2(-52, 7)
+
+[editable path="MoBo"]

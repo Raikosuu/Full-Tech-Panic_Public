@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://hqijequt6jg7"]
+[gd_scene load_steps=4 format=3 uid="uid://hqijequt6jg7"]
 
 [ext_resource type="Texture2D" uid="uid://bl4pt5t35q8o2" path="res://assets/Computer parts/Motherboard states/Motherboard.png" id="1_uajp5"]
+[ext_resource type="PackedScene" uid="uid://bhph80goxwfn5" path="res://scenes/snap_zone.tscn" id="2_gqnev"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqnev"]
 size = Vector2(30, 27.5)
@@ -16,3 +17,7 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0.25)
 shape = SubResource("RectangleShape2D_gqnev")
+
+[node name="snapzone" parent="." instance=ExtResource("2_gqnev")]
+position = Vector2(0, -3.9999998)
+scale = Vector2(0.4, 0.4)
