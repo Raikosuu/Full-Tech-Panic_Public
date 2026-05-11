@@ -16,11 +16,11 @@ zoom = Vector2(8, 8)
 [node name="SU_main" parent="." instance=ExtResource("1_xsi8y")]
 
 [node name="MoBo" parent="." instance=ExtResource("1_8f04i")]
-position = Vector2(44, 12)
+position = Vector2(50, 11)
 script = ExtResource("3_cn6rf")
 
 [node name="SU_Battery" parent="." instance=ExtResource("3_ebvq3")]
-position = Vector2(36, -15)
+position = Vector2(44, -20)
 script = ExtResource("5_fpq7e")
 
 [node name="snapzones" type="Node2D" parent="."]
@@ -39,4 +39,13 @@ accepted_type = "MOBO"
 [node name="Screws" type="Node2D" parent="."]
 
 [node name="Screws" parent="Screws" instance=ExtResource("7_s6qws")]
-position = Vector2(-52, 7)
+position = Vector2(-47, 21)
+
+[node name="Screws2" parent="Screws" instance=ExtResource("7_s6qws")]
+position = Vector2(-41, 6)
+
+[node name="Screws3" parent="Screws" instance=ExtResource("7_s6qws")]
+position = Vector2(-66, 10)
+
+[node name="Screws4" parent="Screws" instance=ExtResource("7_s6qws")]
+position = Vector2(-45, -8)
