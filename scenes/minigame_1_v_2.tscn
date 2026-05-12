@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://pwgp33d01o16"]
+[gd_scene load_steps=13 format=3 uid="uid://pwgp33d01o16"]
 
 [ext_resource type="PackedScene" uid="uid://hqijequt6jg7" path="res://scenes/mo_bo.tscn" id="1_8f04i"]
 [ext_resource type="PackedScene" uid="uid://rhxauoy66x4e" path="res://scenes/system_unit.tscn" id="1_xsi8y"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://pgpcgeywpbc5" path="res://scenes/ram_module.tscn" id="10_qbqew"]
 [ext_resource type="PackedScene" uid="uid://cou02t2vy1mu2" path="res://scenes/hdd.tscn" id="11_6j407"]
 [ext_resource type="PackedScene" uid="uid://bcg8ruhd4vc5n" path="res://scenes/su_panel.tscn" id="11_rnrb2"]
+[ext_resource type="Texture2D" uid="uid://dftmunw5wr58q" path="res://assets/Computer parts/Troubleshooting background.png" id="12_rnrb2"]
 
 [node name="Minigame1_v2" type="Node2D"]
 
@@ -18,12 +19,19 @@
 zoom = Vector2(8, 8)
 
 [node name="ESD Mat" type="ColorRect" parent="."]
+visible = false
 z_index = -1
 offset_left = -84.0
 offset_top = -49.0
 offset_right = 84.0
 offset_bottom = 49.0
 color = Color(4.5724214e-06, 0.6079397, 0.41652828, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3.0000017, 0.25000358)
+scale = Vector2(0.12357955, 0.13346355)
+texture = ExtResource("12_rnrb2")
 
 [node name="SU_main" parent="." instance=ExtResource("1_xsi8y")]
 position = Vector2(0, -2)
