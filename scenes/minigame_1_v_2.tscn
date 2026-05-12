@@ -110,6 +110,7 @@ position = Vector2(-52, 7)
 
 [node name="SU_panel" parent="." instance=ExtResource("11_rnrb2")]
 position = Vector2(58, -22)
+allow_unsnap = true
 
 [editable path="SU_main"]
 [editable path="MoBo"]
