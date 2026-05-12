@@ -28,6 +28,10 @@ shape = SubResource("RectangleShape2D_gqnev")
 position = Vector2(0, -3.9999998)
 scale = Vector2(0.4, 0.4)
 
+[node name="CFAN_snapzone" parent="." instance=ExtResource("2_gqnev")]
+position = Vector2(0, -6.9999995)
+scale = Vector2(0.4, 0.4)
+
 [node name="RAM_snapzone" parent="." instance=ExtResource("2_gqnev")]
 position = Vector2(-9, -3.9999998)
 scale = Vector2(0.4, 0.4)

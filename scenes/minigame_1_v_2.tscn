@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://pwgp33d01o16"]
+[gd_scene load_steps=14 format=3 uid="uid://pwgp33d01o16"]
 
 [ext_resource type="PackedScene" uid="uid://hqijequt6jg7" path="res://scenes/mo_bo.tscn" id="1_8f04i"]
 [ext_resource type="PackedScene" uid="uid://rhxauoy66x4e" path="res://scenes/system_unit.tscn" id="1_xsi8y"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ccxttvxg0gs8" path="res://scenes/screws.tscn" id="7_s6qws"]
 [ext_resource type="PackedScene" uid="uid://c380fba04gpma" path="res://scenes/su_rack.tscn" id="8_qbqew"]
 [ext_resource type="PackedScene" uid="uid://pgpcgeywpbc5" path="res://scenes/ram_module.tscn" id="10_qbqew"]
+[ext_resource type="PackedScene" uid="uid://dsrqfd5w0e2j4" path="res://scenes/cooling_fan.tscn" id="11_5hpms"]
 [ext_resource type="PackedScene" uid="uid://cou02t2vy1mu2" path="res://scenes/hdd.tscn" id="11_6j407"]
 [ext_resource type="PackedScene" uid="uid://bcg8ruhd4vc5n" path="res://scenes/su_panel.tscn" id="11_rnrb2"]
 [ext_resource type="Texture2D" uid="uid://dftmunw5wr58q" path="res://assets/Computer parts/Troubleshooting background.png" id="12_rnrb2"]
@@ -59,7 +60,7 @@ accepted_type = "CPU"
 remove_component = true
 allow_preview = false
 
-[node name="RAM_snapzone" parent="MoBo" index="3"]
+[node name="RAM_snapzone" parent="MoBo" index="4"]
 accepted_components = Array[NodePath]([NodePath("../../RAM_Module")])
 accepted_type = "RAM"
 remove_component = true
@@ -83,6 +84,10 @@ position = Vector2(0, -2)
 
 [node name="HDD" parent="." instance=ExtResource("11_6j407")]
 position = Vector2(40, 27)
+
+[node name="Cooling Fan" parent="." instance=ExtResource("11_5hpms")]
+position = Vector2(30.000002, -2)
+scale = Vector2(0.12357955, 0.13346355)
 
 [node name="Screws" type="Node2D" parent="."]
 visible = false
