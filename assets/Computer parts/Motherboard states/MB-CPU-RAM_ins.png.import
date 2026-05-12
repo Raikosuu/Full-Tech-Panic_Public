@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://y47vfpnuxets"
-path="res://.godot/imported/MB-ALL_ins.png-5452e3093ff071d677f41021bd0ff938.ctex"
+path="res://.godot/imported/MB-CPU-RAM_ins.png-b2cda1e3420a912ec1f701fb0e340f0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Computer parts/Motherboard states/MB-ALL_ins.png"
-dest_files=["res://.godot/imported/MB-ALL_ins.png-5452e3093ff071d677f41021bd0ff938.ctex"]
+source_file="res://assets/Computer parts/Motherboard states/MB-CPU-RAM_ins.png"
+dest_files=["res://.godot/imported/MB-CPU-RAM_ins.png-b2cda1e3420a912ec1f701fb0e340f0b.ctex"]
 
 [params]
 

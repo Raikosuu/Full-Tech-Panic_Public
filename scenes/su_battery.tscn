@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bdgpaut3jjctr" path="res://assets/Computer parts/SystemUnit/SU_Battery.png" id="1_0fd01"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1g5m3"]
-size = Vector2(15, 10)
+size = Vector2(18.5, 12)
 
 [node name="SU_Battery" type="RigidBody2D"]
 lock_rotation = true
@@ -11,8 +11,9 @@ linear_damp = 50.0
 angular_damp = 50.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_0fd01")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(-0.25, 0)
 shape = SubResource("RectangleShape2D_1g5m3")

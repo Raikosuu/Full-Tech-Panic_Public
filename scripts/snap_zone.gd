@@ -10,6 +10,8 @@ extends Area2D
 @export var snapped_texture: Texture2D              # optional: texture to swap in
 @export var allow_preview: bool = true              # disable preview for certain parts
 
+signal part_snapped(slot_type: String)
+
 var _preview: Sprite2D = null
 
 func _ready() -> void:
@@ -74,6 +76,7 @@ func _on_component_released(component: RigidBody2D) -> void:
 	if get_overlapping_bodies().has(component):
 		component.snap(global_position)
 		print("Connected: ", component.component_type, " → ", name)
+		emit_signal("part_snapped", accepted_type)
 
 		# Hide/disappear component only if configured
 		if remove_component:
