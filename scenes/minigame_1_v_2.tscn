@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://pwgp33d01o16"]
+[gd_scene load_steps=11 format=3 uid="uid://pwgp33d01o16"]
 
 [ext_resource type="PackedScene" uid="uid://hqijequt6jg7" path="res://scenes/mo_bo.tscn" id="1_8f04i"]
 [ext_resource type="PackedScene" uid="uid://rhxauoy66x4e" path="res://scenes/system_unit.tscn" id="1_xsi8y"]
-[ext_resource type="Script" uid="uid://chjytmmg3ww1f" path="res://scripts/MOBOscript.gd" id="3_cn6rf"]
 [ext_resource type="PackedScene" uid="uid://duno78x0srmi8" path="res://scenes/su_battery.tscn" id="3_ebvq3"]
 [ext_resource type="PackedScene" uid="uid://bhph80goxwfn5" path="res://scenes/snap_zone.tscn" id="4_cn6rf"]
 [ext_resource type="Script" uid="uid://mxawbst031b8" path="res://scripts/BATTERYscript.gd" id="5_fpq7e"]
 [ext_resource type="PackedScene" uid="uid://t6monse15254" path="res://scenes/cpu.tscn" id="6_s7b8k"]
 [ext_resource type="PackedScene" uid="uid://ccxttvxg0gs8" path="res://scenes/screws.tscn" id="7_s6qws"]
+[ext_resource type="Texture2D" uid="uid://b872a5vfmj6u" path="res://assets/Computer parts/SystemUnit/SU_Rack.png" id="7_vlne0"]
+[ext_resource type="Texture2D" uid="uid://b8j02e8bkpfij" path="res://assets/Computer parts/SystemUnit/SU_HDDRack.png" id="9_qbqew"]
 [ext_resource type="PackedScene" uid="uid://pgpcgeywpbc5" path="res://scenes/ram_module.tscn" id="10_qbqew"]
 
 [node name="Minigame1_v2" type="Node2D"]
@@ -19,7 +20,6 @@ zoom = Vector2(8, 8)
 
 [node name="MoBo" parent="." instance=ExtResource("1_8f04i")]
 position = Vector2(50, 12)
-script = ExtResource("3_cn6rf")
 
 [node name="snapzone" parent="MoBo" index="2"]
 accepted_components = Array[NodePath]([NodePath("../../CPU")])
@@ -34,7 +34,7 @@ remove_component = true
 allow_preview = false
 
 [node name="SU_Battery" parent="." instance=ExtResource("3_ebvq3")]
-position = Vector2(30, -29)
+position = Vector2(35, -31)
 script = ExtResource("5_fpq7e")
 
 [node name="CPU" parent="." instance=ExtResource("6_s7b8k")]
@@ -46,6 +46,9 @@ lock_rotation = true
 linear_damp = 50.0
 angular_damp = 50.0
 
+[node name="SuRack" type="Sprite2D" parent="."]
+texture = ExtResource("7_vlne0")
+
 [node name="snapzones" type="Node2D" parent="."]
 
 [node name="Battery_snapzone" parent="snapzones" instance=ExtResource("4_cn6rf")]
@@ -53,6 +56,15 @@ position = Vector2(7, -13)
 scale = Vector2(0.5, 0.5)
 accepted_components = Array[NodePath]([NodePath("../../SU_Battery")])
 accepted_type = "BATTERY"
+
+[node name="HDD_snapzone" parent="snapzones" instance=ExtResource("4_cn6rf")]
+position = Vector2(-12, 16)
+scale = Vector2(0.4, 0.4)
+accepted_type = "HDD"
+remove_component = true
+target_sprite = NodePath("../../SuRack")
+snapped_texture = ExtResource("9_qbqew")
+allow_preview = false
 
 [node name="MoBo_snapzone" parent="snapzones" instance=ExtResource("4_cn6rf")]
 position = Vector2(0, 9)

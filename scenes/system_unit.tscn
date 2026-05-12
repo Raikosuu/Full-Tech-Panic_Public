@@ -1,15 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://rhxauoy66x4e"]
+[gd_scene load_steps=2 format=3 uid="uid://rhxauoy66x4e"]
 
 [ext_resource type="Texture2D" uid="uid://e7txdmshf8sk" path="res://assets/Computer parts/SystemUnit/SU_Main.png" id="1_aexwn"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_od245"]
-size = Vector2(35, 45)
-
 [node name="SU_main" type="Sprite2D"]
 texture = ExtResource("1_aexwn")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, 2.5)
-shape = SubResource("RectangleShape2D_od245")

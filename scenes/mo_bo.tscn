@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://hqijequt6jg7"]
+[gd_scene load_steps=6 format=3 uid="uid://hqijequt6jg7"]
 
+[ext_resource type="Script" uid="uid://chjytmmg3ww1f" path="res://scripts/MOBOscript.gd" id="1_38y52"]
 [ext_resource type="Texture2D" uid="uid://bl4pt5t35q8o2" path="res://assets/Computer parts/Motherboard states/Motherboard.png" id="1_uajp5"]
 [ext_resource type="Script" uid="uid://chur0ytwnfpw0" path="res://scripts/mobo_state.gd" id="2_6vyd3"]
 [ext_resource type="PackedScene" uid="uid://bhph80goxwfn5" path="res://scenes/snap_zone.tscn" id="2_gqnev"]
@@ -11,6 +12,7 @@ size = Vector2(30, 27.5)
 lock_rotation = true
 linear_damp = 50.0
 angular_damp = 50.0
+script = ExtResource("1_38y52")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.86363643, 0.8689025)
