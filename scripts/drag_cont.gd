@@ -84,8 +84,9 @@ func _grab() -> void:
 	freeze = true
 	z_index = 100
 	z_as_relative = false
-	# Disable collisions with other bodies while dragging
-	collision_layer = 0
+	# Keep layer 2 so snap zones (Area2D with mask=2) can still detect us,
+	# but drop layer 1 so other RigidBodies stop bumping us
+	collision_layer = 2
 	collision_mask = 0
 	set_physics_process(true)
 

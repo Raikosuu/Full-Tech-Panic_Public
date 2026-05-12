@@ -6,6 +6,7 @@
 radius = 9.0
 
 [node name="snapzone" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_dpm3d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
