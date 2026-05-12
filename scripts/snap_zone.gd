@@ -43,6 +43,8 @@ func _on_body_entered(body: Node) -> void:
 		_preview.texture = sprite.texture
 		_preview.modulate = preview_modulate
 		_preview.scale = body.scale * sprite.scale
+		_preview.transform = sprite.transform
+		_preview.scale /= self.scale 
 		_preview.rotation = body.rotation + sprite.rotation
 		_preview.centered = sprite.centered
 		_preview.offset = sprite.offset

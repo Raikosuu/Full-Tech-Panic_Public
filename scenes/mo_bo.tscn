@@ -24,10 +24,10 @@ script = ExtResource("2_6vyd3")
 position = Vector2(-1, 0.25)
 shape = SubResource("RectangleShape2D_gqnev")
 
-[node name="snapzone" parent="." instance=ExtResource("2_gqnev")]
+[node name="CPU_snapzone" parent="." instance=ExtResource("2_gqnev")]
 position = Vector2(0, -3.9999998)
 scale = Vector2(0.4, 0.4)
 
-[node name="snapzone2" parent="." instance=ExtResource("2_gqnev")]
-position = Vector2(-9.000001, -1.9999999)
+[node name="RAM_snapzone" parent="." instance=ExtResource("2_gqnev")]
+position = Vector2(-9, -3.9999998)
 scale = Vector2(0.4, 0.4)

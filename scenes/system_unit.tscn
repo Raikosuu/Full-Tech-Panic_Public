@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://rhxauoy66x4e"]
+[gd_scene load_steps=3 format=3 uid="uid://rhxauoy66x4e"]
 
 [ext_resource type="Texture2D" uid="uid://e7txdmshf8sk" path="res://assets/Computer parts/SystemUnit/SU_Main.png" id="1_aexwn"]
+[ext_resource type="PackedScene" uid="uid://bhph80goxwfn5" path="res://scenes/snap_zone.tscn" id="2_hvds5"]
 
 [node name="SU_main" type="Sprite2D"]
 texture = ExtResource("1_aexwn")
+
+[node name="Panel_snapzone" parent="." instance=ExtResource("2_hvds5")]
+scale = Vector2(2, 2)
+accepted_type = "PANEL"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://pwgp33d01o16"]
+[gd_scene load_steps=12 format=3 uid="uid://pwgp33d01o16"]
 
 [ext_resource type="PackedScene" uid="uid://hqijequt6jg7" path="res://scenes/mo_bo.tscn" id="1_8f04i"]
 [ext_resource type="PackedScene" uid="uid://rhxauoy66x4e" path="res://scenes/system_unit.tscn" id="1_xsi8y"]
@@ -10,13 +10,26 @@
 [ext_resource type="PackedScene" uid="uid://c380fba04gpma" path="res://scenes/su_rack.tscn" id="8_qbqew"]
 [ext_resource type="PackedScene" uid="uid://pgpcgeywpbc5" path="res://scenes/ram_module.tscn" id="10_qbqew"]
 [ext_resource type="PackedScene" uid="uid://cou02t2vy1mu2" path="res://scenes/hdd.tscn" id="11_6j407"]
+[ext_resource type="PackedScene" uid="uid://bcg8ruhd4vc5n" path="res://scenes/su_panel.tscn" id="11_rnrb2"]
 
 [node name="Minigame1_v2" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(8, 8)
 
+[node name="ESD Mat" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -84.0
+offset_top = -49.0
+offset_right = 84.0
+offset_bottom = 49.0
+color = Color(4.5724214e-06, 0.6079397, 0.41652828, 1)
+
 [node name="SU_main" parent="." instance=ExtResource("1_xsi8y")]
+position = Vector2(0, -2)
+
+[node name="Panel_snapzone" parent="SU_main" index="0"]
+accepted_components = Array[NodePath]([NodePath("../../SU_panel")])
 
 [node name="Battery_snapzone" parent="SU_main" instance=ExtResource("4_cn6rf")]
 position = Vector2(7, -13)
@@ -30,37 +43,38 @@ accepted_components = Array[NodePath]([NodePath("../../MoBo")])
 accepted_type = "MOBO"
 
 [node name="MoBo" parent="." instance=ExtResource("1_8f04i")]
-position = Vector2(50, 12)
+position = Vector2(61, 22)
 
-[node name="snapzone" parent="MoBo" index="2"]
+[node name="CPU_snapzone" parent="MoBo" index="2"]
 accepted_components = Array[NodePath]([NodePath("../../CPU")])
 accepted_type = "CPU"
 remove_component = true
 allow_preview = false
 
-[node name="snapzone2" parent="MoBo" index="3"]
+[node name="RAM_snapzone" parent="MoBo" index="3"]
 accepted_components = Array[NodePath]([NodePath("../../RAM_Module")])
 accepted_type = "RAM"
 remove_component = true
 allow_preview = false
 
 [node name="SU_Battery" parent="." instance=ExtResource("3_ebvq3")]
-position = Vector2(35, -31)
+position = Vector2(34, 13)
 script = ExtResource("5_fpq7e")
 
 [node name="CPU" parent="." instance=ExtResource("6_s7b8k")]
-position = Vector2(49, -12)
+position = Vector2(31, 26)
 
 [node name="RAM_Module" parent="." instance=ExtResource("10_qbqew")]
-position = Vector2(-49, -9)
+position = Vector2(32, 38)
 lock_rotation = true
 linear_damp = 50.0
 angular_damp = 50.0
 
 [node name="SuRack" parent="." instance=ExtResource("8_qbqew")]
+position = Vector2(0, -2)
 
 [node name="HDD" parent="." instance=ExtResource("11_6j407")]
-position = Vector2(-44, 16)
+position = Vector2(40, 27)
 
 [node name="Screws" type="Node2D" parent="."]
 visible = false
@@ -68,4 +82,8 @@ visible = false
 [node name="Screws" parent="Screws" instance=ExtResource("7_s6qws")]
 position = Vector2(-52, 7)
 
+[node name="SU_panel" parent="." instance=ExtResource("11_rnrb2")]
+position = Vector2(58, -22)
+
+[editable path="SU_main"]
 [editable path="MoBo"]
