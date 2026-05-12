@@ -20,6 +20,8 @@ func _ready() -> void:
 		var node = get_node_or_null(path)
 		if node and node.has_signal("released"):
 			node.released.connect(_on_component_released)
+		if node and node.has_signal("unsnapped"):        # NEW
+			node.unsnapped.connect(_on_component_unsnapped) # NEW
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 
@@ -114,3 +116,7 @@ func _get_sprite(node: Node) -> Sprite2D:
 		if child is Sprite2D:
 			return child
 	return null
+	
+func _on_component_unsnapped(component: RigidBody2D) -> void:
+	if component.component_type == accepted_type:
+		is_filled = false

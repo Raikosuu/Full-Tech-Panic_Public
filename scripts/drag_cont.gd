@@ -10,6 +10,8 @@ var component_type: String = ""
 var _default_collision_layer: int = 0
 var _default_collision_mask: int = 0
 var _default_z_index: int = 0  # stores original z-index before grab
+signal unsnapped(component)
+@export var allow_unsnap: bool = false
 
 func _ready() -> void:
 	gravity_scale = 0
@@ -42,7 +44,23 @@ func _get_touch_position() -> Vector2:
 	return get_viewport().get_touch_position(touch_index)
 
 func _input(event: InputEvent) -> void:
+	# Allow unsnapping by grabbing again
 	if snapped:
+		if allow_unsnap:
+			if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and touch_index == -1:
+				var local_pos = to_local(get_global_mouse_position())
+				if _is_point_inside(local_pos):
+					_unsnap()
+					drag_offset = local_pos
+					_grab()
+			elif event is InputEventScreenTouch and event.pressed:
+				var local_pos = to_local(event.position)
+				if _is_point_inside(local_pos):
+					_unsnap()
+					touch_index = event.index
+					drag_offset = local_pos
+					_grab()
+			return
 		return
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and touch_index == -1:
@@ -65,7 +83,12 @@ func _input(event: InputEvent) -> void:
 
 	elif event is InputEventScreenDrag and event.index == touch_index:
 		pass
-
+		
+func _unsnap() -> void:
+	snapped = false
+	emit_signal("unsnapped", self)
+	emit_signal("released", self)
+	
 func _is_point_inside(local_pos: Vector2) -> bool:
 	for child in get_children():
 		if child is CollisionShape2D and child.shape:
@@ -115,11 +138,10 @@ func snap(target_position: Vector2) -> void:
 	global_position = target_position
 	z_index = _default_z_index
 	z_as_relative = true
-	# Restore collisions
 	collision_layer = _default_collision_layer
 	collision_mask = _default_collision_mask
 	set_physics_process(false)
-	set_process_input(false)
+	# removed set_process_input(false) so the component can still be grabbed
 
 func drop() -> void:
 	pass
