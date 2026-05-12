@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c380fba04gpma"]
+
+[ext_resource type="Texture2D" uid="uid://b872a5vfmj6u" path="res://assets/Computer parts/SystemUnit/SU_Rack.png" id="1_76nbd"]
+[ext_resource type="PackedScene" uid="uid://bhph80goxwfn5" path="res://scenes/snap_zone.tscn" id="2_rp81c"]
+[ext_resource type="Texture2D" uid="uid://b8j02e8bkpfij" path="res://assets/Computer parts/SystemUnit/SU_HDDRack.png" id="3_b1r2p"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_76nbd"]
+a = Vector2(-16, -19)
+b = Vector2(-16, 24)
+
+[node name="SuRack" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_76nbd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_76nbd")
+
+[node name="HDD_snapzone" parent="." instance=ExtResource("2_rp81c")]
+position = Vector2(-12, 16)
+scale = Vector2(0.4, 0.4)
+accepted_components = Array[NodePath]([NodePath("../../HDD")])
+accepted_type = "HDD"
+remove_component = true
+target_sprite = NodePath("../Sprite2D")
+snapped_texture = ExtResource("3_b1r2p")
+allow_preview = false

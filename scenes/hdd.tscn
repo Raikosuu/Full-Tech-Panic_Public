@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cou02t2vy1mu2"]
+
+[ext_resource type="Texture2D" uid="uid://b2j0d4davo0m3" path="res://assets/Computer parts/Hard_Drive.png" id="1_0t6ff"]
+[ext_resource type="Script" uid="uid://cem6evwl5yqfo" path="res://scripts/HDDscript.gd" id="1_gcjr5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcjr5"]
+size = Vector2(8, 10)
+
+[node name="HDD" type="RigidBody2D"]
+linear_damp = 50.0
+angular_damp = 50.0
+script = ExtResource("1_gcjr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_0t6ff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gcjr5")
