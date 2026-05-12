@@ -7,31 +7,35 @@ var touch_index: int = -1
 var drag_offset: Vector2 = Vector2.ZERO
 var snapped: bool = false
 var component_type: String = ""
+var _default_collision_layer: int = 0
+var _default_collision_mask: int = 0
+var _default_z_index: int = 0  # stores original z-index before grab
 
 func _ready() -> void:
-	gravity_scale = 0	# no falling on spawn
+	gravity_scale = 0
 	freeze_mode = RigidBody2D.FREEZE_MODE_KINEMATIC
-	freeze = true		# frozen in place on spawn
+	freeze = true
 	linear_velocity = Vector2.ZERO
 	set_physics_process(false)
+	_default_z_index = z_index
+	# Save original collision settings
+	_default_collision_layer = collision_layer
+	_default_collision_mask = collision_mask
 
 func _physics_process(delta: float) -> void:
 	if snapped:
 		set_physics_process(false)
 		return
 
-	if is_grabbed: 
-		# Check for mouse release
+	if is_grabbed:
 		if touch_index == -1 and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			_release()
 			return
-		# Drag toward pointer
 		var target_pos: Vector2
 		if touch_index == -1:
 			target_pos = get_global_mouse_position() - drag_offset
 		else:
 			target_pos = _get_touch_position() - drag_offset
-		# While kinematic + frozen we set position directly
 		global_position = global_position.lerp(target_pos, 0.3)
 
 func _get_touch_position() -> Vector2:
@@ -62,7 +66,7 @@ func _input(event: InputEvent) -> void:
 	elif event is InputEventScreenDrag and event.index == touch_index:
 		pass
 
-func _is_point_inside(local_pos: Vector2) -> bool: # This detects cursor or finger inside the object
+func _is_point_inside(local_pos: Vector2) -> bool:
 	for child in get_children():
 		if child is CollisionShape2D and child.shape:
 			var shape = child.shape
@@ -74,16 +78,28 @@ func _is_point_inside(local_pos: Vector2) -> bool: # This detects cursor or fing
 
 func _grab() -> void:
 	is_grabbed = true
-	linear_velocity = Vector2.ZERO # wont be affected by physics when grabbed
+	linear_velocity = Vector2.ZERO
+	angular_velocity = 0.0
 	freeze_mode = RigidBody2D.FREEZE_MODE_KINEMATIC
-	freeze = true		# stay kinematic while dragging so we control position directly
+	freeze = true
+	z_index = 100
+	z_as_relative = false
+	# Disable collisions with other bodies while dragging
+	collision_layer = 0
+	collision_mask = 0
 	set_physics_process(true)
 
 func _release() -> void:
 	is_grabbed = false
-	linear_velocity = Vector2.ZERO #kill momentum
-	freeze = false		# unfreeze so it can fall
-	gravity_scale = 0	# enable or disable gravity on drop. Set to 1 ro enable physics on release
+	linear_velocity = Vector2.ZERO
+	angular_velocity = 0.0
+	freeze = false
+	gravity_scale = 0
+	z_index = _default_z_index
+	z_as_relative = true
+	# Restore collisions
+	collision_layer = _default_collision_layer
+	collision_mask = _default_collision_mask
 	set_physics_process(false)
 	emit_signal("released", self)
 
@@ -91,12 +107,18 @@ func snap(target_position: Vector2) -> void:
 	snapped = true
 	is_grabbed = false
 	linear_velocity = Vector2.ZERO
+	angular_velocity = 0.0
 	gravity_scale = 0
 	freeze_mode = RigidBody2D.FREEZE_MODE_KINEMATIC
 	freeze = true
-	global_position = target_position	# works reliably in kinematic mode
+	global_position = target_position
+	z_index = _default_z_index
+	z_as_relative = true
+	# Restore collisions
+	collision_layer = _default_collision_layer
+	collision_mask = _default_collision_mask
 	set_physics_process(false)
 	set_process_input(false)
 
 func drop() -> void:
-	pass	# gravity_scale = 1 already set in _release()
+	pass

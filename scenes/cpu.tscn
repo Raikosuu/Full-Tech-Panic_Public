@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://hfpu70hd02sc" path="res://scripts/cpu.gd" id="1_16h3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16h3v"]
+size = Vector2(6, 6)
 
 [node name="CPU" type="RigidBody2D"]
 lock_rotation = true
@@ -16,5 +17,4 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_5i68j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.3, 0.3)
 shape = SubResource("RectangleShape2D_16h3v")

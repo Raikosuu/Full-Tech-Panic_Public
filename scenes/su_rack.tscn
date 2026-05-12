@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://b8j02e8bkpfij" path="res://assets/Computer parts/SystemUnit/SU_HDDRack.png" id="3_b1r2p"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_76nbd"]
-a = Vector2(-16, -19)
-b = Vector2(-16, 24)
+a = Vector2(-18, -19)
+b = Vector2(-18, 24)
 
 [node name="SuRack" type="StaticBody2D"]
 

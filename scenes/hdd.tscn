@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cem6evwl5yqfo" path="res://scripts/HDDscript.gd" id="1_gcjr5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcjr5"]
-size = Vector2(8, 10)
+size = Vector2(8, 12)
 
 [node name="HDD" type="RigidBody2D"]
 linear_damp = 50.0
