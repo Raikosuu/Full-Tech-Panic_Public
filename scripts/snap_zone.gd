@@ -8,6 +8,7 @@ extends Area2D
 @export var snapped_texture: Texture2D
 @export var allow_preview: bool = true
 @export var required_snap_zone: NodePath   # NEW
+@export var blocked_by_snap_zone: NodePath   # blocks this zone if that zone is filled
 
 signal part_snapped(slot_type: String)
 
@@ -29,6 +30,10 @@ func _on_body_entered(body: Node) -> void:
 	if body.snapped: return
 	if not allow_preview: return
 	if not body.is_grabbed: return
+	if blocked_by_snap_zone:
+		var blocker = get_node_or_null(blocked_by_snap_zone)
+		if blocker and blocker is Area2D and blocker.is_filled:
+			return
 
 	# NEW: suppress preview if prerequisite isn't met
 	if required_snap_zone:
@@ -70,6 +75,12 @@ func _on_component_released(component: RigidBody2D) -> void:
 	if component.component_type != accepted_type:
 		component.drop()
 		return
+	if blocked_by_snap_zone:
+		var blocker = get_node_or_null(blocked_by_snap_zone)
+		if blocker and blocker is Area2D and blocker.is_filled:
+			print("Snap blocked: panel is already placed")
+			component.drop()
+			return
 
 	# NEW: enforce prerequisite
 	if required_snap_zone:
