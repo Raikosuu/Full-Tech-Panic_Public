@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://dmfyqryf8tn6x" path="res://assets/Computer parts/Cooling_Fan.png" id="1_sfsod"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2afc3"]
-size = Vector2(70, 72)
+size = Vector2(8, 8)
 
 [node name="Cooling Fan" type="RigidBody2D"]
 script = ExtResource("1_2afc3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2.5, 2.5)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_sfsod")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

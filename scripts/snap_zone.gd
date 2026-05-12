@@ -1,18 +1,18 @@
 extends Area2D
 
 @export var accepted_components: Array[NodePath] = []
-@export var accepted_type: String = ""              # set per slot in Inspector
+@export var accepted_type: String = ""
 @export var preview_modulate: Color = Color(1, 1, 1, 0.4)
-
-# New configurable options
-@export var remove_component: bool = false          # true for CPU slot, false for others
-@export var target_sprite: NodePath                 # optional: sprite to update (e.g. motherboard)
-@export var snapped_texture: Texture2D              # optional: texture to swap in
-@export var allow_preview: bool = true              # disable preview for certain parts
+@export var remove_component: bool = false
+@export var target_sprite: NodePath
+@export var snapped_texture: Texture2D
+@export var allow_preview: bool = true
+@export var required_snap_zone: NodePath   # NEW
 
 signal part_snapped(slot_type: String)
 
 var _preview: Sprite2D = null
+var is_filled: bool = false               # NEW
 
 func _ready() -> void:
 	for path in accepted_components:
@@ -23,20 +23,19 @@ func _ready() -> void:
 	body_exited.connect(_on_body_exited)
 
 func _on_body_entered(body: Node) -> void:
-	if not "snapped" in body:
-		return
-	if not "component_type" in body:
-		return
-	if body.component_type != accepted_type:
-		return
-	if body.snapped:
-		return
-	if not allow_preview:   # NEW: respect the allow_preview flag
-		return
-	if not body.is_grabbed: # NEW: only show preview if the object is being grabbed
-		return
-	
-	# Makes a preview of the object's position when snapped to position
+	if not "snapped" in body: return
+	if not "component_type" in body: return
+	if body.component_type != accepted_type: return
+	if body.snapped: return
+	if not allow_preview: return
+	if not body.is_grabbed: return
+
+	# NEW: suppress preview if prerequisite isn't met
+	if required_snap_zone:
+		var prereq = get_node_or_null(required_snap_zone)
+		if prereq and not prereq.is_filled:
+			return
+
 	var sprite = _get_sprite(body)
 	if sprite and _preview == null:
 		_preview = Sprite2D.new()
@@ -44,22 +43,19 @@ func _on_body_entered(body: Node) -> void:
 		_preview.modulate = preview_modulate
 		_preview.scale = body.scale * sprite.scale
 		_preview.transform = sprite.transform
-		_preview.scale /= self.scale # counteract SnapZone scaling
+		_preview.scale /= self.scale
 		_preview.rotation = body.rotation + sprite.rotation
 		_preview.centered = sprite.centered
 		_preview.offset = sprite.offset
-		_preview.flip_h = sprite.flip_h  
-		_preview.flip_v = sprite.flip_v  
+		_preview.flip_h = sprite.flip_h
+		_preview.flip_v = sprite.flip_v
 		add_child(_preview)
 		_preview.global_position = global_position
 
 func _on_body_exited(body: Node) -> void:
-	if not "snapped" in body:
-		return
-	if not "component_type" in body:
-		return
-	if body.component_type != accepted_type:
-		return
+	if not "snapped" in body: return
+	if not "component_type" in body: return
+	if body.component_type != accepted_type: return
 	if _preview:
 		_preview.queue_free()
 		_preview = null
@@ -75,12 +71,20 @@ func _on_component_released(component: RigidBody2D) -> void:
 		component.drop()
 		return
 
+	# NEW: enforce prerequisite
+	if required_snap_zone:
+		var prereq = get_node_or_null(required_snap_zone)
+		if prereq and not prereq.is_filled:
+			print("Snap blocked: install ", prereq.accepted_type, " first")
+			component.drop()
+			return
+
 	if get_overlapping_bodies().has(component):
 		component.snap(global_position)
+		is_filled = true                  # NEW
 		print("Connected: ", component.component_type, " → ", name)
 		emit_signal("part_snapped", accepted_type)
 
-		# Hide/disappear component only if configured
 		if remove_component:
 			var sprite = _get_sprite(component)
 			if sprite:
@@ -89,7 +93,6 @@ func _on_component_released(component: RigidBody2D) -> void:
 			if collision:
 				collision.disabled = true
 
-		# Change another object’s sprite only if configured
 		var target = get_node_or_null(target_sprite)
 		if target and snapped_texture:
 			target.texture = snapped_texture
