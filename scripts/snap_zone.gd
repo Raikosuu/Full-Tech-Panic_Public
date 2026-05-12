@@ -86,7 +86,6 @@ func _on_component_released(component: RigidBody2D) -> void:
 	if required_snap_zone:
 		var prereq = get_node_or_null(required_snap_zone)
 		if prereq and not prereq.is_filled:
-			print("Snap blocked: install ", prereq.accepted_type, " first")
 			component.drop()
 			return
 
