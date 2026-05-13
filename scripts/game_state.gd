@@ -9,7 +9,7 @@ var previous_scene: String = ""
 # Call this from any trigger (NPC, interactable object, etc.) to launch a minigame.
 func enter_minigame(minigame_path: String) -> void:
 	previous_scene = get_tree().current_scene.scene_file_path
-	get_tree().paused = true
+	#get_tree().paused = true
 	get_tree().change_scene_to_file(minigame_path)
 
 # Call this from any minigame when it is finished.
@@ -17,5 +17,5 @@ func enter_minigame(minigame_path: String) -> void:
 func exit_minigame() -> void:
 	var target := previous_scene if previous_scene != "" else "res://scenes/game_scene.tscn"
 	previous_scene = ""
-	get_tree().paused = false
+	#get_tree().paused = false
 	get_tree().change_scene_to_file(target)
