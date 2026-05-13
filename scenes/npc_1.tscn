@@ -104,7 +104,7 @@ shape = SubResource("CapsuleShape2D_ttshn")
 path_desired_distance = 1.0
 target_desired_distance = 5.0
 avoidance_enabled = true
-radius = 7.0
+radius = 8.0
 max_neighbors = 22
 
 [node name="Timer" type="Timer" parent="."]
