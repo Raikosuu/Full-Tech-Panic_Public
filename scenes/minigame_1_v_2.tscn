@@ -20,15 +20,6 @@
 position = Vector2(203.00002, 117)
 zoom = Vector2(8, 8)
 
-[node name="ESD Mat" type="ColorRect" parent="."]
-visible = false
-z_index = -1
-offset_left = -84.0
-offset_top = -49.0
-offset_right = 84.0
-offset_bottom = 49.0
-color = Color(4.5724214e-06, 0.6079397, 0.41652828, 1)
-
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(206, 117.25)
