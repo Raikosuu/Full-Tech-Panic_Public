@@ -40,34 +40,18 @@ position = Vector2(203.00002, 115)
 
 [node name="Panel_snapzone" parent="SU_main" index="0"]
 accepted_components = Array[NodePath]([NodePath("../../SU_panel")])
-preview_modulate = null
-remove_component = null
-target_sprite = null
-allow_preview = null
-required_snap_zone = null
-blocked_by_snap_zone = null
 
 [node name="Battery_snapzone" parent="SU_main" instance=ExtResource("4_cn6rf")]
 position = Vector2(7, -13)
 scale = Vector2(0.5, 0.5)
 accepted_components = Array[NodePath]([NodePath("../../SU_Battery")])
 accepted_type = "BATTERY"
-preview_modulate = null
-remove_component = null
-target_sprite = null
-allow_preview = null
-required_snap_zone = null
 blocked_by_snap_zone = NodePath("../Panel_snapzone")
 
 [node name="MoBo_snapzone" parent="SU_main" instance=ExtResource("4_cn6rf")]
 position = Vector2(0, 9)
 accepted_components = Array[NodePath]([NodePath("../../MoBo")])
 accepted_type = "MOBO"
-preview_modulate = null
-remove_component = null
-target_sprite = null
-allow_preview = null
-required_snap_zone = null
 blocked_by_snap_zone = NodePath("../Panel_snapzone")
 
 [node name="MoBo" parent="." instance=ExtResource("1_8f04i")]
@@ -76,31 +60,21 @@ position = Vector2(264, 139)
 [node name="CPU_snapzone" parent="MoBo" index="2"]
 accepted_components = Array[NodePath]([NodePath("../../CPU")])
 accepted_type = "CPU"
-preview_modulate = null
 remove_component = true
-target_sprite = null
 allow_preview = false
-required_snap_zone = null
 blocked_by_snap_zone = NodePath("../../SU_main/Panel_snapzone")
 
 [node name="CFAN_snapzone" parent="MoBo" index="3"]
 accepted_components = Array[NodePath]([NodePath("../../Cooling Fan")])
 accepted_type = "CFAN"
-preview_modulate = null
-remove_component = null
-target_sprite = null
-allow_preview = null
 required_snap_zone = NodePath("../CPU_snapzone")
 blocked_by_snap_zone = NodePath("../../SU_main/Panel_snapzone")
 
 [node name="RAM_snapzone" parent="MoBo" index="4"]
 accepted_components = Array[NodePath]([NodePath("../../RAM_Module")])
 accepted_type = "RAM"
-preview_modulate = null
 remove_component = true
-target_sprite = null
 allow_preview = false
-required_snap_zone = null
 blocked_by_snap_zone = NodePath("../../SU_main/Panel_snapzone")
 
 [node name="SU_Battery" parent="." instance=ExtResource("3_ebvq3")]
@@ -124,8 +98,6 @@ position = Vector2(203.00002, 115)
 
 [node name="HDD_snapzone" parent="SuRack" index="3"]
 accepted_components = Array[NodePath]([NodePath("../../HDD"), NodePath("../../HDD")])
-preview_modulate = null
-required_snap_zone = null
 blocked_by_snap_zone = NodePath("../../SU_main/Panel_snapzone")
 
 [node name="HDD" parent="." instance=ExtResource("11_6j407")]

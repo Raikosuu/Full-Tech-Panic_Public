@@ -23,17 +23,18 @@ func _ready() -> void:
 		if snap_zone.has_signal("part_snapped"):
 			snap_zone.part_snapped.connect(_on_part_snapped)
 
+# Parts that actually change the motherboard sprite
+const VISUAL_PARTS: Array = ["CPU", "RAM"]
+
 func _on_part_snapped(slot_type: String) -> void:
 	if slot_type not in installed:
 		installed.append(slot_type)
 	_update_texture()
 
 func _update_texture() -> void:
-	var key: String = ",".join(installed)   # already appended in order
-	# Sort so order of installation doesn't matter
-	var sorted_parts := installed.duplicate()
-	sorted_parts.sort()
-	key = ",".join(sorted_parts)
+	var visual_installed := installed.filter(func(p): return p in VISUAL_PARTS)
+	visual_installed.sort()
+	var key = ",".join(visual_installed)
 
 	if key in TEXTURE_MAP:
 		texture = load(TEXTURE_MAP[key])
