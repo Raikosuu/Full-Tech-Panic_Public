@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://pwgp33d01o16"]
+[gd_scene load_steps=15 format=3 uid="uid://pwgp33d01o16"]
 
 [ext_resource type="PackedScene" uid="uid://hqijequt6jg7" path="res://scenes/mo_bo.tscn" id="1_8f04i"]
+[ext_resource type="Script" uid="uid://408qjhn7wpll" path="res://scripts/minigame_assembly.gd" id="1_jicg2"]
 [ext_resource type="PackedScene" uid="uid://rhxauoy66x4e" path="res://scenes/system_unit.tscn" id="1_xsi8y"]
 [ext_resource type="PackedScene" uid="uid://duno78x0srmi8" path="res://scenes/su_battery.tscn" id="3_ebvq3"]
 [ext_resource type="PackedScene" uid="uid://bhph80goxwfn5" path="res://scenes/snap_zone.tscn" id="4_cn6rf"]
@@ -15,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dftmunw5wr58q" path="res://assets/Computer parts/Troubleshooting background.png" id="12_rnrb2"]
 
 [node name="Minigame1_v2" type="Node2D"]
+script = ExtResource("1_jicg2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(203.00002, 117)
