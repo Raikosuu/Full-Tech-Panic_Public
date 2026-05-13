@@ -19,9 +19,11 @@ func _ready() -> void:
 	for path in accepted_components:
 		var node = get_node_or_null(path)
 		if node and node.has_signal("released"):
-			node.released.connect(_on_component_released)
-		if node and node.has_signal("unsnapped"):        # NEW
-			node.unsnapped.connect(_on_component_unsnapped) # NEW
+			if not node.released.is_connected(_on_component_released):
+				node.released.connect(_on_component_released)
+		if node and node.has_signal("unsnapped"):
+			if not node.unsnapped.is_connected(_on_component_unsnapped):
+				node.unsnapped.connect(_on_component_unsnapped)
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 

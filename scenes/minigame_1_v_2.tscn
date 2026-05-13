@@ -17,6 +17,7 @@
 [node name="Minigame1_v2" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(203.00002, 117)
 zoom = Vector2(8, 8)
 
 [node name="ESD Mat" type="ColorRect" parent="."]
@@ -30,77 +31,105 @@ color = Color(4.5724214e-06, 0.6079397, 0.41652828, 1)
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(3.0000017, 0.25000358)
+position = Vector2(206, 117.25)
 scale = Vector2(0.12357955, 0.13346355)
 texture = ExtResource("12_rnrb2")
 
 [node name="SU_main" parent="." instance=ExtResource("1_xsi8y")]
-position = Vector2(0, -2)
+position = Vector2(203.00002, 115)
 
 [node name="Panel_snapzone" parent="SU_main" index="0"]
 accepted_components = Array[NodePath]([NodePath("../../SU_panel")])
+preview_modulate = null
+remove_component = null
+target_sprite = null
+allow_preview = null
+required_snap_zone = null
+blocked_by_snap_zone = null
 
 [node name="Battery_snapzone" parent="SU_main" instance=ExtResource("4_cn6rf")]
 position = Vector2(7, -13)
 scale = Vector2(0.5, 0.5)
 accepted_components = Array[NodePath]([NodePath("../../SU_Battery")])
 accepted_type = "BATTERY"
+preview_modulate = null
+remove_component = null
+target_sprite = null
+allow_preview = null
+required_snap_zone = null
 blocked_by_snap_zone = NodePath("../Panel_snapzone")
 
 [node name="MoBo_snapzone" parent="SU_main" instance=ExtResource("4_cn6rf")]
 position = Vector2(0, 9)
 accepted_components = Array[NodePath]([NodePath("../../MoBo")])
 accepted_type = "MOBO"
+preview_modulate = null
+remove_component = null
+target_sprite = null
+allow_preview = null
+required_snap_zone = null
 blocked_by_snap_zone = NodePath("../Panel_snapzone")
 
 [node name="MoBo" parent="." instance=ExtResource("1_8f04i")]
-position = Vector2(61, 22)
+position = Vector2(264, 139)
 
 [node name="CPU_snapzone" parent="MoBo" index="2"]
 accepted_components = Array[NodePath]([NodePath("../../CPU")])
 accepted_type = "CPU"
+preview_modulate = null
 remove_component = true
+target_sprite = null
 allow_preview = false
+required_snap_zone = null
 blocked_by_snap_zone = NodePath("../../SU_main/Panel_snapzone")
 
 [node name="CFAN_snapzone" parent="MoBo" index="3"]
 accepted_components = Array[NodePath]([NodePath("../../Cooling Fan")])
 accepted_type = "CFAN"
+preview_modulate = null
+remove_component = null
+target_sprite = null
+allow_preview = null
 required_snap_zone = NodePath("../CPU_snapzone")
 blocked_by_snap_zone = NodePath("../../SU_main/Panel_snapzone")
 
 [node name="RAM_snapzone" parent="MoBo" index="4"]
 accepted_components = Array[NodePath]([NodePath("../../RAM_Module")])
 accepted_type = "RAM"
+preview_modulate = null
 remove_component = true
+target_sprite = null
 allow_preview = false
+required_snap_zone = null
 blocked_by_snap_zone = NodePath("../../SU_main/Panel_snapzone")
 
 [node name="SU_Battery" parent="." instance=ExtResource("3_ebvq3")]
-position = Vector2(34, 13)
+position = Vector2(237.00002, 130)
 script = ExtResource("5_fpq7e")
 
 [node name="CPU" parent="." instance=ExtResource("6_s7b8k")]
-position = Vector2(31, 26)
+position = Vector2(234.00002, 143)
 
 [node name="Cooling Fan" parent="." instance=ExtResource("11_5hpms")]
-position = Vector2(31, -4)
+position = Vector2(234.00002, 113)
 
 [node name="RAM_Module" parent="." instance=ExtResource("10_qbqew")]
-position = Vector2(32, 38)
+position = Vector2(235.00002, 155)
 lock_rotation = true
 linear_damp = 50.0
 angular_damp = 50.0
 
 [node name="SuRack" parent="." instance=ExtResource("8_qbqew")]
-position = Vector2(0, -2)
+position = Vector2(203.00002, 115)
 
 [node name="HDD_snapzone" parent="SuRack" index="3"]
 accepted_components = Array[NodePath]([NodePath("../../HDD"), NodePath("../../HDD")])
+preview_modulate = null
+required_snap_zone = null
 blocked_by_snap_zone = NodePath("../../SU_main/Panel_snapzone")
 
 [node name="HDD" parent="." instance=ExtResource("11_6j407")]
-position = Vector2(40, 27)
+position = Vector2(243.00002, 144)
 
 [node name="Screws" type="Node2D" parent="."]
 visible = false
@@ -109,7 +138,7 @@ visible = false
 position = Vector2(-52, 7)
 
 [node name="SU_panel" parent="." instance=ExtResource("11_rnrb2")]
-position = Vector2(58, -22)
+position = Vector2(261, 95)
 allow_unsnap = true
 
 [editable path="SU_main"]
