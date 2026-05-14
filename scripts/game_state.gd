@@ -1,21 +1,30 @@
 extends Node
 
-# Stores the scene to return to after any minigame ends.
-# Use GameState.enter_minigame() and GameState.exit_minigame() everywhere —
-# never manually set get_tree().paused or change scenes for minigames.
+var _game_scene_instance: Node = null
 
-var previous_scene: String = ""
-
-# Call this from any trigger (NPC, interactable object, etc.) to launch a minigame.
 func enter_minigame(minigame_path: String) -> void:
-	previous_scene = get_tree().current_scene.scene_file_path
-	#get_tree().paused = true
-	get_tree().change_scene_to_file(minigame_path)
+	# Save reference to the current game scene and hide it
+	_game_scene_instance = get_tree().current_scene
+	
+	# Detach from the scene tree without freeing it
+	get_tree().root.remove_child(_game_scene_instance)
+	
+	# Load and add the minigame as the new current scene
+	var minigame = load(minigame_path).instantiate()
+	get_tree().root.add_child(minigame)
+	get_tree().current_scene = minigame
 
-# Call this from any minigame when it is finished.
-# Unpauses the tree and returns to whatever scene launched the minigame.
 func exit_minigame() -> void:
-	var target := previous_scene if previous_scene != "" else "res://scenes/game_scene.tscn"
-	previous_scene = ""
-	#get_tree().paused = false
-	get_tree().change_scene_to_file(target)
+	if _game_scene_instance == null:
+		get_tree().change_scene_to_file("res://scenes/game_scene.tscn")
+		return
+	
+	# Remove the minigame
+	var minigame = get_tree().current_scene
+	get_tree().root.remove_child(minigame)
+	minigame.queue_free()
+	
+	# Restore the saved game scene
+	get_tree().root.add_child(_game_scene_instance)
+	get_tree().current_scene = _game_scene_instance
+	_game_scene_instance = null
