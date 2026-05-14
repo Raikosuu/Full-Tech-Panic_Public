@@ -2568,6 +2568,7 @@ limit_left = 86
 limit_top = 10
 limit_right = 388
 limit_bottom = 250
+limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="npc_handler" type="Node2D" parent="."]

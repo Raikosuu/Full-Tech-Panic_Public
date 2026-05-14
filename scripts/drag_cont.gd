@@ -5,11 +5,12 @@ signal released(component)
 var is_grabbed: bool = false
 var touch_index: int = -1
 var drag_offset: Vector2 = Vector2.ZERO
+var _touch_pos: Vector2 = Vector2.ZERO
 var snapped: bool = false
 var component_type: String = ""
 var _default_collision_layer: int = 0
 var _default_collision_mask: int = 0
-var _default_z_index: int = 0  # stores original z-index before grab
+var _default_z_index: int = 0
 signal unsnapped(component)
 @export var allow_unsnap: bool = false
 
@@ -20,7 +21,6 @@ func _ready() -> void:
 	linear_velocity = Vector2.ZERO
 	set_physics_process(false)
 	_default_z_index = z_index
-	# Save original collision settings
 	_default_collision_layer = collision_layer
 	_default_collision_mask = collision_mask
 
@@ -37,30 +37,26 @@ func _physics_process(delta: float) -> void:
 		if touch_index == -1:
 			target_pos = get_global_mouse_position() - drag_offset
 		else:
-			target_pos = _get_touch_position() - drag_offset
+			target_pos = _touch_pos - drag_offset
 		global_position = global_position.lerp(target_pos, 0.3)
 
-func _get_touch_position() -> Vector2:
-	return get_viewport().get_touch_position(touch_index)
-
 func _input(event: InputEvent) -> void:
-	# Allow unsnapping by grabbing again
 	if snapped:
 		if allow_unsnap:
 			if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and touch_index == -1:
 				var local_pos = to_local(get_global_mouse_position())
 				if _is_point_inside(local_pos):
-					_unsnap()
 					drag_offset = local_pos
+					_unsnap()
 					_grab()
 			elif event is InputEventScreenTouch and event.pressed:
 				var local_pos = to_local(event.position)
 				if _is_point_inside(local_pos):
-					_unsnap()
 					touch_index = event.index
+					_touch_pos = event.position
 					drag_offset = local_pos
+					_unsnap()
 					_grab()
-			return
 		return
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and touch_index == -1:
@@ -75,6 +71,7 @@ func _input(event: InputEvent) -> void:
 			var local_pos = to_local(event.position)
 			if _is_point_inside(local_pos):
 				touch_index = event.index
+				_touch_pos = event.position
 				drag_offset = local_pos
 				_grab()
 		elif not event.pressed and event.index == touch_index:
@@ -82,13 +79,13 @@ func _input(event: InputEvent) -> void:
 			_release()
 
 	elif event is InputEventScreenDrag and event.index == touch_index:
-		pass
-		
+		_touch_pos = event.position
+
 func _unsnap() -> void:
 	snapped = false
 	emit_signal("unsnapped", self)
 	emit_signal("released", self)
-	
+
 func _is_point_inside(local_pos: Vector2) -> bool:
 	for child in get_children():
 		if child is CollisionShape2D and child.shape:
@@ -107,8 +104,6 @@ func _grab() -> void:
 	freeze = true
 	z_index = 100
 	z_as_relative = false
-	# Keep layer 2 so snap zones (Area2D with mask=2) can still detect us,
-	# but drop layer 1 so other RigidBodies stop bumping us
 	collision_layer = 2
 	collision_mask = 0
 	set_physics_process(true)
@@ -121,7 +116,6 @@ func _release() -> void:
 	gravity_scale = 0
 	z_index = _default_z_index
 	z_as_relative = true
-	# Restore collisions
 	collision_layer = _default_collision_layer
 	collision_mask = _default_collision_mask
 	set_physics_process(false)
@@ -141,7 +135,6 @@ func snap(target_position: Vector2) -> void:
 	collision_layer = _default_collision_layer
 	collision_mask = _default_collision_mask
 	set_physics_process(false)
-	# removed set_process_input(false) so the component can still be grabbed
 
 func drop() -> void:
 	pass

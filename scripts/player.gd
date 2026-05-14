@@ -11,8 +11,9 @@ var interact_label: Label = null
 
 func _ready() -> void:
 	interact_label = Label.new()
+	interact_label.z_index = 100
 	interact_label.text = "Press E"
-	interact_label.position = Vector2(-18, -32)
+	interact_label.position = Vector2(-11, -25)
 	interact_label.visible = false
 	interact_label.add_theme_font_size_override("font_size", 6)
 	add_child(interact_label)
@@ -35,7 +36,7 @@ func _physics_process(_delta):
 		velocity = velocity.move_toward(Vector2.ZERO, movement_speed)
 		if sprite.animation != "idle":
 			sprite.animation = "idle"
-
+			
 	move_and_slide()
 	_check_nearby_npcs()
 
