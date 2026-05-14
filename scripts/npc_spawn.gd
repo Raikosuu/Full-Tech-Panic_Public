@@ -1,5 +1,7 @@
 extends Marker2D
 
+@export var min_wait_time: float = 3.0
+@export var max_wait_time: float = 8.0
 # Imports the NPCs
 @onready var npc_scenes = [
 	preload("res://scenes/npc_1.tscn"),
@@ -25,5 +27,5 @@ func _on_timer_timeout() -> void:
 		npcs.global_position = global_position
 		
 		spawn_count += 1
-		$Timer.wait_time = randf_range(3, 8)
+		$Timer.wait_time = randf_range(min_wait_time, max_wait_time)
 		$Timer.start()
