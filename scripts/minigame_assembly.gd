@@ -1,8 +1,10 @@
 extends BaseMinigame
 
 const REQUIRED_PARTS: Array[String] = ["PANEL", "BATTERY", "MOBO", "CPU", "RAM", "HDD"]
+const REQUIRED_SCREWS: int = 4
 
 var _snapped_parts: Array[String] = []
+var _snapped_screws: int = 0
 
 func _on_minigame_ready() -> void:
 	_connect_snap_zones(self)
@@ -15,12 +17,18 @@ func _connect_snap_zones(node: Node) -> void:
 		_connect_snap_zones(child)
 
 func _on_part_snapped(slot_type: String) -> void:
-	if slot_type not in _snapped_parts:
-		_snapped_parts.append(slot_type)
-		print("Snapped: %s  (%d / %d)" % [slot_type, _snapped_parts.size(), REQUIRED_PARTS.size()])
+	if slot_type == "SCREW":
+		_snapped_screws += 1
+		print("Screw snapped: %d / %d" % [_snapped_screws, REQUIRED_SCREWS])
+	else:
+		if slot_type not in _snapped_parts:
+			_snapped_parts.append(slot_type)
+			print("Snapped: %s  (%d / %d)" % [slot_type, _snapped_parts.size(), REQUIRED_PARTS.size()])
 	try_complete()
 
 func _check_completion() -> bool:
+	if _snapped_screws < REQUIRED_SCREWS:
+		return false
 	for part in REQUIRED_PARTS:
 		if part not in _snapped_parts:
 			return false

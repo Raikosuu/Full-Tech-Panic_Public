@@ -32,12 +32,13 @@ func _on_body_entered(body: Node) -> void:
 	if not "component_type" in body: return
 	if body.component_type != accepted_type: return
 	if body.snapped: return
-	if not allow_preview: return
 	if not body.is_grabbed: return
-	if blocked_by_snap_zone:
-		var blocker = get_node_or_null(blocked_by_snap_zone)
-		if blocker and blocker is Area2D and blocker.is_filled:
-			return
+
+	# Connect released signal dynamically if not already connected
+	if body.has_signal("released") and not body.released.is_connected(_on_component_released):
+		body.released.connect(_on_component_released)
+	if body.has_signal("unsnapped") and not body.unsnapped.is_connected(_on_component_unsnapped):
+		body.unsnapped.connect(_on_component_unsnapped)
 
 	# NEW: suppress preview if prerequisite isn't met
 	if required_snap_zone:

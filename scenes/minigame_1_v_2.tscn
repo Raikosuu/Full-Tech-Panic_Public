@@ -113,15 +113,21 @@ blocked_by_snap_zone = NodePath("../../SU_main/Panel_snapzone")
 [node name="HDD" parent="." instance=ExtResource("11_6j407")]
 position = Vector2(275, 153)
 
-[node name="Screws" type="Node2D" parent="."]
-visible = false
-
-[node name="Screws" parent="Screws" instance=ExtResource("7_s6qws")]
-position = Vector2(-52, 7)
-
 [node name="SU_panel" parent="." instance=ExtResource("11_rnrb2")]
 position = Vector2(293, 104)
 allow_unsnap = true
+
+[node name="Screws" parent="." instance=ExtResource("7_s6qws")]
+position = Vector2(198, 145)
+
+[node name="Screws2" parent="." instance=ExtResource("7_s6qws")]
+position = Vector2(205, 141)
+
+[node name="Screws3" parent="." instance=ExtResource("7_s6qws")]
+position = Vector2(201, 134)
+
+[node name="Screws4" parent="." instance=ExtResource("7_s6qws")]
+position = Vector2(192, 140)
 
 [node name="bound_left" type="StaticBody2D" parent="."]
 
