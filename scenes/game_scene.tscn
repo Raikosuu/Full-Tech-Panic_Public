@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://b0nvcgpoypl62"]
+[gd_scene load_steps=14 format=4 uid="uid://b0nvcgpoypl62"]
 
 [ext_resource type="PackedScene" uid="uid://demqpuvfguk8d" path="res://scenes/player.tscn" id="1_w5aja"]
 [ext_resource type="Texture2D" uid="uid://vgq806bcs4q" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="1_ycayy"]
@@ -2536,6 +2536,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-144, -48, -32, -48, -32, -32, -144, -32, -144, 0, -32, 0, -32, 16, -144, 16, -144, 48, -48, 48, -48, 64, -144, 64, -144, 112, 144, 112, 144, 64, 48, 64, 48, 48, 144, 48, 144, 16, 32, 16, 32, 0, 144, 0, 144, -32, 32, -32, 32, -48, 144, -48, 144, -80, -144, -80)])
 agent_radius = 4.0
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y3j0m"]
+distance = -249.0
+
 [node name="game_scene" type="Node2D"]
 
 [node name="ground" type="TileMapLayer" parent="."]
@@ -2645,3 +2648,8 @@ position = Vector2(120, 72)
 
 [node name="npc_spawn" parent="." instance=ExtResource("6_rurhu")]
 position = Vector2(119, 240)
+
+[node name="world boundary" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world boundary"]
+shape = SubResource("WorldBoundaryShape2D_y3j0m")

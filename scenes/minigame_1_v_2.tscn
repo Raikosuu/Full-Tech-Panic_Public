@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://pwgp33d01o16"]
+[gd_scene load_steps=19 format=3 uid="uid://pwgp33d01o16"]
 
 [ext_resource type="PackedScene" uid="uid://hqijequt6jg7" path="res://scenes/mo_bo.tscn" id="1_8f04i"]
 [ext_resource type="Script" uid="uid://408qjhn7wpll" path="res://scripts/minigame_assembly.gd" id="1_jicg2"]
@@ -14,6 +14,22 @@
 [ext_resource type="PackedScene" uid="uid://cou02t2vy1mu2" path="res://scenes/hdd.tscn" id="11_6j407"]
 [ext_resource type="PackedScene" uid="uid://bcg8ruhd4vc5n" path="res://scenes/su_panel.tscn" id="11_rnrb2"]
 [ext_resource type="Texture2D" uid="uid://dftmunw5wr58q" path="res://assets/Computer parts/Troubleshooting background.png" id="12_rnrb2"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jicg2"]
+a = Vector2(-81, -44)
+b = Vector2(-80, 47)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ihwr5"]
+a = Vector2(83, 47)
+b = Vector2(-80, 47)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_73wum"]
+a = Vector2(81, -44)
+b = Vector2(81, 47)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5v6y6"]
+a = Vector2(81, -44)
+b = Vector2(-81, -44)
 
 [node name="Minigame1_v2" type="Node2D"]
 script = ExtResource("1_jicg2")
@@ -106,6 +122,32 @@ position = Vector2(-52, 7)
 [node name="SU_panel" parent="." instance=ExtResource("11_rnrb2")]
 position = Vector2(293, 104)
 allow_unsnap = true
+
+[node name="bound_left" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bound_left"]
+position = Vector2(235, 124)
+shape = SubResource("SegmentShape2D_jicg2")
+one_way_collision = true
+
+[node name="bound_bottom" type="StaticBody2D" parent="."]
+position = Vector2(155, 171)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bound_bottom"]
+position = Vector2(80, -47)
+shape = SubResource("SegmentShape2D_ihwr5")
+
+[node name="bound_right" type="StaticBody2D" parent="."]
+position = Vector2(235, 124)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bound_right"]
+shape = SubResource("SegmentShape2D_73wum")
+
+[node name="bound_top" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bound_top"]
+position = Vector2(235, 124)
+shape = SubResource("SegmentShape2D_5v6y6")
 
 [editable path="SU_main"]
 [editable path="MoBo"]
