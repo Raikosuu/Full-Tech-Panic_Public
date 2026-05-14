@@ -20,17 +20,17 @@ script = ExtResource("1_jicg2")
 completion_delay = 3.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(203.00002, 117)
-zoom = Vector2(8, 8)
+position = Vector2(235.00002, 126)
+zoom = Vector2(3, 3)
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(206, 117.25)
+position = Vector2(238, 126.25)
 scale = Vector2(0.12357955, 0.13346355)
 texture = ExtResource("12_rnrb2")
 
 [node name="SU_main" parent="." instance=ExtResource("1_xsi8y")]
-position = Vector2(203.00002, 115)
+position = Vector2(235.00002, 124)
 
 [node name="Panel_snapzone" parent="SU_main" index="0"]
 accepted_components = Array[NodePath]([NodePath("../../SU_panel")])
@@ -49,7 +49,7 @@ accepted_type = "MOBO"
 blocked_by_snap_zone = NodePath("../Panel_snapzone")
 
 [node name="MoBo" parent="." instance=ExtResource("1_8f04i")]
-position = Vector2(264, 139)
+position = Vector2(296, 148)
 
 [node name="CPU_snapzone" parent="MoBo" index="2"]
 accepted_components = Array[NodePath]([NodePath("../../CPU")])
@@ -72,30 +72,30 @@ allow_preview = false
 blocked_by_snap_zone = NodePath("../../SU_main/Panel_snapzone")
 
 [node name="SU_Battery" parent="." instance=ExtResource("3_ebvq3")]
-position = Vector2(237.00002, 130)
+position = Vector2(269, 139)
 script = ExtResource("5_fpq7e")
 
 [node name="CPU" parent="." instance=ExtResource("6_s7b8k")]
-position = Vector2(234.00002, 143)
+position = Vector2(266, 152)
 
 [node name="Cooling Fan" parent="." instance=ExtResource("11_5hpms")]
-position = Vector2(234.00002, 113)
+position = Vector2(266, 122)
 
 [node name="RAM_Module" parent="." instance=ExtResource("10_qbqew")]
-position = Vector2(235.00002, 155)
+position = Vector2(267, 164)
 lock_rotation = true
 linear_damp = 50.0
 angular_damp = 50.0
 
 [node name="SuRack" parent="." instance=ExtResource("8_qbqew")]
-position = Vector2(203.00002, 115)
+position = Vector2(235.00002, 124)
 
 [node name="HDD_snapzone" parent="SuRack" index="3"]
 accepted_components = Array[NodePath]([NodePath("../../HDD"), NodePath("../../HDD")])
 blocked_by_snap_zone = NodePath("../../SU_main/Panel_snapzone")
 
 [node name="HDD" parent="." instance=ExtResource("11_6j407")]
-position = Vector2(243.00002, 144)
+position = Vector2(275, 153)
 
 [node name="Screws" type="Node2D" parent="."]
 visible = false
@@ -104,7 +104,7 @@ visible = false
 position = Vector2(-52, 7)
 
 [node name="SU_panel" parent="." instance=ExtResource("11_rnrb2")]
-position = Vector2(261, 95)
+position = Vector2(293, 104)
 allow_unsnap = true
 
 [editable path="SU_main"]
