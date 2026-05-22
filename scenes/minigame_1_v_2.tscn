@@ -40,27 +40,22 @@ texture = ExtResource("12_rnrb2")
 [node name="SU_main" parent="." unique_id=1156604640 instance=ExtResource("1_xsi8y")]
 position = Vector2(235.00002, 124)
 
-[node name="Panel_snapzone" parent="SU_main" index="0"]
-accepted_components = Array[NodePath]([NodePath("")])
-
 [node name="Battery_snapzone" parent="SU_main" unique_id=2010764736 instance=ExtResource("4_cn6rf")]
 position = Vector2(7, -13)
 scale = Vector2(0.5, 0.5)
-accepted_components = Array[NodePath]([NodePath("")])
 accepted_type = "BATTERY"
 blocked_by_snap_zone = NodePath("../Panel_snapzone")
 
 [node name="MoBo_snapzone" parent="SU_main" unique_id=609452306 instance=ExtResource("4_cn6rf")]
 position = Vector2(0, 9)
-accepted_components = Array[NodePath]([NodePath("")])
 accepted_type = "MOBO"
 blocked_by_snap_zone = NodePath("../Panel_snapzone")
 
 [node name="SuRack" parent="." unique_id=1336723562 instance=ExtResource("8_qbqew")]
+z_index = 1
 position = Vector2(235.00002, 124)
 
 [node name="HDD_snapzone" parent="SuRack" index="3"]
-accepted_components = Array[NodePath]([NodePath(""), NodePath("")])
 blocked_by_snap_zone = NodePath("../../SU_main/Panel_snapzone")
 
 [node name="bound_left" type="StaticBody2D" parent="." unique_id=1334302838]

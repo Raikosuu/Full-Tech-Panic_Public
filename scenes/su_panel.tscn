@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcg8ruhd4vc5n"]
+[gd_scene format=3 uid="uid://bcg8ruhd4vc5n"]
 
 [ext_resource type="Script" uid="uid://bg4gmfrwc81fs" path="res://scripts/panel.gd" id="1_adlao"]
 [ext_resource type="Texture2D" uid="uid://ch5wvsfuxxk8l" path="res://assets/Computer parts/SystemUnit/SU_Panel.png" id="1_g5wu7"]
@@ -7,35 +7,36 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adlao"]
 size = Vector2(35, 45)
 
-[node name="SU_panel" type="RigidBody2D"]
+[node name="SU_panel" type="RigidBody2D" unique_id=418489796]
+z_index = 2
 lock_rotation = true
 linear_damp = 50.0
 angular_damp = 50.0
 script = ExtResource("1_adlao")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1199458548]
 texture = ExtResource("1_g5wu7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1762908921]
 position = Vector2(-0.5, 2.5)
 shape = SubResource("RectangleShape2D_adlao")
 
-[node name="snapzone" parent="." instance=ExtResource("3_ypivk")]
+[node name="snapzone" parent="." unique_id=743005639 instance=ExtResource("3_ypivk")]
 position = Vector2(-15, -17)
 scale = Vector2(0.3, 0.3)
 accepted_type = "SCREW"
 
-[node name="snapzone2" parent="." instance=ExtResource("3_ypivk")]
+[node name="snapzone2" parent="." unique_id=1987593658 instance=ExtResource("3_ypivk")]
 position = Vector2(14, -17)
 scale = Vector2(0.3, 0.3)
 accepted_type = "SCREW"
 
-[node name="snapzone3" parent="." instance=ExtResource("3_ypivk")]
+[node name="snapzone3" parent="." unique_id=588434532 instance=ExtResource("3_ypivk")]
 position = Vector2(-15, 22)
 scale = Vector2(0.3, 0.3)
 accepted_type = "SCREW"
 
-[node name="snapzone4" parent="." instance=ExtResource("3_ypivk")]
+[node name="snapzone4" parent="." unique_id=1465006171 instance=ExtResource("3_ypivk")]
 position = Vector2(14, 22)
 scale = Vector2(0.3, 0.3)
 accepted_type = "SCREW"
