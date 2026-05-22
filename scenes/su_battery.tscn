@@ -1,19 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://duno78x0srmi8"]
+[gd_scene format=3 uid="uid://duno78x0srmi8"]
 
 [ext_resource type="Texture2D" uid="uid://bdgpaut3jjctr" path="res://assets/Computer parts/SystemUnit/SU_Battery.png" id="1_0fd01"]
+[ext_resource type="Script" uid="uid://mxawbst031b8" path="res://scripts/BATTERYscript.gd" id="1_1g5m3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1g5m3"]
 size = Vector2(18.5, 12)
 
-[node name="SU_Battery" type="RigidBody2D"]
+[node name="SU_Battery" type="RigidBody2D" unique_id=1824231020]
 lock_rotation = true
 linear_damp = 50.0
 angular_damp = 50.0
+script = ExtResource("1_1g5m3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=312600762]
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_0fd01")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1462725438]
 position = Vector2(-0.25, 0)
 shape = SubResource("RectangleShape2D_1g5m3")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://hqijequt6jg7"]
+[gd_scene format=3 uid="uid://hqijequt6jg7"]
 
 [ext_resource type="Script" uid="uid://chjytmmg3ww1f" path="res://scripts/MOBOscript.gd" id="1_38y52"]
 [ext_resource type="Texture2D" uid="uid://bl4pt5t35q8o2" path="res://assets/Computer parts/Motherboard states/Motherboard.png" id="1_uajp5"]
@@ -8,30 +8,38 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqnev"]
 size = Vector2(30, 27.5)
 
-[node name="MoBo" type="RigidBody2D"]
+[node name="MoBo" type="RigidBody2D" unique_id=460261208]
 lock_rotation = true
 linear_damp = 50.0
 angular_damp = 50.0
 script = ExtResource("1_38y52")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=716436491]
 scale = Vector2(0.86363643, 0.8689025)
 texture = ExtResource("1_uajp5")
 flip_h = true
 script = ExtResource("2_6vyd3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=49514717]
 position = Vector2(-1, 0.25)
 shape = SubResource("RectangleShape2D_gqnev")
 
-[node name="CPU_snapzone" parent="." instance=ExtResource("2_gqnev")]
+[node name="CPU_snapzone" parent="." unique_id=625781889 instance=ExtResource("2_gqnev")]
 position = Vector2(0, -3.9999998)
 scale = Vector2(0.4, 0.4)
+accepted_type = "CPU"
+remove_component = true
+allow_preview = false
 
-[node name="CFAN_snapzone" parent="." instance=ExtResource("2_gqnev")]
+[node name="CFAN_snapzone" parent="." unique_id=217017135 instance=ExtResource("2_gqnev")]
 position = Vector2(0, -6.9999995)
 scale = Vector2(0.4, 0.4)
+accepted_type = "CFAN"
+required_snap_zone = NodePath("../CPU_snapzone")
 
-[node name="RAM_snapzone" parent="." instance=ExtResource("2_gqnev")]
+[node name="RAM_snapzone" parent="." unique_id=1331106093 instance=ExtResource("2_gqnev")]
 position = Vector2(-9, -3.9999998)
 scale = Vector2(0.4, 0.4)
+accepted_type = "RAM"
+remove_component = true
+allow_preview = false
