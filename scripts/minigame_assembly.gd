@@ -7,12 +7,20 @@ var _snapped_parts: Array[String] = []
 var _snapped_screws: int = 0
 
 func _on_minigame_ready() -> void:
+	# Connect to any snap zones already in the scene.
 	_connect_snap_zones(self)
+	# Re-scan whenever the hotbar adds a new node (e.g. MoBo with its own snap zones).
+	child_entered_tree.connect(_on_child_entered_tree)
+
+func _on_child_entered_tree(node: Node) -> void:
+	# A new node was added — defer so its full subtree is ready first,
+	# then connect any snap zones it contains.
+	call_deferred("_connect_snap_zones", node)
 
 func _connect_snap_zones(node: Node) -> void:
 	for child in node.get_children():
 		if child.has_signal("part_snapped"):
-			if not child.is_connected("part_snapped", _on_part_snapped):
+			if not child.part_snapped.is_connected(_on_part_snapped):
 				child.part_snapped.connect(_on_part_snapped)
 		_connect_snap_zones(child)
 
