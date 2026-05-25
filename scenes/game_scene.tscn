@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://b0nvcgpoypl62"]
+[gd_scene format=4 uid="uid://b0nvcgpoypl62"]
 
 [ext_resource type="PackedScene" uid="uid://demqpuvfguk8d" path="res://scenes/player.tscn" id="1_w5aja"]
 [ext_resource type="Texture2D" uid="uid://vgq806bcs4q" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="1_ycayy"]
@@ -2539,29 +2539,29 @@ agent_radius = 4.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y3j0m"]
 distance = -249.0
 
-[node name="game_scene" type="Node2D"]
+[node name="game_scene" type="Node2D" unique_id=1662599829]
 
-[node name="ground" type="TileMapLayer" parent="."]
+[node name="ground" type="TileMapLayer" parent="." unique_id=1824960529]
 position = Vector2(236, 137)
 tile_map_data = PackedByteArray("AAD3////AgAMAAwAAAD4////AgAMAAwAAAD5////AgAMAAwAAAD6////AgAMAAwAAAD7////AgAMAAwAAAD8////AgAMAAwAAAD9////AgAMAAwAAAD+////AgAMAAwAAAD/////AgAMAAwAAAAAAP//AgAMAAwAAAABAP//AgAMAAwAAAACAP//AgAMAAwAAAADAP//AgAMAAwAAAAEAP//AgAMAAwAAAAFAP//AgAMAAwAAAAGAP//AgAMAAwAAAAHAP//AgAMAAwAAAAIAP//AgAMAAwAAAD3/wAAAgAMAAwAAAD4/wAAAgAMAAwAAAD5/wAAAgAMAAwAAAD6/wAAAgAMAAwAAAD7/wAAAgAMAAwAAAD8/wAAAgAMAAwAAAD9/wAAAgAMAAwAAAD+/wAAAgAMAAwAAAD//wAAAgAMAAwAAAAAAAAAAgAMAAwAAAABAAAAAgAMAAwAAAACAAAAAgAMAAwAAAADAAAAAgAMAAwAAAAEAAAAAgAMAAwAAAAFAAAAAgAMAAwAAAAGAAAAAgAMAAwAAAAHAAAAAgAMAAwAAAAIAAAAAgAMAAwAAAD3//7/AgAMAAwAAAD4//7/AgAMAAwAAAD5//7/AgAMAAwAAAD6//7/AgAMAAwAAAD7//7/AgAMAAwAAAD8//7/AgAMAAwAAAD9//7/AgAMAAwAAAD9//3/AgAMAAwAAAD+//3/AgAMAAwAAAD///3/AgAMAAwAAAAAAP3/AgAMAAwAAAABAP3/AgAMAAwAAAACAP3/AgAMAAwAAAADAP3/AgAMAAwAAAADAP7/AgAMAAwAAAAEAP7/AgAMAAwAAAAFAP7/AgAMAAwAAAAGAP7/AgAMAAwAAAAHAP7/AgAMAAwAAAAIAP7/AgAMAAwAAAACAP7/AgAMAAwAAAABAP7/AgAMAAwAAAAAAP7/AgAMAAwAAAD///7/AgAMAAwAAAD+//7/AgAMAAwAAAD4//3/AgAMAAwAAAD3//3/AgAMAAwAAAD5//3/AgAMAAwAAAD6//3/AgAMAAwAAAD7//3/AgAMAAwAAAD8//3/AgAMAAwAAAAEAP3/AgAMAAwAAAAFAP3/AgAMAAwAAAAGAP3/AgAMAAwAAAAHAP3/AgAMAAwAAAAIAP3/AgAMAAwAAAAIAPz/AgAMAAwAAAAHAPz/AgAMAAwAAAAGAPz/AgAMAAwAAAAFAPz/AgAMAAwAAAAEAPz/AgAMAAwAAAADAPz/AgAMAAwAAAACAPz/AgAMAAwAAAABAPz/AgAMAAwAAAAAAPz/AgAMAAwAAAD///z/AgAMAAwAAAD+//z/AgAMAAwAAAD9//z/AgAMAAwAAAD8//z/AgAMAAwAAAD7//z/AgAMAAwAAAD6//z/AgAMAAwAAAD5//z/AgAMAAwAAAD4//z/AgAMAAwAAAD3//z/AgAMAAwAAAD3//v/AgAMAAwAAAD4//v/AgAMAAwAAAD5//v/AgAMAAwAAAD6//v/AgAMAAwAAAD7//v/AgAMAAwAAAD8//v/AgAMAAwAAAD9//v/AgAMAAwAAAD+//v/AgAMAAwAAAD///v/AgAMAAwAAAAAAPv/AgAMAAwAAAABAPv/AgAMAAwAAAACAPv/AgAMAAwAAAADAPv/AgAMAAwAAAAEAPv/AgAMAAwAAAAFAPv/AgAMAAwAAAAGAPv/AgAMAAwAAAAHAPv/AgAMAAwAAAAIAPv/AgAMAAwAAAD3/wEAAgAMAAwAAAD3/wIAAgAMAAwAAAD3/wMAAgAMAAwAAAD3/wQAAgAMAAwAAAD4/wEAAgAMAAwAAAD4/wIAAgAMAAwAAAD4/wMAAgAMAAwAAAD4/wQAAgAMAAwAAAD5/wEAAgAMAAwAAAD5/wIAAgAMAAwAAAD5/wMAAgAMAAwAAAD5/wQAAgAMAAwAAAD6/wEAAgAMAAwAAAD6/wIAAgAMAAwAAAD6/wMAAgAMAAwAAAD6/wQAAgAMAAwAAAD7/wEAAgAMAAwAAAD7/wIAAgAMAAwAAAD7/wMAAgAMAAwAAAD7/wQAAgAMAAwAAAD8/wEAAgAMAAwAAAD8/wIAAgAMAAwAAAD8/wMAAgAMAAwAAAD8/wQAAgAMAAwAAAD9/wEAAgAMAAwAAAD9/wIAAgAMAAwAAAD9/wMAAgAMAAwAAAD9/wQAAgAMAAwAAAD+/wEAAgAMAAwAAAD+/wIAAgAMAAwAAAD+/wMAAgAMAAwAAAD+/wQAAgAMAAwAAAD//wEAAgAMAAwAAAD//wIAAgAMAAwAAAD//wMAAgAMAAwAAAD//wQAAgAMAAwAAAAAAAEAAgAMAAwAAAAAAAIAAgAMAAwAAAAAAAMAAgAMAAwAAAAAAAQAAgAMAAwAAAABAAEAAgAMAAwAAAABAAIAAgAMAAwAAAABAAMAAgAMAAwAAAABAAQAAgAMAAwAAAACAAEAAgAMAAwAAAACAAIAAgAMAAwAAAACAAMAAgAMAAwAAAACAAQAAgAMAAwAAAADAAEAAgAMAAwAAAADAAIAAgAMAAwAAAADAAMAAgAMAAwAAAADAAQAAgAMAAwAAAAEAAEAAgAMAAwAAAAEAAIAAgAMAAwAAAAEAAMAAgAMAAwAAAAEAAQAAgAMAAwAAAAFAAEAAgAMAAwAAAAFAAIAAgAMAAwAAAAFAAMAAgAMAAwAAAAFAAQAAgAMAAwAAAAGAAEAAgAMAAwAAAAGAAIAAgAMAAwAAAAGAAMAAgAMAAwAAAAGAAQAAgAMAAwAAAAHAAEAAgAMAAwAAAAHAAIAAgAMAAwAAAAHAAMAAgAMAAwAAAAHAAQAAgAMAAwAAAAIAAEAAgAMAAwAAAAIAAIAAgAMAAwAAAAIAAMAAgAMAAwAAAAIAAQAAgAMAAwAAAD3//n/AgAFABEAAAD3//r/AgAFABEAAAD4//n/AgAFABEAAAD4//r/AgAFABEAAAD5//n/AgAFABEAAAD5//r/AgAFABEAAAAGAPn/AgAFABEAAAAGAPr/AgAFABEAAAAHAPn/AgAFABEAAAAHAPr/AgAFABEAAAAIAPn/AgAFABEAAAAIAPr/AgAFABEAAAD6//n/AgAFABEAAAD6//r/AgAFABEAAAD7//n/AgAFABEAAAD7//r/AgAFABEAAAD8//n/AgAFABEAAAD8//r/AgAFABEAAAD9//n/AgAFABEAAAD9//r/AgAFABEAAAD+//n/AgAFABEAAAD+//r/AgAFABEAAAD///n/AgAFABEAAAD///r/AgAFABEAAAAAAPn/AgAFABEAAAAAAPr/AgAFABEAAAABAPn/AgAFABEAAAABAPr/AgAFABEAAAACAPn/AgAFABEAAAACAPr/AgAFABEAAAADAPn/AgAFABEAAAADAPr/AgAFABEAAAAEAPn/AgAFABEAAAAEAPr/AgAFABEAAAAFAPn/AgAFABEAAAAFAPr/AgAFABEAAAD3//j/AgABABEAAAD4//j/AgABABEAAAD5//j/AgABABEAAAD6//j/AgABABEAAAD7//j/AgABABEAAAD8//j/AgABABEAAAD9//j/AgABABEAAAD+//j/AgABABEAAAD///j/AgABABEAAAAAAPj/AgABABEAAAABAPj/AgABABEAAAACAPj/AgABABEAAAADAPj/AgABABEAAAAEAPj/AgABABEAAAAFAPj/AgABABEAAAAGAPj/AgABABEAAAAHAPj/AgABABEAAAAIAPj/AgABABEAAAD2//n/AgAFAAAAAAD2//r/AgAFAAAAAAD2//v/AgAFAAAAAAD2//z/AgAFAAAAAAD2//3/AgAFAAAAAAD2//7/AgAFAAAAAAD2////AgAFAAAAAAD2/wAAAgAFAAAAAAD2/wEAAgAFAAAAAAD2/wIAAgAFAAAAAAD2/wMAAgAFAAAAAAD2/wQAAgAFAAAAAAAJAPn/AgAGAAAAAAAJAPr/AgAGAAAAAAAJAPv/AgAGAAAAAAAJAPz/AgAGAAAAAAAJAP3/AgAGAAAAAAAJAP7/AgAGAAAAAAAJAP//AgAGAAAAAAAJAAAAAgAGAAAAAAAJAAEAAgAGAAAAAAAJAAIAAgAGAAAAAAAJAAMAAgAGAAAAAAAJAAQAAgAGAAAAAAAJAPj/AgANAAEAAAD2//j/AgALAAEAAAD3/wUAAgAMAAwAAAD4/wUAAgAMAAwAAAD5/wUAAgAMAAwAAAD6/wUAAgAMAAwAAAD7/wUAAgAMAAwAAAD8/wUAAgAMAAwAAAD9/wUAAgAMAAwAAAD+/wUAAgAMAAwAAAD//wUAAgAMAAwAAAAAAAUAAgAMAAwAAAABAAUAAgAMAAwAAAACAAUAAgAMAAwAAAADAAUAAgAMAAwAAAAEAAUAAgAMAAwAAAAFAAUAAgAMAAwAAAAGAAUAAgAMAAwAAAAHAAUAAgAMAAwAAAAIAAUAAgAMAAwAAAAIAAYAAgAMAAwAAAAHAAYAAgAMAAwAAAAGAAYAAgAMAAwAAAAFAAYAAgAMAAwAAAAEAAYAAgAMAAwAAAADAAYAAgAMAAwAAAACAAYAAgAMAAwAAAABAAYAAgAMAAwAAAAAAAYAAgAMAAwAAAD//wYAAgAMAAwAAAD+/wYAAgAMAAwAAAD9/wYAAgAMAAwAAAD8/wYAAgAMAAwAAAD7/wYAAgAMAAwAAAD6/wYAAgAMAAwAAAD5/wYAAgAMAAwAAAD4/wYAAgAMAAwAAAD3/wYAAgAMAAwAAAD2/wUAAgAFAAAAAAD2/wYAAgAFAAAAAAAJAAUAAgAGAAAAAAAJAAYAAgAGAAAAAAA=")
 tile_set = SubResource("TileSet_kk2rg")
 
-[node name="comp_table" type="TileMapLayer" parent="."]
+[node name="comp_table" type="TileMapLayer" parent="." unique_id=1395453748]
 position = Vector2(236, 137)
 tile_map_data = PackedByteArray("AAD///j/AAAAAA4AAAD///n/AAAAAA8AAAAAAPj/AAABAA4AAAAAAPn/AAABAA8AAAACAP3/AAADAAkAAAADAP3/AAABAAgAAAAEAP3/AAADAAkAAAAFAP3/AAABAAgAAAAGAP3/AAADAAkAAAAHAP3/AAABAAgAAAAIAP3/AAADAAkAAAD3//3/AAADAAkAAAD4//3/AAABAAgAAAD5//3/AAADAAkAAAD7//3/AAADAAkAAAD8//3/AAABAAgAAAD9//3/AAADAAkAAAD6//3/AAABAAgAAAD3/wAAAAADAAkAAAD4/wAAAAABAAgAAAD5/wAAAAADAAkAAAD6/wAAAAABAAgAAAD7/wAAAAADAAkAAAD8/wAAAAABAAgAAAD9/wAAAAADAAkAAAACAAAAAAADAAkAAAADAAAAAAABAAgAAAAEAAAAAAADAAkAAAAFAAAAAAABAAgAAAAGAAAAAAADAAkAAAAHAAAAAAABAAgAAAAIAAAAAAADAAkAAAD3/wMAAAADAAkAAAD4/wMAAAABAAgAAAD5/wMAAAADAAkAAAD6/wMAAAABAAgAAAD7/wMAAAADAAkAAAD8/wMAAAABAAgAAAADAAMAAAADAAkAAAAEAAMAAAABAAgAAAAFAAMAAAADAAkAAAAGAAMAAAABAAgAAAAHAAMAAAADAAkAAAAIAAMAAAABAAgAAAADAPr/AAAKACgAAAADAPv/AAAKACkAAAAEAPr/AAALACgAAAAEAPv/AAALACkAAAA=")
 tile_set = SubResource("TileSet_bw6k5")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="comp_table"]
+[node name="TileMapLayer" type="TileMapLayer" parent="comp_table" unique_id=590101961]
 z_index = 2
 tile_map_data = PackedByteArray("AAD3//z/AAADAAgAAAD5//z/AAADAAgAAAD7//z/AAADAAgAAAD9//z/AAADAAgAAAACAPz/AAADAAgAAAAEAPz/AAADAAgAAAAGAPz/AAADAAgAAAAIAPz/AAADAAgAAAD3////AAADAAgAAAD5////AAADAAgAAAD7////AAADAAgAAAD9////AAADAAgAAAACAP//AAADAAgAAAAEAP//AAADAAgAAAAGAP//AAADAAgAAAAIAP//AAADAAgAAAD3/wIAAAADAAgAAAD5/wIAAAADAAgAAAD7/wIAAAADAAgAAAADAAIAAAADAAgAAAAFAAIAAAADAAgAAAAHAAIAAAADAAgAAAA=")
 tile_set = SubResource("TileSet_y3j0m")
 
-[node name="player" parent="." instance=ExtResource("1_w5aja")]
+[node name="player" parent="." unique_id=915532729 instance=ExtResource("1_w5aja")]
 position = Vector2(236, 136)
 motion_mode = 1
 movement_speed = 120.0
 
-[node name="Camera2D" type="Camera2D" parent="player"]
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=401171092]
 position = Vector2(0, 1)
 zoom = Vector2(1.5, 1.5)
 limit_left = 86
@@ -2571,86 +2571,86 @@ limit_bottom = 250
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="npc_handler" type="Node2D" parent="."]
+[node name="npc_handler" type="Node2D" parent="." unique_id=270631539]
 position = Vector2(236, 137)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=264056844]
 position = Vector2(236, 137)
 navigation_polygon = SubResource("NavigationPolygon_y3j0m")
 
-[node name="comp_seats" type="Node2D" parent="."]
+[node name="comp_seats" type="Node2D" parent="." unique_id=1884473498]
 position = Vector2(236, 137)
 
-[node name="seats" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats" parent="comp_seats" unique_id=1523457856 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(-138, -24)
 
-[node name="seats2" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats2" parent="comp_seats" unique_id=503563605 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(-104, -24)
 
-[node name="seats3" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats3" parent="comp_seats" unique_id=1694389321 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(-72, -24)
 
-[node name="seats4" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats4" parent="comp_seats" unique_id=713437147 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(-40, -24)
 
-[node name="seats5" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats5" parent="comp_seats" unique_id=458158450 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(40, -24)
 
-[node name="seats6" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats6" parent="comp_seats" unique_id=1197423769 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(72, -24)
 
-[node name="seats7" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats7" parent="comp_seats" unique_id=1509187810 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(104, -24)
 
-[node name="seats8" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats8" parent="comp_seats" unique_id=1669566522 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(136, -24)
 
-[node name="seats9" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats9" parent="comp_seats" unique_id=1933914848 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(136, 24)
 
-[node name="seats10" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats10" parent="comp_seats" unique_id=1213016344 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(104, 24)
 
-[node name="seats11" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats11" parent="comp_seats" unique_id=507340162 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(72, 24)
 
-[node name="seats12" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats12" parent="comp_seats" unique_id=1663429922 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(40, 24)
 
-[node name="seats13" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats13" parent="comp_seats" unique_id=1370774713 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(-40, 24)
 
-[node name="seats14" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats14" parent="comp_seats" unique_id=1725021997 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(-72, 24)
 
-[node name="seats15" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats15" parent="comp_seats" unique_id=1519382724 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(-104, 24)
 
-[node name="seats16" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats16" parent="comp_seats" unique_id=765796142 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(-136, 24)
 
-[node name="seats17" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats17" parent="comp_seats" unique_id=1474555612 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(-136, 72)
 
-[node name="seats18" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats18" parent="comp_seats" unique_id=26899128 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(-104, 72)
 
-[node name="seats19" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats19" parent="comp_seats" unique_id=1873776895 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(-72, 72)
 
-[node name="seats20" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats20" parent="comp_seats" unique_id=1210099478 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(56, 72)
 
-[node name="seats21" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats21" parent="comp_seats" unique_id=116788194 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(88, 72)
 
-[node name="seats22" parent="comp_seats" groups=["computer_seats"] instance=ExtResource("5_rurhu")]
+[node name="seats22" parent="comp_seats" unique_id=981224172 groups=["computer_seats"] instance=ExtResource("5_rurhu")]
 position = Vector2(120, 72)
 
-[node name="npc_spawn" parent="." instance=ExtResource("6_rurhu")]
+[node name="npc_spawn" parent="." unique_id=2016489188 instance=ExtResource("6_rurhu")]
 position = Vector2(119, 240)
 
-[node name="world boundary" type="StaticBody2D" parent="."]
+[node name="world boundary" type="StaticBody2D" parent="." unique_id=753795936]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="world boundary"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world boundary" unique_id=1145435010]
 shape = SubResource("WorldBoundaryShape2D_y3j0m")
