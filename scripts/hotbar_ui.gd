@@ -1,6 +1,6 @@
 # hotbar_ui.gd
 # Compact icon-only hotbar for mobile landscape / pixel art games.
-# Each slot shows a TextureRect of the part sprite + a small count badge.
+# Each slot height is fixed; width expands to fit the icon's natural aspect ratio.
 extends CanvasLayer
 
 # ── Per-minigame configuration (Inspector) ─────────────────────────────────
@@ -10,11 +10,11 @@ extends CanvasLayer
 @export var part_counts:  Array[int]         = []
 
 # ── Slot dimensions (pixels, screen-space) ─────────────────────────────────
-const SLOT_SIZE   : int = 36   # width and height of each slot
-const ICON_SIZE   : int = 26   # inner icon area
+const SLOT_HEIGHT : int = 36   # fixed height for every slot
+const ICON_HEIGHT : int = 26   # icon is scaled to this height; width follows aspect ratio
 const BADGE_SIZE  : int = 11   # count badge font size (px)
 
-# ── Colour palette (matches part type) ─────────────────────────────────────
+# ── Colour palette ─────────────────────────────────────────────────────────
 const TYPE_COLORS: Dictionary = {
 	"MOBO":    Color(0.40, 0.70, 0.40),
 	"CPU":     Color(0.30, 0.55, 0.90),
@@ -33,7 +33,6 @@ var _slot_panels:   Array[PanelContainer] = []
 var _counters:      Array[Label]          = []
 var _live:          Array[Array]          = []
 
-# Drag state
 var _drag_slot:     int     = -1
 var _drag_ghost:    Control = null
 var _drag_instance: Node    = null
@@ -63,15 +62,21 @@ func _build_slots() -> void:
 	for i in part_scenes.size():
 		_live.append([])
 
-		var ptype:    String = part_types[i]
-		var acc_col:  Color  = TYPE_COLORS.get(ptype, Color(0.35, 0.35, 0.35))
+		var ptype:   String = part_types[i]
+		var acc_col: Color  = TYPE_COLORS.get(ptype, Color(0.35, 0.35, 0.35))
 
-		# ── Slot container ──────────────────────────────────────────────────
+		# ── Work out icon display size ──────────────────────────────────────
+		# RAM gets a wider slot to fit its landscape texture; all other parts
+		# use a square slot (SLOT_HEIGHT x SLOT_HEIGHT).
+		var icon_size := _icon_display_size(i, ptype == "RAM")
+
+		# ── Slot — height fixed, width = icon width + padding ───────────────
+		var slot_w: int = int(icon_size.x) + 8   # 4px padding each side
 		var slot := PanelContainer.new()
-		slot.custom_minimum_size = Vector2(SLOT_SIZE, SLOT_SIZE)
+		slot.custom_minimum_size   = Vector2(slot_w, SLOT_HEIGHT)
 		slot.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-		slot.mouse_filter = Control.MOUSE_FILTER_STOP
-		slot.tooltip_text = part_labels[i]   # shown on hover (desktop), fine to keep
+		slot.mouse_filter          = Control.MOUSE_FILTER_STOP
+		slot.tooltip_text          = part_labels[i]
 
 		var slot_bg := StyleBoxFlat.new()
 		slot_bg.bg_color     = Color(0.08, 0.08, 0.14, 1.0)
@@ -83,58 +88,82 @@ func _build_slots() -> void:
 		_slot_container.add_child(slot)
 		_slot_panels.append(slot)
 
-		# ── Inner Control (icon + badge overlay) ────────────────────────────
-		var inner := Control.new()
-		inner.custom_minimum_size = Vector2(SLOT_SIZE - 4, SLOT_SIZE - 4)
-		inner.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		slot.add_child(inner)
+		# ── Inner: CenterContainer holds the icon so Godot centres it ──────
+		var center := CenterContainer.new()
+		center.name                 = "Center"
+		center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		center.size_flags_vertical   = Control.SIZE_EXPAND_FILL
+		center.mouse_filter          = Control.MOUSE_FILTER_IGNORE
+		slot.add_child(center)
 
-		# Icon TextureRect — always fills the slot, aspect-ratio preserved.
+		# ── Icon — fixed pixel size, centred by CenterContainer ─────────────
 		var icon := TextureRect.new()
-		icon.name              = "Icon"
-		icon.expand_mode       = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
-		icon.stretch_mode      = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		icon.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-		icon.mouse_filter      = Control.MOUSE_FILTER_IGNORE
-		inner.add_child(icon)
+		icon.name                = "Icon"
+		icon.expand_mode         = TextureRect.EXPAND_IGNORE_SIZE
+		icon.stretch_mode        = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		icon.custom_minimum_size = icon_size
+		icon.mouse_filter        = Control.MOUSE_FILTER_IGNORE
+		center.add_child(icon)
 
-		# Try to fill the icon texture from a packed-scene preview
 		_set_icon_texture(icon, i)
 
-		# Count badge — bottom-right corner
+		# ── Count badge — overlaid at bottom-right via a second Control ──────
+		# We use a MarginContainer anchored to the slot itself so it always
+		# sits in the corner regardless of icon size.
+		var overlay := Control.new()
+		overlay.name            = "Overlay"
+		overlay.mouse_filter    = Control.MOUSE_FILTER_IGNORE
+		overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		slot.add_child(overlay)
+
 		var badge := Label.new()
 		badge.name                 = "Badge"
-		badge.anchor_right         = 1.0
-		badge.anchor_bottom        = 1.0
-		badge.offset_top           = SLOT_SIZE - 4 - 12
-		badge.offset_left          = 0
+		badge.mouse_filter         = Control.MOUSE_FILTER_IGNORE
+		badge.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
+		badge.grow_horizontal      = Control.GROW_DIRECTION_BEGIN
+		badge.grow_vertical        = Control.GROW_DIRECTION_BEGIN
 		badge.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		badge.vertical_alignment   = VERTICAL_ALIGNMENT_BOTTOM
-		badge.mouse_filter         = Control.MOUSE_FILTER_IGNORE
 		badge.add_theme_font_size_override("font_size", BADGE_SIZE)
 		badge.add_theme_color_override("font_color", acc_col.lightened(0.25))
-		inner.add_child(badge)
+		overlay.add_child(badge)
 		_counters.append(badge)
 
 		slot.gui_input.connect(_on_slot_gui_input.bind(i))
 
 	_refresh_all()
 
-# ── Attempt to grab the sprite texture from the packed scene ───────────────
+# ── Compute icon display size for slot i ───────────────────────────────────
+# RAM gets width derived from its texture aspect ratio.
+# All other parts get a square ICON_HEIGHT x ICON_HEIGHT slot.
+func _icon_display_size(i: int, use_aspect: bool = false) -> Vector2:
+	if not use_aspect:
+		return Vector2(ICON_HEIGHT, ICON_HEIGHT)
+	var packed: PackedScene = part_scenes[i]
+	if not packed:
+		return Vector2(ICON_HEIGHT, ICON_HEIGHT)
+	var tmp    := packed.instantiate()
+	var sprite := _find_sprite(tmp)
+	var result := Vector2(ICON_HEIGHT, ICON_HEIGHT)
+	if sprite and sprite.texture:
+		var tex := sprite.texture.get_size()
+		var w   := roundf(float(ICON_HEIGHT) * tex.x / maxf(tex.y, 1.0))
+		result   = Vector2(w, ICON_HEIGHT)
+	tmp.free()
+	return result
+
+# ── Set icon texture (texture already sized by _icon_display_size) ─────────
 func _set_icon_texture(icon: TextureRect, i: int) -> void:
 	var packed: PackedScene = part_scenes[i]
 	if not packed:
 		return
-	# Instantiate off-screen to read its sprite, then free immediately.
-	var tmp: Node = packed.instantiate()
-	var sprite: Sprite2D = _find_sprite(tmp)
+	var tmp    := packed.instantiate()
+	var sprite := _find_sprite(tmp)
 	if sprite and sprite.texture:
 		icon.texture  = sprite.texture
 		icon.flip_h   = sprite.flip_h
 		icon.flip_v   = sprite.flip_v
-		icon.modulate    = Color(1, 1, 1, 1)
-		# expand_mode + stretch_mode on the TextureRect handle all scaling.
-		# No manual scale needed — Godot fits the texture into the slot rect.
+		icon.modulate = Color(1, 1, 1, 1)
 	tmp.free()
 
 # ── Drag handling ──────────────────────────────────────────────────────────
@@ -231,22 +260,18 @@ func _build_ghost(instance: Node) -> Control:
 
 	var tex_rect := TextureRect.new()
 	tex_rect.texture      = sprite.texture
-	tex_rect.expand_mode  = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
+	tex_rect.expand_mode  = TextureRect.EXPAND_IGNORE_SIZE
 	tex_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	tex_rect.flip_h       = sprite.flip_h
 	tex_rect.flip_v       = sprite.flip_v
 
-	# Ghost is SLOT_SIZE px so it matches the slot visually
-	var tex_size: Vector2   = sprite.texture.get_size()
-	var ghost_size: float   = float(SLOT_SIZE)
-	var scale_factor: float = ghost_size / maxf(tex_size.x, tex_size.y)
-	scale_factor *= maxf(abs(sprite.scale.x), abs(sprite.scale.y))
-	scale_factor  = clampf(scale_factor, 0.5, 4.0)
-
-	var display_size               := tex_size * scale_factor
-	tex_rect.custom_minimum_size    = display_size
-	tex_rect.size                   = display_size
-	container.custom_minimum_size   = display_size
+	var tex_size: Vector2 = sprite.texture.get_size()
+	var scale_f: float    = float(SLOT_HEIGHT) / maxf(tex_size.x, tex_size.y)
+	scale_f               = clampf(scale_f, 0.5, 4.0)
+	var display_size      := tex_size * scale_f
+	tex_rect.custom_minimum_size  = display_size
+	tex_rect.size                 = display_size
+	container.custom_minimum_size = display_size
 	container.add_child(tex_rect)
 	return container
 
@@ -279,7 +304,6 @@ func _refresh_slot(i: int) -> void:
 	var total:     int = part_counts[i]
 	var remaining: int = total - _live[i].size()
 
-	# Update badge text — hide the "1/1" clutter, show only when >1 or 0
 	var badge: Label = _counters[i]
 	if total == 1:
 		badge.text = "" if remaining > 0 else "✕"
@@ -297,8 +321,7 @@ func _refresh_slot(i: int) -> void:
 			sc.bg_color     = Color(0.05, 0.05, 0.08, 1.0)
 			sc.border_color = Color(0.18, 0.18, 0.22, 1.0)
 
-	# Dim the icon when exhausted
-	var icon := _slot_panels[i].get_node_or_null("Control/Icon") as TextureRect
+	var icon := _slot_panels[i].get_node_or_null("Center/Icon") as TextureRect
 	if icon:
 		icon.modulate.a = 1.0 if remaining > 0 else 0.3
 
