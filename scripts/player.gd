@@ -42,7 +42,7 @@ func _physics_process(_delta):
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and nearby_npc != null:
-		GameState.enter_minigame("res://scenes/minigame_1_v_2.tscn")
+		GameState.enter_minigame("res://scenes/minigame1_assembly.tscn")
 
 func _check_nearby_npcs() -> void:
 	var closest: CharacterBody2D = null
