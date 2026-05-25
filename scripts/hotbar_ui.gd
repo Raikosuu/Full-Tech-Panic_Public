@@ -32,6 +32,7 @@ var _minigame:      Node                  = null
 var _slot_panels:   Array[PanelContainer] = []
 var _counters:      Array[Label]          = []
 var _live:          Array[Array]          = []
+var _locked_slots:  Dictionary            = {}
 
 var _drag_slot:     int     = -1
 var _drag_ghost:    Control = null
@@ -169,6 +170,8 @@ func _set_icon_texture(icon: TextureRect, i: int) -> void:
 # ── Drag handling ──────────────────────────────────────────────────────────
 func _on_slot_gui_input(event: InputEvent, i: int) -> void:
 	if _drag_slot != -1:
+		return
+	if _locked_slots.get(i, false):   # ← ADD THIS BLOCK
 		return
 	var remaining: int = part_counts[i] - _live[i].size()
 	if remaining <= 0:
@@ -323,7 +326,8 @@ func _refresh_slot(i: int) -> void:
 
 	var icon := _slot_panels[i].get_node_or_null("Center/Icon") as TextureRect
 	if icon:
-		icon.modulate.a = 1.0 if remaining > 0 else 0.3
+		var is_locked: bool = _locked_slots.get(i, false)
+		icon.modulate.a = 1.0 if (remaining > 0 and not is_locked) else 0.3
 
 # ── Helpers ────────────────────────────────────────────────────────────────
 func _find_camera() -> Camera2D:
@@ -343,3 +347,10 @@ func _find_sprite(node: Node) -> Sprite2D:
 		if child is Sprite2D:
 			return child
 	return null
+	
+func set_slot_locked(part_type: String, locked: bool) -> void:
+	for i in part_types.size():
+		if part_types[i] == part_type:
+			_locked_slots[i] = locked
+			_refresh_slot(i)
+			return
