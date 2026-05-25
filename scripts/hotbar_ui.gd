@@ -89,7 +89,7 @@ func _build_slots() -> void:
 		inner.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		slot.add_child(inner)
 
-		# Icon TextureRect — filled with the part sprite texture
+		# Icon TextureRect — always fills the slot, aspect-ratio preserved.
 		var icon := TextureRect.new()
 		icon.name              = "Icon"
 		icon.expand_mode       = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
@@ -132,8 +132,9 @@ func _set_icon_texture(icon: TextureRect, i: int) -> void:
 		icon.texture  = sprite.texture
 		icon.flip_h   = sprite.flip_h
 		icon.flip_v   = sprite.flip_v
-		# Tint the icon with the type accent colour (subtle, keeps readability)
-		icon.modulate = Color(1, 1, 1, 1)
+		icon.modulate    = Color(1, 1, 1, 1)
+		# expand_mode + stretch_mode on the TextureRect handle all scaling.
+		# No manual scale needed — Godot fits the texture into the slot rect.
 	tmp.free()
 
 # ── Drag handling ──────────────────────────────────────────────────────────

@@ -6,8 +6,6 @@
 bg_color = Color(0.06, 0.06, 0.09, 0.95)
 border_width_top = 1
 border_color = Color(0.18, 0.18, 0.28, 1)
-corner_radius_top_left = 0
-corner_radius_top_right = 0
 
 [node name="HotbarUI" type="CanvasLayer" unique_id=1573472408]
 layer = 10
