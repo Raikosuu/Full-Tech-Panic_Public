@@ -1,14 +1,6 @@
 [gd_scene format=3 uid="uid://dms4vy7wnxet6"]
 
 [ext_resource type="Script" uid="uid://cc8oe80x66bgw" path="res://scripts/hotbar_ui.gd" id="1_hotbar"]
-[ext_resource type="PackedScene" uid="uid://hqijequt6jg7" path="res://scenes/mo_bo.tscn" id="2_b4oid"]
-[ext_resource type="PackedScene" uid="uid://t6monse15254" path="res://scenes/cpu.tscn" id="3_nx3ik"]
-[ext_resource type="PackedScene" uid="uid://dsrqfd5w0e2j4" path="res://scenes/cooling_fan.tscn" id="4_sp456"]
-[ext_resource type="PackedScene" uid="uid://pgpcgeywpbc5" path="res://scenes/ram_module.tscn" id="5_sxuem"]
-[ext_resource type="PackedScene" uid="uid://cou02t2vy1mu2" path="res://scenes/hdd.tscn" id="6_sgdwu"]
-[ext_resource type="PackedScene" uid="uid://duno78x0srmi8" path="res://scenes/su_battery.tscn" id="7_pr0mc"]
-[ext_resource type="PackedScene" uid="uid://bcg8ruhd4vc5n" path="res://scenes/su_panel.tscn" id="8_4e440"]
-[ext_resource type="PackedScene" uid="uid://ccxttvxg0gs8" path="res://scenes/screws.tscn" id="9_0nbos"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 bg_color = Color(0.08, 0.08, 0.1, 0.92)
@@ -17,39 +9,32 @@ border_color = Color(0.3, 0.3, 0.35, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 
-[node name="HotbarUI" type="CanvasLayer" unique_id=284436183]
+[node name="HotbarUI" type="CanvasLayer" unique_id=1573472408]
 layer = 10
 script = ExtResource("1_hotbar")
-part_scenes = Array[PackedScene]([ExtResource("2_b4oid"), ExtResource("3_nx3ik"), ExtResource("4_sp456"), ExtResource("5_sxuem"), ExtResource("6_sgdwu"), ExtResource("7_pr0mc"), ExtResource("8_4e440"), ExtResource("9_0nbos")])
-part_labels = Array[String](["Motherboard", "CPU", "Cooling Fan", "RAM", "HDD", "Battery", "Panel", "Screws"])
-part_types = Array[String](["MOBO", "CPU", "CFAN", "RAM", "HDD", "BATTERY", "PANEL", "SCREW"])
-part_counts = Array[int]([1, 1, 1, 1, 1, 1, 1, 4])
 
-[node name="Panel" type="PanelContainer" parent="." unique_id=1396737750]
+[node name="Panel" type="PanelContainer" parent="." unique_id=151350601]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = -31.0
-offset_right = -1.0
-grow_horizontal = 2
+offset_top = -52.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=326655397]
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1897704918]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer" unique_id=1176837309]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer" unique_id=487787450]
 layout_mode = 2
 theme_override_constants/separation = 6
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer" unique_id=62517440]
+[node name="TitleLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer" unique_id=174676811]
 custom_minimum_size = Vector2(36, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.75, 0.75, 0.8, 1)
@@ -57,7 +42,7 @@ theme_override_font_sizes/font_size = 9
 text = "PARTS"
 vertical_alignment = 1
 
-[node name="Slots" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer" unique_id=637206887]
+[node name="Slots" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer" unique_id=580012013]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 4

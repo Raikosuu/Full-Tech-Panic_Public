@@ -3,8 +3,16 @@
 [ext_resource type="Script" uid="uid://408qjhn7wpll" path="res://scripts/minigame_assembly.gd" id="1_jicg2"]
 [ext_resource type="PackedScene" uid="uid://rhxauoy66x4e" path="res://scenes/system_unit.tscn" id="1_xsi8y"]
 [ext_resource type="PackedScene" uid="uid://bhph80goxwfn5" path="res://scenes/snap_zone.tscn" id="4_cn6rf"]
+[ext_resource type="PackedScene" uid="uid://hqijequt6jg7" path="res://scenes/mo_bo.tscn" id="7_jicg2"]
+[ext_resource type="PackedScene" uid="uid://t6monse15254" path="res://scenes/cpu.tscn" id="8_ihwr5"]
 [ext_resource type="PackedScene" uid="uid://c380fba04gpma" path="res://scenes/su_rack.tscn" id="8_qbqew"]
+[ext_resource type="PackedScene" uid="uid://dsrqfd5w0e2j4" path="res://scenes/cooling_fan.tscn" id="9_73wum"]
+[ext_resource type="PackedScene" uid="uid://cou02t2vy1mu2" path="res://scenes/hdd.tscn" id="10_5v6y6"]
+[ext_resource type="PackedScene" uid="uid://pgpcgeywpbc5" path="res://scenes/ram_module.tscn" id="11_64x2g"]
 [ext_resource type="Texture2D" uid="uid://dftmunw5wr58q" path="res://assets/Computer parts/Troubleshooting background.png" id="12_rnrb2"]
+[ext_resource type="PackedScene" uid="uid://duno78x0srmi8" path="res://scenes/su_battery.tscn" id="12_whuv8"]
+[ext_resource type="PackedScene" uid="uid://bcg8ruhd4vc5n" path="res://scenes/su_panel.tscn" id="13_aonyo"]
+[ext_resource type="PackedScene" uid="uid://ccxttvxg0gs8" path="res://scenes/screws.tscn" id="14_kupva"]
 [ext_resource type="PackedScene" uid="uid://dms4vy7wnxet6" path="res://scenes/hotbar_ui.tscn" id="15_ihwr5"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_jicg2"]
@@ -56,6 +64,7 @@ z_index = 1
 position = Vector2(235.00002, 124)
 
 [node name="HDD_snapzone" parent="SuRack" index="3"]
+allow_preview = true
 blocked_by_snap_zone = NodePath("../../SU_main/Panel_snapzone")
 
 [node name="bound_left" type="StaticBody2D" parent="." unique_id=1334302838]
@@ -85,6 +94,10 @@ position = Vector2(235, 124)
 shape = SubResource("SegmentShape2D_5v6y6")
 
 [node name="HotbarUI" parent="." unique_id=284436183 instance=ExtResource("15_ihwr5")]
+part_scenes = Array[PackedScene]([ExtResource("7_jicg2"), ExtResource("8_ihwr5"), ExtResource("9_73wum"), ExtResource("10_5v6y6"), ExtResource("11_64x2g"), ExtResource("12_whuv8"), ExtResource("13_aonyo"), ExtResource("14_kupva")])
+part_labels = Array[String](["Motherboard", "CPU", "Cooling Fan", "HDD", "RAM", "Battery", "Panel", "Screws"])
+part_types = Array[String](["MOBO", "CPU", "CFAN", "HDD", "RAM", "BATTERY", "PANEL", "SCREW"])
+part_counts = Array[int]([1, 1, 1, 1, 1, 1, 1, 4])
 
 [editable path="SU_main"]
 [editable path="SuRack"]

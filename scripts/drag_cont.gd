@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 signal released(component)
+signal unsnapped(component)
 
 var is_grabbed: bool = false
 var touch_index: int = -1
@@ -11,7 +12,8 @@ var component_type: String = ""
 var _default_collision_layer: int = 0
 var _default_collision_mask: int = 0
 var _default_z_index: int = 0
-signal unsnapped(component)
+var _from_hotbar: bool = false  # when true, ignore is_mouse_button_pressed until next press+release
+
 @export var allow_unsnap: bool = false
 
 func _ready() -> void:
@@ -30,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	if is_grabbed:
-		if touch_index == -1 and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if not _from_hotbar and touch_index == -1 and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			_release()
 			return
 		var target_pos: Vector2
@@ -60,6 +62,17 @@ func _input(event: InputEvent) -> void:
 		return
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and touch_index == -1:
+		if _from_hotbar:
+			if event.pressed:
+				# Player clicked again after hotbar drop — normal drag now
+				_from_hotbar = false
+				var local_pos = to_local(get_global_mouse_position())
+				drag_offset = local_pos
+			else:
+				# Released without clicking — drop in place
+				_from_hotbar = false
+				_release()
+			return
 		if event.pressed:
 			var local_pos = to_local(get_global_mouse_position())
 			if _is_point_inside(local_pos):
@@ -138,3 +151,12 @@ func snap(target_position: Vector2) -> void:
 
 func drop() -> void:
 	pass
+
+# ── Called by HotbarUI when the player drags a part out of the hotbar ──────
+# Positions the part at world_pos and immediately begins a grab so the
+# player can continue dragging without a second click.
+func grab_from_hotbar(world_pos: Vector2) -> void:
+	drag_offset = Vector2.ZERO
+	global_position = world_pos
+	_from_hotbar = true
+	_grab()

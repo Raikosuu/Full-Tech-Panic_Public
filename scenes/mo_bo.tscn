@@ -29,7 +29,6 @@ position = Vector2(0, -3.9999998)
 scale = Vector2(0.4, 0.4)
 accepted_type = "CPU"
 remove_component = true
-allow_preview = false
 
 [node name="CFAN_snapzone" parent="." unique_id=217017135 instance=ExtResource("2_gqnev")]
 position = Vector2(0, -6.9999995)
@@ -42,4 +41,3 @@ position = Vector2(-9, -3.9999998)
 scale = Vector2(0.4, 0.4)
 accepted_type = "RAM"
 remove_component = true
-allow_preview = false
