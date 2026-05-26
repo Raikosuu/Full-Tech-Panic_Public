@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bdj6mg720j6n4"]
+
+[ext_resource type="Script" uid="uid://cv8qc0qotm4dm" path="res://scripts/exit_point.gd" id="1_fjtiv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tqi4c"]
+radius = 5.0
+
+[node name="exit point" type="Area2D" unique_id=2040969915 groups=["npc_exit"]]
+collision_layer = 4
+script = ExtResource("1_fjtiv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=958771621]
+shape = SubResource("CircleShape2D_tqi4c")

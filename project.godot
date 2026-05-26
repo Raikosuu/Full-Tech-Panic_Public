@@ -38,6 +38,7 @@ project/assembly_name="Second_game_project"
 
 computer_seats=""
 mobo_extract_zone=""
+npc_exit=""
 
 [input]
 

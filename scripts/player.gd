@@ -36,12 +36,15 @@ func _physics_process(_delta):
 		velocity = velocity.move_toward(Vector2.ZERO, movement_speed)
 		if sprite.animation != "idle":
 			sprite.animation = "idle"
-			
+
 	move_and_slide()
 	_check_nearby_npcs()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and nearby_npc != null:
+		GameState.interacted_npc = nearby_npc
+		nearby_npc = null
+		interact_label.visible = false
 		GameState.enter_minigame("res://scenes/minigame1_assembly.tscn")
 
 func _check_nearby_npcs() -> void:
