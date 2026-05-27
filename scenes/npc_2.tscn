@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxxb1w477yjce" path="res://scripts/npc_2.gd" id="1_23bb0"]
 [ext_resource type="Texture2D" uid="uid://b4j0mmhcdfwc1" path="res://assets/character/DinoSprites - doux.png" id="2_23bb0"]
+[ext_resource type="PackedScene" uid="uid://cgu8yawlh8ece" path="res://scenes/patience_bar.tscn" id="3_8v6sq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8v6sq"]
 atlas = ExtResource("2_23bb0")
@@ -149,6 +150,12 @@ autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=913058157]
 libraries/ = SubResource("AnimationLibrary_qchs1")
+
+[node name="patience bar" parent="." unique_id=1963716116 instance=ExtResource("3_8v6sq")]
+offset_left = -7.0
+offset_top = -22.0
+offset_right = 7.0
+offset_bottom = -18.0
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

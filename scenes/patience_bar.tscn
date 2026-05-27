@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cgu8yawlh8ece"]
+
+[ext_resource type="Script" uid="uid://1ymwwvpw2ol0" path="res://scripts/patience_bar.gd" id="1_001xp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_001xp"]
+bg_color = Color(0.27752772, 0.27752775, 0.27752766, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4lyd"]
+bg_color = Color(0.08617767, 0.6261141, 0.4021661, 0.9882353)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+corner_detail = 9
+
+[node name="patience bar" type="ProgressBar" unique_id=1963716116]
+offset_right = 14.0
+offset_bottom = 4.0
+theme_override_styles/background = SubResource("StyleBoxFlat_001xp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_a4lyd")
+value = 100.0
+show_percentage = false
+script = ExtResource("1_001xp")
