@@ -152,3 +152,10 @@ func _on_timer_timeout() -> void:
 		return
 	if target_seat != null and not nav_agent.is_navigation_finished():
 		nav_agent.target_position = target_seat.global_position
+
+func fail_and_leave() -> void:
+	_patience = 0.0
+	if _patience_bar and _patience_bar.has_method("set_ratio"):
+		_patience_bar.set_ratio(0.0)
+	_start_flash_red()
+	leave()

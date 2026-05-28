@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://duno78x0srmi8" path="res://scenes/su_battery.tscn" id="12_wv8cu"]
 [ext_resource type="PackedScene" uid="uid://bcg8ruhd4vc5n" path="res://scenes/su_panel.tscn" id="13_koys7"]
 [ext_resource type="PackedScene" uid="uid://ccxttvxg0gs8" path="res://scenes/screws.tscn" id="14_ma84e"]
+[ext_resource type="PackedScene" uid="uid://cgu8yawlh8ece" path="res://scenes/patience_bar.tscn" id="15_kd6cy"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_jicg2"]
 a = Vector2(-81, -44)
@@ -34,6 +35,7 @@ b = Vector2(-81, -44)
 [node name="Minigame1_v2" type="Node2D" unique_id=848190952]
 script = ExtResource("1_ldtce")
 completion_delay = 3.0
+timer_bar = NodePath("MinigameTimerBar")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=633094224]
 position = Vector2(235.00002, 126)
@@ -98,6 +100,12 @@ part_scenes = Array[PackedScene]([ExtResource("7_r3o22"), ExtResource("8_80hrt")
 part_labels = Array[String](["Motherboard", "CPU", "Cooling Fan", "HDD", "RAM", "Battery", "Panel", "Screws"])
 part_types = Array[String](["MOBO", "CPU", "CFAN", "HDD", "RAM", "BATTERY", "PANEL", "SCREW"])
 part_counts = Array[int]([1, 1, 1, 1, 1, 1, 1, 4])
+
+[node name="MinigameTimerBar" parent="." unique_id=1963716116 instance=ExtResource("15_kd6cy")]
+offset_left = 181.0
+offset_top = 83.0
+offset_right = 289.0
+offset_bottom = 89.0
 
 [editable path="SU_main"]
 [editable path="SuRack"]
