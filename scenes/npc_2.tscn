@@ -151,7 +151,7 @@ autostart = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=913058157]
 libraries/ = SubResource("AnimationLibrary_qchs1")
 
-[node name="patience bar" parent="." unique_id=1963716116 instance=ExtResource("3_8v6sq")]
+[node name="patience_bar" parent="." unique_id=1963716116 instance=ExtResource("3_8v6sq")]
 offset_left = -7.0
 offset_top = -22.0
 offset_right = 7.0

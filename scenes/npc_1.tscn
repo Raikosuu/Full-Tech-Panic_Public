@@ -152,7 +152,7 @@ autostart = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=309574962]
 libraries/ = SubResource("AnimationLibrary_3w2wa")
 
-[node name="patience bar" parent="." unique_id=1963716116 instance=ExtResource("3_rga5l")]
+[node name="patience_bar" parent="." unique_id=1963716116 instance=ExtResource("3_rga5l")]
 offset_left = -7.0
 offset_top = -22.0
 offset_right = 7.0

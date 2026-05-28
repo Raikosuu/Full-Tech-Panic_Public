@@ -17,7 +17,7 @@ corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 corner_detail = 9
 
-[node name="patience bar" type="ProgressBar" unique_id=1963716116]
+[node name="patience_bar" type="ProgressBar" unique_id=1963716116]
 offset_right = 14.0
 offset_bottom = 4.0
 theme_override_styles/background = SubResource("StyleBoxFlat_001xp")
