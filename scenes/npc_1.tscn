@@ -115,10 +115,28 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_3w2wa"]
+resource_name = "flash_red"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.9999804, 0.23979032, 0.28673768, 1), Color(1, 1, 1, 1), Color(1, 0.23921569, 0.28627452, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3w2wa"]
 _data = {
 &"RESET": SubResource("Animation_ttshn"),
-&"fade_out": SubResource("Animation_rga5l")
+&"fade_out": SubResource("Animation_rga5l"),
+&"flash_red": SubResource("Animation_3w2wa")
 }
 
 [node name="NPC1" type="CharacterBody2D" unique_id=1782467407]

@@ -37,7 +37,13 @@ func _tick_patience(delta: float) -> void:
 	if _patience_bar and _patience_bar.has_method("set_ratio"):
 		_patience_bar.set_ratio(_patience / _max_patience)
 	if _patience <= 0.0:
+		_start_flash_red()
 		leave()
+
+func _start_flash_red() -> void:
+	var anim_player := get_node_or_null("AnimationPlayer")
+	if anim_player and anim_player.has_animation("flash_red"):
+		anim_player.play("flash_red")
 
 func _physics_process(delta: float) -> void:
 	_tick_patience(delta)
