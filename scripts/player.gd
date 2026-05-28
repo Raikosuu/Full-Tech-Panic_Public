@@ -54,6 +54,9 @@ func _check_nearby_npcs() -> void:
 	var npc_handler = get_node_or_null("../npc_handler")
 	if npc_handler:
 		for npc in npc_handler.get_children():
+			# Skip NPCs that are leaving or already exiting
+			if npc.get("_leaving") or npc.get("is_exiting"):
+				continue
 			if npc.has_method("find_vacant_seat") and npc.get("target_seat") == null:
 				var dist = global_position.distance_to(npc.global_position)
 				if dist < closest_dist:
