@@ -35,6 +35,7 @@ b = Vector2(-81, -44)
 [node name="Minigame1_v2" type="Node2D" unique_id=848190952]
 script = ExtResource("1_ldtce")
 completion_delay = 3.0
+time_limit = 60.0
 timer_bar = NodePath("MinigameTimerBar")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=633094224]
