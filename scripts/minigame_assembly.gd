@@ -9,7 +9,7 @@ var _snapped_screws: int = 0
 var _hotbar: Node = null
 
 func _on_minigame_ready() -> void:
-	_hotbar = get_node_or_null("HotbarUI")   # ← ADD
+	_hotbar = get_node_or_null("HotbarUI")  
 	if _hotbar:
 		_hotbar.set_slot_locked("PANEL", true)  # locked at start
 	

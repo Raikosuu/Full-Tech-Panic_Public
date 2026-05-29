@@ -2,13 +2,17 @@ class_name BaseMinigame
 extends Node2D
 
 @export var completion_delay: float = 1.0
-@export var time_limit: float = 120.0   # seconds; set to 0 to disable
+@export var time_limit: float = 120.0
+@export var overlay_duration: float = 2.0   # how long the win/lose screen shows
+
+@export var win_screen_scene: PackedScene
+@export var lose_screen_scene: PackedScene
 
 var _completed: bool = false
 var _failed: bool = false
 var _time_remaining: float = 0.0
+var _overlay: CanvasLayer = null
 
-# UI — assign in Inspector or leave null to skip
 @export var timer_label: NodePath = NodePath("")
 @export var timer_bar: NodePath   = NodePath("")
 
@@ -64,12 +68,43 @@ func _on_complete() -> void:
 func _on_fail() -> void:
 	pass
 
+func _show_overlay(scene: PackedScene) -> void:
+	if scene == null:
+		return
+	_overlay = scene.instantiate()
+	add_child(_overlay)
+
+func _apply_blur() -> void:
+	# Use a ColorRect with a dark tint as a simple "blur" dimmer.
+	# If your project has a WorldEnvironment with blur, enable it here instead.
+	var dimmer := ColorRect.new()
+	dimmer.name = "BlurDimmer"
+	dimmer.color = Color(0.0, 0.0, 0.0, 0.55)
+	dimmer.z_index = 18          # above game, below overlay (layer 20)
+	dimmer.mouse_filter = Control.MOUSE_FILTER_STOP
+
+	# Stretch to fill the viewport in world space via a CanvasLayer
+	var cl := CanvasLayer.new()
+	cl.name = "BlurLayer"
+	cl.layer = 18
+	add_child(cl)
+	dimmer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	cl.add_child(dimmer)
+
 func _finish() -> void:
 	if completion_delay > 0.0:
 		await get_tree().create_timer(completion_delay, true, false, true).timeout
+	_apply_blur()
+	if win_screen_scene:
+		_show_overlay(win_screen_scene)
+	await get_tree().create_timer(overlay_duration, true, false, true).timeout
 	GameState.exit_minigame()
 
 func _finish_fail() -> void:
 	if completion_delay > 0.0:
 		await get_tree().create_timer(completion_delay, true, false, true).timeout
-	GameState.fail_minigame()   # <-- new method, see Step 2
+	_apply_blur()
+	if lose_screen_scene:
+		_show_overlay(lose_screen_scene)
+	await get_tree().create_timer(overlay_duration, true, false, true).timeout
+	GameState.fail_minigame()

@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://pwgp33d01o16"]
 
 [ext_resource type="Script" uid="uid://408qjhn7wpll" path="res://scripts/minigame_assembly.gd" id="1_ldtce"]
+[ext_resource type="PackedScene" uid="uid://cp4qiqeip4wpb" path="res://scenes/win_screen.tscn" id="2_bbmad"]
 [ext_resource type="Texture2D" uid="uid://dftmunw5wr58q" path="res://assets/Computer parts/Troubleshooting background.png" id="2_kd6cy"]
 [ext_resource type="PackedScene" uid="uid://rhxauoy66x4e" path="res://scenes/system_unit.tscn" id="3_bxpm2"]
+[ext_resource type="PackedScene" uid="uid://bel8ij2nnxtvo" path="res://scenes/lose_screen.tscn" id="3_joesv"]
 [ext_resource type="PackedScene" uid="uid://bhph80goxwfn5" path="res://scenes/snap_zone.tscn" id="4_bbmad"]
 [ext_resource type="PackedScene" uid="uid://c380fba04gpma" path="res://scenes/su_rack.tscn" id="5_joesv"]
 [ext_resource type="PackedScene" uid="uid://dms4vy7wnxet6" path="res://scenes/hotbar_ui.tscn" id="6_jdc1m"]
@@ -36,6 +38,8 @@ b = Vector2(-81, -44)
 script = ExtResource("1_ldtce")
 completion_delay = 3.0
 time_limit = 60.0
+win_screen_scene = ExtResource("2_bbmad")
+lose_screen_scene = ExtResource("3_joesv")
 timer_bar = NodePath("MinigameTimerBar")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=633094224]
