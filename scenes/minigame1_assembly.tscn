@@ -36,7 +36,7 @@ b = Vector2(-81, -44)
 
 [node name="Minigame1_v2" type="Node2D" unique_id=848190952]
 script = ExtResource("1_ldtce")
-completion_delay = 3.0
+completion_delay = 2.0
 time_limit = 60.0
 win_screen_scene = ExtResource("2_bbmad")
 lose_screen_scene = ExtResource("3_joesv")
