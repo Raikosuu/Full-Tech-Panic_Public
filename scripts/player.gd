@@ -12,10 +12,20 @@ var interact_label: Label = null
 func _ready() -> void:
 	interact_label = Label.new()
 	interact_label.z_index = 100
-	interact_label.text = "Press E"
-	interact_label.position = Vector2(-11, -25)
+	interact_label.text = "Interact"
+	interact_label.position = Vector2(-13, -25)
 	interact_label.visible = false
+	
+	# Create a dynamic font
+	var font = FontFile.new()
+	font.font_data = load("res://assets/fonts/PixelGamer-Regular.otf")
+	
+	# Apply the font to the label
+	interact_label.add_theme_font_override("font", font)
+	
+	# You can still override size separately if needed
 	interact_label.add_theme_font_size_override("font_size", 6)
+	
 	add_child(interact_label)
 
 func _physics_process(_delta):
