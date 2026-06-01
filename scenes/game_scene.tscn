@@ -1,12 +1,13 @@
 [gd_scene format=4 uid="uid://b0nvcgpoypl62"]
 
+[ext_resource type="Script" uid="uid://b2suspsbqk0h0" path="res://scripts/game_scene.gd" id="1_b5spy"]
 [ext_resource type="PackedScene" uid="uid://demqpuvfguk8d" path="res://scenes/player.tscn" id="1_w5aja"]
 [ext_resource type="Texture2D" uid="uid://vgq806bcs4q" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="1_ycayy"]
 [ext_resource type="Texture2D" uid="uid://bxnkyr5imokua" path="res://assets/Modern tiles_Free/Interiors_free/16x16/Room_Builder_free_16x16.png" id="2_bw6k5"]
 [ext_resource type="PackedScene" uid="uid://di6c82vetinpd" path="res://scenes/seats.tscn" id="5_rurhu"]
 [ext_resource type="PackedScene" uid="uid://bdj6mg720j6n4" path="res://scenes/exit_point.tscn" id="6_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://bvvwyojvr5lid" path="res://scenes/npc_spawn.tscn" id="6_rurhu"]
-[ext_resource type="PackedScene" uid="uid://d2bih5roi80vd" path="res://scenes/health_ui.tscn" id="7_kk2rg"]
+[ext_resource type="PackedScene" path="res://scenes/health_ui.tscn" id="7_kk2rg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rurhu"]
 texture = ExtResource("2_bw6k5")
@@ -2542,6 +2543,7 @@ agent_radius = 4.0
 distance = -249.0
 
 [node name="game_scene" type="Node2D" unique_id=1662599829]
+script = ExtResource("1_b5spy")
 
 [node name="ground" type="TileMapLayer" parent="." unique_id=1824960529]
 position = Vector2(236, 137)
