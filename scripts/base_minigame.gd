@@ -75,19 +75,16 @@ func _show_overlay(scene: PackedScene) -> void:
 	add_child(_overlay)
 
 func _apply_blur() -> void:
-	# Use a ColorRect with a dark tint as a simple "blur" dimmer.
-	# If your project has a WorldEnvironment with blur, enable it here instead.
-	var dimmer := ColorRect.new()
-	dimmer.name = "BlurDimmer"
-	dimmer.color = Color(0.0, 0.0, 0.0, 0.55)
-	dimmer.z_index = 18          # above game, below overlay (layer 20)
-	dimmer.mouse_filter = Control.MOUSE_FILTER_STOP
-
-	# Stretch to fill the viewport in world space via a CanvasLayer
+	var env_node := get_node_or_null("WorldEnvironment")
+	if env_node and env_node.environment:
+		env_node.environment.adjustment_enabled = true
+		env_node.environment.adjustment_brightness = 0.4
+	# Fallback dimmer still added for safety
 	var cl := CanvasLayer.new()
-	cl.name = "BlurLayer"
 	cl.layer = 18
 	add_child(cl)
+	var dimmer := ColorRect.new()
+	dimmer.color = Color(0.0, 0.0, 0.0, 0.45)
 	dimmer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	cl.add_child(dimmer)
 

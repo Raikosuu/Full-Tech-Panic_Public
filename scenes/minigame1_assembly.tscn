@@ -34,6 +34,10 @@ b = Vector2(81, 47)
 a = Vector2(81, -44)
 b = Vector2(-81, -44)
 
+[sub_resource type="Environment" id="Environment_bbmad"]
+glow_enabled = true
+adjustment_enabled = true
+
 [node name="Minigame1_v2" type="Node2D" unique_id=848190952]
 script = ExtResource("1_ldtce")
 completion_delay = 2.0
@@ -111,6 +115,9 @@ offset_left = 181.0
 offset_top = 83.0
 offset_right = 289.0
 offset_bottom = 89.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1051369316]
+environment = SubResource("Environment_bbmad")
 
 [editable path="SU_main"]
 [editable path="SuRack"]
