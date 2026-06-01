@@ -19,6 +19,10 @@ var _max_patience: float = 0.0
 var _is_seated: bool = false
 var _patience_bar: Node = null
 
+# Tracks whether this NPC's patience running out should cost the player a life.
+# Set to false when the player has already been punished (fail_and_leave).
+var _counts_for_damage: bool = true
+
 func _ready() -> void:
 	seats = get_tree().get_nodes_in_group("computer_seats")
 	_patience_bar = get_node_or_null("patience_bar")
@@ -38,6 +42,8 @@ func _tick_patience(delta: float) -> void:
 		_patience_bar.set_ratio(_patience / _max_patience)
 	if _patience <= 0.0:
 		_start_flash_red()
+		if _counts_for_damage:
+			HealthState.take_damage()
 		leave()
 
 func _start_flash_red() -> void:
@@ -100,7 +106,6 @@ func find_vacant_seat() -> void:
 		leave()
 
 func leave() -> void:
-	# Free both the target seat and the occupied seat
 	if target_seat != null:
 		target_seat.is_taken = false
 		target_seat = null
@@ -109,13 +114,11 @@ func leave() -> void:
 		_occupied_seat = null
 	_is_seated = false
 
-	# Find the exit marker in the scene (must be in group "npc_exit")
 	var exits := get_tree().get_nodes_in_group("npc_exit")
 	if exits.is_empty():
 		queue_free()
 		return
 
-	# Pick the closest exit
 	var exit_pos: Vector2 = exits[0].global_position
 	var best_dist: float = global_position.distance_to(exit_pos)
 	for exit in exits:
@@ -154,6 +157,9 @@ func _on_timer_timeout() -> void:
 		nav_agent.target_position = target_seat.global_position
 
 func fail_and_leave() -> void:
+	# Called by game_state after a failed minigame — game_state already
+	# called HealthState.take_damage(), so suppress the NPC's own damage call.
+	_counts_for_damage = false
 	_patience = 0.0
 	if _patience_bar and _patience_bar.has_method("set_ratio"):
 		_patience_bar.set_ratio(0.0)

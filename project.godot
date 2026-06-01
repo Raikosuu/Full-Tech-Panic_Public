@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+HealthState="*uid://dtvxbsq8mvc6x"
 GameState="*res://scripts/game_state.gd"
 
 [display]

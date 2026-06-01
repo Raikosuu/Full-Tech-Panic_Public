@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://di6c82vetinpd" path="res://scenes/seats.tscn" id="5_rurhu"]
 [ext_resource type="PackedScene" uid="uid://bdj6mg720j6n4" path="res://scenes/exit_point.tscn" id="6_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://bvvwyojvr5lid" path="res://scenes/npc_spawn.tscn" id="6_rurhu"]
+[ext_resource type="PackedScene" uid="uid://d2bih5roi80vd" path="res://scenes/health_ui.tscn" id="7_kk2rg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rurhu"]
 texture = ExtResource("2_bw6k5")
@@ -2658,3 +2659,5 @@ shape = SubResource("WorldBoundaryShape2D_y3j0m")
 
 [node name="exit point" parent="." unique_id=2040969915 instance=ExtResource("6_kk2rg")]
 position = Vector2(328, 239)
+
+[node name="HealthUI" parent="." unique_id=74143610 instance=ExtResource("7_kk2rg")]

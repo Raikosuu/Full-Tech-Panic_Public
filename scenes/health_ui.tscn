@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://d2bih5roi80vd"]
+
+[ext_resource type="Script" uid="uid://cb51kmpl4027s" path="res://scripts/health_ui.gd" id="1_hlth"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlth"]
+bg_color = Color(0.06, 0.06, 0.09, 0.85)
+border_width_top = 1
+border_color = Color(0.18, 0.18, 0.28, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="HealthUI" type="CanvasLayer" unique_id=74143610]
+layer = 10
+script = ExtResource("1_hlth")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=560405462]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 60.0
+offset_bottom = 28.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hlth")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=638426928]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="Hearts" type="HBoxContainer" parent="Panel/MarginContainer" unique_id=1792428900]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Heart1" type="Label" parent="Panel/MarginContainer/Hearts" unique_id=48710206]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 14
+text = "♥"
+
+[node name="Heart2" type="Label" parent="Panel/MarginContainer/Hearts" unique_id=628167856]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 14
+text = "♥"
+
+[node name="Heart3" type="Label" parent="Panel/MarginContainer/Hearts" unique_id=1121494839]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 14
+text = "♥"
