@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 func _ready() -> void:
-	# Pause the game while the screen is showing
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().paused = true
 
 	$Panel/VBoxContainer/ButtonMargin/ButtonBox/RetryButton.pressed.connect(_on_retry)
@@ -10,9 +10,11 @@ func _ready() -> void:
 func _on_retry() -> void:
 	get_tree().paused = false
 	HealthState.reset()
+	queue_free()
 	get_tree().change_scene_to_file("res://scenes/game_scene.tscn")
 
 func _on_main_menu() -> void:
 	get_tree().paused = false
 	HealthState.reset()
+	queue_free()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
