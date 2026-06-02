@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c8s4hl3jv3c1h"]
+
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_6wx45"]
+[ext_resource type="Texture2D" uid="uid://1x3jsi7d0w45" path="res://assets/interact button.png" id="2_n26gd"]
+
+[node name="TouchControls" type="CanvasLayer" unique_id=1602627443]
+
+[node name="Virtual Joystick" parent="." unique_id=1921159607 instance=ExtResource("1_6wx45")]
+offset_left = -0.99999994
+offset_top = -121.000015
+offset_right = 299.0
+offset_bottom = 179.0
+scale = Vector2(0.4, 0.4)
+pressed_color = Color(0.80438834, 0.10015593, 0.32349014, 1)
+clampzone_size = 25.0
+joystick_mode = 1
+visibility_mode = 2
+action_left = "move_left"
+action_right = "move_right"
+action_up = "move_up"
+action_down = "move_down"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=444295103]
+position = Vector2(297.00003, 133)
+scale = Vector2(0.165, 0.165)
+texture_normal = ExtResource("2_n26gd")
+action = "interact"

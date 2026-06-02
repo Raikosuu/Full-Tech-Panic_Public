@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bdj6mg720j6n4" path="res://scenes/exit_point.tscn" id="6_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://bvvwyojvr5lid" path="res://scenes/npc_spawn.tscn" id="6_rurhu"]
 [ext_resource type="PackedScene" path="res://scenes/health_ui.tscn" id="7_kk2rg"]
+[ext_resource type="PackedScene" uid="uid://c8s4hl3jv3c1h" path="res://scenes/touch_controls.tscn" id="9_utbpp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rurhu"]
 texture = ExtResource("2_bw6k5")
@@ -2663,3 +2664,14 @@ shape = SubResource("WorldBoundaryShape2D_y3j0m")
 position = Vector2(328, 239)
 
 [node name="HealthUI" parent="." unique_id=74143610 instance=ExtResource("7_kk2rg")]
+
+[node name="Control" type="Control" parent="." unique_id=1491601460]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="TouchControls" parent="Control" unique_id=1602627443 instance=ExtResource("9_utbpp")]
