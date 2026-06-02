@@ -1,12 +1,21 @@
 extends Node
 
+const MINIGAMES: Array[String] = [
+	"res://scenes/minigame1_assembly.tscn",
+	"res://scenes/minigame2_disassembly.tscn",
+]
+
 var _game_scene_instance: Node = null
 var interacted_npc: CharacterBody2D = null
 
-func enter_minigame(minigame_path: String) -> void:
+# Global drag lock — only one part can be grabbed at a time.
+var drag_active: bool = false
+
+func enter_minigame() -> void:
+	var path: String = MINIGAMES[randi() % MINIGAMES.size()]
 	_game_scene_instance = get_tree().current_scene
 	get_tree().root.remove_child(_game_scene_instance)
-	var minigame = load(minigame_path).instantiate()
+	var minigame = load(path).instantiate()
 	get_tree().root.add_child(minigame)
 	get_tree().current_scene = minigame
 
@@ -37,5 +46,4 @@ func fail_minigame() -> void:
 	if interacted_npc != null and is_instance_valid(interacted_npc):
 		interacted_npc.fail_and_leave()
 		interacted_npc = null
-	# Deduct a life for failing the minigame
 	HealthState.take_damage()

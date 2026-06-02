@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://2w58aqugwvpd"]
+
+[ext_resource type="Script" uid="uid://cjjwc285fdegm" path="res://scripts/minigame_2_disassembly.gd" id="1_i6ods"]
+[ext_resource type="PackedScene" uid="uid://cp4qiqeip4wpb" path="res://scenes/win_screen.tscn" id="2_dis"]
+[ext_resource type="Texture2D" uid="uid://dftmunw5wr58q" path="res://assets/Computer parts/Troubleshooting background.png" id="3_dis"]
+[ext_resource type="PackedScene" uid="uid://rhxauoy66x4e" path="res://scenes/system_unit.tscn" id="4_dis"]
+[ext_resource type="PackedScene" uid="uid://bel8ij2nnxtvo" path="res://scenes/lose_screen.tscn" id="5_dis"]
+[ext_resource type="PackedScene" uid="uid://bhph80goxwfn5" path="res://scenes/snap_zone.tscn" id="6_dis"]
+[ext_resource type="PackedScene" uid="uid://c380fba04gpma" path="res://scenes/su_rack.tscn" id="7_dis"]
+[ext_resource type="PackedScene" uid="uid://hqijequt6jg7" path="res://scenes/mo_bo.tscn" id="8_dis"]
+[ext_resource type="PackedScene" uid="uid://t6monse15254" path="res://scenes/cpu.tscn" id="9_dis"]
+[ext_resource type="PackedScene" uid="uid://dsrqfd5w0e2j4" path="res://scenes/cooling_fan.tscn" id="10_dis"]
+[ext_resource type="PackedScene" uid="uid://cou02t2vy1mu2" path="res://scenes/hdd.tscn" id="11_dis"]
+[ext_resource type="PackedScene" uid="uid://pgpcgeywpbc5" path="res://scenes/ram_module.tscn" id="12_dis"]
+[ext_resource type="PackedScene" uid="uid://duno78x0srmi8" path="res://scenes/su_battery.tscn" id="13_dis"]
+[ext_resource type="PackedScene" uid="uid://bcg8ruhd4vc5n" path="res://scenes/su_panel.tscn" id="14_dis"]
+[ext_resource type="PackedScene" uid="uid://ccxttvxg0gs8" path="res://scenes/screws.tscn" id="15_dis"]
+[ext_resource type="PackedScene" uid="uid://cgu8yawlh8ece" path="res://scenes/patience_bar.tscn" id="16_dis"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_l"]
+a = Vector2(-81, -44)
+b = Vector2(-80, 47)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_b"]
+a = Vector2(83, 47)
+b = Vector2(-80, 47)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_r"]
+a = Vector2(81, -44)
+b = Vector2(81, 47)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_t"]
+a = Vector2(81, -44)
+b = Vector2(-81, -44)
+
+[sub_resource type="Environment" id="Environment_dis"]
+glow_enabled = true
+adjustment_enabled = true
+
+[node name="Minigame2_Disassembly" type="Node2D" unique_id=914727271]
+script = ExtResource("1_i6ods")
+completion_delay = 2.0
+time_limit = 60.0
+win_screen_scene = ExtResource("2_dis")
+lose_screen_scene = ExtResource("5_dis")
+timer_bar = NodePath("MinigameTimerBar")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=309105823]
+position = Vector2(235.00002, 126)
+zoom = Vector2(3, 3)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=548221223]
+z_index = -1
+position = Vector2(238, 126.25)
+scale = Vector2(0.12357955, 0.13346355)
+texture = ExtResource("3_dis")
+
+[node name="SU_main" parent="." unique_id=1258341214 instance=ExtResource("4_dis")]
+position = Vector2(235.00002, 124)
+
+[node name="Battery_snapzone" parent="SU_main" unique_id=105230408 instance=ExtResource("6_dis")]
+position = Vector2(7, -13)
+scale = Vector2(0.5, 0.5)
+accepted_type = "BATTERY"
+blocked_by_snap_zone = NodePath("../Panel_snapzone")
+
+[node name="MoBo_snapzone" parent="SU_main" unique_id=274150213 instance=ExtResource("6_dis")]
+position = Vector2(0, 9)
+accepted_type = "MOBO"
+blocked_by_snap_zone = NodePath("../Panel_snapzone")
+
+[node name="SuRack" parent="." unique_id=1659241457 instance=ExtResource("7_dis")]
+z_index = 1
+position = Vector2(235.00002, 124)
+
+[node name="HDD_snapzone" parent="SuRack" index="3"]
+allow_preview = true
+blocked_by_snap_zone = NodePath("../../SU_main/Panel_snapzone")
+eject_on_click = true
+
+[node name="MoBo" parent="." unique_id=220652203 instance=ExtResource("8_dis")]
+position = Vector2(235.00002, 133)
+allow_unsnap = true
+blocked_by_parts = Array[NodePath]([NodePath("../SU_main/Panel_snapzone"), NodePath("../RAM_Module"), NodePath("../Cooling Fan"), NodePath("../CPU")])
+
+[node name="Sprite2D" parent="MoBo" index="0" unique_id=716436491]
+disassembly_mode = true
+
+[node name="CPU_snapzone" parent="MoBo" index="2" unique_id=625781889]
+eject_on_click = true
+
+[node name="RAM_snapzone" parent="MoBo" index="4" unique_id=1331106093]
+eject_on_click = true
+
+[node name="CPU" parent="." unique_id=1373659879 instance=ExtResource("9_dis")]
+position = Vector2(235.00002, 129)
+allow_unsnap = true
+blocked_by_parts = Array[NodePath]([NodePath("../SU_panel")])
+
+[node name="Cooling Fan" parent="." unique_id=904752511 instance=ExtResource("10_dis")]
+position = Vector2(235.00002, 126)
+allow_unsnap = true
+blocked_by_parts = Array[NodePath]([NodePath("../SU_panel")])
+
+[node name="HDD" parent="." unique_id=344473511 instance=ExtResource("11_dis")]
+position = Vector2(223.00002, 140)
+allow_unsnap = true
+blocked_by_parts = Array[NodePath]([NodePath("../SU_panel")])
+
+[node name="RAM_Module" parent="." unique_id=523341169 instance=ExtResource("12_dis")]
+position = Vector2(226.00002, 129)
+allow_unsnap = true
+blocked_by_parts = Array[NodePath]([NodePath("../SU_panel")])
+
+[node name="SU_Battery" parent="." unique_id=1760540282 instance=ExtResource("13_dis")]
+position = Vector2(242.00002, 111)
+allow_unsnap = true
+blocked_by_parts = Array[NodePath]([NodePath("../SU_panel")])
+
+[node name="SU_panel" parent="." unique_id=81043916 instance=ExtResource("14_dis")]
+position = Vector2(235.00002, 124)
+allow_unsnap = true
+blocked_by_parts = Array[NodePath]([NodePath("../Screws1"), NodePath("../Screws2"), NodePath("../Screws3"), NodePath("../Screws4")])
+
+[node name="Screws1" parent="." unique_id=1398340488 instance=ExtResource("15_dis")]
+position = Vector2(220.00002, 107)
+allow_unsnap = true
+
+[node name="Screws2" parent="." unique_id=1669843805 instance=ExtResource("15_dis")]
+position = Vector2(249.00002, 107)
+allow_unsnap = true
+
+[node name="Screws3" parent="." unique_id=748707907 instance=ExtResource("15_dis")]
+position = Vector2(220.00002, 141)
+allow_unsnap = true
+
+[node name="Screws4" parent="." unique_id=1647056784 instance=ExtResource("15_dis")]
+position = Vector2(249.00002, 141)
+allow_unsnap = true
+
+[node name="bound_left" type="StaticBody2D" parent="." unique_id=416227916]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bound_left" unique_id=1399936037]
+position = Vector2(235, 124)
+shape = SubResource("SegmentShape2D_l")
+one_way_collision = true
+
+[node name="bound_bottom" type="StaticBody2D" parent="." unique_id=1965101658]
+position = Vector2(155, 171)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bound_bottom" unique_id=306663529]
+position = Vector2(80, -47)
+shape = SubResource("SegmentShape2D_b")
+
+[node name="bound_right" type="StaticBody2D" parent="." unique_id=1070149447]
+position = Vector2(235, 124)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bound_right" unique_id=30925041]
+shape = SubResource("SegmentShape2D_r")
+
+[node name="bound_top" type="StaticBody2D" parent="." unique_id=871689711]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bound_top" unique_id=2098725777]
+position = Vector2(235, 124)
+shape = SubResource("SegmentShape2D_t")
+
+[node name="MinigameTimerBar" parent="." unique_id=1422236467 instance=ExtResource("16_dis")]
+offset_left = 181.0
+offset_top = 83.0
+offset_right = 289.0
+offset_bottom = 89.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=764000408]
+environment = SubResource("Environment_dis")
+
+[editable path="SU_main"]
+[editable path="SuRack"]
+[editable path="MoBo"]
+[editable path="SU_panel"]
