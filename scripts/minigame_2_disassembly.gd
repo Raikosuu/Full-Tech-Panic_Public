@@ -3,14 +3,17 @@ extends BaseMinigame
 const REQUIRED_REMOVALS: Array[String] = ["PANEL", "CPU", "CFAN", "RAM", "HDD", "BATTERY", "MOBO"]
 const REQUIRED_SCREWS: int = 4
 
-var _removed_parts: Array[String] = []
+var _removed_parts:  Array[String] = []
 var _removed_screws: int = 0
+var _hotbar: Node = null                     
 
 func _on_minigame_ready() -> void:
+	_hotbar = get_node_or_null("DisassemblyHotbar")   
+	if _hotbar and _hotbar.has_method("set_screw_total"):
+		_hotbar.set_screw_total(REQUIRED_SCREWS)     
 	_pre_fill_all()
 	_connect_snap_zones(self)
 	child_entered_tree.connect(_on_child_entered_tree)
-
 func _pre_fill_all() -> void:
 	# ── Panel + screws ──────────────────────────────────────────────────────
 	var panel    := get_node_or_null("SU_panel")
@@ -108,6 +111,9 @@ func _on_part_removed(slot_type: String) -> void:
 		if slot_type not in _removed_parts:
 			_removed_parts.append(slot_type)
 			print("Removed: %s  (%d / %d)" % [slot_type, _removed_parts.size(), REQUIRED_REMOVALS.size()])
+	if _hotbar and _hotbar.has_method("collect"):   
+		_hotbar.collect(slot_type)                
+
 	try_complete()
 
 func _check_completion() -> bool:

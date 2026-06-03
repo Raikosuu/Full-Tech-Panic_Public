@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://b4822qegotx2m"]
+
+[ext_resource type="Script" uid="uid://bsk1qso1w1gqw" path="res://scripts/disassembly_hotbar.gd" id="1_10u8m"]
+[ext_resource type="PackedScene" uid="uid://ccxttvxg0gs8" path="res://scenes/screws.tscn" id="2_7kbdg"]
+[ext_resource type="PackedScene" uid="uid://bcg8ruhd4vc5n" path="res://scenes/su_panel.tscn" id="3_cwbsf"]
+[ext_resource type="PackedScene" uid="uid://duno78x0srmi8" path="res://scenes/su_battery.tscn" id="4_5cox1"]
+[ext_resource type="PackedScene" uid="uid://hqijequt6jg7" path="res://scenes/mo_bo.tscn" id="5_aeacb"]
+[ext_resource type="PackedScene" uid="uid://t6monse15254" path="res://scenes/cpu.tscn" id="6_qdtgg"]
+[ext_resource type="PackedScene" uid="uid://dsrqfd5w0e2j4" path="res://scenes/cooling_fan.tscn" id="7_ocnhh"]
+[ext_resource type="PackedScene" uid="uid://pgpcgeywpbc5" path="res://scenes/ram_module.tscn" id="8_wyvwe"]
+[ext_resource type="PackedScene" uid="uid://cou02t2vy1mu2" path="res://scenes/hdd.tscn" id="9_4ljx5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.06, 0.06, 0.09, 0.95)
+border_width_top = 1
+border_color = Color(0.18, 0.18, 0.28, 1)
+
+[node name="DisassemblyHotbar" type="CanvasLayer" unique_id=1573472408]
+layer = 10
+script = ExtResource("1_10u8m")
+part_types = Array[String](["SCREW", "PANEL", "BATTERY", "MOBO", "CPU", "CFAN", "RAM", "HDD"])
+part_labels = Array[String](["Screws", "Panel", "PSU", "Motherboard", "CPU", "Cooling Fan", "RAM", "HDD"])
+part_scenes = Array[PackedScene]([ExtResource("2_7kbdg"), ExtResource("3_cwbsf"), ExtResource("4_5cox1"), ExtResource("5_aeacb"), ExtResource("6_qdtgg"), ExtResource("7_ocnhh"), ExtResource("8_wyvwe"), ExtResource("9_4ljx5")])
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=151350601]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -44.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1897704918]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer" unique_id=487787450]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Slots" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer" unique_id=580012013]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3

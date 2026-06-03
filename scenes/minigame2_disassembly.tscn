@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bcg8ruhd4vc5n" path="res://scenes/su_panel.tscn" id="14_dis"]
 [ext_resource type="PackedScene" uid="uid://ccxttvxg0gs8" path="res://scenes/screws.tscn" id="15_dis"]
 [ext_resource type="PackedScene" uid="uid://cgu8yawlh8ece" path="res://scenes/patience_bar.tscn" id="16_dis"]
+[ext_resource type="PackedScene" uid="uid://b4822qegotx2m" path="res://scenes/disassembly_hotbar.tscn" id="16_if6my"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_l"]
 a = Vector2(-81, -44)
@@ -163,6 +164,8 @@ shape = SubResource("SegmentShape2D_r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bound_top" unique_id=2098725777]
 position = Vector2(235, 124)
 shape = SubResource("SegmentShape2D_t")
+
+[node name="DisassemblyHotbar" parent="." unique_id=1573472408 instance=ExtResource("16_if6my")]
 
 [node name="MinigameTimerBar" parent="." unique_id=1422236467 instance=ExtResource("16_dis")]
 offset_left = 181.0
