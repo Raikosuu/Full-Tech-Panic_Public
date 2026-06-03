@@ -2,6 +2,209 @@
 
 [ext_resource type="FontFile" uid="uid://chkdc34o58e2w" path="res://assets/fonts/PixelGamer-Regular.otf" id="1_font"]
 [ext_resource type="Script" uid="uid://cchqjnahv6a84" path="res://scripts/prologue.gd" id="1_prol"]
+[ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="2_y30ld"]
+
+[sub_resource type="Animation" id="Animation_30x7o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Backdrop:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/TitleCard:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/DialogueBox:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/DialogueBox:pivot_offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -80)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/DialogueBox:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_le04t"]
+resource_name = "dialogue_slide_in"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/DialogueBox:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/DialogueBox:pivot_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -80), Vector2(0, -90)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.33333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_dialogue_ready"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_0g5x1"]
+resource_name = "intro_fade"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Backdrop:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/TitleCard:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 2.5, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show_dialogue"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_y30ld"]
+resource_name = "line_pop"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/DialogueBox:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.01, 0.98), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ojphu"]
+resource_name = "outro_fade"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Backdrop:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"go_to_game"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ojphu"]
+_data = {
+&"RESET": SubResource("Animation_30x7o"),
+&"dialogue_slide_in": SubResource("Animation_le04t"),
+&"intro_fade": SubResource("Animation_0g5x1"),
+&"line_pop": SubResource("Animation_y30ld"),
+&"outro_fade": SubResource("Animation_ojphu")
+}
 
 [node name="Prologue" type="Node2D" unique_id=1965087689]
 script = ExtResource("1_prol")
@@ -18,7 +221,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="TitleCard" type="VBoxContainer" parent="UI" unique_id=1307462113]
-modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -34,7 +236,7 @@ grow_vertical = 2
 [node name="DayLabel" type="Label" parent="UI/TitleCard" unique_id=1222712008]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
-theme_override_fonts/font = ExtResource("1_font")
+theme_override_fonts/font = ExtResource("2_y30ld")
 theme_override_font_sizes/font_size = 28
 text = "DAY  1"
 horizontal_alignment = 1
@@ -42,7 +244,7 @@ horizontal_alignment = 1
 [node name="SubLabel" type="Label" parent="UI/TitleCard" unique_id=1098478011]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
-theme_override_fonts/font = ExtResource("1_font")
+theme_override_fonts/font = ExtResource("2_y30ld")
 theme_override_font_sizes/font_size = 11
 text = "IT Support Floor — 8:59 AM"
 horizontal_alignment = 1
@@ -57,23 +259,25 @@ offset_left = 8.0
 offset_top = -90.0
 offset_right = -8.0
 offset_bottom = -8.0
+pivot_offset = Vector2(0, -80)
 
 [node name="HBox" type="HBoxContainer" parent="UI/DialogueBox" unique_id=1623139170]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="SpeakerPortrait" type="ColorRect" parent="UI/DialogueBox/HBox" unique_id=233774401]
+[node name="SpeakerPortrait" type="ColorRect" parent="UI/DialogueBox/HBox" unique_id=1446435791]
 custom_minimum_size = Vector2(56, 56)
 layout_mode = 2
-color = Color(0.18, 0.18, 0.22, 1)
 
-[node name="PortraitLabel" type="Label" parent="UI/DialogueBox/HBox/SpeakerPortrait" unique_id=1507572772]
-layout_mode = 0
+[node name="PortraitLabel" type="Label" parent="UI/DialogueBox/HBox/SpeakerPortrait" unique_id=1360080457]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_colors/font_color = Color(0.5, 0.5, 0.6, 1)
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 7
-text = "portrait"
+text = "\"Portrait\""
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -93,7 +297,7 @@ text = "???"
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.9, 0.9, 0.9, 1)
-theme_override_fonts/normal_font = ExtResource("1_font")
+theme_override_fonts/normal_font = ExtResource("2_y30ld")
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 fit_content = true
@@ -103,7 +307,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.5, 0.5, 0.6, 1)
 theme_override_fonts/font = ExtResource("1_font")
 theme_override_font_sizes/font_size = 7
-text = "[ press SPACE / click to continue ]"
+text = "[ Tap To Continue ]"
 horizontal_alignment = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=57600444]
+libraries/ = SubResource("AnimationLibrary_ojphu")
