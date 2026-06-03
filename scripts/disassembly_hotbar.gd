@@ -1,6 +1,6 @@
 # disassembly_hotbar.gd
 # A "collection bar" for disassembly — slots start empty and fill
-# as parts are removed from the PC. Read-only; no dragging out.
+# as parts are deposited into the hotbar. Read-only; no dragging out.
 extends CanvasLayer
 
 @export var part_types:  Array[String] = []
@@ -29,7 +29,11 @@ var _collected:    Array[bool]           = []
 var _screw_total:  int = 0
 var _screw_count:  int = 0
 
+# Highlight shown when a draggable part hovers over the hotbar
+var _highlight_active: bool = false
+
 @onready var _slot_container: HBoxContainer = $Panel/MarginContainer/HBoxContainer/Slots
+@onready var _panel: Control = $Panel
 
 func _ready() -> void:
 	_validate_exports()
@@ -55,7 +59,6 @@ func _build_slots() -> void:
 		var icon_size := _icon_display_size(i, ptype == "RAM")
 		var slot_w    := int(icon_size.x) + 8
 
-		# ── Slot panel ──────────────────────────────────────────────────────
 		var slot := PanelContainer.new()
 		slot.custom_minimum_size   = Vector2(slot_w, SLOT_HEIGHT)
 		slot.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
@@ -64,7 +67,7 @@ func _build_slots() -> void:
 
 		var slot_bg := StyleBoxFlat.new()
 		slot_bg.bg_color     = Color(0.08, 0.08, 0.14, 1.0)
-		slot_bg.border_color = acc_col * 0.4        # dim — not yet collected
+		slot_bg.border_color = acc_col * 0.4
 		slot_bg.set_border_width_all(1)
 		slot_bg.set_corner_radius_all(4)
 		slot_bg.set_content_margin_all(2)
@@ -72,7 +75,6 @@ func _build_slots() -> void:
 		_slot_container.add_child(slot)
 		_slot_panels.append(slot)
 
-		# ── Icon ────────────────────────────────────────────────────────────
 		var center := CenterContainer.new()
 		center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		center.size_flags_vertical   = Control.SIZE_EXPAND_FILL
@@ -85,11 +87,10 @@ func _build_slots() -> void:
 		icon.stretch_mode        = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		icon.custom_minimum_size = icon_size
 		icon.mouse_filter        = Control.MOUSE_FILTER_IGNORE
-		icon.modulate.a          = 0.25             # greyed — not collected
+		icon.modulate.a          = 0.25
 		center.add_child(icon)
 		_set_icon_texture(icon, i)
 
-		# ── Checkmark badge ─────────────────────────────────────────────────
 		var overlay := Control.new()
 		overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -104,9 +105,82 @@ func _build_slots() -> void:
 		check.vertical_alignment   = VERTICAL_ALIGNMENT_BOTTOM
 		check.add_theme_font_size_override("font_size", BADGE_SIZE)
 		check.add_theme_color_override("font_color", acc_col.lightened(0.3))
-		check.text                 = ""             # filled on collect
+		check.text                 = ""
 		overlay.add_child(check)
 		_check_labels.append(check)
+
+# ── Drop zone: consume a dragged part when released over the hotbar ────────
+func _input(event: InputEvent) -> void:
+	if not GameState.drag_active:
+		_set_highlight(false)
+		return
+
+	var screen_pos := Vector2.ZERO
+	var is_release := false
+
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		screen_pos = event.position
+		is_release = not event.pressed
+	elif event is InputEventMouseMotion:
+		screen_pos = event.position
+	elif event is InputEventScreenTouch:
+		screen_pos = event.position
+		is_release = not event.pressed
+	elif event is InputEventScreenDrag:
+		screen_pos = event.position
+
+	if screen_pos == Vector2.ZERO and not is_release:
+		return
+
+	var over_hotbar := _panel_rect().has_point(screen_pos)
+	_set_highlight(over_hotbar)
+
+	if is_release and over_hotbar:
+		_try_deposit(screen_pos)
+
+func _panel_rect() -> Rect2:
+	# _panel is a CanvasLayer child so its global_position is in screen space
+	return Rect2(_panel.global_position, _panel.size)
+
+func _try_deposit(_screen_pos: Vector2) -> void:
+	# Walk the minigame tree to find the currently grabbed part
+	var minigame := get_parent()
+	var grabbed := _find_grabbed(minigame)
+	if grabbed == null:
+		return
+
+	var ptype: String = grabbed.get("component_type") if "component_type" in grabbed else ""
+
+	# Tell the part to release cleanly (clears GameState.drag_active, signals, etc.)
+	if grabbed.has_method("_release"):
+		grabbed._release()
+
+	# Remove it from the scene
+	grabbed.queue_free()
+
+	# Count it
+	collect(ptype)
+
+	# Notify the minigame so _check_completion() runs
+	var mg = get_parent()
+	if mg.has_method("_on_part_deposited"):
+		mg._on_part_deposited(ptype)
+
+func _find_grabbed(node: Node) -> Node:
+	for child in node.get_children():
+		if "is_grabbed" in child and child.is_grabbed:
+			return child
+		var found := _find_grabbed(child)
+		if found:
+			return found
+	return null
+
+func _set_highlight(on: bool) -> void:
+	if on == _highlight_active:
+		return
+	_highlight_active = on
+	# Tint the whole panel slightly to give drop feedback
+	_panel.modulate = Color(1.2, 1.4, 1.2, 1.0) if on else Color(1, 1, 1, 1)
 
 # ── Called by the minigame when a part is removed ─────────────────────────
 func collect(part_type: String) -> void:
@@ -124,7 +198,6 @@ func set_screw_total(total: int) -> void:
 	_screw_total = total
 	_refresh_screw_badge()
 
-# ── Internal refresh ──────────────────────────────────────────────────────
 func _refresh_slot(i: int) -> void:
 	var ptype   := part_types[i]
 	var acc_col = TYPE_COLORS.get(ptype, Color(0.35, 0.35, 0.35))
@@ -142,7 +215,6 @@ func _refresh_slot(i: int) -> void:
 	_check_labels[i].text = "✓" if done else ""
 
 func _refresh_screw_badge() -> void:
-	# Find the SCREW slot index
 	for i in part_types.size():
 		if part_types[i] == "SCREW":
 			var done := (_screw_count >= _screw_total and _screw_total > 0)
@@ -157,7 +229,6 @@ func _refresh_screw_badge() -> void:
 			_check_labels[i].text = "%d/%d" % [_screw_count, _screw_total]
 			return
 
-# ── Icon helpers (mirrors hotbar_ui.gd logic) ─────────────────────────────
 func _icon_display_size(i: int, use_aspect: bool = false) -> Vector2:
 	if not use_aspect:
 		return Vector2(ICON_HEIGHT, ICON_HEIGHT)

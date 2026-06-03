@@ -111,9 +111,11 @@ func _on_part_removed(slot_type: String) -> void:
 		if slot_type not in _removed_parts:
 			_removed_parts.append(slot_type)
 			print("Removed: %s  (%d / %d)" % [slot_type, _removed_parts.size(), REQUIRED_REMOVALS.size()])
-	if _hotbar and _hotbar.has_method("collect"):   
-		_hotbar.collect(slot_type)                
+	# ← removed the collect() call; hotbar handles it on deposit
 
+# Called by the hotbar after a part is physically deposited
+func _on_part_deposited(slot_type: String) -> void:
+	_on_part_removed(slot_type)
 	try_complete()
 
 func _check_completion() -> bool:

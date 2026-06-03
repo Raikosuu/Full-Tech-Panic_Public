@@ -40,8 +40,7 @@ adjustment_enabled = true
 
 [node name="Minigame2_Disassembly" type="Node2D" unique_id=914727271]
 script = ExtResource("1_i6ods")
-completion_delay = 2.0
-time_limit = 60.0
+time_limit = 30.0
 win_screen_scene = ExtResource("2_dis")
 lose_screen_scene = ExtResource("5_dis")
 timer_bar = NodePath("MinigameTimerBar")
