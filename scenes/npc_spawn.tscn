@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvvwyojvr5lid"]
+[gd_scene format=3 uid="uid://bvvwyojvr5lid"]
 
 [ext_resource type="Script" uid="uid://blxwr2mq0xs7j" path="res://scripts/npc_spawn.gd" id="1_ath3t"]
 
-[node name="npc_spawn" type="Marker2D"]
+[node name="npc_spawn" type="Marker2D" unique_id=170822529]
 script = ExtResource("1_ath3t")
+min_wait_time = 2.0
+max_wait_time = 5.0
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1766164427]
 wait_time = 2.5
 autostart = true
 

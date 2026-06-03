@@ -32,6 +32,7 @@ theme_override_constants/margin_bottom = 2
 [node name="Hearts" type="HBoxContainer" parent="Panel/MarginContainer" unique_id=1792428900]
 layout_mode = 2
 theme_override_constants/separation = 2
+alignment = 1
 
 [node name="Heart1" type="Label" parent="Panel/MarginContainer/Hearts" unique_id=48710206]
 layout_mode = 2
