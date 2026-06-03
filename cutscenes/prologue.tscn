@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://dl52xff083vfx"]
+
+[ext_resource type="FontFile" uid="uid://chkdc34o58e2w" path="res://assets/fonts/PixelGamer-Regular.otf" id="1_font"]
+[ext_resource type="Script" uid="uid://cchqjnahv6a84" path="res://scripts/prologue.gd" id="1_prol"]
+
+[node name="Prologue" type="Node2D" unique_id=1965087689]
+script = ExtResource("1_prol")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1535867570]
+layer = 10
+
+[node name="Backdrop" type="ColorRect" parent="UI" unique_id=1610236107]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TitleCard" type="VBoxContainer" parent="UI" unique_id=1307462113]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -30.0
+offset_right = 120.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DayLabel" type="Label" parent="UI/TitleCard" unique_id=1222712008]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 28
+text = "DAY  1"
+horizontal_alignment = 1
+
+[node name="SubLabel" type="Label" parent="UI/TitleCard" unique_id=1098478011]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 11
+text = "IT Support Floor — 8:59 AM"
+horizontal_alignment = 1
+
+[node name="DialogueBox" type="PanelContainer" parent="UI" unique_id=2026043041]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -90.0
+offset_right = -8.0
+offset_bottom = -8.0
+
+[node name="HBox" type="HBoxContainer" parent="UI/DialogueBox" unique_id=1623139170]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SpeakerPortrait" type="ColorRect" parent="UI/DialogueBox/HBox" unique_id=233774401]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+color = Color(0.18, 0.18, 0.22, 1)
+
+[node name="PortraitLabel" type="Label" parent="UI/DialogueBox/HBox/SpeakerPortrait" unique_id=1507572772]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_colors/font_color = Color(0.5, 0.5, 0.6, 1)
+theme_override_font_sizes/font_size = 7
+text = "portrait"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="UI/DialogueBox/HBox" unique_id=1388399799]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="SpeakerName" type="Label" parent="UI/DialogueBox/HBox/VBox" unique_id=69940905]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 10
+text = "???"
+
+[node name="DialogueText" type="RichTextLabel" parent="UI/DialogueBox/HBox/VBox" unique_id=238090480]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_fonts/normal_font = ExtResource("1_font")
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+fit_content = true
+
+[node name="PromptLabel" type="Label" parent="UI/DialogueBox/HBox/VBox" unique_id=1751455257]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.6, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 7
+text = "[ press SPACE / click to continue ]"
+horizontal_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=57600444]
