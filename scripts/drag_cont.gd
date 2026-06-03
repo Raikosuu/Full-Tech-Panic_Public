@@ -144,6 +144,17 @@ func _grab() -> void:
 	collision_mask = 0
 	set_physics_process(true)
 
+	# Restore sprite and collision visibility — parts hidden by snap zones
+	# (remove_component = true) need to reappear when dragged out.
+	_restore_visibility()
+
+func _restore_visibility() -> void:
+	for child in get_children():
+		if child is Sprite2D:
+			child.visible = true
+		elif child is CollisionShape2D:
+			child.disabled = false
+
 func _release() -> void:
 	is_grabbed = false
 	GameState.drag_active = false

@@ -76,11 +76,7 @@ func _eject_component() -> void:
 		col.disabled = false
 
 	# Restore the target sprite texture if it was swapped
-	if _original_texture != null:
-		var target := get_node_or_null(target_sprite)
-		if target:
-			target.texture = _original_texture
-		_original_texture = null
+	_restore_target_texture()
 
 	# Un-snap state on the zone
 	is_filled = false
@@ -182,7 +178,16 @@ func _on_component_unsnapped(component: RigidBody2D) -> void:
 	if component.component_type == accepted_type:
 		is_filled = false
 		_snapped_component = null
+		_restore_target_texture()
 		emit_signal("part_removed", accepted_type)
+
+# ── Texture restore helper ────────────────────────────────────────────────
+func _restore_target_texture() -> void:
+	if _original_texture != null:
+		var target := get_node_or_null(target_sprite)
+		if target:
+			target.texture = _original_texture
+		_original_texture = null
 
 # ── Pre-fill for disassembly scenes ────────────────────────────────────────
 func pre_fill(component: Node) -> void:
@@ -191,6 +196,13 @@ func pre_fill(component: Node) -> void:
 	component.snap(global_position)
 	if component.has_signal("unsnapped") and not component.unsnapped.is_connected(_on_component_unsnapped):
 		component.unsnapped.connect(_on_component_unsnapped)
+
+	# Apply the snapped texture swap immediately, just as a live snap would.
+	var target := get_node_or_null(target_sprite)
+	if target and snapped_texture:
+		if _original_texture == null:
+			_original_texture = target.texture
+		target.texture = snapped_texture
 
 # ── Helpers ────────────────────────────────────────────────────────────────
 func _is_valid_candidate(body: Node) -> bool:
