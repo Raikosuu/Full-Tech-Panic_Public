@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dfuau6ohwaj6j" path="res://scripts/minigame3_rj45.gd" id="1_rj45sc"]
 [ext_resource type="PackedScene" uid="uid://cp4qiqeip4wpb" path="res://scenes/win_screen.tscn" id="2_rj45"]
+[ext_resource type="PackedScene" uid="uid://cit1wa3hv83ah" path="res://scenes/rj45_lose_screen.tscn" id="3_qfr1o"]
 [ext_resource type="PackedScene" uid="uid://bel8ij2nnxtvo" path="res://scenes/lose_screen.tscn" id="3_rj45"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ref"]
@@ -66,7 +67,8 @@ corner_radius_bottom_left = 4
 
 [node name="Minigame3_RJ45" type="Node2D" unique_id=2115188806]
 script = ExtResource("1_rj45sc")
-time_limit = 90.0
+wrong_crimp_lose_scene = ExtResource("3_qfr1o")
+time_limit = 35.0
 win_screen_scene = ExtResource("2_rj45")
 lose_screen_scene = ExtResource("3_rj45")
 

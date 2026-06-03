@@ -18,6 +18,7 @@ const WIRE_COLORS: Dictionary = {
 }
 
 @export var snap_distance: float = 40.0
+@export var wrong_crimp_lose_scene: PackedScene
 
 var slots: Array[String] = ["", "", "", "", "", "", "", ""]
 
@@ -352,7 +353,17 @@ func _on_crimp_pressed() -> void:
 	else:
 		_feedback.text = "✗ Wrong order — check the standard!"
 		_feedback.add_theme_color_override("font_color", Color(1.0, 0.3, 0.3))
-		_fail()
+		_fail_wrong_crimp()
+		
+func _fail_wrong_crimp() -> void:
+	if _failed:
+		return
+	_failed = true
+	if wrong_crimp_lose_scene:
+		var screen = wrong_crimp_lose_scene.instantiate()
+		$UI.add_child(screen)
+	await get_tree().create_timer(2.5).timeout
+	GameState.fail_minigame()
 
 func _check_completion() -> bool:
 	for i in range(8):
