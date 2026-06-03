@@ -3,6 +3,7 @@ extends Node
 const MINIGAMES: Array[String] = [
 	"res://scenes/minigame1_assembly.tscn",
 	"res://scenes/minigame2_disassembly.tscn",
+	"res://scenes/minigame3_rj45.tscn",   # ← RJ45 T568-B crimping minigame
 ]
 
 var _game_scene_instance: Node = null
