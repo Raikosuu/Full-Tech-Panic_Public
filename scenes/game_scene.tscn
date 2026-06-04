@@ -2583,7 +2583,7 @@ _data = {
 
 [node name="game_scene" type="Node2D" unique_id=1662599829]
 script = ExtResource("1_b5spy")
-npcs_to_win = 1
+npcs_to_win = 15
 
 [node name="ground" type="TileMapLayer" parent="." unique_id=1824960529]
 position = Vector2(236, 137)
