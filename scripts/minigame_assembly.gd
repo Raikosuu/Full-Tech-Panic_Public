@@ -2,7 +2,7 @@ extends BaseMinigame
 
 const REQUIRED_PARTS: Array[String] = ["PANEL", "BATTERY", "MOBO", "CPU", "RAM", "HDD"]
 const REQUIRED_SCREWS: int = 4
-const PANEL_PREREQUISITES: Array[String] = ["MOBO", "CPU", "RAM", "HDD", "BATTERY"]
+const PANEL_PREREQUISITES: Array[String] = ["MOBO", "CPU", "RAM", "HDD", "BATTERY", "CFAN"]
 
 var _snapped_parts: Array[String] = []
 var _snapped_screws: int = 0
