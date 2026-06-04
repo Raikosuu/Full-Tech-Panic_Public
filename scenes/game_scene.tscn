@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bvvwyojvr5lid" path="res://scenes/npc_spawn.tscn" id="6_rurhu"]
 [ext_resource type="PackedScene" uid="uid://d2bih5roi80vd" path="res://scenes/health_ui.tscn" id="7_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://c8s4hl3jv3c1h" path="res://scenes/touch_controls.tscn" id="9_utbpp"]
+[ext_resource type="AudioStream" uid="uid://xce74cvlx32i" path="res://sfx/freesound_community-gamemusic-6082.mp3" id="10_mw25s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rurhu"]
 texture = ExtResource("2_bw6k5")
@@ -2726,3 +2727,6 @@ color = Color(0, 0, 0, 1)
 [node name="FadePlayer" type="AnimationPlayer" parent="FadeLayer" unique_id=1482170107]
 libraries/ = SubResource("AnimationLibrary_tcjrq")
 autoplay = &"fade_in"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1801444470]
+stream = ExtResource("10_mw25s")
