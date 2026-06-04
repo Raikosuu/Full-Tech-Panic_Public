@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://demqpuvfguk8d"]
+[gd_scene format=3 uid="uid://demqpuvfguk8d"]
 
 [ext_resource type="Script" uid="uid://bnn76hxj50tn1" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://dppuc5y4sth5k" path="res://assets/character/capstone_MC.png" id="2_g2els"]
@@ -97,10 +97,10 @@ animations = [{
 radius = 3.0
 height = 10.0
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" unique_id=1325918656]
 script = ExtResource("1_g2els")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=207217327]
 position = Vector2(-2.3841858e-07, -9.000001)
 scale = Vector2(1.125, 1.0833334)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
@@ -108,6 +108,6 @@ animation = &"run"
 autoplay = "idle"
 frame_progress = 0.34660295
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1556117545]
 position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_tuyoq")
