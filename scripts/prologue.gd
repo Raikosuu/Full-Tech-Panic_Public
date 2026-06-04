@@ -4,13 +4,11 @@ extends Node2D
 ## - "Boss" portrait: bottom-right, above dialogue box, name right-aligned
 ## - Inactive portrait darkens to 0.4 alpha
 
-# ── Portrait textures ─────────────────────────────────────────────────────────
 const PORTRAITS: Dictionary = {
 	"You":  "res://assets/portraits/portrait_you.png",
 	"Boss": "res://assets/portraits/portrait_boss.png",
 }
 
-# ── Dialogue script ───────────────────────────────────────────────────────────
 const SCRIPT: Array[Dictionary] = [
 	{
 		"speaker": "You",
@@ -59,26 +57,23 @@ const SCRIPT: Array[Dictionary] = [
 	},
 ]
 
-# ── Node references ───────────────────────────────────────────────────────────
-@onready var anim:           AnimationPlayer = $AnimationPlayer
-@onready var backdrop:       ColorRect       = $UI/Backdrop
-@onready var title_card:     Node            = $UI/TitlePanel
-@onready var dialogue_box:   PanelContainer  = $UI/DialogueBox
-@onready var speaker_name:   Label           = $UI/DialogueBox/VBox/SpeakerName
-@onready var dialogue_text:  RichTextLabel   = $UI/DialogueBox/VBox/DialogueText
-@onready var prompt_label:   Label           = $UI/DialogueBox/VBox/PromptLabel
-@onready var portrait_you:   TextureRect     = $UI/PortraitYou
-@onready var portrait_boss:  TextureRect     = $UI/PortraitBoss
-@onready var skip_button: Button = $UI/SkipButton
-@onready var typing_sound: AudioStreamPlayer = $TypingSound
-@onready var advance_sound: AudioStreamPlayer = $AdvanceSound
+@onready var anim:           AnimationPlayer   = $AnimationPlayer
+@onready var backdrop:       ColorRect         = $UI/Backdrop
+@onready var title_card:     Node              = $UI/TitlePanel
+@onready var dialogue_box:   PanelContainer    = $UI/DialogueBox
+@onready var speaker_name:   Label             = $UI/DialogueBox/VBox/SpeakerName
+@onready var dialogue_text:  RichTextLabel     = $UI/DialogueBox/VBox/DialogueText
+@onready var prompt_label:   Label             = $UI/DialogueBox/VBox/PromptLabel
+@onready var portrait_you:   TextureRect       = $UI/PortraitYou
+@onready var portrait_boss:  TextureRect       = $UI/PortraitBoss
+@onready var skip_button:    Button            = $UI/SkipButton
+@onready var typing_sound:   AudioStreamPlayer = $TypingSound
+@onready var advance_sound:  AudioStreamPlayer = $AdvanceSound
 
-# ── Constants ─────────────────────────────────────────────────────────────────
 const ALPHA_ACTIVE:   float = 1.0
 const ALPHA_INACTIVE: float = 0.8
 const TWEEN_SPEED:    float = 0.25
 
-# ── State ─────────────────────────────────────────────────────────────────────
 var _line_index:      int    = 0
 var _typing:          bool   = false
 var _full_text:       String = ""
@@ -90,8 +85,6 @@ var _prologue_done:   bool   = false
 var _title_shown:     bool   = false
 var _prompt_tween:    Tween  = null
 
-# ── Lifecycle ─────────────────────────────────────────────────────────────────
-
 func _ready() -> void:
 	var bgm = load("res://sfx/freesound_community-gamemusic-6082.mp3") as AudioStream
 	BGMManager.play(bgm, -10.0)
@@ -102,11 +95,9 @@ func _ready() -> void:
 	portrait_you.modulate.a  = ALPHA_INACTIVE
 	portrait_boss.modulate.a = ALPHA_INACTIVE
 
-	# Load portrait textures
 	_load_portrait(portrait_you,  "You")
 	_load_portrait(portrait_boss, "Boss")
 
-	# Flip the boss portrait so it faces left (toward the player)
 	portrait_boss.flip_h = true
 
 	dialogue_box.gui_input.connect(_on_dialogue_box_input)
@@ -128,7 +119,7 @@ func _process(delta: float) -> void:
 	if _visible_chars >= _full_text.length():
 		_typing          = false
 		_waiting_advance = true
-		typing_sound.stop()        # ← stop when done typing
+		typing_sound.stop()
 		_blink_prompt(true)
 
 func _input(event: InputEvent) -> void:
@@ -148,8 +139,6 @@ func _on_dialogue_box_input(event: InputEvent) -> void:
 		_try_advance()
 		get_viewport().set_input_as_handled()
 
-# ── Advance logic ─────────────────────────────────────────────────────────────
-
 func _try_advance() -> void:
 	if _prologue_done or not _title_shown:
 		return
@@ -158,56 +147,53 @@ func _try_advance() -> void:
 		dialogue_text.visible_characters = _visible_chars
 		_typing          = false
 		_waiting_advance = true
-		typing_sound.stop()            # ← stop on skip
+		typing_sound.stop()
 		_blink_prompt(true)
 		return
 	if _waiting_advance:
 		_waiting_advance = false
 		_blink_prompt(false)
-		advance_sound.play()  # ← plays on line advance
+		advance_sound.play()
 		_line_index += 1
 		if _line_index >= SCRIPT.size():
 			_end_prologue()
 		else:
 			_show_line(_line_index)
 
-# ── Called by AnimationPlayer method tracks ───────────────────────────────────
-
 func show_dialogue() -> void:
 	_title_shown = true
 	anim.play("dialogue_slide_in")
 
 func on_dialogue_ready() -> void:
+	await get_tree().process_frame
+	await get_tree().process_frame
 	_show_line(0)
 
-# ── Dialogue helpers ──────────────────────────────────────────────────────────
-
 func _show_line(index: int) -> void:
-	var entry: Dictionary    = SCRIPT[index]
-	var speaker: String      = entry["speaker"]
-	var is_boss: bool        = speaker == "Boss"
+	var entry: Dictionary = SCRIPT[index]
+	var speaker: String   = entry["speaker"]
+	var is_boss: bool     = speaker == "Boss"
 
-	# ── Speaker name + color ──
 	speaker_name.text = speaker
 	speaker_name.add_theme_color_override("font_color", entry["color"])
 
-	# ── Side swap ──
-	# Boss speaks from the right: name right-aligned, text right-aligned
 	speaker_name.horizontal_alignment  = HORIZONTAL_ALIGNMENT_RIGHT if is_boss else HORIZONTAL_ALIGNMENT_LEFT
 	dialogue_text.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT if is_boss else HORIZONTAL_ALIGNMENT_LEFT
 
-	# ── Dim inactive portrait, brighten active one ──
 	_tween_alpha(portrait_you,  ALPHA_INACTIVE if is_boss else ALPHA_ACTIVE)
 	_tween_alpha(portrait_boss, ALPHA_ACTIVE   if is_boss else ALPHA_INACTIVE)
 
-	# ── Typed text ──
 	_full_text = entry["text"]
+
+	dialogue_text.visible_characters = 0
+	dialogue_text.text = ""
 	dialogue_text.text = _full_text
 	dialogue_text.visible_characters = 0
+
 	_visible_chars = 0
 	_type_timer    = 0.0
 	_typing        = true
-	typing_sound.play()            # ← start when typing begins
+	typing_sound.play()
 	anim.play("line_pop")
 
 func _tween_alpha(node: TextureRect, target_alpha: float) -> void:
