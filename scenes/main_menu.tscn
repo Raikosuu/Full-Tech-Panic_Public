@@ -240,6 +240,16 @@ value = 50.0
 script = ExtResource("6_rtw2f")
 audio_bus_name = "Music"
 
+[node name="Label2" type="Label" parent="SettingsPanel" unique_id=1897728450]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 104.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 8
+text = "Volume"
+
 [connection signal="pressed" from="Panel/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Panel/MainButtons/Game Start" to="." method="_on_game_start_pressed"]
 [connection signal="pressed" from="Panel/MainButtons/How to Play" to="." method="_on_how_to_play_pressed"]
