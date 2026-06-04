@@ -70,6 +70,8 @@ const SCRIPT: Array[Dictionary] = [
 @onready var portrait_you:   TextureRect     = $UI/PortraitYou
 @onready var portrait_boss:  TextureRect     = $UI/PortraitBoss
 @onready var skip_button: Button = $UI/SkipButton
+@onready var typing_sound: AudioStreamPlayer = $TypingSound
+@onready var advance_sound: AudioStreamPlayer = $AdvanceSound
 
 # ── Constants ─────────────────────────────────────────────────────────────────
 const ALPHA_ACTIVE:   float = 1.0
@@ -124,6 +126,7 @@ func _process(delta: float) -> void:
 	if _visible_chars >= _full_text.length():
 		_typing          = false
 		_waiting_advance = true
+		typing_sound.stop()        # ← stop when done typing
 		_blink_prompt(true)
 
 func _input(event: InputEvent) -> void:
@@ -153,11 +156,13 @@ func _try_advance() -> void:
 		dialogue_text.visible_characters = _visible_chars
 		_typing          = false
 		_waiting_advance = true
+		typing_sound.stop()            # ← stop on skip
 		_blink_prompt(true)
 		return
 	if _waiting_advance:
 		_waiting_advance = false
 		_blink_prompt(false)
+		advance_sound.play()  # ← plays on line advance
 		_line_index += 1
 		if _line_index >= SCRIPT.size():
 			_end_prologue()
@@ -200,7 +205,7 @@ func _show_line(index: int) -> void:
 	_visible_chars = 0
 	_type_timer    = 0.0
 	_typing        = true
-
+	typing_sound.play()            # ← start when typing begins
 	anim.play("line_pop")
 
 func _tween_alpha(node: TextureRect, target_alpha: float) -> void:

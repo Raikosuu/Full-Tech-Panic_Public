@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cp4qiqeip4wpb"]
 
 [ext_resource type="FontFile" uid="uid://chkdc34o58e2w" path="res://assets/fonts/PixelGamer-Regular.otf" id="1_wv5lq"]
+[ext_resource type="AudioStream" uid="uid://cn7q5lda6825q" path="res://sfx/universfield-video-game-bonus-323603.mp3" id="2_erk2x"]
 
 [node name="WinScreen" type="CanvasLayer" unique_id=1245410598]
 layer = 20
@@ -40,3 +41,9 @@ theme_override_fonts/font = ExtResource("1_wv5lq")
 theme_override_font_sizes/font_size = 13
 text = "Task Successful"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1253730393]
+stream = ExtResource("2_erk2x")
+volume_db = -3.0
+autoplay = true
+bus = &"SFX"

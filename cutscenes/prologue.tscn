@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://cchqjnahv6a84" path="res://scripts/prologue.gd" id="1_prol"]
 [ext_resource type="Texture2D" uid="uid://du2epxqpgng6e" path="res://assets/IT_bg.png" id="2_30x7o"]
 [ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="2_y30ld"]
+[ext_resource type="AudioStream" uid="uid://lidvfokl7g86" path="res://sfx/creatorshome-video-game-text-330163.mp3" id="5_0g5x1"]
+[ext_resource type="AudioStream" uid="uid://clijxu800jmu3" path="res://sfx/freesound_community-button-8-88355.mp3" id="6_ojphu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_le04t"]
 content_margin_left = 12.0
@@ -463,3 +465,12 @@ text = "Skip >>"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=57600444]
 libraries/ = SubResource("AnimationLibrary_ojphu")
+
+[node name="TypingSound" type="AudioStreamPlayer" parent="." unique_id=1158765362]
+stream = ExtResource("5_0g5x1")
+volume_db = -6.0
+bus = &"SFX"
+
+[node name="AdvanceSound" type="AudioStreamPlayer" parent="." unique_id=658476334]
+stream = ExtResource("6_ojphu")
+bus = &"SFX"
