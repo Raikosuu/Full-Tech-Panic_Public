@@ -62,7 +62,7 @@ const SCRIPT: Array[Dictionary] = [
 # ── Node references ───────────────────────────────────────────────────────────
 @onready var anim:           AnimationPlayer = $AnimationPlayer
 @onready var backdrop:       ColorRect       = $UI/Backdrop
-@onready var title_card:     VBoxContainer   = $UI/TitleCard
+@onready var title_card:     Node            = $UI/TitlePanel
 @onready var dialogue_box:   PanelContainer  = $UI/DialogueBox
 @onready var speaker_name:   Label           = $UI/DialogueBox/VBox/SpeakerName
 @onready var dialogue_text:  RichTextLabel   = $UI/DialogueBox/VBox/DialogueText
@@ -72,7 +72,7 @@ const SCRIPT: Array[Dictionary] = [
 
 # ── Constants ─────────────────────────────────────────────────────────────────
 const ALPHA_ACTIVE:   float = 1.0
-const ALPHA_INACTIVE: float = 0.35
+const ALPHA_INACTIVE: float = 0.8
 const TWEEN_SPEED:    float = 0.25
 
 # ── State ─────────────────────────────────────────────────────────────────────
