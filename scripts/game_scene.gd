@@ -33,5 +33,4 @@ func _on_game_over() -> void:
 
 func _on_game_won() -> void:
 	# Load your win screen here — swap path to your actual scene
-	var win = load("res://scenes/win_screen.tscn").instantiate()
-	get_tree().root.add_child(win)
+	get_tree().change_scene_to_file("res://cutscenes/epilogue.tscn")
