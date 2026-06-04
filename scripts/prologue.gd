@@ -15,12 +15,12 @@ const SCRIPT: Array[Dictionary] = [
 	{
 		"speaker": "You",
 		"color":   Color(0.4, 0.8, 1.0),
-		"text":    "Okay... first day. I can do this.\nJust fix computers. How hard can it be?"
+		"text":    "Okay... first day in the ITRC. I can do this.\nJust fix computers. How hard can it be?"
 	},
 	{
 		"speaker": "Boss",
 		"color":   Color(1.0, 0.6, 0.2),
-		"text":    "Oh good, you're ALIVE. We've got\n[color=#ff9933]47 tickets[/color] already and it's not even 9 AM."
+		"text":    "Oh good, you came! We've got\n[color=#ff9933]47 tickets[/color] from the users already\n and it's not even 9 AM."
 	},
 	{
 		"speaker": "You",
@@ -30,17 +30,17 @@ const SCRIPT: Array[Dictionary] = [
 	{
 		"speaker": "Boss",
 		"color":   Color(1.0, 0.6, 0.2),
-		"text":    "Karen from Accounting says her monitor\nis 'breathing.' Dave unplugged the server\nagain. And someone crimped a cable\n[color=#ff4444]with a stapler.[/color]"
+		"text":    "Michael says his monitor\nis 'breathing.' Basti unplugged the server\nagain. And someone crimped a cable\n[color=#ff4444]with a stapler.[/color]"
 	},
 	{
 		"speaker": "You",
 		"color":   Color(0.4, 0.8, 1.0),
-		"text":    "A... stapler."
+		"text":    "A... stapler??!"
 	},
 	{
 		"speaker": "Boss",
 		"color":   Color(1.0, 0.6, 0.2),
-		"text":    "Each customer has a [color=#ffdd44]patience bar.[/color]\nLet it hit zero — they walk.\nYou get a mark on your record."
+		"text":    "Each user has a [color=#ffdd44]patience bar.[/color]\nLet it hit zero — they walk.\nYou get a mark on your record."
 	},
 	{
 		"speaker": "Boss",
