@@ -71,6 +71,8 @@ const SCRIPT: Array[Dictionary] = [
 @onready var portrait_boss:  TextureRect     = $UI/PortraitBoss
 @onready var skip_button: Button = $UI/SkipButton
 
+@onready var advance_sound: AudioStreamPlayer = $AdvanceSound
+
 # ── Constants ─────────────────────────────────────────────────────────────────
 const ALPHA_ACTIVE:   float = 1.0
 const ALPHA_INACTIVE: float = 0.8
@@ -158,6 +160,7 @@ func _try_advance() -> void:
 	if _waiting_advance:
 		_waiting_advance = false
 		_blink_prompt(false)
+		advance_sound.play()  # ← plays on line advance
 		_line_index += 1
 		if _line_index >= SCRIPT.size():
 			_end_prologue()
