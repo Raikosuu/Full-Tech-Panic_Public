@@ -171,9 +171,10 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_ttshn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1986938942]
-position = Vector2(0, -9)
+position = Vector2(0, -10)
+scale = Vector2(1.0833334, 1.0833334)
 sprite_frames = SubResource("SpriteFrames_3hym5")
-animation = &"walk"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1272164168]

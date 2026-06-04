@@ -171,7 +171,8 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_23bb0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1538456434]
-position = Vector2(0, -9)
+position = Vector2(0, -10)
+scale = Vector2(1.0833334, 1.0833334)
 sprite_frames = SubResource("SpriteFrames_i1540")
 animation = &"idle"
 autoplay = "idle"
