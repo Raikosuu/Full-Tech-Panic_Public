@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://di6c82vetinpd" path="res://scenes/seats.tscn" id="5_rurhu"]
 [ext_resource type="PackedScene" uid="uid://bdj6mg720j6n4" path="res://scenes/exit_point.tscn" id="6_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://bvvwyojvr5lid" path="res://scenes/npc_spawn.tscn" id="6_rurhu"]
-[ext_resource type="PackedScene" path="res://scenes/health_ui.tscn" id="7_kk2rg"]
+[ext_resource type="PackedScene" uid="uid://d2bih5roi80vd" path="res://scenes/health_ui.tscn" id="7_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://c8s4hl3jv3c1h" path="res://scenes/touch_controls.tscn" id="9_utbpp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rurhu"]
@@ -2543,6 +2543,42 @@ agent_radius = 4.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y3j0m"]
 distance = -249.0
 
+[sub_resource type="Animation" id="Animation_utbpp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mw25s"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tcjrq"]
+_data = {
+&"RESET": SubResource("Animation_utbpp"),
+&"fade_in": SubResource("Animation_mw25s")
+}
+
 [node name="game_scene" type="Node2D" unique_id=1662599829]
 script = ExtResource("1_b5spy")
 
@@ -2675,3 +2711,18 @@ offset_right = 40.0
 grow_vertical = 0
 
 [node name="TouchControls" parent="Control" unique_id=1602627443 instance=ExtResource("9_utbpp")]
+
+[node name="FadeLayer" type="CanvasLayer" parent="." unique_id=1193285369]
+layer = 99
+
+[node name="FadeRect" type="ColorRect" parent="FadeLayer" unique_id=315833080]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FadePlayer" type="AnimationPlayer" parent="FadeLayer" unique_id=1482170107]
+libraries/ = SubResource("AnimationLibrary_tcjrq")
+autoplay = &"fade_in"

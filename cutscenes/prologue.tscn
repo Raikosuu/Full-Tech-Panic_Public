@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://chkdc34o58e2w" path="res://assets/fonts/PixelGamer-Regular.otf" id="1_font"]
 [ext_resource type="Script" uid="uid://cchqjnahv6a84" path="res://scripts/prologue.gd" id="1_prol"]
+[ext_resource type="Texture2D" uid="uid://du2epxqpgng6e" path="res://assets/IT_bg.png" id="2_30x7o"]
 [ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="2_y30ld"]
 
 [sub_resource type="Animation" id="Animation_30x7o"]
@@ -66,6 +67,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI/PortraitYou:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("UI/PortraitBoss:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_le04t"]
 resource_name = "dialogue_slide_in"
@@ -108,6 +133,30 @@ tracks/2/keys = {
 "method": &"on_dialogue_ready"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/PortraitYou:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.35000002)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/PortraitBoss:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.35000002)]
+}
 
 [sub_resource type="Animation" id="Animation_0g5x1"]
 resource_name = "intro_fade"
@@ -149,6 +198,30 @@ tracks/2/keys = {
 "args": [],
 "method": &"show_dialogue"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/PortraitYou:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/PortraitBoss:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_y30ld"]
@@ -196,6 +269,42 @@ tracks/1/keys = {
 "method": &"go_to_game"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/PortraitYou:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/PortraitBoss:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/DialogueBox:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ojphu"]
 _data = {
@@ -208,6 +317,11 @@ _data = {
 
 [node name="Prologue" type="Node2D" unique_id=1965087689]
 script = ExtResource("1_prol")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1390812207]
+position = Vector2(240, 136.25)
+scale = Vector2(0.3125, 0.26123047)
+texture = ExtResource("2_30x7o")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1535867570]
 layer = 10
@@ -249,30 +363,6 @@ theme_override_font_sizes/font_size = 11
 text = "IT Support Floor — 8:59 AM"
 horizontal_alignment = 1
 
-[node name="PortraitYou" type="TextureRect" parent="UI" unique_id=1227694844]
-modulate = Color(1, 1, 1, 0.35000002)
-z_index = 1
-custom_minimum_size = Vector2(72, 72)
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -82.0
-offset_right = 464.0
-grow_vertical = 0
-expand_mode = 1
-stretch_mode = 5
-
-[node name="PortraitBoss" type="TextureRect" parent="UI" unique_id=951470462]
-modulate = Color(1, 1, 1, 0.35000002)
-z_index = 1
-custom_minimum_size = Vector2(72, 72)
-offset_left = 8.0
-offset_top = 180.0
-offset_right = 472.0
-offset_bottom = 262.0
-expand_mode = 1
-stretch_mode = 5
-
 [node name="DialogueBox" type="PanelContainer" parent="UI" unique_id=2026043041]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 12
@@ -313,6 +403,33 @@ theme_override_fonts/font = ExtResource("1_font")
 theme_override_font_sizes/font_size = 7
 text = "[ Tap To Continue ]"
 horizontal_alignment = 2
+
+[node name="PortraitYou" type="TextureRect" parent="UI" unique_id=237638292]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -170.0
+offset_right = 88.0
+offset_bottom = -90.0
+grow_vertical = 0
+stretch_mode = 5
+
+[node name="PortraitBoss" type="TextureRect" parent="UI" unique_id=612389880]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -170.0
+offset_right = -8.0
+offset_bottom = -90.0
+grow_horizontal = 0
+grow_vertical = 0
+stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=57600444]
 libraries/ = SubResource("AnimationLibrary_ojphu")
