@@ -130,6 +130,7 @@ func leave() -> void:
 	_leaving = true
 	is_exiting = true
 	nav_agent.target_position = exit_pos
+	GameState.record_npc_served()
 
 func _process_leave() -> void:
 	if nav_agent.is_navigation_finished():

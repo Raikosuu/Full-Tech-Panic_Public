@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dsk6yyxikucek" path="res://scripts/screws.gd" id="1_x8gdb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8gdb"]
-size = Vector2(10, 10)
+size = Vector2(7, 7)
 
 [node name="Screws" type="RigidBody2D" unique_id=1294929201]
 z_index = 3
