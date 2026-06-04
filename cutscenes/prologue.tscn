@@ -21,7 +21,7 @@ content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-bg_color = Color(0.24780053, 0.24780053, 0.3133042, 0.88000005)
+bg_color = Color(0.24780053, 0.24780053, 0.3133042, 0.943)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -424,10 +424,10 @@ modulate = Color(1, 1, 1, 0)
 anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = -170.0
-offset_right = 88.0
-offset_bottom = -90.0
+offset_left = 54.0
+offset_top = -171.0
+offset_right = 134.0
+offset_bottom = -91.0
 grow_vertical = 0
 stretch_mode = 5
 
@@ -438,13 +438,28 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -88.0
+offset_left = -124.0
 offset_top = -170.0
-offset_right = -8.0
+offset_right = -44.0
 offset_bottom = -90.0
 grow_horizontal = 0
 grow_vertical = 0
 stretch_mode = 5
+
+[node name="SkipButton" type="Button" parent="UI" unique_id=794895171]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 36.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.85490197, 0.85490197, 0.85490197, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_y30ld")
+theme_override_font_sizes/font_size = 10
+text = "Skip >>"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=57600444]
 libraries/ = SubResource("AnimationLibrary_ojphu")

@@ -69,6 +69,7 @@ const SCRIPT: Array[Dictionary] = [
 @onready var prompt_label:   Label           = $UI/DialogueBox/VBox/PromptLabel
 @onready var portrait_you:   TextureRect     = $UI/PortraitYou
 @onready var portrait_boss:  TextureRect     = $UI/PortraitBoss
+@onready var skip_button: Button = $UI/SkipButton
 
 # ── Constants ─────────────────────────────────────────────────────────────────
 const ALPHA_ACTIVE:   float = 1.0
@@ -90,6 +91,7 @@ var _prompt_tween:    Tween  = null
 # ── Lifecycle ─────────────────────────────────────────────────────────────────
 
 func _ready() -> void:
+	skip_button.pressed.connect(_on_skip_pressed)
 	prompt_label.modulate.a  = 0.0
 	dialogue_box.modulate.a  = 0.0
 	title_card.modulate.a    = 0.0
@@ -218,6 +220,13 @@ func _blink_prompt(on: bool) -> void:
 		prompt_label.modulate.a = 0.0
 
 func _end_prologue() -> void:
+	_prologue_done = true
+	_blink_prompt(false)
+	anim.play("outro_fade")
+
+func _on_skip_pressed() -> void:
+	if _prologue_done:
+		return
 	_prologue_done = true
 	_blink_prompt(false)
 	anim.play("outro_fade")
