@@ -6,4 +6,3 @@
 script = ExtResource("1_vku3v")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1724017566]
-volume_db = -10.0

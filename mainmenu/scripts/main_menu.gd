@@ -5,7 +5,7 @@ extends Node2D
 
 func _ready():
 	var bgm = load("res://sfx/sergequadrado-menu-music-251877.mp3") as AudioStream
-	BGMManager.play(bgm)
+	BGMManager.play(bgm, 0.0)
 	main_buttons.visible = true
 	settings_panel.visible = false
 

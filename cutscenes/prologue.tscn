@@ -473,4 +473,5 @@ bus = &"SFX"
 
 [node name="AdvanceSound" type="AudioStreamPlayer" parent="." unique_id=658476334]
 stream = ExtResource("6_ojphu")
+volume_db = -6.0
 bus = &"SFX"
