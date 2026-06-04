@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bdkp8axgj2g66"]
+
+[ext_resource type="Texture2D" uid="uid://d12wba0e67riu" path="res://graphics/computercase.png" id="1_kadph"]
+[ext_resource type="Script" uid="uid://b6hex0qhkv1ci" path="res://scripts/learn.gd" id="2_kadph"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sbq7v"]
+texture = ExtResource("1_kadph")
+modulate_color = Color(0.30980393, 0.30980393, 0.30980393, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wknd"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6q7a"]
+bg_color = Color(0.42745098, 0.42745098, 0.42745098, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mcjm"]
+bg_color = Color(0.42745098, 0.42745098, 0.42745098, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_boaia"]
+
+[node name="Learn" type="Control" unique_id=935230983]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=154940536]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -398.2223
+offset_top = -224.0
+offset_right = 540.44446
+offset_bottom = 304.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_sbq7v")
+script = ExtResource("2_kadph")
+
+[node name="Back" type="Button" parent="." unique_id=159071068]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 32.0
+offset_right = 232.0
+offset_bottom = 81.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_8wknd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_n6q7a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3mcjm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_boaia")
+text = "Back"
+
+[connection signal="pressed" from="Back" to="Panel" method="_on_back_pressed"]

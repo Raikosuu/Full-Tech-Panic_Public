@@ -1,44 +1,249 @@
-[gd_scene load_steps=2 format=3 uid="uid://ciqcyo1jehrui"]
+[gd_scene format=3 uid="uid://ciqcyo1jehrui"]
 
-[ext_resource type="Script" uid="uid://djgkhntvooq7w" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://bjhdnt6txvu0c" path="res://mainmenu/scripts/main_menu.gd" id="1_8ln24"]
+[ext_resource type="Texture2D" uid="uid://iglnpyxbxdqh" path="res://mainmenu/graphics/mainmenu bg.png" id="1_l6cm7"]
+[ext_resource type="FontFile" uid="uid://can2uc4aidbtp" path="res://mainmenu/font/PixelGamer-Regular.otf" id="2_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://jof4loc0tlbx" path="res://mainmenu/graphics/settings.png" id="2_wu84c"]
+[ext_resource type="AudioStream" uid="uid://xpyvcdsr8icf" path="res://mainmenu/audio/mainmenu bg.mp3" id="3_bqqt6"]
+[ext_resource type="Script" uid="uid://ctnipvdu4axmc" path="res://mainmenu/scripts/audio_control.gd" id="6_rtw2f"]
 
-[node name="main_menu" type="Node2D"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
+texture = ExtResource("1_l6cm7")
+modulate_color = Color(0.30980393, 0.30980393, 0.30980393, 1)
 
-[node name="button_manager" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
+bg_color = Color(0.42745098, 0.42745098, 0.42745098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk1qb"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dd4i"]
+bg_color = Color(0.42745098, 0.42745098, 0.42745098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flqon"]
+bg_color = Color(0.42745098, 0.42745098, 0.42745098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
+bg_color = Color(0.42745098, 0.42745098, 0.42745098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_8ln24"]
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rtw2f"]
+color = Color(0, 0, 0.9607843, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_oa1go"]
+color = Color(0, 0, 0.9607843, 1)
+thickness = 3
+
+[node name="main_menu" type="Node2D" unique_id=2093666471]
+script = ExtResource("1_8ln24")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1992825698]
+position = Vector2(241, 135)
+
+[node name="Panel" type="Panel" parent="." unique_id=2014494403]
+offset_right = 515.0
+offset_bottom = 287.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
+
+[node name="Settings" type="Button" parent="Panel" unique_id=1963491529]
+layout_mode = 0
+offset_left = 440.0
+offset_right = 480.0
 offset_bottom = 40.0
-script = ExtResource("1_l6cm7")
+theme_override_icons/icon = ExtResource("2_wu84c")
+flat = true
 
-[node name="play" type="Button" parent="button_manager"]
+[node name="MainButtons" type="VBoxContainer" parent="Panel" unique_id=539774421]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 16.0
-offset_right = 208.0
-offset_bottom = 56.0
-text = "Play"
+offset_left = 184.0
+offset_top = 96.0
+offset_right = 304.0
+offset_bottom = 213.0
+theme_override_constants/separation = 15
+alignment = 1
 
-[node name="learn" type="Button" parent="button_manager"]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 64.0
-offset_right = 208.0
-offset_bottom = 104.0
-text = "Learn"
+[node name="Game Start" type="Button" parent="Panel/MainButtons" unique_id=892148338]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_oa1go")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tbmy8")
+text = "Game Start"
+expand_icon = true
 
-[node name="htp" type="Button" parent="button_manager"]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 112.0
-offset_right = 208.0
-offset_bottom = 152.0
+[node name="How to Play" type="Button" parent="Panel/MainButtons" unique_id=1274390603]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jk1qb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5dd4i")
 text = "How to Play"
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(144, 32)
-zoom = Vector2(2, 2)
+[node name="Learn" type="Button" parent="Panel/MainButtons" unique_id=472298394]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lgwnu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_flqon")
+text = "Learn"
 
-[connection signal="pressed" from="button_manager/play" to="button_manager" method="_on_play_pressed"]
-[connection signal="pressed" from="button_manager/learn" to="button_manager" method="_on_learn_pressed"]
-[connection signal="pressed" from="button_manager/htp" to="button_manager" method="_on_htp_pressed"]
+[node name="Exit" type="Button" parent="Panel/MainButtons" unique_id=1077006095]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+text = "Exit"
+
+[node name="Label" type="Label" parent="." unique_id=715729967]
+offset_left = 176.0
+offset_top = 40.0
+offset_right = 312.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0.050980393, 0.050980393, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 20
+text = "OVERCLOCKED!"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Label" unique_id=1825113237]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 16.0
+offset_right = 157.0
+offset_bottom = 39.0
+theme_override_colors/font_shadow_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 10
+text = "A PC Troubleshooting Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1660774996]
+stream = ExtResource("3_bqqt6")
+autoplay = true
+bus = &"Music"
+
+[node name="SettingsPanel" type="Panel" parent="." unique_id=909881828]
+offset_left = 160.0
+offset_top = 80.0
+offset_right = 328.0
+offset_bottom = 216.0
+
+[node name="Label" type="Label" parent="SettingsPanel" unique_id=735518619]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 8.0
+offset_right = 114.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 12
+text = "Settings"
+
+[node name="Back" type="Button" parent="SettingsPanel" unique_id=1123772262]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 107.0
+offset_right = 120.0
+offset_bottom = 125.0
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+text = "Back"
+
+[node name="AudioControl" type="HSlider" parent="SettingsPanel" unique_id=1307410952]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 152.0
+offset_bottom = 56.0
+theme_override_styles/slider = SubResource("StyleBoxLine_8ln24")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_rtw2f")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_oa1go")
+min_value = -5.0
+max_value = 50.0
+value = 50.0
+script = ExtResource("6_rtw2f")
+audio_bus_name = "Music"
+
+[connection signal="pressed" from="Panel/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Panel/MainButtons/Game Start" to="." method="_on_game_start_pressed"]
+[connection signal="pressed" from="Panel/MainButtons/How to Play" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="Panel/MainButtons/Learn" to="." method="_on_learn_pressed"]
+[connection signal="pressed" from="Panel/MainButtons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="SettingsPanel/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="SettingsPanel/AudioControl" to="SettingsPanel/AudioControl" method="_on_value_changed"]
