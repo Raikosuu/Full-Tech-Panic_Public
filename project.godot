@@ -27,6 +27,7 @@ buses/default_bus_layout="uid://bd4wcsifybm7b"
 
 HealthState="*uid://dtvxbsq8mvc6x"
 GameState="*res://scripts/game_state.gd"
+BGMManager="*uid://rwdjr7p5peqm"
 
 [display]
 

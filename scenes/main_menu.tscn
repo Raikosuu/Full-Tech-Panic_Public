@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://iglnpyxbxdqh" path="res://mainmenu/graphics/mainmenu bg.png" id="1_l6cm7"]
 [ext_resource type="FontFile" uid="uid://can2uc4aidbtp" path="res://mainmenu/font/PixelGamer-Regular.otf" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://jof4loc0tlbx" path="res://mainmenu/graphics/settings.png" id="2_wu84c"]
-[ext_resource type="AudioStream" uid="uid://beyptvrgf03ut" path="res://sfx/sergequadrado-menu-music-251877.mp3" id="5_rtw2f"]
 [ext_resource type="Script" uid="uid://ctnipvdu4axmc" path="res://mainmenu/scripts/audio_control.gd" id="6_rtw2f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
@@ -191,11 +190,6 @@ theme_override_font_sizes/font_size = 10
 text = "A PC Troubleshooting Game"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1660774996]
-stream = ExtResource("5_rtw2f")
-autoplay = true
-bus = &"Music"
 
 [node name="SettingsPanel" type="Panel" parent="." unique_id=909881828]
 offset_left = 160.0

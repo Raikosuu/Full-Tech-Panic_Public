@@ -4,6 +4,8 @@ extends Node2D
 @onready var settings_panel: Panel = $SettingsPanel
 
 func _ready():
+	var bgm = load("res://sfx/sergequadrado-menu-music-251877.mp3") as AudioStream
+	BGMManager.play(bgm)
 	main_buttons.visible = true
 	settings_panel.visible = false
 

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var movement_speed: float = 250.0
+@export var movement_speed: float = 200.0
 @export var interaction_radius: float = 20.0
 var ACCEL = 2.0
 var character_direction: Vector2

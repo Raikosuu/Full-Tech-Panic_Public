@@ -93,6 +93,8 @@ var _prompt_tween:    Tween  = null
 # ── Lifecycle ─────────────────────────────────────────────────────────────────
 
 func _ready() -> void:
+	var bgm = load("res://sfx/freesound_community-gamemusic-6082.mp3") as AudioStream
+	BGMManager.play(bgm)
 	skip_button.pressed.connect(_on_skip_pressed)
 	prompt_label.modulate.a  = 0.0
 	dialogue_box.modulate.a  = 0.0
