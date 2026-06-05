@@ -105,13 +105,16 @@ thickness = 4
 color = Color(0, 0, 0.9607843, 1)
 thickness = 3
 
-[node name="main_menu" type="Node2D" unique_id=2093666471]
+[node name="main_menu" type="Control" unique_id=1346013377]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_8ln24")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1992825698]
 position = Vector2(241, 135)
 
 [node name="Panel" type="Panel" parent="." unique_id=2014494403]
+layout_mode = 0
 offset_right = 515.0
 offset_bottom = 287.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
@@ -126,9 +129,9 @@ flat = true
 
 [node name="MainButtons" type="VBoxContainer" parent="Panel" unique_id=539774421]
 layout_mode = 0
-offset_left = 184.0
+offset_left = 187.0
 offset_top = 96.0
-offset_right = 304.0
+offset_right = 307.0
 offset_bottom = 213.0
 theme_override_constants/separation = 15
 alignment = 1
@@ -167,6 +170,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 text = "Exit"
 
 [node name="Label" type="Label" parent="." unique_id=715729967]
+layout_mode = 0
 offset_left = 176.0
 offset_top = 40.0
 offset_right = 312.0
@@ -198,10 +202,11 @@ autoplay = true
 bus = &"Music"
 
 [node name="SettingsPanel" type="Panel" parent="." unique_id=909881828]
-offset_left = 160.0
-offset_top = 80.0
-offset_right = 328.0
-offset_bottom = 216.0
+layout_mode = 0
+offset_left = 168.0
+offset_top = 88.0
+offset_right = 336.0
+offset_bottom = 224.0
 
 [node name="Label" type="Label" parent="SettingsPanel" unique_id=735518619]
 layout_mode = 0
