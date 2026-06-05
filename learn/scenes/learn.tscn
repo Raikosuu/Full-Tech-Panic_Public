@@ -1,0 +1,417 @@
+[gd_scene format=3 uid="uid://dy7nfhqb4ok80"]
+
+[ext_resource type="Texture2D" uid="uid://o3tex6mopcqn" path="res://learn/graphics/bg.png" id="1_72gof"]
+[ext_resource type="Texture2D" uid="uid://boifqkrwyex5g" path="res://learn/graphics/cpu.png" id="2_yqalt"]
+[ext_resource type="Texture2D" uid="uid://crqs7i0oow77" path="res://learn/graphics/ram.png" id="4_72gof"]
+[ext_resource type="Texture2D" uid="uid://bh2nu7snhfd4r" path="res://learn/graphics/mobo.png" id="4_mvlxx"]
+[ext_resource type="Script" uid="uid://dospsbukalpfi" path="res://learn/scripts/ram.gd" id="5_yqalt"]
+[ext_resource type="Texture2D" uid="uid://saxwpt8bv8bv" path="res://learn/graphics/hdd.png" id="6_ly0op"]
+[ext_resource type="Script" uid="uid://tevbuu54316g" path="res://learn/scripts/hdd.gd" id="7_mvlxx"]
+[ext_resource type="Script" uid="uid://b6hwf7s6a6by0" path="res://learn/scripts/next.gd" id="8_mvlxx"]
+[ext_resource type="Script" uid="uid://w88fxvfyh8q4" path="res://learn/scripts/back.gd" id="9_3fsor"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xf8m7"]
+texture = ExtResource("1_72gof")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nneaa"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4i7y"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fekgg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="GDScript" id="GDScript_nneaa"]
+script/source = "extends Button
+
+@onready var learnpanel: Panel = $\"../learnpanel\"
+@onready var cpupanel: Panel = $\"../cpupanel\"
+
+func _ready():
+	learnpanel.visible = true
+	cpupanel.visible = false
+	
+func _on_pressed() -> void:
+	learnpanel.visible = true
+	cpupanel.visible = true
+
+
+func _on_cpu_pressed() -> void:
+	_ready()
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvlxx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fsor"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uekuk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="GDScript" id="GDScript_ma7se"]
+script/source = "extends Button
+
+@onready var learnpanel: Panel = $\"../learnpanel\"
+@onready var mobopanel: Panel = $\"../mobopanel\"
+
+func _ready():
+	learnpanel.visible = true
+	mobopanel.visible = false
+
+func _on_pressed() -> void:
+	learnpanel.visible = true
+	mobopanel.visible = true
+
+
+func _on_mobo_pressed() -> void:
+	_ready()
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfnru"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0irx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_re1al"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72gof"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqalt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ly0op"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ma7se"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdd8t"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oeyy3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inu54"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6shjb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_br01d"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5v7ey"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6kok2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5e48e"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d33wi"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cirn5"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0vyq"]
+bg_color = Color(0.42745098, 0.42745098, 0.42745098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Learn" type="Control" unique_id=704563272]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="learnpanel" type="Panel" parent="." unique_id=1829655624]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -223.33331
+offset_top = -39.0
+offset_right = 249.5556
+offset_bottom = 227.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xf8m7")
+
+[node name="cpu" type="Button" parent="." unique_id=476242580]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 32.0
+offset_right = 106.0
+offset_bottom = 82.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_nneaa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i4i7y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fekgg")
+icon = ExtResource("2_yqalt")
+flat = true
+expand_icon = true
+script = SubResource("GDScript_nneaa")
+
+[node name="mobo" type="Button" parent="." unique_id=1169366437]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 101.0
+offset_right = 104.0
+offset_bottom = 149.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_mvlxx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3fsor")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uekuk")
+icon = ExtResource("4_mvlxx")
+flat = true
+expand_icon = true
+script = SubResource("GDScript_ma7se")
+
+[node name="ram" type="Button" parent="." unique_id=981928775]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 156.0
+offset_right = 104.0
+offset_bottom = 204.0
+icon = ExtResource("4_72gof")
+flat = true
+expand_icon = true
+script = ExtResource("5_yqalt")
+
+[node name="hdd" type="Button" parent="." unique_id=670113990]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 224.0
+offset_right = 92.0
+offset_bottom = 258.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kfnru")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g0irx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_re1al")
+icon = ExtResource("6_ly0op")
+flat = true
+expand_icon = true
+script = ExtResource("7_mvlxx")
+
+[node name="cpupanel" type="Panel" parent="." unique_id=1135476454]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 24.0
+offset_right = 278.0
+offset_bottom = 80.0
+
+[node name="name" type="Label" parent="cpupanel" unique_id=2094578582]
+layout_mode = 0
+offset_left = 12.0
+offset_top = -1.0
+offset_right = 52.0
+offset_bottom = 22.0
+theme_override_font_sizes/font_size = 7
+text = "CPU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="cpu" type="Button" parent="cpupanel" unique_id=347016169]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 58.0
+offset_bottom = 58.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_72gof")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yqalt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ly0op")
+icon = ExtResource("2_yqalt")
+flat = true
+expand_icon = true
+
+[node name="desc" type="Label" parent="cpupanel" unique_id=747280695]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 8.0
+offset_right = 226.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 6
+text = "A CPU (Central Processing Unit) is the primary component 
+of a computer that performs most of the processing. 
+It’s often called the brain of the computer."
+
+[node name="mobopanel" type="Panel" parent="." unique_id=1546109233]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 88.0
+offset_right = 278.0
+offset_bottom = 152.0
+
+[node name="name" type="Label" parent="mobopanel" unique_id=1801595347]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 2.0
+offset_right = 55.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 7
+text = "Motherboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mobo" type="Button" parent="mobopanel" unique_id=459892793]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 13.0
+offset_right = 56.0
+offset_bottom = 61.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ma7se")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bdd8t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oeyy3")
+icon = ExtResource("4_mvlxx")
+flat = true
+expand_icon = true
+
+[node name="desc" type="Label" parent="mobopanel" unique_id=565727626]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 8.0
+offset_right = 216.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 6
+text = "A motherboard is the main circuit board of a computer. 
+It connects and allows communication 
+between all the essential components, including the
+ CPU, RAM, storage devices, and peripheral hardware."
+
+[node name="rampanel" type="Panel" parent="." unique_id=827803635]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 160.0
+offset_right = 278.0
+offset_bottom = 208.0
+
+[node name="name" type="Label" parent="rampanel" unique_id=1233809118]
+layout_mode = 0
+offset_left = 13.0
+offset_top = -2.0
+offset_right = 53.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 7
+text = "RAM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ram" type="Button" parent="rampanel" unique_id=1950836943]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 52.0
+offset_bottom = 40.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_inu54")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6shjb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_br01d")
+icon = ExtResource("4_72gof")
+flat = true
+expand_icon = true
+
+[node name="desc" type="Label" parent="rampanel" unique_id=138615525]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 4.0
+offset_right = 226.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 6
+text = "RAM (Random Access Memory) is a type of computer 
+memory that temporarily stores data and instructions 
+the CPU needs while performing tasks."
+
+[node name="hddpanel" type="Panel" parent="." unique_id=1482285292]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 216.0
+offset_right = 278.0
+offset_bottom = 264.0
+
+[node name="name" type="Label" parent="hddpanel" unique_id=2041077787]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -5.0
+offset_right = 50.0
+offset_bottom = 18.0
+theme_override_font_sizes/font_size = 7
+text = "HDD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="hddpanel" unique_id=1805568924]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 44.0
+offset_bottom = 42.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5v7ey")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6kok2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5e48e")
+icon = ExtResource("6_ly0op")
+flat = true
+expand_icon = true
+
+[node name="desc" type="Label" parent="hddpanel" unique_id=1070880101]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 5.0
+offset_right = 218.0
+offset_bottom = 38.0
+theme_override_font_sizes/font_size = 6
+text = "An HDD (Hard Disk Drive) is a traditional data storage 
+device that uses spinning magnetic disks 
+to read and write information."
+
+[node name="Next" type="Button" parent="." unique_id=1863224258]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 32.0
+offset_right = 448.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_d33wi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cirn5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g0vyq")
+text = "Next"
+expand_icon = true
+script = ExtResource("8_mvlxx")
+
+[node name="Back" type="Button" parent="." unique_id=1435850475]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 64.0
+offset_right = 448.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_d33wi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cirn5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g0vyq")
+text = "Back"
+expand_icon = true
+script = ExtResource("9_3fsor")
+
+[connection signal="pressed" from="cpu" to="cpu" method="_on_pressed"]
+[connection signal="pressed" from="mobo" to="mobo" method="_on_pressed"]
+[connection signal="pressed" from="ram" to="ram" method="_on_pressed"]
+[connection signal="pressed" from="hdd" to="hdd" method="_on_pressed"]
+[connection signal="pressed" from="cpupanel/cpu" to="cpu" method="_on_cpu_pressed"]
+[connection signal="pressed" from="mobopanel/mobo" to="mobo" method="_on_mobo_pressed"]
+[connection signal="pressed" from="rampanel/ram" to="ram" method="_on_ram_pressed"]
+[connection signal="pressed" from="hddpanel/Button" to="hdd" method="_on_button_pressed"]
+[connection signal="pressed" from="Next" to="Next" method="_on_pressed"]
+[connection signal="pressed" from="Back" to="Back" method="_on_pressed"]
