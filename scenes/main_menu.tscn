@@ -104,13 +104,17 @@ thickness = 4
 color = Color(0, 0, 0.9607843, 1)
 thickness = 3
 
-[node name="main_menu" type="Node2D" unique_id=2093666471]
+[node name="main_menu" type="Control" unique_id=1611085087]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_8ln24")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1992825698]
-position = Vector2(241, 135)
-
 [node name="Panel" type="Panel" parent="." unique_id=2014494403]
+layout_mode = 0
 offset_right = 515.0
 offset_bottom = 287.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
@@ -166,6 +170,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 text = "Exit"
 
 [node name="Label" type="Label" parent="." unique_id=715729967]
+layout_mode = 0
 offset_left = 176.0
 offset_top = 40.0
 offset_right = 312.0
@@ -192,6 +197,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SettingsPanel" type="Panel" parent="." unique_id=909881828]
+layout_mode = 0
 offset_left = 160.0
 offset_top = 80.0
 offset_right = 328.0
