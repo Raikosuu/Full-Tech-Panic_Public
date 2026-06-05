@@ -2716,6 +2716,7 @@ grow_vertical = 0
 
 [node name="FadeLayer" type="CanvasLayer" parent="." unique_id=1193285369]
 layer = 99
+visible = false
 
 [node name="FadeRect" type="ColorRect" parent="FadeLayer" unique_id=315833080]
 anchors_preset = 15
