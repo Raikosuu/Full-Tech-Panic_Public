@@ -243,12 +243,12 @@ expand_icon = true
 [node name="desc" type="Label" parent="cpupanel" unique_id=747280695]
 layout_mode = 0
 offset_left = 56.0
-offset_top = 8.0
-offset_right = 226.0
-offset_bottom = 48.0
+offset_top = 13.0
+offset_right = 232.0
+offset_bottom = 70.0
 theme_override_font_sizes/font_size = 6
 text = "A CPU (Central Processing Unit) is the primary component 
-of a computer that performs most of the processing. 
+of a computer that performs most of the processing.
 It’s often called the brain of the computer."
 
 [node name="mobopanel" type="Panel" parent="." unique_id=1546109233]
