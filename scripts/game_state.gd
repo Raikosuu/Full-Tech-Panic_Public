@@ -11,7 +11,7 @@ const LEVELS: Array = [
 	{
 		"day_number":         1,
 		"day_label":          "Day 1",
-		"npcs_to_win":        3,
+		"npcs_to_win":        5,
 		"npc_spawn_min_wait": 2.5,
 		"npc_spawn_max_wait": 3.0,
 		"npc_max_spawn":      22,
@@ -25,7 +25,7 @@ const LEVELS: Array = [
 	{
 		"day_number":         2,
 		"day_label":          "Day 2",
-		"npcs_to_win":        3,
+		"npcs_to_win":        5,
 		"npc_spawn_min_wait": 2.0,
 		"npc_spawn_max_wait": 2.5,
 		"npc_max_spawn":      22,
@@ -39,7 +39,7 @@ const LEVELS: Array = [
 	{
 		"day_number":         3,
 		"day_label":          "Day 3",
-		"npcs_to_win":        3,
+		"npcs_to_win":        10,
 		"npc_spawn_min_wait": 1.5,
 		"npc_spawn_max_wait": 2.0,
 		"npc_max_spawn":      22,

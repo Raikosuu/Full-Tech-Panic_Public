@@ -169,6 +169,7 @@ collision_layer = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_ttshn")
+patience_while_seated = 15.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1986938942]
 position = Vector2(0, -10)
