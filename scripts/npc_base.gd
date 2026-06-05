@@ -44,7 +44,7 @@ func _tick_patience(delta: float) -> void:
 		_start_flash_red()
 		if _counts_for_damage:
 			HealthState.take_damage()
-		leave()
+		leave(false)    # ← patience ran out = not a successful serve
 
 func _start_flash_red() -> void:
 	var anim_player := get_node_or_null("AnimationPlayer")
@@ -103,9 +103,11 @@ func find_vacant_seat() -> void:
 		target_seat = nearest
 		nav_agent.target_position = nearest.global_position
 	else:
-		leave()
+		leave(false)
 
-func leave() -> void:
+func leave(count_as_served: bool = true) -> void:
+	if _leaving:    # ← ADD THIS GUARD
+		return
 	if target_seat != null:
 		target_seat.is_taken = false
 		target_seat = null
@@ -130,8 +132,9 @@ func leave() -> void:
 	_leaving = true
 	is_exiting = true
 	nav_agent.target_position = exit_pos
-	GameState.record_npc_served()
-
+	if count_as_served:
+		GameState.record_npc_served()
+		
 func _process_leave() -> void:
 	if nav_agent.is_navigation_finished():
 		velocity = Vector2.ZERO
@@ -158,11 +161,9 @@ func _on_timer_timeout() -> void:
 		nav_agent.target_position = target_seat.global_position
 
 func fail_and_leave() -> void:
-	# Called by game_state after a failed minigame — game_state already
-	# called HealthState.take_damage(), so suppress the NPC's own damage call.
 	_counts_for_damage = false
 	_patience = 0.0
 	if _patience_bar and _patience_bar.has_method("set_ratio"):
 		_patience_bar.set_ratio(0.0)
 	_start_flash_red()
-	leave()
+	leave(false)    # ← failed minigame = not a successful serve

@@ -79,12 +79,12 @@ func _apply_blur() -> void:
 	if env_node and env_node.environment:
 		env_node.environment.adjustment_enabled = true
 		env_node.environment.adjustment_brightness = 0.4
-	# Fallback dimmer still added for safety
 	var cl := CanvasLayer.new()
 	cl.layer = 18
 	add_child(cl)
 	var dimmer := ColorRect.new()
 	dimmer.color = Color(0.0, 0.0, 0.0, 0.45)
+	dimmer.mouse_filter = Control.MOUSE_FILTER_IGNORE  # ← ADD THIS
 	dimmer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	cl.add_child(dimmer)
 
