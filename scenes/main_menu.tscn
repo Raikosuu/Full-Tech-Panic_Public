@@ -116,6 +116,7 @@ offset_bottom = 287.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
 
 [node name="Settings" type="Button" parent="Panel" unique_id=1963491529]
+visible = false
 layout_mode = 0
 offset_left = 440.0
 offset_right = 480.0
