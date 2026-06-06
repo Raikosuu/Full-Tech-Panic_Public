@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://cxf30cds67xy"]
+
+[ext_resource type="Texture2D" uid="uid://o3tex6mopcqn" path="res://learn/graphics/bg.png" id="1_m4rox"]
+[ext_resource type="Texture2D" uid="uid://boifqkrwyex5g" path="res://learn/graphics/cpu.png" id="2_vlvwg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tepo0"]
+texture = ExtResource("1_m4rox")
+
+[node name="NewLearn" type="Control" unique_id=1460444270]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg" type="Panel" parent="." unique_id=467514537]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -71.0
+offset_right = 21.708313
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tepo0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=959318667]
+layout_mode = 0
+offset_left = 51.0
+offset_right = 222.0
+offset_bottom = 270.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1444881022]
+layout_mode = 2
+
+[node name="Button" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=1310644735]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+action_mode = 0
+texture_normal = ExtResource("2_vlvwg")
+stretch_mode = 5
+
+[node name="Button2" type="RichTextLabel" parent="VBoxContainer/HBoxContainer" unique_id=712431502]
+layout_mode = 2
+bbcode_enabled = true
+text = "hello"
+fit_content = true
+scroll_active = false
+autowrap_trim_flags = 0
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1060683096]
+layout_mode = 2
+
+[node name="Button" type="TextureButton" parent="VBoxContainer/HBoxContainer2" unique_id=1095053636]
+layout_mode = 2
+texture_normal = ExtResource("2_vlvwg")
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=868889955]
+layout_mode = 2
+text = "hello"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=1071448450]
+layout_mode = 2
+
+[node name="Button" type="TextureButton" parent="VBoxContainer/HBoxContainer3" unique_id=773725334]
+layout_mode = 2
+texture_normal = ExtResource("2_vlvwg")
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer3" unique_id=1089556087]
+layout_mode = 2
+text = "hello"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer" unique_id=1770150033]
+layout_mode = 2
+
+[node name="Button" type="TextureButton" parent="VBoxContainer/HBoxContainer4" unique_id=1944668498]
+layout_mode = 2
+texture_normal = ExtResource("2_vlvwg")
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer4" unique_id=1666108047]
+layout_mode = 2
+text = "hello"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=381911583]
+layout_mode = 2
+text = "hello"
