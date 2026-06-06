@@ -3,15 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://o3tex6mopcqn" path="res://learn/graphics/bg.png" id="1_a33oy"]
 [ext_resource type="Script" uid="uid://by7s1dl12tmd6" path="res://learn/scripts/back2.gd" id="2_kgldi"]
 [ext_resource type="Texture2D" uid="uid://bcfwceabdjfbo" path="res://learn/graphics/gpu.png" id="3_qvgdh"]
-[ext_resource type="Script" uid="uid://dfg163e1h0joo" path="res://learn/scripts/gpu.gd" id="4_xlayh"]
+[ext_resource type="Script" uid="uid://cjmexkou6roip" path="res://learn/scripts/back_to_menu.gd" id="4_5bjts"]
 [ext_resource type="Texture2D" uid="uid://cpsqylt76hep6" path="res://learn/graphics/psu.png" id="5_kgldi"]
-[ext_resource type="Script" uid="uid://bo5s50kh824w3" path="res://learn/scripts/psu.gd" id="6_hel8b"]
 [ext_resource type="Texture2D" uid="uid://ehfo4cgqnlqf" path="res://learn/graphics/coolingfan.png" id="7_yh0ec"]
-[ext_resource type="Script" uid="uid://d2f560x8skf7g" path="res://learn/scripts/coolingfan.gd" id="8_5bjts"]
 [ext_resource type="Texture2D" uid="uid://cbyp180v5fla" path="res://learn/graphics/computertower.png" id="9_g71fe"]
-[ext_resource type="Script" uid="uid://djkyfp48lgsh5" path="res://learn/scripts/computertower.gd" id="10_dq043"]
-[ext_resource type="Texture2D" uid="uid://dd3yukid5my25" path="res://learn/graphics/soundcard.png" id="11_h4knm"]
-[ext_resource type="Script" uid="uid://dkc3f5ytid1rl" path="res://learn/scripts/soundcard.gd" id="12_0lm5f"]
+[ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="10_dq043"]
+[ext_resource type="FontFile" uid="uid://c1dh3d4255a1l" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="11_h4knm"]
+[ext_resource type="Script" uid="uid://hjnglx7gqkm3" path="res://learn/scripts/learn2.gd" id="12_learn2"]
+[ext_resource type="Script" uid="uid://dsu3h0336tp7t" path="res://learn/scripts/next2.gd" id="13_next2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_crsa0"]
 texture = ExtResource("1_a33oy")
@@ -37,420 +36,300 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kgldi"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hel8b"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btnp"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yh0ec"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btnh"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4knm"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lm5f"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1peo8"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwqeg"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2ced"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43cjh"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtr5y"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ku5x3"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sth40"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uum47"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xohos"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xurpy"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bjts"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g71fe"]
-bg_color = Color(0.004019165, 0.004019165, 0.004019165, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dq043"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y43gx"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfs5f"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu47p"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_300ku"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gc4q"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_of4vt"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_io3jx"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ae2y4"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f23yf"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65a1o"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nbw0"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n60e6"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[node name="Learn2" type="Control" unique_id=1535554189]
+[node name="Learn2" type="Control" unique_id=951125805]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("12_learn2")
 
-[node name="learnpanel" type="Panel" parent="." unique_id=597452654]
+[node name="learnpanel" type="Panel" parent="." unique_id=623822677]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -223.33331
-offset_top = -39.0
-offset_right = 249.5556
-offset_bottom = 227.0
+offset_left = -349.0
+offset_top = -255.0
+offset_right = -349.0
+offset_bottom = -255.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(3, 3)
 theme_override_styles/panel = SubResource("StyleBoxTexture_crsa0")
 
-[node name="Back" type="Button" parent="." unique_id=140371497]
+[node name="Back" type="Button" parent="." unique_id=851002834]
 layout_mode = 0
 offset_left = 352.0
-offset_top = 32.0
+offset_top = 64.0
 offset_right = 448.0
-offset_bottom = 56.0
+offset_bottom = 88.0
 theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_3kpq2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_qvgdh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_xlayh")
 text = "Back"
-expand_icon = true
 script = ExtResource("2_kgldi")
 
-[node name="gpu" type="Button" parent="." unique_id=1167638561]
+[node name="Menu" type="Button" parent="." unique_id=1901104992]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 40.0
-offset_right = 109.0
-offset_bottom = 80.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_kgldi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hel8b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_yh0ec")
+offset_left = 352.0
+offset_top = 93.0
+offset_right = 448.0
+offset_bottom = 117.0
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_3kpq2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qvgdh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xlayh")
+text = "Menu"
+script = ExtResource("4_5bjts")
+
+[node name="Next" type="Button" parent="." unique_id=1223011358]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 33.0
+offset_right = 448.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_3kpq2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qvgdh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xlayh")
+text = "Next"
+script = ExtResource("13_next2")
+
+[node name="gpu" type="Button" parent="." unique_id=806922488]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 14.0
+offset_right = 106.0
+offset_bottom = 64.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btnp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btnh")
+toggle_mode = true
 icon = ExtResource("3_qvgdh")
 flat = true
 expand_icon = true
-script = ExtResource("4_xlayh")
 
-[node name="psu" type="Button" parent="." unique_id=557608037]
+[node name="psu" type="Button" parent="." unique_id=1146976101]
 layout_mode = 0
-offset_left = 72.0
-offset_top = 96.0
-offset_right = 112.0
-offset_bottom = 136.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_h4knm")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_0lm5f")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1peo8")
+offset_left = 56.0
+offset_top = 76.0
+offset_right = 106.0
+offset_bottom = 126.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btnp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btnh")
+toggle_mode = true
 icon = ExtResource("5_kgldi")
 flat = true
 expand_icon = true
-script = ExtResource("6_hel8b")
 
-[node name="coolingfan" type="Button" parent="." unique_id=486034928]
+[node name="coolingfan" type="Button" parent="." unique_id=1500002550]
 layout_mode = 0
-offset_left = 72.0
-offset_top = 152.0
-offset_right = 104.0
-offset_bottom = 184.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_pwqeg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_t2ced")
-theme_override_styles/hover = SubResource("StyleBoxFlat_43cjh")
+offset_left = 56.0
+offset_top = 139.0
+offset_right = 106.0
+offset_bottom = 189.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btnp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btnh")
+toggle_mode = true
 icon = ExtResource("7_yh0ec")
 flat = true
 expand_icon = true
-script = ExtResource("8_5bjts")
 
-[node name="computertower" type="Button" parent="." unique_id=1570126305]
+[node name="computertower" type="Button" parent="." unique_id=1686385855]
 layout_mode = 0
-offset_left = 75.0
-offset_top = 208.0
-offset_right = 107.0
-offset_bottom = 240.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_vtr5y")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ku5x3")
-theme_override_styles/hover = SubResource("StyleBoxFlat_sth40")
+offset_left = 56.0
+offset_top = 203.0
+offset_right = 106.0
+offset_bottom = 253.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btnp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btnh")
+toggle_mode = true
 icon = ExtResource("9_g71fe")
 flat = true
 expand_icon = true
-script = ExtResource("10_dq043")
 
-[node name="soundcard" type="Button" parent="." unique_id=1101207271]
+[node name="gpupanel" type="Panel" parent="." unique_id=1228581700]
+visible = false
 layout_mode = 0
-offset_left = 309.0
-offset_top = 190.0
-offset_right = 341.0
-offset_bottom = 222.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_uum47")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_xohos")
-theme_override_styles/hover = SubResource("StyleBoxFlat_xurpy")
-icon = ExtResource("11_h4knm")
-flat = true
-expand_icon = true
-script = ExtResource("12_0lm5f")
+offset_left = 112.0
+offset_top = 9.0
+offset_right = 340.0
+offset_bottom = 270.0
+scale = Vector2(0.9813122, 0.9813122)
 
-[node name="gpupanel" type="Panel" parent="." unique_id=1796791342]
-layout_mode = 0
-offset_left = 56.0
-offset_top = 32.0
-offset_right = 288.0
-offset_bottom = 80.0
-
-[node name="name" type="Label" parent="gpupanel" unique_id=355111590]
-layout_mode = 0
-offset_left = 11.0
-offset_right = 51.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 7
-text = "GPU"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="gpu" type="Button" parent="gpupanel" unique_id=2662083]
-layout_mode = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="gpupanel" unique_id=614153391]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 8.0
 offset_top = 6.0
-offset_right = 53.0
-offset_bottom = 51.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_5bjts")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_g71fe")
-theme_override_styles/hover = SubResource("StyleBoxFlat_dq043")
-icon = ExtResource("3_qvgdh")
-flat = true
-expand_icon = true
+offset_right = -8.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="desc" type="Label" parent="gpupanel" unique_id=123820300]
-layout_mode = 0
-offset_left = 56.0
-offset_top = 8.0
-offset_right = 228.0
-offset_bottom = 41.0
-theme_override_font_sizes/font_size = 6
-text = "A GPU (Graphics Processing Unit) is a specialized processor 
-designed to handle complex calculations in
-parallel,
- primarily for rendering images, videos, and animations"
+[node name="name" type="Label" parent="gpupanel/VBoxContainer" unique_id=1062953825]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_dq043")
+theme_override_font_sizes/font_size = 15
+text = "GPU (Graphics Processing Unit)"
 
-[node name="psupanel" type="Panel" parent="." unique_id=1987923475]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 88.0
-offset_right = 288.0
-offset_bottom = 136.0
+[node name="ScrollContainer" type="ScrollContainer" parent="gpupanel/VBoxContainer" unique_id=1210688098]
+custom_minimum_size = Vector2(211, 234)
+layout_mode = 2
 
-[node name="name" type="Label" parent="psupanel" unique_id=406602907]
-layout_mode = 0
-offset_left = 2.0
-offset_top = -4.0
-offset_right = 42.0
-offset_bottom = 19.0
-theme_override_font_sizes/font_size = 7
-text = "PSU"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="desc" type="Label" parent="gpupanel/VBoxContainer/ScrollContainer" unique_id=1841588749]
+custom_minimum_size = Vector2(211, 234)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("11_h4knm")
+theme_override_font_sizes/font_size = 12
+text = "A graphics card is a computer component that renders images, videos, and 3D graphics, with a GPU as its core processor, enabling high-performance visual computing for gaming, video editing, and AI tasks.
 
-[node name="psu" type="Button" parent="psupanel" unique_id=1396801182]
+A graphics card, also called a video card or GPU, is an expansion card that generates graphics output for a display device such as a monitor . It can be integrated into the motherboard or CPU, or discrete, meaning it is a separate component installed in an expansion slot for higher performance. Discrete graphics cards are essential for tasks that require intensive graphics processing, such as gaming, 3D rendering, and video editing."
+autowrap_mode = 2
+
+[node name="psupanel" type="Panel" parent="." unique_id=237060255]
+visible = false
 layout_mode = 0
+offset_left = 112.0
+offset_top = 9.0
+offset_right = 340.0
+offset_bottom = 270.0
+scale = Vector2(0.98145247, 0.98145247)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="psupanel" unique_id=451595623]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 8.0
-offset_top = 8.0
-offset_right = 48.0
-offset_bottom = 48.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_y43gx")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_pfs5f")
-theme_override_styles/hover = SubResource("StyleBoxFlat_wu47p")
-icon = ExtResource("5_kgldi")
-flat = true
-expand_icon = true
+offset_top = 6.0
+offset_right = -8.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="desc" type="Label" parent="psupanel" unique_id=698985315]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 8.0
-offset_right = 204.0
-offset_bottom = 41.0
-theme_override_font_sizes/font_size = 6
-text = "A PSU (Power Supply Unit) is a hardware component
-in a computer that converts electrical power from an
- outlet into usable power for the internal components."
+[node name="name" type="Label" parent="psupanel/VBoxContainer" unique_id=1833563422]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_dq043")
+theme_override_font_sizes/font_size = 15
+text = "PSU (Power Supply Unit)"
 
-[node name="coolingfanpanel" type="Panel" parent="." unique_id=467108932]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 144.0
-offset_right = 288.0
-offset_bottom = 192.0
+[node name="ScrollContainer" type="ScrollContainer" parent="psupanel/VBoxContainer" unique_id=2089062261]
+custom_minimum_size = Vector2(211, 234)
+layout_mode = 2
 
-[node name="name" type="Label" parent="coolingfanpanel" unique_id=1303345520]
-layout_mode = 0
-offset_left = 5.0
-offset_top = -5.0
-offset_right = 45.0
-offset_bottom = 18.0
-theme_override_font_sizes/font_size = 7
-text = "Cooling Fan"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="desc" type="Label" parent="psupanel/VBoxContainer/ScrollContainer" unique_id=171740471]
+custom_minimum_size = Vector2(211, 234)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("11_h4knm")
+theme_override_font_sizes/font_size = 12
+text = "A Power Supply Unit (PSU) is a crucial component of a computer system that converts external electrical power into the specific voltage and current required by various components within the computer. It supplies power to all other components, ensuring stable and reliable operation. The PSU typically converts alternating current (AC) from the wall outlet into direct current (DC) used by the computer's internal parts."
+autowrap_mode = 2
 
-[node name="coolingfan" type="Button" parent="coolingfanpanel" unique_id=1151085330]
+[node name="coolingfanpanel" type="Panel" parent="." unique_id=439973761]
+visible = false
 layout_mode = 0
+offset_left = 112.0
+offset_top = 9.0
+offset_right = 340.0
+offset_bottom = 270.0
+scale = Vector2(0.9839294, 0.9839294)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="coolingfanpanel" unique_id=467824698]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 8.0
-offset_top = 8.0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_300ku")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8gc4q")
-theme_override_styles/hover = SubResource("StyleBoxFlat_of4vt")
-icon = ExtResource("7_yh0ec")
-flat = true
-expand_icon = true
+offset_top = 6.0
+offset_right = -8.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="desc" type="Label" parent="coolingfanpanel" unique_id=1150858380]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 8.0
-offset_right = 215.0
-offset_bottom = 41.0
-theme_override_font_sizes/font_size = 6
-text = "A cooling fan is a hardware device that moves air 
-to remove heat from computer components, 
-preventing overheating and keeping performance stable."
+[node name="name" type="Label" parent="coolingfanpanel/VBoxContainer" unique_id=1468475322]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_dq043")
+theme_override_font_sizes/font_size = 15
+text = "Cooling Fan "
 
-[node name="computertowerpanel" type="Panel" parent="." unique_id=748309572]
-layout_mode = 0
-offset_left = 53.0
-offset_top = 200.0
-offset_right = 288.0
-offset_bottom = 264.0
+[node name="ScrollContainer" type="ScrollContainer" parent="coolingfanpanel/VBoxContainer" unique_id=1288521379]
+custom_minimum_size = Vector2(211, 234)
+layout_mode = 2
 
-[node name="name" type="Label" parent="computertowerpanel" unique_id=1437681243]
+[node name="desc" type="Label" parent="coolingfanpanel/VBoxContainer/ScrollContainer" unique_id=263861649]
+custom_minimum_size = Vector2(211, 234)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("11_h4knm")
+theme_override_font_sizes/font_size = 12
+text = "A cooling fan is designed to remove excess heat from devices or machinery to ensure stable operation and prevent damage caused by overheating. It achieves this by using a motor to rotate fan blades, which generate airflow that carries heat away from the surface of the component or system, lowering its temperature and maintaining efficiency and reliability in operation.
+
+Cooling fans operate on the principle of convective heat transfer. The motor drives the fan blades to rotate at high speed, creating airflow. This airflow passes over hot surfaces, such as heat sinks, radiators, or electronic components, absorbing heat and expelling it into the surrounding environment. This continuous exchange of cooler and warmer air enhances the cooling effect."
+autowrap_mode = 2
+
+[node name="computertowerpanel" type="Panel" parent="." unique_id=879632036]
 layout_mode = 0
-offset_left = 4.0
-offset_right = 61.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 7
+offset_left = 112.0
+offset_top = 9.0
+offset_right = 340.0
+offset_bottom = 270.0
+scale = Vector2(0.986845, 0.986845)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="computertowerpanel" unique_id=1324220518]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = -8.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="name" type="Label" parent="computertowerpanel/VBoxContainer" unique_id=1183937317]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_dq043")
+theme_override_font_sizes/font_size = 15
 text = "Computer Tower"
 
-[node name="computertower" type="Button" parent="computertowerpanel" unique_id=179299594]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 8.0
-offset_right = 54.0
-offset_bottom = 40.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_io3jx")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ae2y4")
-theme_override_styles/hover = SubResource("StyleBoxFlat_f23yf")
-icon = ExtResource("9_g71fe")
-flat = true
-expand_icon = true
+[node name="ScrollContainer" type="ScrollContainer" parent="computertowerpanel/VBoxContainer" unique_id=45173970]
+custom_minimum_size = Vector2(211, 234)
+layout_mode = 2
 
-[node name="desc" type="Label" parent="computertowerpanel" unique_id=594342912]
-layout_mode = 0
-offset_left = 65.0
-offset_top = 10.0
-offset_right = 235.0
-offset_bottom = 91.0
-theme_override_font_sizes/font_size = 6
-text = "A computer tower is the upright case that houses all 
-the main components of a desktop computer,
- such as the motherboard, CPU, GPU,
-storage drives, and power supply."
-
-[node name="soundcardpanel" type="Panel" parent="." unique_id=477740974]
-layout_mode = 0
-offset_left = 304.0
-offset_top = 182.0
-offset_right = 456.0
-offset_bottom = 262.0
-
-[node name="name" type="Label" parent="soundcardpanel" unique_id=344616593]
-layout_mode = 0
-offset_left = 5.0
-offset_top = -3.0
-offset_right = 45.0
-offset_bottom = 20.0
-theme_override_font_sizes/font_size = 7
-text = "Sound Card"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="soundcard" type="Button" parent="soundcardpanel" unique_id=1991216720]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 8.0
-offset_right = 37.0
-offset_bottom = 40.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_65a1o")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8nbw0")
-theme_override_styles/hover = SubResource("StyleBoxFlat_n60e6")
-icon = ExtResource("11_h4knm")
-flat = true
-expand_icon = true
-
-[node name="desc" type="Label" parent="soundcardpanel" unique_id=1447564490]
-layout_mode = 0
-offset_left = 47.0
-offset_top = 9.0
-offset_right = 152.0
-offset_bottom = 78.0
-theme_override_font_sizes/font_size = 6
-text = "A sound card is a computer 
-component that handles
- audio by converting digital signals
- into sound for 
-speakers or headphones, and 
-capturing input from microphones."
+[node name="desc" type="Label" parent="computertowerpanel/VBoxContainer/ScrollContainer" unique_id=702166531]
+custom_minimum_size = Vector2(211, 234)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("11_h4knm")
+theme_override_font_sizes/font_size = 12
+text = "A computer tower, also known as a PC case, chassis, or system unit, is the enclosure that contains the core components of a desktop computer, including the motherboard, CPU, GPU, RAM, storage drives, and power supply. Its vertical design allows for better airflow, easier access to components, and more space for expansion compared to horizontal \"pizza box\" cases. Towers are typically placed on the floor next to a desk, though they can also sit on top of a desk."
+autowrap_mode = 2
 
 [connection signal="pressed" from="Back" to="Back" method="_on_pressed"]
-[connection signal="pressed" from="gpu" to="gpu" method="_on_pressed"]
-[connection signal="pressed" from="psu" to="psu" method="_on_pressed"]
-[connection signal="pressed" from="coolingfan" to="coolingfan" method="_on_pressed"]
-[connection signal="pressed" from="computertower" to="computertower" method="_on_pressed"]
-[connection signal="pressed" from="soundcard" to="soundcard" method="_on_pressed"]
-[connection signal="pressed" from="gpupanel/gpu" to="gpu" method="_on_gpu_pressed"]
-[connection signal="pressed" from="psupanel/psu" to="psu" method="_on_psu_pressed"]
-[connection signal="pressed" from="coolingfanpanel/coolingfan" to="coolingfan" method="_on_coolingfan_pressed"]
-[connection signal="pressed" from="computertowerpanel/computertower" to="computertower" method="_on_computertower_pressed"]
-[connection signal="pressed" from="soundcardpanel/soundcard" to="soundcard" method="_on_soundcard_pressed"]
+[connection signal="pressed" from="Menu" to="Menu" method="_on_pressed"]
+[connection signal="pressed" from="Next" to="Next" method="_on_pressed"]
+[connection signal="toggled" from="gpu" to="." method="_on_gpu_toggled"]
+[connection signal="toggled" from="psu" to="." method="_on_psu_toggled"]
+[connection signal="toggled" from="coolingfan" to="." method="_on_coolingfan_toggled"]
+[connection signal="toggled" from="computertower" to="." method="_on_computertower_toggled"]

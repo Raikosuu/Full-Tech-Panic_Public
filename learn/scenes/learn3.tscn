@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://learn3scene"]
+
+[ext_resource type="Texture2D" uid="uid://o3tex6mopcqn" path="res://learn/graphics/bg.png" id="1_learn3"]
+[ext_resource type="Script" uid="uid://cdyxg7fpys7hn" path="res://learn/scripts/back3.gd" id="2_learn3"]
+[ext_resource type="Texture2D" uid="uid://dd3yukid5my25" path="res://learn/graphics/soundcard.png" id="3_learn3"]
+[ext_resource type="Script" uid="uid://cjmexkou6roip" path="res://learn/scripts/back_to_menu.gd" id="4_fsytj"]
+[ext_resource type="Script" uid="uid://b5rs26tmpmgim" path="res://learn/scripts/learn3.gd" id="4_learn3"]
+[ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="6_s0i0g"]
+[ext_resource type="FontFile" uid="uid://c1dh3d4255a1l" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="7_5iac7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_learn3"]
+texture = ExtResource("1_learn3")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kpq2"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvgdh"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlayh"]
+bg_color = Color(0.42745098, 0.42745098, 0.42745098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btnp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btnh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Learn3" type="Control" unique_id=334904170]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_learn3")
+
+[node name="learnpanel" type="Panel" parent="." unique_id=711664171]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -367.0
+offset_top = -469.0
+offset_right = -367.0
+offset_bottom = -469.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+theme_override_styles/panel = SubResource("StyleBoxTexture_learn3")
+
+[node name="Back" type="Button" parent="." unique_id=1376475708]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 32.0
+offset_right = 448.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_3kpq2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qvgdh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xlayh")
+text = "Back"
+script = ExtResource("2_learn3")
+
+[node name="Menu" type="Button" parent="." unique_id=576713993]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 61.0
+offset_right = 448.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_3kpq2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qvgdh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xlayh")
+text = "Menu"
+script = ExtResource("4_fsytj")
+
+[node name="soundcard" type="Button" parent="." unique_id=1156648126]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 32.0
+offset_right = 106.0
+offset_bottom = 82.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btnp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btnh")
+toggle_mode = true
+icon = ExtResource("3_learn3")
+flat = true
+expand_icon = true
+
+[node name="soundcardpanel" type="Panel" parent="." unique_id=1181897652]
+visible = false
+layout_mode = 0
+offset_left = 112.0
+offset_top = 9.0
+offset_right = 340.0
+offset_bottom = 270.0
+scale = Vector2(0.98251134, 0.98251134)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="soundcardpanel" unique_id=853428837]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = -8.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="name" type="Label" parent="soundcardpanel/VBoxContainer" unique_id=509008900]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_s0i0g")
+theme_override_font_sizes/font_size = 15
+text = "Cooling Fan "
+
+[node name="ScrollContainer" type="ScrollContainer" parent="soundcardpanel/VBoxContainer" unique_id=1538083438]
+custom_minimum_size = Vector2(211, 234)
+layout_mode = 2
+
+[node name="desc" type="Label" parent="soundcardpanel/VBoxContainer/ScrollContainer" unique_id=1182965039]
+custom_minimum_size = Vector2(211, 234)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("7_5iac7")
+theme_override_font_sizes/font_size = 12
+text = "A sound card, also known as an audio card or soundboard, is either an internal expansion card or an integrated component on a computer's motherboard that allows the computer to produce and record sound through speakers, headphones, or microphones. It functions as a translator between digital audio data and analog sound waves, using a digital-to-analog converter (DAC) to output sound and an analog-to-digital converter (ADC) to record audio."
+autowrap_mode = 2
+
+[connection signal="pressed" from="Back" to="Back" method="_on_pressed"]
+[connection signal="pressed" from="Menu" to="Menu" method="_on_pressed"]
+[connection signal="toggled" from="soundcard" to="." method="_on_soundcard_toggled"]
