@@ -119,6 +119,7 @@ func advance_to_next_level() -> void:
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 		return
 	load_level(next_index)
+	HealthState.reset()
 	var intro := get_intro_cutscene()
 	if intro != "":
 		get_tree().change_scene_to_file(intro)
