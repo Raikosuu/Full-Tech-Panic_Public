@@ -10,6 +10,10 @@ border_color = Color(0.18, 0.18, 0.28, 1)
 [node name="HotbarUI" type="CanvasLayer" unique_id=1573472408]
 layer = 10
 script = ExtResource("1_hotbar")
+part_scenes = null
+part_labels = null
+part_types = null
+part_counts = null
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=151350601]
 anchors_preset = 12

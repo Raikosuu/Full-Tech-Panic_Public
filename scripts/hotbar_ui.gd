@@ -168,12 +168,17 @@ func _set_icon_texture(icon: TextureRect, i: int) -> void:
 	tmp.free()
 
 # ── Drag handling ──────────────────────────────────────────────────────────
+# hotbar_ui.gd — replace these functions
+
 func _on_slot_gui_input(event: InputEvent, i: int) -> void:
 	if _drag_slot != -1:
 		return
-	if _locked_slots.get(i, false):   # ← ADD THIS BLOCK
+	if _locked_slots.get(i, false):
 		return
-	var remaining: int = part_counts[i] - _live[i].size()
+	
+	# Count only instances that are NOT yet snapped (still "live" / unplaced)
+	var placed_count: int = _count_placed(i)
+	var remaining: int = part_counts[i] - placed_count
 	if remaining <= 0:
 		return
 
@@ -202,9 +207,54 @@ func _on_slot_gui_input(event: InputEvent, i: int) -> void:
 	_reposition_ghost(get_viewport().get_mouse_position())
 
 	_live[i].append(_drag_instance)
+	# Use tree_exiting to catch both free() and reparenting out of tree
 	_drag_instance.tree_exiting.connect(_on_instance_exiting.bind(i, _drag_instance))
 	_refresh_slot(i)
 
+# NEW: count how many instances exist (placed or in-flight) for slot i
+func _count_placed(i: int) -> int:
+	# Clean up any nulls (freed nodes) first
+	_live[i] = _live[i].filter(func(n): return is_instance_valid(n))
+	return _live[i].size()
+
+func _on_instance_exiting(i: int, instance: Node) -> void:
+	# Only remove from live if it's actually being freed, not just reparented
+	# We check on next frame so the tree operation completes first
+	call_deferred("_deferred_remove_live", i, instance)
+
+func _deferred_remove_live(i: int, instance: Node) -> void:
+	if not is_instance_valid(instance):
+		_live[i].erase(instance)
+	_refresh_slot(i)
+
+func _refresh_slot(i: int) -> void:
+	# Clean nulls before reading size
+	_live[i] = _live[i].filter(func(n): return is_instance_valid(n))
+	
+	var total:     int = part_counts[i]
+	var remaining: int = total - _live[i].size()
+
+	var badge: Label = _counters[i]
+	if total == 1:
+		badge.text = "" if remaining > 0 else "✕"
+	else:
+		badge.text = str(remaining)
+
+	var ptype:   String = part_types[i]
+	var acc_col: Color  = TYPE_COLORS.get(ptype, Color(0.35, 0.35, 0.35))
+	var sc := _slot_panels[i].get_theme_stylebox("panel") as StyleBoxFlat
+	if sc:
+		if remaining > 0:
+			sc.bg_color     = Color(0.08, 0.08, 0.14, 1.0)
+			sc.border_color = acc_col * 0.6
+		else:
+			sc.bg_color     = Color(0.05, 0.05, 0.08, 1.0)
+			sc.border_color = Color(0.18, 0.18, 0.22, 1.0)
+
+	var icon := _slot_panels[i].get_node_or_null("Center/Icon") as TextureRect
+	if icon:
+		var is_locked: bool = _locked_slots.get(i, false)
+		icon.modulate.a = 1.0 if (remaining > 0 and not is_locked) else 0.3
 func _input(event: InputEvent) -> void:
 	if _drag_slot == -1:
 		return
@@ -222,6 +272,7 @@ func _input(event: InputEvent) -> void:
 	if released:
 		_drop_part()
 
+# hotbar_ui.gd
 func _drop_part() -> void:
 	if _drag_ghost:
 		_drag_ghost.queue_free()
@@ -238,7 +289,9 @@ func _drop_part() -> void:
 	if not panel_rect.has_point(screen_pos):
 		var world_pos: Vector2 = _screen_to_world(screen_pos)
 		if _drag_instance.has_method("grab_from_hotbar"):
-			_drag_instance.grab_from_hotbar(world_pos)
+			# Defer so the current mouse-release event finishes propagating
+			# before the new grab starts — prevents immediate self-release
+			_drag_instance.call_deferred("grab_from_hotbar", world_pos)
 	else:
 		_live[_drag_slot].erase(_drag_instance)
 		_drag_instance.queue_free()
@@ -293,41 +346,12 @@ func _screen_to_world(screen_pos: Vector2) -> Vector2:
 	var offset        := screen_pos - viewport_size * 0.5
 	return cam.global_position + offset / cam.zoom
 
-# ── Instance lifecycle ─────────────────────────────────────────────────────
-func _on_instance_exiting(i: int, instance: Node) -> void:
-	_live[i].erase(instance)
-	_refresh_slot(i)
+
 
 # ── UI refresh ─────────────────────────────────────────────────────────────
 func _refresh_all() -> void:
 	for i in part_scenes.size():
 		_refresh_slot(i)
-
-func _refresh_slot(i: int) -> void:
-	var total:     int = part_counts[i]
-	var remaining: int = total - _live[i].size()
-
-	var badge: Label = _counters[i]
-	if total == 1:
-		badge.text = "" if remaining > 0 else "✕"
-	else:
-		badge.text = str(remaining)
-
-	var ptype:   String = part_types[i]
-	var acc_col: Color  = TYPE_COLORS.get(ptype, Color(0.35, 0.35, 0.35))
-	var sc := _slot_panels[i].get_theme_stylebox("panel") as StyleBoxFlat
-	if sc:
-		if remaining > 0:
-			sc.bg_color     = Color(0.08, 0.08, 0.14, 1.0)
-			sc.border_color = acc_col * 0.6
-		else:
-			sc.bg_color     = Color(0.05, 0.05, 0.08, 1.0)
-			sc.border_color = Color(0.18, 0.18, 0.22, 1.0)
-
-	var icon := _slot_panels[i].get_node_or_null("Center/Icon") as TextureRect
-	if icon:
-		var is_locked: bool = _locked_slots.get(i, false)
-		icon.modulate.a = 1.0 if (remaining > 0 and not is_locked) else 0.3
 
 # ── Helpers ────────────────────────────────────────────────────────────────
 func _find_camera() -> Camera2D:

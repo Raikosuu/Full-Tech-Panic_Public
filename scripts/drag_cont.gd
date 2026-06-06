@@ -46,7 +46,8 @@ func _physics_process(_delta: float) -> void:
 		return
 
 	if is_grabbed:
-		if not _from_hotbar and touch_index == -1 and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		# For hotbar screws, detect release via polling since _input is disabled
+		if touch_index == -1 and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			_release()
 			return
 		var target_pos: Vector2
@@ -166,6 +167,7 @@ func _restore_visibility() -> void:
 
 func _release() -> void:
 	is_grabbed = false
+	_from_hotbar = false
 	GameState.drag_active = false
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0.0
@@ -176,6 +178,9 @@ func _release() -> void:
 	collision_layer = _default_collision_layer
 	collision_mask = _default_collision_mask
 	set_physics_process(false)
+	# Now that this screw is placed in the world, enable input so
+	# the player can pick it up and move it to a snap zone
+	set_process_input(true)
 	emit_signal("released", self)
 
 func snap(target_position: Vector2) -> void:
@@ -201,7 +206,10 @@ func grab_from_hotbar(world_pos: Vector2) -> void:
 	drag_offset = Vector2.ZERO
 	global_position = world_pos
 	_from_hotbar = true
+	# Disable _input so other placed screws can't intercept this drag
+	set_process_input(false)
 	_grab()
+
 
 func _update_bounds() -> void:
 	_drag_max.x = _drag_max_x
