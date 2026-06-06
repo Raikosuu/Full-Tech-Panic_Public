@@ -17,7 +17,11 @@ var _from_hotbar: bool = false
 @export var allow_unsnap: bool = false
 @export var blocked_by_parts: Array[NodePath] = []
 @export var _drag_min: Vector2 = Vector2(154, 80)
-@export var _drag_max: Vector2 = Vector2(316, 171)
+@export var _drag_max_x: float = 316.0
+@export var hotbar_path: NodePath = NodePath("")
+
+var _drag_max: Vector2 = Vector2(316, 166)
+
 
 func _ready() -> void:
 	gravity_scale = 0
@@ -28,7 +32,7 @@ func _ready() -> void:
 	_default_z_index = z_index
 	_default_collision_layer = collision_layer
 	_default_collision_mask = collision_mask
-
+	_update_bounds()
 func _is_blocked() -> bool:
 	for path in blocked_by_parts:
 		var node = get_node_or_null(path)
@@ -50,8 +54,9 @@ func _physics_process(_delta: float) -> void:
 			target_pos = get_global_mouse_position() - drag_offset
 		else:
 			target_pos = _touch_pos - drag_offset
-		target_pos.x = clamp(target_pos.x, _drag_min.x, _drag_max.x)
-		target_pos.y = clamp(target_pos.y, _drag_min.y, _drag_max.y)
+		var radius := _get_shape_radius()
+		target_pos.x = clamp(target_pos.x, _drag_min.x + radius, _drag_max.x - radius)
+		target_pos.y = clamp(target_pos.y, _drag_min.y + radius, _drag_max.y - radius)
 		global_position = global_position.lerp(target_pos, 0.3)
 
 func _input(event: InputEvent) -> void:
@@ -197,3 +202,28 @@ func grab_from_hotbar(world_pos: Vector2) -> void:
 	global_position = world_pos
 	_from_hotbar = true
 	_grab()
+
+func _update_bounds() -> void:
+	_drag_max.x = _drag_max_x
+	if hotbar_path:
+		var hotbar = get_node_or_null(hotbar_path)
+		if hotbar:
+			var panel = hotbar.get_node_or_null("Panel")
+			if panel:
+				# Convert hotbar top edge from screen to world space
+				var cam = get_viewport().get_camera_2d()
+				if cam:
+					var screen_top = panel.global_position.y
+					var world_y = cam.global_position.y + (screen_top - get_viewport().get_visible_rect().size.y / 2.0) / cam.zoom.y
+					_drag_max.y = world_y
+					return
+	_drag_max.y = 166.0  # fallback
+
+func _get_shape_radius() -> float:
+	for child in get_children():
+		if child is CollisionShape2D and child.shape:
+			if child.shape is CircleShape2D:
+				return child.shape.radius
+			elif child.shape is RectangleShape2D:
+				return max(child.shape.size.x, child.shape.size.y) / 2.0
+	return 0.0

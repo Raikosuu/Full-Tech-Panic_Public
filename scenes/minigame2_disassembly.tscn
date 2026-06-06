@@ -82,6 +82,9 @@ eject_on_click = true
 position = Vector2(235.00002, 133)
 allow_unsnap = true
 blocked_by_parts = Array[NodePath]([NodePath("../SU_main/Panel_snapzone"), NodePath("../RAM_Module"), NodePath("../Cooling Fan"), NodePath("../CPU")])
+_drag_min = null
+_drag_max_x = null
+hotbar_path = null
 
 [node name="Sprite2D" parent="MoBo" index="0" unique_id=716436491]
 disassembly_mode = true
