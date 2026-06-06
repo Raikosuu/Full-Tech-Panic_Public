@@ -129,7 +129,7 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_s0i0g")
 theme_override_font_sizes/font_size = 15
-text = "Cooling Fan "
+text = "Sound Card"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="soundcardpanel/VBoxContainer" unique_id=1538083438]
 custom_minimum_size = Vector2(211, 234)
