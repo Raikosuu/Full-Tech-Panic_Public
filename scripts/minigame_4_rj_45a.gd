@@ -68,10 +68,11 @@ func _on_minigame_ready() -> void:
 func _process(delta: float) -> void:
 	super._process(delta)
 	if _dragged_node:
+		# Works for both mouse and touch since touch fires _end_drag directly
 		_dragged_node.position = get_viewport().get_mouse_position() + _drag_offset
 	if _patience_bar and time_limit > 0.0 and not _completed and not _failed:
 		_patience_bar.set_ratio(_time_remaining / time_limit)
-
+		
 # ── Wire tray ──────────────────────────────────────────────────────────────────
 
 func _build_wire_tray() -> void:
@@ -195,23 +196,34 @@ func _on_wire_gui_input(event: InputEvent, wire_id: String) -> void:
 		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		_start_drag(wire_id, get_viewport().get_mouse_position(), -1)
+	elif event is InputEventScreenTouch and event.pressed:
+		_start_drag(wire_id, event.position, -1)
 
 func _on_slot_gui_input(event: InputEvent, slot_index: int) -> void:
 	if _completed or _failed or _dragged_node:
 		return
+	var pressed := false
+	var pos := Vector2.ZERO
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		if slots[slot_index] != "":
-			var wire_id := slots[slot_index]
-			slots[slot_index] = ""
-			_refresh_slot_visual(slot_index)
-			_start_drag(wire_id, get_viewport().get_mouse_position(), slot_index)
-
+		pressed = true
+		pos = get_viewport().get_mouse_position()
+	elif event is InputEventScreenTouch and event.pressed:
+		pressed = true
+		pos = event.position
+	if pressed and slots[slot_index] != "":
+		var wire_id := slots[slot_index]
+		slots[slot_index] = ""
+		_refresh_slot_visual(slot_index)
+		_start_drag(wire_id, pos, slot_index)
+		
 func _input(event: InputEvent) -> void:
 	if not _dragged_node:
 		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		_end_drag(get_viewport().get_mouse_position())
-
+	elif event is InputEventScreenTouch and not event.pressed:
+		_end_drag(event.position)
+		
 # ── Drag logic ─────────────────────────────────────────────────────────────────
 
 func _start_drag(wire_id: String, screen_pos: Vector2, from_slot: int) -> void:

@@ -40,3 +40,16 @@ func _on_coolingfan_toggled(pressed: bool) -> void:
 func _on_computertower_toggled(pressed: bool) -> void:
 	_close_others(3)
 	computertowerpanel.visible = pressed
+	
+func _input(event: InputEvent) -> void:
+	if not (event is InputEventScreenTouch and event.pressed):
+		return
+	var p = event.position
+	for i in buttons.size():
+		if buttons[i].get_global_rect().has_point(p):
+			buttons[i].button_pressed = not buttons[i].button_pressed
+			if buttons[i].button_pressed:
+				_close_others(i)
+				panels[i].visible = true
+			else:
+				panels[i].visible = false
