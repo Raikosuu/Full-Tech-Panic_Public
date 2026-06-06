@@ -28,6 +28,7 @@ func _on_npcs_served_changed(count: int) -> void:
 	_update_label(count)
 
 func _on_game_over() -> void:
+	GameState.is_game_over = true
 	get_tree().current_scene.process_mode = Node.PROCESS_MODE_DISABLED  # ← freeze game scene
 	var screen := GAME_OVER_SCENE.instantiate()
 	get_tree().root.add_child(screen)

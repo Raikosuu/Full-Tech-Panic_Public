@@ -195,5 +195,5 @@ func fail_minigame() -> void:
 	if interacted_npc != null and is_instance_valid(interacted_npc):
 		interacted_npc.fail_and_leave()
 		interacted_npc = null
-	is_game_over = true       # ← ADD THIS before take_damage
+	
 	HealthState.take_damage()

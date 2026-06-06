@@ -16,6 +16,8 @@ var _from_hotbar: bool = false
 
 @export var allow_unsnap: bool = false
 @export var blocked_by_parts: Array[NodePath] = []
+@export var _drag_min: Vector2 = Vector2(154, 80)
+@export var _drag_max: Vector2 = Vector2(316, 171)
 
 func _ready() -> void:
 	gravity_scale = 0
@@ -48,6 +50,8 @@ func _physics_process(_delta: float) -> void:
 			target_pos = get_global_mouse_position() - drag_offset
 		else:
 			target_pos = _touch_pos - drag_offset
+		target_pos.x = clamp(target_pos.x, _drag_min.x, _drag_max.x)
+		target_pos.y = clamp(target_pos.y, _drag_min.y, _drag_max.y)
 		global_position = global_position.lerp(target_pos, 0.3)
 
 func _input(event: InputEvent) -> void:
