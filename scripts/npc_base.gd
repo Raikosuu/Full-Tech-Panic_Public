@@ -91,19 +91,17 @@ func _physics_process(delta: float) -> void:
 			anim_sprite.play("idle")
 
 func find_vacant_seat() -> void:
-	var nearest: Area2D = null
-	var nearest_dist: float = INF
+	var vacant: Array = []
 	for seat in seats:
 		if not seat.is_taken:
-			var dist = global_position.distance_to(seat.global_position)
-			if dist < nearest_dist:
-				nearest = seat
-				nearest_dist = dist
-	if nearest:
-		target_seat = nearest
-		nav_agent.target_position = nearest.global_position
-	else:
+			vacant.append(seat)
+	
+	if vacant.is_empty():
 		leave(false)
+		return
+	
+	target_seat = vacant[randi() % vacant.size()]
+	nav_agent.target_position = target_seat.global_position
 
 func leave(count_as_served: bool = true) -> void:
 	if _leaving:    # ← ADD THIS GUARD
