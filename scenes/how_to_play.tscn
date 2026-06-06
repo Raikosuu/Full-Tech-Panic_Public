@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://c0fmubwwh3nka"]
+
+[ext_resource type="Script" uid="uid://byl5p4im6fkms" path="res://scripts/how_to_play.gd" id="1_htp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_back"]
+bg_color = Color(0.13, 0.14, 0.18, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.32, 0.38, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_back_hover"]
+bg_color = Color(0.2, 0.22, 0.28, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5, 0.55, 0.65, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nav"]
+bg_color = Color(0.15, 0.17, 0.22, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.32, 0.42, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nav_hover"]
+bg_color = Color(0.22, 0.25, 0.32, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.45, 0.5, 0.65, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="HowToPlay" type="Control" unique_id=698478703]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_htp")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1504755823]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.08, 0.09, 0.12, 1)
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=2139114153]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+
+[node name="TopBar" type="HBoxContainer" parent="VBox" unique_id=239947562]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="BackButton" type="Button" parent="VBox/TopBar" unique_id=1308923091]
+custom_minimum_size = Vector2(40, 14)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.8, 0.95, 1)
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxFlat_back")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_back")
+theme_override_styles/hover = SubResource("StyleBoxFlat_back_hover")
+text = "← Back"
+
+[node name="TitleLabel" type="Label" parent="VBox/TopBar" unique_id=1748471727]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85, 0.85, 0.95, 1)
+theme_override_font_sizes/font_size = 9
+text = "How to Play"
+horizontal_alignment = 1
+
+[node name="PageLabel" type="Label" parent="VBox/TopBar" unique_id=858787476]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.6, 0.75, 1)
+theme_override_font_sizes/font_size = 7
+text = "1 / 5"
+horizontal_alignment = 2
+
+[node name="VideoPlayer" type="VideoStreamPlayer" parent="VBox" unique_id=192345512]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 2
+size_flags_vertical = 3
+volume_db = -80.0
+expand = true
+
+[node name="DescLabel" type="Label" parent="VBox" unique_id=1017183484]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65, 0.7, 0.85, 1)
+theme_override_font_sizes/font_size = 7
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="NavRow" type="HBoxContainer" parent="VBox" unique_id=828929739]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="PrevButton" type="Button" parent="VBox/NavRow" unique_id=35672327]
+custom_minimum_size = Vector2(50, 14)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.8, 0.95, 1)
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxFlat_nav")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nav")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nav_hover")
+text = "◀ Prev"
+
+[node name="NextButton" type="Button" parent="VBox/NavRow" unique_id=570819826]
+custom_minimum_size = Vector2(50, 14)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.8, 0.95, 1)
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxFlat_nav")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nav")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nav_hover")
+text = "Next ▶"

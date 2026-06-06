@@ -15,7 +15,7 @@ func _on_game_start_pressed() -> void:
 
 
 func _on_how_to_play_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/how_to_play.tscn")
 
 
 func _on_learn_pressed() -> void:
