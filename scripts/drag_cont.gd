@@ -40,14 +40,25 @@ func _is_blocked() -> bool:
 			return true
 	return false
 
+var _hotbar_grab_frames: int = 0  # grace period counter
+
+func grab_from_hotbar(world_pos: Vector2) -> void:
+	drag_offset = Vector2.ZERO
+	global_position = world_pos
+	_from_hotbar = true
+	_hotbar_grab_frames = 3  # skip polling for 3 frames
+	set_process_input(false)
+	_grab()
+
 func _physics_process(_delta: float) -> void:
 	if snapped:
 		set_physics_process(false)
 		return
 
 	if is_grabbed:
-		# For hotbar screws, detect release via polling since _input is disabled
-		if touch_index == -1 and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if _hotbar_grab_frames > 0:
+			_hotbar_grab_frames -= 1
+		elif touch_index == -1 and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			_release()
 			return
 		var target_pos: Vector2
@@ -59,7 +70,6 @@ func _physics_process(_delta: float) -> void:
 		target_pos.x = clamp(target_pos.x, _drag_min.x + radius, _drag_max.x - radius)
 		target_pos.y = clamp(target_pos.y, _drag_min.y + radius, _drag_max.y - radius)
 		global_position = global_position.lerp(target_pos, 0.3)
-
 func _input(event: InputEvent) -> void:
 	if snapped:
 		if allow_unsnap:
@@ -201,14 +211,6 @@ func snap(target_position: Vector2) -> void:
 
 func drop() -> void:
 	pass
-
-func grab_from_hotbar(world_pos: Vector2) -> void:
-	drag_offset = Vector2.ZERO
-	global_position = world_pos
-	_from_hotbar = true
-	# Disable _input so other placed screws can't intercept this drag
-	set_process_input(false)
-	_grab()
 
 
 func _update_bounds() -> void:
