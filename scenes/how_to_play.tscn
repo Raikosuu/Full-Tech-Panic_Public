@@ -120,6 +120,20 @@ size_flags_vertical = 3
 volume_db = -80.0
 expand = true
 
+[node name="RulesScroll" type="ScrollContainer" parent="VBox" unique_id=1882072220]
+visible = false
+custom_minimum_size = Vector2(450, 215)
+layout_mode = 2
+
+[node name="RulesLabel" type="RichTextLabel" parent="VBox/RulesScroll" unique_id=1319050319]
+custom_minimum_size = Vector2(450, 215)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_xkrkv")
+theme_override_fonts/bold_font = ExtResource("2_30apa")
+theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/bold_font_size = 14
+bbcode_enabled = true
+
 [node name="DescLabel" type="Label" parent="VBox" unique_id=1017183484]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
