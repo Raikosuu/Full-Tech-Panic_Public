@@ -33,9 +33,13 @@ func _ready() -> void:
 	_default_collision_layer = collision_layer
 	_default_collision_mask = collision_mask
 	_update_bounds()
+	
 func _is_blocked() -> bool:
 	for path in blocked_by_parts:
+		# Try relative first, then fall back to the root scene node
 		var node = get_node_or_null(path)
+		if node == null:
+			node = get_tree().current_scene.get_node_or_null(path)
 		if node and "snapped" in node and node.snapped:
 			return true
 	return false

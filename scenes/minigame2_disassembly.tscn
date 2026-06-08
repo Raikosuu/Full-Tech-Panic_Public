@@ -113,7 +113,7 @@ blocked_by_parts = Array[NodePath]([NodePath("../SU_panel")])
 [node name="RAM_Module" parent="." unique_id=523341169 instance=ExtResource("12_dis")]
 position = Vector2(226.00002, 129)
 allow_unsnap = true
-blocked_by_parts = Array[NodePath]([NodePath("../SU_panel")])
+blocked_by_parts = Array[NodePath]([NodePath("../SU_panel"), NodePath("../SU_panel")])
 
 [node name="SU_Battery" parent="." unique_id=1760540282 instance=ExtResource("13_dis")]
 position = Vector2(242.00002, 111)

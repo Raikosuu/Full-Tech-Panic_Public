@@ -40,7 +40,6 @@ func _input(event: InputEvent) -> void:
 	if not pressed:
 		return
 
-	# Check if the click/touch landed inside our collision area
 	var click_pos: Vector2
 	if event is InputEventMouseButton:
 		click_pos = event.position
@@ -58,6 +57,10 @@ func _input(event: InputEvent) -> void:
 	elif shape is RectangleShape2D:
 		inside = Rect2(-(shape as RectangleShape2D).size / 2, (shape as RectangleShape2D).size).has_point(local_click)
 	if not inside:
+		return
+
+	# ── Block eject if the snapped component is blocked ──────────────────
+	if _snapped_component.has_method("_is_blocked") and _snapped_component._is_blocked():
 		return
 
 	_eject_component()
