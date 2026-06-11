@@ -110,12 +110,14 @@ theme_override_constants/separation = 6
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.85, 0.85, 0.95, 1)
+theme_override_fonts/font = ExtResource("5_1t7fo")
 theme_override_font_sizes/font_size = 10
 text = "RJ45 Crimping — T568-B Standard"
 
 [node name="TimerLabel" type="Label" parent="UI/Root/MainLayout/TopBar" unique_id=1538755211]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.7, 0.2, 1)
+theme_override_fonts/font = ExtResource("5_1t7fo")
 theme_override_font_sizes/font_size = 10
 text = "1:30"
 horizontal_alignment = 2
@@ -144,54 +146,63 @@ theme_override_constants/separation = 1
 [node name="CardTitle" type="Label" parent="UI/Root/MainLayout/ContentRow/ReferenceCard/VBox" unique_id=350213260]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7, 0.8, 1, 1)
+theme_override_fonts/font = ExtResource("5_1t7fo")
 theme_override_font_sizes/font_size = 7
 text = "T568-B Order"
 
 [node name="Pin1" type="Label" parent="UI/Root/MainLayout/ContentRow/ReferenceCard/VBox" unique_id=780452926]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.75, 0.45, 1)
+theme_override_fonts/font = ExtResource("5_1t7fo")
 theme_override_font_sizes/font_size = 7
 text = "1  W/Orange"
 
 [node name="Pin2" type="Label" parent="UI/Root/MainLayout/ContentRow/ReferenceCard/VBox" unique_id=1056853489]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.5, 0.1, 1)
+theme_override_fonts/font = ExtResource("5_1t7fo")
 theme_override_font_sizes/font_size = 7
 text = "2  Orange"
 
 [node name="Pin3" type="Label" parent="UI/Root/MainLayout/ContentRow/ReferenceCard/VBox" unique_id=2022851619]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4, 0.9, 0.5, 1)
+theme_override_fonts/font = ExtResource("5_1t7fo")
 theme_override_font_sizes/font_size = 7
 text = "3  W/Green"
 
 [node name="Pin4" type="Label" parent="UI/Root/MainLayout/ContentRow/ReferenceCard/VBox" unique_id=550855009]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4, 0.6, 1, 1)
+theme_override_fonts/font = ExtResource("5_1t7fo")
 theme_override_font_sizes/font_size = 7
 text = "4  Blue"
 
 [node name="Pin5" type="Label" parent="UI/Root/MainLayout/ContentRow/ReferenceCard/VBox" unique_id=1789847324]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7, 0.8, 1, 1)
+theme_override_fonts/font = ExtResource("5_1t7fo")
 theme_override_font_sizes/font_size = 7
 text = "5  W/Blue"
 
 [node name="Pin6" type="Label" parent="UI/Root/MainLayout/ContentRow/ReferenceCard/VBox" unique_id=1445376577]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 0.85, 0.3, 1)
+theme_override_fonts/font = ExtResource("5_1t7fo")
 theme_override_font_sizes/font_size = 7
 text = "6  Green"
 
 [node name="Pin7" type="Label" parent="UI/Root/MainLayout/ContentRow/ReferenceCard/VBox" unique_id=1245570722]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85, 0.65, 0.4, 1)
+theme_override_fonts/font = ExtResource("5_1t7fo")
 theme_override_font_sizes/font_size = 7
 text = "7  W/Brown"
 
 [node name="Pin8" type="Label" parent="UI/Root/MainLayout/ContentRow/ReferenceCard/VBox" unique_id=1398877587]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.65, 0.35, 0.1, 1)
+theme_override_fonts/font = ExtResource("5_1t7fo")
 theme_override_font_sizes/font_size = 7
 text = "8  Brown"
 
@@ -229,6 +240,7 @@ layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme_override_colors/font_color = Color(0.45, 0.45, 0.55, 1)
+theme_override_fonts/font = ExtResource("5_1t7fo")
 theme_override_font_sizes/font_size = 7
 text = "[ RJ45 — replace with sprite ]"
 horizontal_alignment = 1
@@ -244,6 +256,7 @@ alignment = 1
 custom_minimum_size = Vector2(44, 48)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.95, 0.85, 1)
+theme_override_fonts/font = ExtResource("5_1t7fo")
 theme_override_font_sizes/font_size = 9
 theme_override_styles/normal = SubResource("StyleBoxFlat_crimp")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_crimp")
@@ -253,6 +266,7 @@ text = "CRIMP"
 [node name="Feedback" type="Label" parent="UI/Root/MainLayout/ContentRow/WorkArea/Crimper/VBox" unique_id=149304362]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.75, 0.85, 1, 1)
+theme_override_fonts/font = ExtResource("5_1t7fo")
 theme_override_font_sizes/font_size = 8
 text = "Arrange wires in T568-B order, then crimp!"
 horizontal_alignment = 1
@@ -270,6 +284,7 @@ theme_override_constants/separation = 2
 [node name="TrayLabel" type="Label" parent="UI/Root/MainLayout/ContentRow/WorkArea/Tray/VBox" unique_id=824769170]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.55, 0.6, 0.7, 1)
+theme_override_fonts/font = ExtResource("5_1t7fo")
 theme_override_font_sizes/font_size = 7
 text = "Available wires — drag to slots above"
 horizontal_alignment = 1

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://iglnpyxbxdqh" path="res://mainmenu/graphics/mainmenu bg.png" id="1_l6cm7"]
 [ext_resource type="FontFile" uid="uid://can2uc4aidbtp" path="res://mainmenu/font/PixelGamer-Regular.otf" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://jof4loc0tlbx" path="res://mainmenu/graphics/settings.png" id="2_wu84c"]
+[ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="4_rtw2f"]
 [ext_resource type="Script" uid="uid://ctnipvdu4axmc" path="res://mainmenu/scripts/audio_control.gd" id="6_rtw2f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
@@ -135,6 +136,7 @@ alignment = 1
 
 [node name="New Game" type="Button" parent="Panel/MainButtons" unique_id=892148338]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_rtw2f")
 theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_l6cm7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_oa1go")
@@ -144,6 +146,7 @@ expand_icon = true
 
 [node name="Continue" type="Button" parent="Panel/MainButtons" unique_id=713298395]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_rtw2f")
 theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_l6cm7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_oa1go")
@@ -153,6 +156,7 @@ expand_icon = true
 
 [node name="How to Play" type="Button" parent="Panel/MainButtons" unique_id=1274390603]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_rtw2f")
 theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jk1qb")
@@ -161,6 +165,7 @@ text = "How to Play"
 
 [node name="Learn" type="Button" parent="Panel/MainButtons" unique_id=472298394]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_rtw2f")
 theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lgwnu")
@@ -169,6 +174,7 @@ text = "Learn"
 
 [node name="Exit" type="Button" parent="Panel/MainButtons" unique_id=1077006095]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_rtw2f")
 theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
