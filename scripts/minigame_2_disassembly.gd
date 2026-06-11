@@ -105,17 +105,18 @@ func _on_part_snapped(_slot_type: String) -> void:
 
 func _on_part_removed(slot_type: String) -> void:
 	if slot_type == "SCREW":
-		_removed_screws += 1
-		print("Screw removed: %d / %d" % [_removed_screws, REQUIRED_SCREWS])
-	else:
-		if slot_type not in _removed_parts:
-			_removed_parts.append(slot_type)
-			print("Removed: %s  (%d / %d)" % [slot_type, _removed_parts.size(), REQUIRED_REMOVALS.size()])
-	# ← removed the collect() call; hotbar handles it on deposit
+		return  # ← don't count screws here; wait for hotbar deposit
+	if slot_type not in _removed_parts:
+		_removed_parts.append(slot_type)
+		print("Removed: %s  (%d / %d)" % [slot_type, _removed_parts.size(), REQUIRED_REMOVALS.size()])
 
 # Called by the hotbar after a part is physically deposited
 func _on_part_deposited(slot_type: String) -> void:
-	_on_part_removed(slot_type)
+	if slot_type == "SCREW":
+		_removed_screws += 1
+		print("Screw deposited: %d / %d" % [_removed_screws, REQUIRED_SCREWS])
+	else:
+		_on_part_removed(slot_type)
 	try_complete()
 
 func _check_completion() -> bool:
