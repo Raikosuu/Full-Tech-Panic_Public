@@ -55,6 +55,7 @@ const LEVELS: Array = [
 ]
 
 const GAME_SCENE: String = "res://scenes/game_scene.tscn"
+const SAVE_PATH = "user://savegame.cfg"
 
 var current_level_index: int        = 0
 var current_level_scene: String     = GAME_SCENE
@@ -67,9 +68,12 @@ var _checkpoint_npcs_served: int = 0
 var npcs_to_win: int = 5
 var npcs_served: int = 0
 var is_game_over: bool = false 
+const BGM_MENU = preload("res://sfx/sergequadrado-menu-music-251877.mp3")
+const BGM_GAME = preload("res://sfx/freesound_community-gamemusic-6082.mp3")
 
 func _ready() -> void:
 	load_level(0)
+	BGMManager.play(GameState.BGM_GAME)
 
 func load_level(index: int) -> void:
 	if index >= LEVELS.size():
@@ -198,3 +202,25 @@ func fail_minigame() -> void:
 		interacted_npc = null
 	
 	HealthState.take_damage()
+	save_game()
+
+func save_game() -> void:
+	var config := ConfigFile.new()
+	config.set_value("save", "level_index", current_level_index)
+	config.set_value("save", "npcs_served", npcs_served)
+	config.save(SAVE_PATH)
+
+func load_game() -> void:
+	var config := ConfigFile.new()
+	if config.load(SAVE_PATH) != OK:
+		return
+	var index: int = config.get_value("save", "level_index", 0)
+	load_level(index)
+	npcs_served = config.get_value("save", "npcs_served", 0)
+	npcs_served_changed.emit(npcs_served)
+
+func has_save() -> bool:
+	return FileAccess.file_exists(SAVE_PATH)
+
+func delete_save() -> void:
+	DirAccess.remove_absolute(SAVE_PATH)

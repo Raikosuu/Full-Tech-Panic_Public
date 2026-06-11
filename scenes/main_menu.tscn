@@ -133,13 +133,22 @@ offset_bottom = 213.0
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="Game Start" type="Button" parent="Panel/MainButtons" unique_id=892148338]
+[node name="New Game" type="Button" parent="Panel/MainButtons" unique_id=892148338]
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_l6cm7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_oa1go")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tbmy8")
-text = "Game Start"
+text = "New Game"
+expand_icon = true
+
+[node name="Continue" type="Button" parent="Panel/MainButtons" unique_id=713298395]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_oa1go")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tbmy8")
+text = "Continue"
 expand_icon = true
 
 [node name="How to Play" type="Button" parent="Panel/MainButtons" unique_id=1274390603]
@@ -193,6 +202,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SettingsPanel" type="Panel" parent="." unique_id=909881828]
+visible = false
 offset_left = 160.0
 offset_top = 80.0
 offset_right = 328.0
@@ -246,7 +256,8 @@ theme_override_font_sizes/font_size = 8
 text = "Volume"
 
 [connection signal="pressed" from="Panel/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Panel/MainButtons/Game Start" to="." method="_on_game_start_pressed"]
+[connection signal="pressed" from="Panel/MainButtons/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Panel/MainButtons/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Panel/MainButtons/How to Play" to="." method="_on_how_to_play_pressed"]
 [connection signal="pressed" from="Panel/MainButtons/Learn" to="." method="_on_learn_pressed"]
 [connection signal="pressed" from="Panel/MainButtons/Exit" to="." method="_on_exit_pressed"]

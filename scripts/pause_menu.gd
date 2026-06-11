@@ -18,17 +18,24 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		_on_resume_pressed()
 
+func _close() -> void:
+	# Always unpause tree and re-enable process before leaving
+	get_tree().paused = false
+	var owner_node = get_parent()
+	if owner_node and owner_node.has_method("_do_resume"):
+		owner_node._do_resume()
+	queue_free()
+
 func _on_resume_pressed() -> void:
 	emit_signal("resumed")
+	_close()
 
 func _on_save_pressed() -> void:
 	GameState.save_game()
 	emit_signal("resumed")
+	_close()
 
 func _on_quit_pressed() -> void:
-	var owner_node = get_parent()
-	if owner_node and owner_node.has_method("_do_resume"):
-		owner_node._do_resume()
-	get_tree().paused = false
 	GameState.save_game()
+	_close()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
