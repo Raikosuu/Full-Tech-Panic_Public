@@ -2751,13 +2751,13 @@ custom_minimum_size = Vector2(10, 10)
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -30.0
-offset_top = 4.0
-offset_right = -4.0
-offset_bottom = 22.0
+offset_left = -40.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 40.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("11_tcjrq")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 16
 text = "||"
 
 [connection signal="pressed" from="HUD/PauseButton" to="." method="_on_pause_button_pressed"]
