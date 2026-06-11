@@ -135,3 +135,8 @@ func _find_sprite(node: Node) -> Sprite2D:
 		if child is Sprite2D:
 			return child
 	return null
+
+func _on_pause_button_pressed() -> void:
+	_toggle_pause()
+
+	

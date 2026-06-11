@@ -55,3 +55,6 @@ func _check_completion() -> bool:
 
 func _on_complete() -> void:
 	print("PC assembly complete!")
+	
+func _on_pause_button_pressed() -> void:
+	_toggle_pause()

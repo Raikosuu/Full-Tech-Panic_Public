@@ -56,7 +56,11 @@ func _do_pause() -> void:
 	_pause_menu = PAUSE_MENU_SCENE.instantiate()
 	_pause_menu.context = "minigame"
 	_pause_menu.resumed.connect(_do_resume)
-	$UI.add_child(_pause_menu)
+	var ui := get_node_or_null("UI")
+	if ui:
+		ui.add_child(_pause_menu)
+	else:
+		get_node("PauseButtonLayer").add_child(_pause_menu)
 
 func _do_resume() -> void:
 	_paused = false

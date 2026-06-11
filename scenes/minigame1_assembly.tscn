@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bcg8ruhd4vc5n" path="res://scenes/su_panel.tscn" id="13_koys7"]
 [ext_resource type="PackedScene" uid="uid://ccxttvxg0gs8" path="res://scenes/screws.tscn" id="14_ma84e"]
 [ext_resource type="PackedScene" uid="uid://cgu8yawlh8ece" path="res://scenes/patience_bar.tscn" id="15_kd6cy"]
+[ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="18_joesv"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_jicg2"]
 a = Vector2(-81, -44)
@@ -117,6 +118,24 @@ offset_bottom = 89.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1051369316]
 environment = SubResource("Environment_bbmad")
+
+[node name="PauseButtonLayer" type="CanvasLayer" parent="." unique_id=126248918]
+
+[node name="PauseButton" type="Button" parent="PauseButtonLayer" unique_id=1051270504]
+custom_minimum_size = Vector2(10, 10)
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 4.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("18_joesv")
+theme_override_font_sizes/font_size = 16
+text = "||"
+
+[connection signal="pressed" from="PauseButtonLayer/PauseButton" to="." method="_on_pause_button_pressed"]
 
 [editable path="SU_main"]
 [editable path="SuRack"]
