@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cp4qiqeip4wpb" path="res://scenes/win_screen.tscn" id="2_rj45"]
 [ext_resource type="PackedScene" uid="uid://cit1wa3hv83ah" path="res://scenes/rj45_lose_screen.tscn" id="3_qfr1o"]
 [ext_resource type="PackedScene" uid="uid://bel8ij2nnxtvo" path="res://scenes/lose_screen.tscn" id="3_rj45"]
+[ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="5_1t7fo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ref"]
 bg_color = Color(0.11, 0.12, 0.16, 1)
@@ -118,6 +119,13 @@ theme_override_colors/font_color = Color(0.9, 0.7, 0.2, 1)
 theme_override_font_sizes/font_size = 10
 text = "1:30"
 horizontal_alignment = 2
+
+[node name="PauseButton" type="Button" parent="UI/Root/MainLayout/TopBar" unique_id=1141103264]
+custom_minimum_size = Vector2(20, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_1t7fo")
+theme_override_font_sizes/font_size = 7
+text = "||"
 
 [node name="ContentRow" type="HBoxContainer" parent="UI/Root/MainLayout" unique_id=608070942]
 layout_mode = 2
@@ -271,3 +279,5 @@ custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 theme_override_constants/separation = 5
 alignment = 1
+
+[connection signal="pressed" from="UI/Root/MainLayout/TopBar/PauseButton" to="." method="_on_pause_button_pressed"]

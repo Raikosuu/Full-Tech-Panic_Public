@@ -3,7 +3,7 @@ extends Node2D
 
 @export var completion_delay: float = 1.0
 @export var time_limit: float = 120.0
-@export var overlay_duration: float = 2.0   # how long the win/lose screen shows
+@export var overlay_duration: float = 2.0
 
 @export var win_screen_scene: PackedScene
 @export var lose_screen_scene: PackedScene
@@ -13,8 +13,13 @@ var _failed: bool = false
 var _time_remaining: float = 0.0
 var _overlay: CanvasLayer = null
 
+# ── Pause state ───────────────────────────────────────────────────────────────
+const PAUSE_MENU_SCENE = preload("res://scenes/pause_menu.tscn")
+var _paused: bool = false
+var _pause_menu = null
+
 @export var timer_label: NodePath = NodePath("")
-@export var timer_bar: NodePath   = NodePath("")
+@export var timer_bar:   NodePath = NodePath("")
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -22,13 +27,50 @@ func _ready() -> void:
 	_on_minigame_ready()
 
 func _process(delta: float) -> void:
-	if _completed or _failed or time_limit <= 0.0:
+	if _paused or _completed or _failed or time_limit <= 0.0:
 		return
 	_time_remaining -= delta
 	_update_timer_ui()
 	if _time_remaining <= 0.0:
 		_time_remaining = 0.0
 		_fail()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		_toggle_pause()
+
+# ── Pause helpers ─────────────────────────────────────────────────────────────
+
+func _toggle_pause() -> void:
+	if _completed or _failed:
+		return
+	if _paused:
+		_do_resume()
+	else:
+		_do_pause()
+
+func _do_pause() -> void:
+	_paused = true
+	set_process(false)
+	set_physics_process(false)
+	_pause_menu = PAUSE_MENU_SCENE.instantiate()
+	_pause_menu.context = "minigame"
+	_pause_menu.resumed.connect(_do_resume)
+	$UI.add_child(_pause_menu)
+
+func _do_resume() -> void:
+	_paused = false
+	set_process(true)
+	set_physics_process(true)
+	if _pause_menu:
+		_pause_menu.queue_free()
+		_pause_menu = null
+
+# Called by a pause button node in the minigame scene
+func _on_pause_button_pressed() -> void:
+	_toggle_pause()
+
+# ── Rest of base unchanged ────────────────────────────────────────────────────
 
 func _update_timer_ui() -> void:
 	if timer_label:
@@ -84,7 +126,7 @@ func _apply_blur() -> void:
 	add_child(cl)
 	var dimmer := ColorRect.new()
 	dimmer.color = Color(0.0, 0.0, 0.0, 0.45)
-	dimmer.mouse_filter = Control.MOUSE_FILTER_IGNORE  # ← ADD THIS
+	dimmer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	dimmer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	cl.add_child(dimmer)
 

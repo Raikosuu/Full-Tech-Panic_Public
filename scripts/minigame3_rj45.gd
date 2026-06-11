@@ -370,3 +370,7 @@ func _check_completion() -> bool:
 		if slots[i] != CORRECT_ORDER[i]:
 			return false
 	return true
+
+
+func _on_pause_button_pressed() -> void:
+	_toggle_pause()

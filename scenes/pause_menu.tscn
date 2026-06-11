@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://wmphjhkjc3ss"]
+
+[ext_resource type="Script" uid="uid://dtt6ti76v5r7r" path="res://scripts/pause_menu.gd" id="1_hdmo1"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=585361207]
+layer = 100
+script = ExtResource("1_hdmo1")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=1508628611]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=2112420354]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -85.0
+offset_right = 90.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=2129620347]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Panel/VBox" unique_id=1557847460]
+layout_mode = 2
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Panel/VBox" unique_id=257613006]
+layout_mode = 2
+text = "Resume"
+
+[node name="SaveButton" type="Button" parent="Panel/VBox" unique_id=2008382508]
+layout_mode = 2
+text = "Save & Continue"
+
+[node name="QuitButton" type="Button" parent="Panel/VBox" unique_id=1085105178]
+layout_mode = 2
+text = "Quit to Menu"

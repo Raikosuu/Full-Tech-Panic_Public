@@ -39,3 +39,35 @@ func _on_game_won() -> void:
 		get_tree().change_scene_to_file(outro)
 	else:
 		GameState.advance_to_next_level()
+
+
+const PAUSE_MENU_SCENE = preload("res://scenes/pause_menu.tscn")
+var _pause_menu = null
+
+func _on_pause_button_pressed() -> void:
+	if GameState.is_game_over:
+		return
+	if _pause_menu:
+		_do_resume()
+	else:
+		_do_pause()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause") and not GameState.is_game_over:
+		if _pause_menu:
+			_do_resume()
+		else:
+			_do_pause()
+
+func _do_pause() -> void:
+	get_tree().paused = true
+	_pause_menu = PAUSE_MENU_SCENE.instantiate()
+	_pause_menu.context = "game"
+	_pause_menu.resumed.connect(_do_resume)
+	get_tree().root.add_child(_pause_menu)
+
+func _do_resume() -> void:
+	get_tree().paused = false
+	if _pause_menu:
+		_pause_menu.queue_free()
+		_pause_menu = null
