@@ -35,9 +35,9 @@ func _process(delta: float) -> void:
 		_time_remaining = 0.0
 		_fail()
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause"):
-		_toggle_pause()
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event.is_action_pressed("pause"):
+		#_toggle_pause()
 
 # ── Pause helpers ─────────────────────────────────────────────────────────────
 

@@ -1,0 +1,425 @@
+[gd_scene format=3 uid="uid://cyso8ajy4o4ns"]
+
+[ext_resource type="Script" uid="uid://sbiglv1b7wg5" path="res://scripts/minigame5_diagnostics.gd" id="1_diag"]
+[ext_resource type="PackedScene" uid="uid://cp4qiqeip4wpb" path="res://scenes/win_screen.tscn" id="2_diag"]
+[ext_resource type="PackedScene" uid="uid://bel8ij2nnxtvo" path="res://scenes/lose_screen.tscn" id="3_diag"]
+[ext_resource type="PackedScene" uid="uid://cgu8yawlh8ece" path="res://scenes/patience_bar.tscn" id="4_diag"]
+[ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="5_diag"]
+
+[sub_resource type="StyleBoxFlat" id="Style_MonitorBezel"]
+bg_color = Color(0.11, 0.11, 0.13, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.22, 0.22, 0.25, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="Style_SymptomBanner"]
+bg_color = Color(0.75, 0.12, 0.12, 1)
+
+[sub_resource type="StyleBoxFlat" id="Style_Taskbar"]
+bg_color = Color(0.13, 0.13, 0.15, 0.92)
+
+[sub_resource type="StyleBoxFlat" id="Style_StartMenu"]
+bg_color = Color(0.17, 0.17, 0.2, 0.97)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.35, 0.4, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="Style_DiagWindow"]
+bg_color = Color(0.95, 0.95, 0.96, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.7, 0.7, 0.72, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="Style_TitleBar"]
+bg_color = Color(0.9, 0.9, 0.93, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[sub_resource type="StyleBoxFlat" id="Style_Toast"]
+bg_color = Color(0.17, 0.17, 0.2, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.4, 0.4, 0.45, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Minigame5_diagnostics" type="Node2D" unique_id=920621591]
+script = ExtResource("1_diag")
+time_limit = 60.0
+win_screen_scene = ExtResource("2_diag")
+lose_screen_scene = ExtResource("3_diag")
+timer_bar = NodePath("PauseButtonLayer/MinigameTimerBar")
+
+[node name="PauseButtonLayer" type="CanvasLayer" parent="." unique_id=664818880]
+layer = 10
+
+[node name="PauseButton" type="Button" parent="PauseButtonLayer" unique_id=1845974180]
+custom_minimum_size = Vector2(10, 10)
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 20.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("5_diag")
+theme_override_font_sizes/font_size = 12
+text = "||"
+
+[node name="MinigameTimerBar" parent="PauseButtonLayer" unique_id=1509915047 instance=ExtResource("4_diag")]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -44.0
+offset_bottom = 10.0
+
+[node name="ScreenUI" type="CanvasLayer" parent="." unique_id=726562350]
+
+[node name="Background" type="ColorRect" parent="ScreenUI" unique_id=16263242]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.08, 1)
+
+[node name="MonitorFrame" type="Panel" parent="ScreenUI" unique_id=1250979931]
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 460.0
+offset_bottom = 262.0
+theme_override_styles/panel = SubResource("Style_MonitorBezel")
+
+[node name="Desktop" type="Control" parent="ScreenUI/MonitorFrame" unique_id=1872459404]
+clip_contents = true
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Wallpaper" type="ColorRect" parent="ScreenUI/MonitorFrame/Desktop" unique_id=933509682]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.1, 0.25, 1)
+
+[node name="WallpaperOverlay" type="ColorRect" parent="ScreenUI/MonitorFrame/Desktop" unique_id=1965400958]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.18, 0.05, 0.28, 0.35)
+
+[node name="SymptomBanner" type="Panel" parent="ScreenUI/MonitorFrame/Desktop" unique_id=2080233471]
+layout_mode = 0
+anchor_right = 1.0
+offset_bottom = 22.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("Style_SymptomBanner")
+
+[node name="SymptomLabel" type="Label" parent="ScreenUI/MonitorFrame/Desktop/SymptomBanner" unique_id=1846336508]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 8
+text = "Loading..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="DesktopIcons" type="GridContainer" parent="ScreenUI/MonitorFrame/Desktop" unique_id=708993259]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 26.0
+offset_right = 52.0
+offset_bottom = 200.0
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+
+[node name="Taskbar" type="Panel" parent="ScreenUI/MonitorFrame/Desktop" unique_id=2129764244]
+layout_mode = 0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("Style_Taskbar")
+
+[node name="CenterBox" type="HBoxContainer" parent="ScreenUI/MonitorFrame/Desktop/Taskbar" unique_id=945049602]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -9.0
+offset_right = 36.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+
+[node name="StartButton" type="Button" parent="ScreenUI/MonitorFrame/Desktop/Taskbar/CenterBox" unique_id=1693468478]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 11
+text = "⊞"
+flat = true
+
+[node name="ExplorerBtn" type="Button" parent="ScreenUI/MonitorFrame/Desktop/Taskbar/CenterBox" unique_id=225013422]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "📁"
+flat = true
+
+[node name="BrowserBtn" type="Button" parent="ScreenUI/MonitorFrame/Desktop/Taskbar/CenterBox" unique_id=1917280618]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "🌐"
+flat = true
+
+[node name="ClockLabel" type="Label" parent="ScreenUI/MonitorFrame/Desktop/Taskbar" unique_id=1610241511]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -9.0
+offset_right = -2.0
+offset_bottom = 9.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 7
+text = "10:24 AM"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="StartMenu" type="Panel" parent="ScreenUI/MonitorFrame/Desktop" unique_id=1838145956]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -230.0
+offset_right = 110.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("Style_StartMenu")
+
+[node name="StartMenuLayout" type="VBoxContainer" parent="ScreenUI/MonitorFrame/Desktop/StartMenu" unique_id=2096331812]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="MenuTitle" type="Label" parent="ScreenUI/MonitorFrame/Desktop/StartMenu/StartMenuLayout" unique_id=1462960028]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 9
+text = "Pinned Apps"
+
+[node name="SearchBar" type="LineEdit" parent="ScreenUI/MonitorFrame/Desktop/StartMenu/StartMenuLayout" unique_id=907058265]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+placeholder_text = "🔍  Search..."
+
+[node name="AppGrid" type="GridContainer" parent="ScreenUI/MonitorFrame/Desktop/StartMenu/StartMenuLayout" unique_id=943890078]
+layout_mode = 2
+theme_override_constants/h_separation = 3
+theme_override_constants/v_separation = 3
+columns = 3
+
+[node name="DiagnosticWindow" type="Panel" parent="ScreenUI/MonitorFrame/Desktop" unique_id=1578413704]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 24.0
+offset_right = 426.0
+offset_bottom = 216.0
+theme_override_styles/panel = SubResource("Style_DiagWindow")
+
+[node name="TitleBar" type="Panel" parent="ScreenUI/MonitorFrame/Desktop/DiagnosticWindow" unique_id=1968883749]
+layout_mode = 0
+anchor_right = 1.0
+offset_bottom = 22.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("Style_TitleBar")
+
+[node name="WindowTitle" type="Label" parent="ScreenUI/MonitorFrame/Desktop/DiagnosticWindow/TitleBar" unique_id=1285612322]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_right = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.1, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 9
+text = "Tool"
+vertical_alignment = 1
+
+[node name="WinButtons" type="HBoxContainer" parent="ScreenUI/MonitorFrame/Desktop/DiagnosticWindow/TitleBar" unique_id=2020628252]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -66.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="MinimizeBtn" type="Button" parent="ScreenUI/MonitorFrame/Desktop/DiagnosticWindow/TitleBar/WinButtons" unique_id=1663134151]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "─"
+flat = true
+
+[node name="MaximizeBtn" type="Button" parent="ScreenUI/MonitorFrame/Desktop/DiagnosticWindow/TitleBar/WinButtons" unique_id=1133269878]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "□"
+flat = true
+
+[node name="CloseBtn" type="Button" parent="ScreenUI/MonitorFrame/Desktop/DiagnosticWindow/TitleBar/WinButtons" unique_id=1000640457]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 8
+text = "✕"
+
+[node name="WindowBody" type="VBoxContainer" parent="ScreenUI/MonitorFrame/Desktop/DiagnosticWindow" unique_id=947245130]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 24.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="StatusLabel" type="Label" parent="ScreenUI/MonitorFrame/Desktop/DiagnosticWindow/WindowBody" unique_id=1557016990]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.5, 1)
+theme_override_font_sizes/font_size = 9
+text = "Ready."
+autowrap_mode = 3
+
+[node name="ScanProgress" type="ProgressBar" parent="ScreenUI/MonitorFrame/Desktop/DiagnosticWindow/WindowBody" unique_id=2068267613]
+visible = false
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+show_percentage = false
+
+[node name="ResultsScroll" type="ScrollContainer" parent="ScreenUI/MonitorFrame/Desktop/DiagnosticWindow/WindowBody" unique_id=601610334]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ResultsList" type="VBoxContainer" parent="ScreenUI/MonitorFrame/Desktop/DiagnosticWindow/WindowBody/ResultsScroll" unique_id=451463100]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="ActionButtons" type="HBoxContainer" parent="ScreenUI/MonitorFrame/Desktop/DiagnosticWindow/WindowBody" unique_id=1468346061]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ScanButton" type="Button" parent="ScreenUI/MonitorFrame/Desktop/DiagnosticWindow/WindowBody/ActionButtons" unique_id=716005312]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 9
+text = "▶  Run Scan"
+
+[node name="FixButton" type="Button" parent="ScreenUI/MonitorFrame/Desktop/DiagnosticWindow/WindowBody/ActionButtons" unique_id=662249135]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 9
+disabled = true
+text = "✔  Apply Fix"
+
+[node name="NotificationToast" type="Panel" parent="ScreenUI/MonitorFrame/Desktop" unique_id=1088467297]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -56.0
+offset_right = -4.0
+offset_bottom = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("Style_Toast")
+
+[node name="ToastLabel" type="Label" parent="ScreenUI/MonitorFrame/Desktop/NotificationToast" unique_id=385100396]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = -6.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 8
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="PauseButtonLayer/PauseButton" to="." method="_on_pause_button_pressed"]

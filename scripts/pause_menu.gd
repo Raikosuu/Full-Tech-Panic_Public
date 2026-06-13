@@ -13,10 +13,13 @@ func _ready() -> void:
 	resume_btn.pressed.connect(_on_resume_pressed)
 	save_btn.pressed.connect(_on_save_pressed)
 	quit_btn.pressed.connect(_on_quit_pressed)
-
+	
+# for Input maps in project settings
+"""
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		_on_resume_pressed()
+"""
 
 func _close() -> void:
 	# Always unpause tree and re-enable process before leaving
