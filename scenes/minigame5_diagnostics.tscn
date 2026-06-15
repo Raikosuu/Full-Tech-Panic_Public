@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://bel8ij2nnxtvo" path="res://scenes/lose_screen.tscn" id="3_diag"]
 [ext_resource type="PackedScene" uid="uid://cgu8yawlh8ece" path="res://scenes/patience_bar.tscn" id="4_diag"]
 [ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="5_diag"]
+[ext_resource type="Texture2D" uid="uid://d1ap6t6g8oqki" path="res://assets/buttons/Screenshot 2026-06-13 174952.png" id="6_v4nyh"]
+[ext_resource type="Texture2D" uid="uid://m6ta8evgxe08" path="res://assets/buttons/Screenshot 2026-06-13 175647.png" id="7_t8sal"]
+[ext_resource type="Texture2D" uid="uid://07ybm1g6qk3n" path="res://assets/buttons/Screenshot 2026-06-13 175747.png" id="8_3aldh"]
+[ext_resource type="FontFile" uid="uid://c1dh3d4255a1l" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="9_t8sal"]
 
 [sub_resource type="StyleBoxFlat" id="Style_MonitorBezel"]
 bg_color = Color(0.11, 0.11, 0.13, 1)
@@ -90,10 +94,13 @@ theme_override_font_sizes/font_size = 12
 text = "||"
 
 [node name="MinigameTimerBar" parent="PauseButtonLayer" unique_id=1509915047 instance=ExtResource("4_diag")]
+anchors_preset = 10
+anchor_right = 1.0
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -44.0
-offset_bottom = 10.0
+offset_right = -273.0
+offset_bottom = 12.0
+grow_horizontal = 2
 
 [node name="ScreenUI" type="CanvasLayer" parent="." unique_id=726562350]
 
@@ -141,9 +148,10 @@ grow_vertical = 2
 color = Color(0.18, 0.05, 0.28, 0.35)
 
 [node name="SymptomBanner" type="Panel" parent="ScreenUI/MonitorFrame/Desktop" unique_id=2080233471]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 22.0
+offset_bottom = 29.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("Style_SymptomBanner")
 
@@ -156,11 +164,12 @@ offset_right = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 8
+theme_override_fonts/font = ExtResource("5_diag")
+theme_override_font_sizes/font_size = 10
 text = "Loading..."
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 1
+autowrap_mode = 2
 
 [node name="DesktopIcons" type="GridContainer" parent="ScreenUI/MonitorFrame/Desktop" unique_id=708993259]
 layout_mode = 0
@@ -182,39 +191,40 @@ grow_vertical = 0
 theme_override_styles/panel = SubResource("Style_Taskbar")
 
 [node name="CenterBox" type="HBoxContainer" parent="ScreenUI/MonitorFrame/Desktop/Taskbar" unique_id=945049602]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -9.0
-offset_right = 36.0
-offset_bottom = 9.0
+offset_left = -41.0
+offset_top = -11.0
+offset_right = 127.0
+offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 theme_override_constants/separation = 2
 
 [node name="StartButton" type="Button" parent="ScreenUI/MonitorFrame/Desktop/Taskbar/CenterBox" unique_id=1693468478]
-custom_minimum_size = Vector2(18, 18)
+custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 11
-text = "⊞"
-flat = true
+icon = ExtResource("6_v4nyh")
 
 [node name="ExplorerBtn" type="Button" parent="ScreenUI/MonitorFrame/Desktop/Taskbar/CenterBox" unique_id=225013422]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
-text = "📁"
+icon = ExtResource("7_t8sal")
 flat = true
 
 [node name="BrowserBtn" type="Button" parent="ScreenUI/MonitorFrame/Desktop/Taskbar/CenterBox" unique_id=1917280618]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
-text = "🌐"
+icon = ExtResource("8_3aldh")
 flat = true
 
 [node name="ClockLabel" type="Label" parent="ScreenUI/MonitorFrame/Desktop/Taskbar" unique_id=1610241511]
@@ -230,27 +240,30 @@ offset_bottom = 9.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_diag")
 theme_override_font_sizes/font_size = 7
 text = "10:24 AM"
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="StartMenu" type="Panel" parent="ScreenUI/MonitorFrame/Desktop" unique_id=1838145956]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -110.0
-offset_top = -230.0
-offset_right = 110.0
-offset_bottom = -26.0
+offset_left = -143.0
+offset_top = -205.0
+offset_right = 155.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("Style_StartMenu")
 
 [node name="StartMenuLayout" type="VBoxContainer" parent="ScreenUI/MonitorFrame/Desktop/StartMenu" unique_id=2096331812]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 6.0
@@ -264,27 +277,31 @@ theme_override_constants/separation = 4
 [node name="MenuTitle" type="Label" parent="ScreenUI/MonitorFrame/Desktop/StartMenu/StartMenuLayout" unique_id=1462960028]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_fonts/font = ExtResource("5_diag")
 theme_override_font_sizes/font_size = 9
 text = "Pinned Apps"
 
 [node name="SearchBar" type="LineEdit" parent="ScreenUI/MonitorFrame/Desktop/StartMenu/StartMenuLayout" unique_id=907058265]
 custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("9_t8sal")
 theme_override_font_sizes/font_size = 8
 placeholder_text = "🔍  Search..."
 
 [node name="AppGrid" type="GridContainer" parent="ScreenUI/MonitorFrame/Desktop/StartMenu/StartMenuLayout" unique_id=943890078]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/h_separation = 3
 theme_override_constants/v_separation = 3
 columns = 3
 
 [node name="DiagnosticWindow" type="Panel" parent="ScreenUI/MonitorFrame/Desktop" unique_id=1578413704]
+visible = false
 layout_mode = 0
-offset_left = 54.0
-offset_top = 24.0
-offset_right = 426.0
-offset_bottom = 216.0
+offset_left = 72.0
+offset_top = 29.0
+offset_right = 368.0
+offset_bottom = 205.0
 theme_override_styles/panel = SubResource("Style_DiagWindow")
 
 [node name="TitleBar" type="Panel" parent="ScreenUI/MonitorFrame/Desktop/DiagnosticWindow" unique_id=1968883749]
@@ -303,6 +320,7 @@ offset_right = -70.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.1, 0.1, 0.1, 1)
+theme_override_fonts/font = ExtResource("5_diag")
 theme_override_font_sizes/font_size = 9
 text = "Tool"
 vertical_alignment = 1
@@ -354,12 +372,12 @@ theme_override_constants/separation = 4
 [node name="StatusLabel" type="Label" parent="ScreenUI/MonitorFrame/Desktop/DiagnosticWindow/WindowBody" unique_id=1557016990]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 0.2, 0.5, 1)
+theme_override_fonts/font = ExtResource("5_diag")
 theme_override_font_sizes/font_size = 9
 text = "Ready."
 autowrap_mode = 3
 
 [node name="ScanProgress" type="ProgressBar" parent="ScreenUI/MonitorFrame/Desktop/DiagnosticWindow/WindowBody" unique_id=2068267613]
-visible = false
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 show_percentage = false
@@ -382,6 +400,7 @@ theme_override_constants/separation = 4
 custom_minimum_size = Vector2(0, 22)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_diag")
 theme_override_font_sizes/font_size = 9
 text = "▶  Run Scan"
 
@@ -389,11 +408,13 @@ text = "▶  Run Scan"
 custom_minimum_size = Vector2(0, 22)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_diag")
 theme_override_font_sizes/font_size = 9
 disabled = true
 text = "✔  Apply Fix"
 
 [node name="NotificationToast" type="Panel" parent="ScreenUI/MonitorFrame/Desktop" unique_id=1088467297]
+visible = false
 layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
@@ -418,6 +439,7 @@ offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_diag")
 theme_override_font_sizes/font_size = 8
 vertical_alignment = 1
 autowrap_mode = 3

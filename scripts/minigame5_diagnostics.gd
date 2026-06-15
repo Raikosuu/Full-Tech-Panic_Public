@@ -149,6 +149,14 @@ var _button_group:     ButtonGroup = null
 # No SubViewport — all nodes live directly under Desktop in ScreenUI
 const _VP := "ScreenUI/MonitorFrame/Desktop"
 
+# ── Fonts ──────────────────────────────────────────────────────────────────────
+const _FONT_BOLD    := preload("res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf")
+const _FONT_REGULAR := preload("res://assets/fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf")
+
+func _apply_font(node: Control, bold: bool = false, size: int = 10) -> void:
+	node.add_theme_font_override("font", _FONT_BOLD if bold else _FONT_REGULAR)
+	node.add_theme_font_size_override("font_size", size)
+
 func _on_minigame_ready() -> void:
 	_symptom_label  = get_node(_VP + "/SymptomBanner/SymptomLabel")
 	_start_button   = get_node(_VP + "/Taskbar/CenterBox/StartButton")
@@ -177,7 +185,6 @@ func _on_minigame_ready() -> void:
 	_clock_label.text = "10:24 AM\n6/13/2026"
 
 	_build_start_menu()
-	_build_desktop_icons()
 
 	_start_button.pressed.connect(_toggle_start_menu)
 	_scan_button.pressed.connect(_on_scan_pressed)
@@ -205,36 +212,11 @@ func _build_start_menu() -> void:
 		var tool_data: Dictionary = tools[i]
 		var btn := Button.new()
 		btn.text = "%s\n%s" % [tool_data["icon"], tool_data["name"]]
-		btn.custom_minimum_size = Vector2(68, 56)
-		btn.add_theme_font_size_override("font_size", 9)
+		btn.custom_minimum_size = Vector2(40, 40)
+		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		_apply_font(btn, false, 9)
 		btn.pressed.connect(_on_tool_selected.bind(tool_data["name"]))
 		_app_grid.add_child(btn)
-
-func _build_desktop_icons() -> void:
-	var icons := [
-		{"icon": "🌐", "label": "Browser"},
-		{"icon": "📁", "label": "Files"},
-		{"icon": "🗒", "label": "Notepad"},
-		{"icon": "📸", "label": "Photos"},
-	]
-	for ic in icons:
-		var vbox := VBoxContainer.new()
-		vbox.custom_minimum_size = Vector2(48, 52)
-
-		var ico_lbl := Label.new()
-		ico_lbl.text = ic["icon"]
-		ico_lbl.add_theme_font_size_override("font_size", 18)
-		ico_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-
-		var name_lbl := Label.new()
-		name_lbl.text = ic["label"]
-		name_lbl.add_theme_font_size_override("font_size", 8)
-		name_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		name_lbl.add_theme_color_override("font_color", Color.WHITE)
-
-		vbox.add_child(ico_lbl)
-		vbox.add_child(name_lbl)
-		_desktop_icons.add_child(vbox)
 
 func _toggle_start_menu() -> void:
 	_start_menu.visible = not _start_menu.visible
@@ -277,7 +259,7 @@ func _reveal_results() -> void:
 	for line in _scenario["scan_results"]:
 		var lbl := Label.new()
 		lbl.text = "  • " + line
-		lbl.add_theme_font_size_override("font_size", 10)
+		_apply_font(lbl, false, 10)
 		lbl.add_theme_color_override("font_color", Color(0.15, 0.15, 0.15))
 		_results_list.add_child(lbl)
 
@@ -285,7 +267,7 @@ func _reveal_results() -> void:
 
 	var fix_hdr := Label.new()
 	fix_hdr.text = "Select the correct fix:"
-	fix_hdr.add_theme_font_size_override("font_size", 10)
+	_apply_font(fix_hdr, true, 10)
 	fix_hdr.add_theme_color_override("font_color", Color(0.1, 0.1, 0.4))
 	_results_list.add_child(fix_hdr)
 
@@ -298,7 +280,17 @@ func _reveal_results() -> void:
 		var cb := CheckBox.new()
 		cb.text = opt_text
 		cb.button_group = _button_group
-		cb.add_theme_font_size_override("font_size", 10)
+		_apply_font(cb, false, 10)
+		cb.add_theme_color_override("font_color", Color(0.05, 0.05, 0.05))
+		cb.add_theme_color_override("font_hover_color", Color(0.05, 0.05, 0.05))
+		cb.add_theme_color_override("font_pressed_color", Color(0.05, 0.05, 0.05))
+		var hover_style := StyleBoxFlat.new()
+		hover_style.bg_color = Color(0.75, 0.75, 0.75, 1)
+		hover_style.corner_radius_top_left = 3
+		hover_style.corner_radius_top_right = 3
+		hover_style.corner_radius_bottom_left = 3
+		hover_style.corner_radius_bottom_right = 3
+		cb.add_theme_stylebox_override("hover", hover_style)
 		cb.toggled.connect(_on_option_toggled)
 		_results_list.add_child(cb)
 		_fix_options.append(cb)
