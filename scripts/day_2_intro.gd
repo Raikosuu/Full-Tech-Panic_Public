@@ -16,7 +16,17 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "You",
 			"color":   Color(0.4, 0.8, 1.0),
-			"text":    "...thanks. I think."
+			"text":    "...thanks. I think. How's Michael?"
+		},
+		{
+			"speaker": "Boss",
+			"color":   Color(1.0, 0.6, 0.2),
+			"text":    "Calmer. His monitor stopped breathing.\nNow his mouse is 'whispering.'\nWe're handling it in stages."
+		},
+		{
+			"speaker": "You",
+			"color":   Color(0.4, 0.8, 1.0),
+			"text":    "Right. Anyway, what's today's disaster?"
 		},
 		{
 			"speaker": "Boss",
@@ -26,42 +36,52 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "You",
 			"color":   Color(0.4, 0.8, 1.0),
-			"text":    "Okay, that sounds manageable."
+			"text":    "Let me guess. Basti."
 		},
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Someone re-crimped [color=#ff4444]every cable[/color] in\nthe building over the weekend.\nUsing the [color=#ff4444]T568-A standard.[/color]"
+			"text":    "Some Ethernet Cables are wired [color=#ff4444]T568-A.[/color]\nSome are wired [color=#ff4444]T568-B.[/color]\nBasti mixed up the labeling on half of them\n'to make it more organized.'"
 		},
 		{
 			"speaker": "You",
 			"color":   Color(0.4, 0.8, 1.0),
-			"text":    "Instead of T568-B?"
+			"text":    "So I just... pick one and use it everywhere?"
 		},
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Instead of T568-B.\nWe think it was Basti.\nBasti thinks it was fine."
+			"text":    "No! Each ticket tells you which standard\nthat jack needs. Get it wrong and it's\nstill dead on arrival. Just like Basti's logic."
 		},
 		{
 			"speaker": "You",
 			"color":   Color(0.4, 0.8, 1.0),
-			"text":    "Was it fine?"
+			"text":    "Two standards, gotta check every time. Got it."
 		},
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Nothing works.\nSo. [color=#ff4444]No.[/color]\nYou'll need to re-crimp them correctly.\nPin order matters. Don't mix them up."
+			"text":    "White-Orange, Orange... or White-Green,\nGreen, depending which one you're on.\nDon't mix them up."
 		},
 		{
 			"speaker": "You",
 			"color":   Color(0.4, 0.8, 1.0),
-			"text":    "T568-B. Got it.\nWhite-Orange, Orange, White-Green..."
+			"text":    "T568-A, T568-B. Read the ticket first. Got it."
 		},
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Yes yes, you know the standard.\nNow go [color=#ffdd44]fix it[/color] before the 9 AM\nmeeting that is already ruined."
+			"text":    "Oh — and the weird-computer tickets\ndidn't stop just because the cables\nexploded. A few are still possessed.\nMichael insists his is one of them."
+		},
+		{
+			"speaker": "You",
+			"color":   Color(0.4, 0.8, 1.0),
+			"text":    "Michael's computer is fine, Michael\nis just having a week."
+		},
+		{
+			"speaker": "Boss",
+			"color":   Color(1.0, 0.6, 0.2),
+			"text":    "Aren't we all.\nNow go [color=#ffdd44]fix it[/color] before the 9 AM\nmeeting that is already ruined."
 		},
 	]
 

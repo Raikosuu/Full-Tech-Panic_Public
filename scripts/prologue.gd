@@ -40,6 +40,21 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
+			"text":    "And a good chunk of these aren't even\nbroken hardware. Computers just acting\n[color=#ffdd44]weird.[/color] Slow, crashing, throwing errors.\nYou'll have to actually figure out what's wrong."
+		},
+		{
+			"speaker": "You",
+			"color":   Color(0.4, 0.8, 1.0),
+			"text":    "So I'm a technician AND a detective now?"
+		},
+		{
+			"speaker": "Boss",
+			"color":   Color(1.0, 0.6, 0.2),
+			"text":    "Congratulations on the promotion.\nNo raise, though.\nJust use the diagnostic tools on the desktop\nand don't accuse the printer of anything."
+		},
+		{
+			"speaker": "Boss",
+			"color":   Color(1.0, 0.6, 0.2),
 			"text":    "Each user has a [color=#ffdd44]patience bar.[/color]\nLet it hit zero — they walk.\nYou get a mark on your record."
 		},
 		{

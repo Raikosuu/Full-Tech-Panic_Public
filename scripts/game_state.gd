@@ -18,6 +18,7 @@ const LEVELS: Array = [
 		"allowed_minigames":  [
 			"res://scenes/minigame1_assembly.tscn",
 			"res://scenes/minigame2_disassembly.tscn",
+			"res://scenes/minigame5_diagnostics.tscn"
 		],
 		"intro_cutscene":     "res://cutscenes/prologue.tscn",
 		"outro_cutscene":     "",
@@ -32,6 +33,7 @@ const LEVELS: Array = [
 		"allowed_minigames":  [
 			"res://scenes/minigame3_rj45.tscn",
 			"res://scenes/minigame4_rj45a.tscn",
+			"res://scenes/minigame5_diagnostics.tscn"
 		],
 		"intro_cutscene":     "res://cutscenes/day2_intro.tscn",
 		"outro_cutscene":     "",
@@ -48,6 +50,7 @@ const LEVELS: Array = [
 			"res://scenes/minigame2_disassembly.tscn",
 			"res://scenes/minigame3_rj45.tscn",
 			"res://scenes/minigame4_rj45a.tscn",
+			"res://scenes/minigame5_diagnostics.tscn"
 		],
 		"intro_cutscene":     "res://cutscenes/day3_intro.tscn",
 		"outro_cutscene":     "res://cutscenes/epilogue.tscn",

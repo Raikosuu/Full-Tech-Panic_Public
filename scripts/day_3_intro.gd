@@ -41,7 +41,7 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Good idea. Anyway — today you're\nhandling [color=#ffdd44]everything.[/color]\nAssembly, disassembly, cabling.\nAll of it."
+			"text":    "Good idea. Anyway — today you're\nhandling [color=#ffdd44]everything.[/color]\nAssembly, disassembly, cabling, diagnostics.\nAll of it."
 		},
 		{
 			"speaker": "You",
@@ -51,17 +51,17 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "One user needs a PC built from scratch.\nAnother needs theirs stripped for parts.\nThree need cables re-done.\n[color=#ff4444]Again.[/color]"
+			"text":    "One user needs a PC built from scratch.\nAnother needs theirs stripped for parts.\nThree need cables re-done. [color=#ff4444]Again.[/color]\nAnd a pile of 'it's just acting weird' tickets,\nbecause there's always a pile of those."
 		},
 		{
 			"speaker": "You",
 			"color":   Color(0.4, 0.8, 1.0),
-			"text":    "What about Basti?"
+			"text":    "What about Michael?"
 		},
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Basti is [color=#ff4444]on leave.[/color]\nEffective this morning.\nI wrote a very strongly-worded email."
+			"text":    "Michael is [color=#ff4444]on leave.[/color]\nEffective this morning.\nI wrote a very strongly-worded email."
 		},
 		{
 			"speaker": "You",
