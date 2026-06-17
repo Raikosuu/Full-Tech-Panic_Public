@@ -31,10 +31,10 @@ func _start_new_game() -> void:
 		get_tree().change_scene_to_file(GameState.GAME_SCENE)
 
 func _on_learn_pressed() -> void:
-	pass
+	get_tree().change_scene_to_file("res://learn/scenes/learn.tscn")
 
 func _on_how_to_play_pressed() -> void:
-	pass
+	get_tree().change_scene_to_file("res://scenes/how_to_play.tscn")
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()

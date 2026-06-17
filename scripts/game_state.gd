@@ -26,8 +26,8 @@ const LEVELS: Array = [
 		"day_number":         2,
 		"day_label":          "Day 2",
 		"npcs_to_win":        5,
-		"npc_spawn_min_wait": 2.0,
-		"npc_spawn_max_wait": 2.5,
+		"npc_spawn_min_wait": 2.5,
+		"npc_spawn_max_wait": 3.0,
 		"npc_max_spawn":      22,
 		"allowed_minigames":  [
 			"res://scenes/minigame3_rj45.tscn",
@@ -40,8 +40,8 @@ const LEVELS: Array = [
 		"day_number":         3,
 		"day_label":          "Day 3",
 		"npcs_to_win":        10,
-		"npc_spawn_min_wait": 1.5,
-		"npc_spawn_max_wait": 2.0,
+		"npc_spawn_min_wait": 2.0,
+		"npc_spawn_max_wait": 2.5,
 		"npc_max_spawn":      22,
 		"allowed_minigames":  [
 			"res://scenes/minigame1_assembly.tscn",
@@ -99,6 +99,7 @@ func get_allowed_minigames() -> Array:
 			"res://scenes/minigame2_disassembly.tscn",
 			"res://scenes/minigame3_rj45.tscn",
 			"res://scenes/minigame4_rj45a.tscn",
+			"res://scenes/minigame5_diagnostics.tcsn",
 		]
 	return pool
 

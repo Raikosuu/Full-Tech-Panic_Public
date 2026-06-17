@@ -69,7 +69,7 @@ corner_radius_bottom_left = 4
 [node name="Minigame4_RJ45A" type="Node2D" unique_id=2115188806]
 script = ExtResource("1_omsdi")
 wrong_crimp_lose_scene = ExtResource("2_qbu73")
-time_limit = 35.0
+time_limit = 50.0
 win_screen_scene = ExtResource("3_u3a6j")
 lose_screen_scene = ExtResource("4_b7nb5")
 

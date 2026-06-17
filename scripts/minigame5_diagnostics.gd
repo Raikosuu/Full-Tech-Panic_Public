@@ -324,7 +324,7 @@ func _on_fix_pressed() -> void:
 		try_complete()
 	else:
 		_show_toast("❌ Wrong fix. Re-scan and try again.")
-		_subtract_time(8.0)
+		_subtract_time(5.0)
 		_scan_button.disabled = false
 		_fix_button.disabled = true
 		_phase = "scan"

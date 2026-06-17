@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bel8ij2nnxtvo" path="res://scenes/lose_screen.tscn" id="3_diag"]
 [ext_resource type="PackedScene" uid="uid://cgu8yawlh8ece" path="res://scenes/patience_bar.tscn" id="4_diag"]
 [ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="5_diag"]
+[ext_resource type="Texture2D" uid="uid://dbd6hundd8ax5" path="res://assets/win-11.jpg" id="6_3aldh"]
 [ext_resource type="Texture2D" uid="uid://d1ap6t6g8oqki" path="res://assets/buttons/Screenshot 2026-06-13 174952.png" id="6_v4nyh"]
 [ext_resource type="Texture2D" uid="uid://m6ta8evgxe08" path="res://assets/buttons/Screenshot 2026-06-13 175647.png" id="7_t8sal"]
 [ext_resource type="Texture2D" uid="uid://07ybm1g6qk3n" path="res://assets/buttons/Screenshot 2026-06-13 175747.png" id="8_3aldh"]
@@ -71,7 +72,7 @@ corner_radius_bottom_left = 4
 
 [node name="Minigame5_diagnostics" type="Node2D" unique_id=920621591]
 script = ExtResource("1_diag")
-time_limit = 60.0
+time_limit = 50.0
 win_screen_scene = ExtResource("2_diag")
 lose_screen_scene = ExtResource("3_diag")
 timer_bar = NodePath("PauseButtonLayer/MinigameTimerBar")
@@ -131,16 +132,19 @@ offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Wallpaper" type="ColorRect" parent="ScreenUI/MonitorFrame/Desktop" unique_id=933509682]
-layout_mode = 0
+[node name="Wallpaper" type="TextureRect" parent="ScreenUI/MonitorFrame/Desktop" unique_id=842568441]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.05, 0.1, 0.25, 1)
+texture = ExtResource("6_3aldh")
+expand_mode = 3
 
 [node name="WallpaperOverlay" type="ColorRect" parent="ScreenUI/MonitorFrame/Desktop" unique_id=1965400958]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
