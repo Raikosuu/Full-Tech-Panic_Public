@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://ded4u5ledaf8q"]
+
+[ext_resource type="Script" uid="uid://pd62ewhik4qd" path="res://scripts/credits_scene.gd" id="1_ma2dp"]
+[ext_resource type="FontFile" uid="uid://c1dh3d4255a1l" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="2_t4kbm"]
+[ext_resource type="FontFile" uid="uid://chkdc34o58e2w" path="res://assets/fonts/PixelGamer-Regular.otf" id="2_x5wno"]
+[ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="3_1pu23"]
+
+[node name="CreditsScene" type="Control" unique_id=893276366]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ma2dp")
+start_delay = 1.0
+
+[node name="Background" type="ColorRect" parent="." unique_id=427609569]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.022979883, 0.022979883, 0.022979883, 1)
+
+[node name="ScrollClip" type="Control" parent="." unique_id=1335924724]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CreditsText" type="RichTextLabel" parent="ScrollClip" unique_id=339706756]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_t4kbm")
+theme_override_fonts/bold_font = ExtResource("3_1pu23")
+theme_override_fonts/bold_italics_font = ExtResource("2_x5wno")
+bbcode_enabled = true
+text = "[center] THANK YOU FOR PLAYING!
+
+[b]A THESIS BY[/b]
+Sebastian Cortes 
+Michael Tabugadir
+
+[b]PROGRAMMING[/b]
+Sebastian Cortes 
+Michael Tabugadir
+
+[b]ART & ANIMATION[/b]
+Sebastian Cortes
+
+[b]MUSIC & SFX[/b]
+SergeQuadrado (Pixabay.com)
+Freesound Community
+
+[b]TILE & CHARACTER ASSETS[/b]
+Arks
+LimeZu
+Pixelrepo
+
+[b]SPECIAL THANKS[/b]
+Playtesters, friends, family
+IT Professionals, Panelists, Advisers
+
+[i]Every machine that runs today
+was once a pile of parts on a desk,
+and someone who didn't walk away.
+
+Thanks for staying at the bench.[/i][/center]"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="SkipButton" type="Button" parent="." unique_id=1191532322]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -78.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = 38.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("3_1pu23")
+theme_override_font_sizes/font_size = 13
+text = "Skip ▶"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=175310412]

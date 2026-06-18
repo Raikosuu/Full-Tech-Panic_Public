@@ -76,4 +76,4 @@ func get_dialogue() -> Array:
 	]
 
 func go_to_next() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/credits_scene.tscn")
