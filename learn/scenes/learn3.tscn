@@ -41,6 +41,23 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btnh"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tabn"]
+bg_color = Color(0.15, 0.15, 0.15, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tabp"]
+bg_color = Color(0.38, 0.38, 0.38, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tabh"]
+bg_color = Color(0.28, 0.28, 0.28, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_sound"]
+
 [node name="Learn3" type="Control" unique_id=334904170]
 layout_mode = 3
 anchors_preset = 15
@@ -124,6 +141,7 @@ offset_right = -8.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 4
 
 [node name="name" type="Label" parent="soundcardpanel/VBoxContainer" unique_id=509008900]
 layout_mode = 2
@@ -131,19 +149,80 @@ theme_override_fonts/font = ExtResource("6_s0i0g")
 theme_override_font_sizes/font_size = 15
 text = "Sound Card"
 
+[node name="tabs" type="HBoxContainer" parent="soundcardpanel/VBoxContainer" unique_id=300000001]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="tab_overview" type="Button" parent="soundcardpanel/VBoxContainer/tabs" unique_id=300000002]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("6_s0i0g")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_sound")
+text = "Overview"
+
+[node name="tab_howit" type="Button" parent="soundcardpanel/VBoxContainer/tabs" unique_id=300000003]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("6_s0i0g")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_sound")
+text = "How It Works"
+
+[node name="tab_facts" type="Button" parent="soundcardpanel/VBoxContainer/tabs" unique_id=300000004]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("6_s0i0g")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_sound")
+text = "Fun Facts"
+
 [node name="ScrollContainer" type="ScrollContainer" parent="soundcardpanel/VBoxContainer" unique_id=1538083438]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 
 [node name="desc" type="Label" parent="soundcardpanel/VBoxContainer/ScrollContainer" unique_id=1182965039]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("7_5iac7")
 theme_override_font_sizes/font_size = 12
-text = "A sound card, also known as an audio card or soundboard, is either an internal expansion card or an integrated component on a computer's motherboard that allows the computer to produce and record sound through speakers, headphones, or microphones. It functions as a translator between digital audio data and analog sound waves, using a digital-to-analog converter (DAC) to output sound and an analog-to-digital converter (ADC) to record audio."
+autowrap_mode = 2
+
+[node name="desc_howit" type="Label" parent="soundcardpanel/VBoxContainer/ScrollContainer" unique_id=300000005]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("7_5iac7")
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2
+
+[node name="desc_facts" type="Label" parent="soundcardpanel/VBoxContainer/ScrollContainer" unique_id=300000006]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("7_5iac7")
+theme_override_font_sizes/font_size = 12
 autowrap_mode = 2
 
 [connection signal="pressed" from="Back" to="Back" method="_on_pressed"]
 [connection signal="pressed" from="Menu" to="Menu" method="_on_pressed"]
 [connection signal="toggled" from="soundcard" to="." method="_on_soundcard_toggled"]
+[connection signal="pressed" from="soundcardpanel/VBoxContainer/tabs/tab_overview" to="." method="_on_sound_tab_overview_pressed"]
+[connection signal="pressed" from="soundcardpanel/VBoxContainer/tabs/tab_howit" to="." method="_on_sound_tab_howit_pressed"]
+[connection signal="pressed" from="soundcardpanel/VBoxContainer/tabs/tab_facts" to="." method="_on_sound_tab_facts_pressed"]

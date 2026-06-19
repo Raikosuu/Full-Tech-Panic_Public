@@ -45,6 +45,29 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btnh"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tabn"]
+bg_color = Color(0.15, 0.15, 0.15, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tabp"]
+bg_color = Color(0.38, 0.38, 0.38, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tabh"]
+bg_color = Color(0.28, 0.28, 0.28, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_gpu"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_psu"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_fan"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_tower"]
+
 [node name="Learn2" type="Control" unique_id=951125805]
 layout_mode = 3
 anchors_preset = 15
@@ -183,6 +206,7 @@ offset_right = -8.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 4
 
 [node name="name" type="Label" parent="gpupanel/VBoxContainer" unique_id=1062953825]
 layout_mode = 2
@@ -190,19 +214,75 @@ theme_override_fonts/font = ExtResource("10_dq043")
 theme_override_font_sizes/font_size = 15
 text = "GPU (Graphics Processing Unit)"
 
+[node name="tabs" type="HBoxContainer" parent="gpupanel/VBoxContainer" unique_id=200000001]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="tab_overview" type="Button" parent="gpupanel/VBoxContainer/tabs" unique_id=200000002]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_dq043")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_gpu")
+text = "Overview"
+
+[node name="tab_howit" type="Button" parent="gpupanel/VBoxContainer/tabs" unique_id=200000003]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_dq043")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_gpu")
+text = "How It Works"
+
+[node name="tab_facts" type="Button" parent="gpupanel/VBoxContainer/tabs" unique_id=200000004]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_dq043")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_gpu")
+text = "Fun Facts"
+
 [node name="ScrollContainer" type="ScrollContainer" parent="gpupanel/VBoxContainer" unique_id=1210688098]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 
 [node name="desc" type="Label" parent="gpupanel/VBoxContainer/ScrollContainer" unique_id=1841588749]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("11_h4knm")
 theme_override_font_sizes/font_size = 12
-text = "A graphics card is a computer component that renders images, videos, and 3D graphics, with a GPU as its core processor, enabling high-performance visual computing for gaming, video editing, and AI tasks.
+autowrap_mode = 2
 
-A graphics card, also called a video card or GPU, is an expansion card that generates graphics output for a display device such as a monitor . It can be integrated into the motherboard or CPU, or discrete, meaning it is a separate component installed in an expansion slot for higher performance. Discrete graphics cards are essential for tasks that require intensive graphics processing, such as gaming, 3D rendering, and video editing."
+[node name="desc_howit" type="Label" parent="gpupanel/VBoxContainer/ScrollContainer" unique_id=200000005]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("11_h4knm")
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2
+
+[node name="desc_facts" type="Label" parent="gpupanel/VBoxContainer/ScrollContainer" unique_id=200000006]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("11_h4knm")
+theme_override_font_sizes/font_size = 12
 autowrap_mode = 2
 
 [node name="psupanel" type="Panel" parent="." unique_id=237060255]
@@ -225,6 +305,7 @@ offset_right = -8.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 4
 
 [node name="name" type="Label" parent="psupanel/VBoxContainer" unique_id=1833563422]
 layout_mode = 2
@@ -232,17 +313,75 @@ theme_override_fonts/font = ExtResource("10_dq043")
 theme_override_font_sizes/font_size = 15
 text = "PSU (Power Supply Unit)"
 
+[node name="tabs" type="HBoxContainer" parent="psupanel/VBoxContainer" unique_id=200000011]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="tab_overview" type="Button" parent="psupanel/VBoxContainer/tabs" unique_id=200000012]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_dq043")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_psu")
+text = "Overview"
+
+[node name="tab_howit" type="Button" parent="psupanel/VBoxContainer/tabs" unique_id=200000013]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_dq043")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_psu")
+text = "How It Works"
+
+[node name="tab_facts" type="Button" parent="psupanel/VBoxContainer/tabs" unique_id=200000014]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_dq043")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_psu")
+text = "Fun Facts"
+
 [node name="ScrollContainer" type="ScrollContainer" parent="psupanel/VBoxContainer" unique_id=2089062261]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 
 [node name="desc" type="Label" parent="psupanel/VBoxContainer/ScrollContainer" unique_id=171740471]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("11_h4knm")
 theme_override_font_sizes/font_size = 12
-text = "A Power Supply Unit (PSU) is a crucial component of a computer system that converts external electrical power into the specific voltage and current required by various components within the computer. It supplies power to all other components, ensuring stable and reliable operation. The PSU typically converts alternating current (AC) from the wall outlet into direct current (DC) used by the computer's internal parts."
+autowrap_mode = 2
+
+[node name="desc_howit" type="Label" parent="psupanel/VBoxContainer/ScrollContainer" unique_id=200000015]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("11_h4knm")
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2
+
+[node name="desc_facts" type="Label" parent="psupanel/VBoxContainer/ScrollContainer" unique_id=200000016]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("11_h4knm")
+theme_override_font_sizes/font_size = 12
 autowrap_mode = 2
 
 [node name="coolingfanpanel" type="Panel" parent="." unique_id=439973761]
@@ -265,29 +404,87 @@ offset_right = -8.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 4
 
 [node name="name" type="Label" parent="coolingfanpanel/VBoxContainer" unique_id=1468475322]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("10_dq043")
 theme_override_font_sizes/font_size = 15
-text = "Cooling Fan "
+text = "Cooling Fan"
+
+[node name="tabs" type="HBoxContainer" parent="coolingfanpanel/VBoxContainer" unique_id=200000021]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="tab_overview" type="Button" parent="coolingfanpanel/VBoxContainer/tabs" unique_id=200000022]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_dq043")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_fan")
+text = "Overview"
+
+[node name="tab_howit" type="Button" parent="coolingfanpanel/VBoxContainer/tabs" unique_id=200000023]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_dq043")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_fan")
+text = "How It Works"
+
+[node name="tab_facts" type="Button" parent="coolingfanpanel/VBoxContainer/tabs" unique_id=200000024]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_dq043")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_fan")
+text = "Fun Facts"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="coolingfanpanel/VBoxContainer" unique_id=1288521379]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 
 [node name="desc" type="Label" parent="coolingfanpanel/VBoxContainer/ScrollContainer" unique_id=263861649]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("11_h4knm")
 theme_override_font_sizes/font_size = 12
-text = "A cooling fan is designed to remove excess heat from devices or machinery to ensure stable operation and prevent damage caused by overheating. It achieves this by using a motor to rotate fan blades, which generate airflow that carries heat away from the surface of the component or system, lowering its temperature and maintaining efficiency and reliability in operation.
+autowrap_mode = 2
 
-Cooling fans operate on the principle of convective heat transfer. The motor drives the fan blades to rotate at high speed, creating airflow. This airflow passes over hot surfaces, such as heat sinks, radiators, or electronic components, absorbing heat and expelling it into the surrounding environment. This continuous exchange of cooler and warmer air enhances the cooling effect."
+[node name="desc_howit" type="Label" parent="coolingfanpanel/VBoxContainer/ScrollContainer" unique_id=200000025]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("11_h4knm")
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2
+
+[node name="desc_facts" type="Label" parent="coolingfanpanel/VBoxContainer/ScrollContainer" unique_id=200000026]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("11_h4knm")
+theme_override_font_sizes/font_size = 12
 autowrap_mode = 2
 
 [node name="computertowerpanel" type="Panel" parent="." unique_id=879632036]
+visible = false
 layout_mode = 0
 offset_left = 112.0
 offset_top = 9.0
@@ -306,6 +503,7 @@ offset_right = -8.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 4
 
 [node name="name" type="Label" parent="computertowerpanel/VBoxContainer" unique_id=1183937317]
 layout_mode = 2
@@ -313,17 +511,75 @@ theme_override_fonts/font = ExtResource("10_dq043")
 theme_override_font_sizes/font_size = 15
 text = "Computer Tower"
 
+[node name="tabs" type="HBoxContainer" parent="computertowerpanel/VBoxContainer" unique_id=200000031]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="tab_overview" type="Button" parent="computertowerpanel/VBoxContainer/tabs" unique_id=200000032]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_dq043")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_tower")
+text = "Overview"
+
+[node name="tab_howit" type="Button" parent="computertowerpanel/VBoxContainer/tabs" unique_id=200000033]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_dq043")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_tower")
+text = "How It Works"
+
+[node name="tab_facts" type="Button" parent="computertowerpanel/VBoxContainer/tabs" unique_id=200000034]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("10_dq043")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_tower")
+text = "Fun Facts"
+
 [node name="ScrollContainer" type="ScrollContainer" parent="computertowerpanel/VBoxContainer" unique_id=45173970]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 
 [node name="desc" type="Label" parent="computertowerpanel/VBoxContainer/ScrollContainer" unique_id=702166531]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("11_h4knm")
 theme_override_font_sizes/font_size = 12
-text = "A computer tower, also known as a PC case, chassis, or system unit, is the enclosure that contains the core components of a desktop computer, including the motherboard, CPU, GPU, RAM, storage drives, and power supply. Its vertical design allows for better airflow, easier access to components, and more space for expansion compared to horizontal \"pizza box\" cases. Towers are typically placed on the floor next to a desk, though they can also sit on top of a desk."
+autowrap_mode = 2
+
+[node name="desc_howit" type="Label" parent="computertowerpanel/VBoxContainer/ScrollContainer" unique_id=200000035]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("11_h4knm")
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2
+
+[node name="desc_facts" type="Label" parent="computertowerpanel/VBoxContainer/ScrollContainer" unique_id=200000036]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("11_h4knm")
+theme_override_font_sizes/font_size = 12
 autowrap_mode = 2
 
 [connection signal="pressed" from="Back" to="Back" method="_on_pressed"]
@@ -333,3 +589,15 @@ autowrap_mode = 2
 [connection signal="toggled" from="psu" to="." method="_on_psu_toggled"]
 [connection signal="toggled" from="coolingfan" to="." method="_on_coolingfan_toggled"]
 [connection signal="toggled" from="computertower" to="." method="_on_computertower_toggled"]
+[connection signal="pressed" from="gpupanel/VBoxContainer/tabs/tab_overview" to="." method="_on_gpu_tab_overview_pressed"]
+[connection signal="pressed" from="gpupanel/VBoxContainer/tabs/tab_howit" to="." method="_on_gpu_tab_howit_pressed"]
+[connection signal="pressed" from="gpupanel/VBoxContainer/tabs/tab_facts" to="." method="_on_gpu_tab_facts_pressed"]
+[connection signal="pressed" from="psupanel/VBoxContainer/tabs/tab_overview" to="." method="_on_psu_tab_overview_pressed"]
+[connection signal="pressed" from="psupanel/VBoxContainer/tabs/tab_howit" to="." method="_on_psu_tab_howit_pressed"]
+[connection signal="pressed" from="psupanel/VBoxContainer/tabs/tab_facts" to="." method="_on_psu_tab_facts_pressed"]
+[connection signal="pressed" from="coolingfanpanel/VBoxContainer/tabs/tab_overview" to="." method="_on_fan_tab_overview_pressed"]
+[connection signal="pressed" from="coolingfanpanel/VBoxContainer/tabs/tab_howit" to="." method="_on_fan_tab_howit_pressed"]
+[connection signal="pressed" from="coolingfanpanel/VBoxContainer/tabs/tab_facts" to="." method="_on_fan_tab_facts_pressed"]
+[connection signal="pressed" from="computertowerpanel/VBoxContainer/tabs/tab_overview" to="." method="_on_tower_tab_overview_pressed"]
+[connection signal="pressed" from="computertowerpanel/VBoxContainer/tabs/tab_howit" to="." method="_on_tower_tab_howit_pressed"]
+[connection signal="pressed" from="computertowerpanel/VBoxContainer/tabs/tab_facts" to="." method="_on_tower_tab_facts_pressed"]

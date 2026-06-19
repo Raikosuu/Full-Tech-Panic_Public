@@ -23,6 +23,29 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btnh"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tabn"]
+bg_color = Color(0.15, 0.15, 0.15, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tabp"]
+bg_color = Color(0.38, 0.38, 0.38, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tabh"]
+bg_color = Color(0.28, 0.28, 0.28, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_cpu"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_mobo"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ram"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_hdd"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d33wi"]
 bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 20
@@ -143,6 +166,7 @@ offset_right = -8.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 4
 
 [node name="name" type="Label" parent="cpupanel/VBoxContainer" unique_id=1369553199]
 layout_mode = 2
@@ -150,17 +174,75 @@ theme_override_fonts/font = ExtResource("7_uekuk")
 theme_override_font_sizes/font_size = 15
 text = "CPU (Central Processing Unit)"
 
+[node name="tabs" type="HBoxContainer" parent="cpupanel/VBoxContainer" unique_id=100000001]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="tab_overview" type="Button" parent="cpupanel/VBoxContainer/tabs" unique_id=100000002]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_uekuk")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_cpu")
+text = "Overview"
+
+[node name="tab_howit" type="Button" parent="cpupanel/VBoxContainer/tabs" unique_id=100000003]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_uekuk")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_cpu")
+text = "How It Works"
+
+[node name="tab_facts" type="Button" parent="cpupanel/VBoxContainer/tabs" unique_id=100000004]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_uekuk")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_cpu")
+text = "Fun Facts"
+
 [node name="ScrollContainer" type="ScrollContainer" parent="cpupanel/VBoxContainer" unique_id=751633736]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 
 [node name="desc" type="Label" parent="cpupanel/VBoxContainer/ScrollContainer" unique_id=651147957]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("8_ma7se")
 theme_override_font_sizes/font_size = 12
-text = "The CPU is a critical hardware component responsible for processing instructions from software and coordinating the activities of all other computer components . It interprets binary signals (1s and 0s) to perform calculations, make decisions, and control data flow, enabling tasks like gaming, video playback, and running applications."
+autowrap_mode = 2
+
+[node name="desc_howit" type="Label" parent="cpupanel/VBoxContainer/ScrollContainer" unique_id=100000005]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("8_ma7se")
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2
+
+[node name="desc_facts" type="Label" parent="cpupanel/VBoxContainer/ScrollContainer" unique_id=100000006]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("8_ma7se")
+theme_override_font_sizes/font_size = 12
 autowrap_mode = 2
 
 [node name="mobopanel" type="Panel" parent="." unique_id=853949067]
@@ -183,6 +265,7 @@ offset_right = -8.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 4
 
 [node name="name" type="Label" parent="mobopanel/VBoxContainer" unique_id=1471013605]
 layout_mode = 2
@@ -190,19 +273,75 @@ theme_override_fonts/font = ExtResource("7_uekuk")
 theme_override_font_sizes/font_size = 15
 text = "Motherboard"
 
+[node name="tabs" type="HBoxContainer" parent="mobopanel/VBoxContainer" unique_id=100000011]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="tab_overview" type="Button" parent="mobopanel/VBoxContainer/tabs" unique_id=100000012]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_uekuk")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_mobo")
+text = "Overview"
+
+[node name="tab_howit" type="Button" parent="mobopanel/VBoxContainer/tabs" unique_id=100000013]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_uekuk")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_mobo")
+text = "How It Works"
+
+[node name="tab_facts" type="Button" parent="mobopanel/VBoxContainer/tabs" unique_id=100000014]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_uekuk")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_mobo")
+text = "Fun Facts"
+
 [node name="ScrollContainer" type="ScrollContainer" parent="mobopanel/VBoxContainer" unique_id=1322788141]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 
 [node name="desc" type="Label" parent="mobopanel/VBoxContainer/ScrollContainer" unique_id=1860606785]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("8_ma7se")
 theme_override_font_sizes/font_size = 12
-text = "A motherboard is the main circuit board of a computer that connects and allows communication between all essential components, acting as the backbone of the system.
+autowrap_mode = 2
 
-A motherboard, also called a mainboard, system board, or logic board, is the largest printed circuit board (PCB) inside a computer. It distributes power and facilitates communication between the CPU (Central Processing Unit), RAM (Random Access Memory), storage devices, and peripheral components. Essentially, it serves as the central hub that allows all parts of a computer to work together efficiently, making it the backbone or “spine” of the system."
+[node name="desc_howit" type="Label" parent="mobopanel/VBoxContainer/ScrollContainer" unique_id=100000015]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("8_ma7se")
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2
+
+[node name="desc_facts" type="Label" parent="mobopanel/VBoxContainer/ScrollContainer" unique_id=100000016]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("8_ma7se")
+theme_override_font_sizes/font_size = 12
 autowrap_mode = 2
 
 [node name="rampanel" type="Panel" parent="." unique_id=1736708070]
@@ -225,6 +364,7 @@ offset_right = -8.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 4
 
 [node name="name" type="Label" parent="rampanel/VBoxContainer" unique_id=1790208441]
 layout_mode = 2
@@ -232,19 +372,75 @@ theme_override_fonts/font = ExtResource("7_uekuk")
 theme_override_font_sizes/font_size = 15
 text = "RAM (Random Access Memory)"
 
+[node name="tabs" type="HBoxContainer" parent="rampanel/VBoxContainer" unique_id=100000021]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="tab_overview" type="Button" parent="rampanel/VBoxContainer/tabs" unique_id=100000022]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_uekuk")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_ram")
+text = "Overview"
+
+[node name="tab_howit" type="Button" parent="rampanel/VBoxContainer/tabs" unique_id=100000023]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_uekuk")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_ram")
+text = "How It Works"
+
+[node name="tab_facts" type="Button" parent="rampanel/VBoxContainer/tabs" unique_id=100000024]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_uekuk")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_ram")
+text = "Fun Facts"
+
 [node name="ScrollContainer" type="ScrollContainer" parent="rampanel/VBoxContainer" unique_id=513949647]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 
 [node name="desc" type="Label" parent="rampanel/VBoxContainer/ScrollContainer" unique_id=694061216]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("8_ma7se")
 theme_override_font_sizes/font_size = 12
-text = "RAM (Random Access Memory) is your computer’s short-term memory, temporarily storing data for fast access by the CPU to ensure smooth performance.
+autowrap_mode = 2
 
-RAM is a type of volatile memory that temporarily holds data and instructions that your computer’s CPU needs while running programs, apps, or the operating system . Unlike permanent storage like hard drives or SSDs, data in RAM is lost when the computer is powered off . Think of it as the brain’s short-term memory: it keeps information readily available for immediate use, allowing your system to multitask efficiently."
+[node name="desc_howit" type="Label" parent="rampanel/VBoxContainer/ScrollContainer" unique_id=100000025]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("8_ma7se")
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2
+
+[node name="desc_facts" type="Label" parent="rampanel/VBoxContainer/ScrollContainer" unique_id=100000026]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("8_ma7se")
+theme_override_font_sizes/font_size = 12
 autowrap_mode = 2
 
 [node name="hddpanel" type="Panel" parent="." unique_id=1170350547]
@@ -267,6 +463,7 @@ offset_right = -8.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 4
 
 [node name="name" type="Label" parent="hddpanel/VBoxContainer" unique_id=2145584981]
 layout_mode = 2
@@ -274,19 +471,75 @@ theme_override_fonts/font = ExtResource("7_uekuk")
 theme_override_font_sizes/font_size = 15
 text = "HDD (Hard Disk Drive)"
 
+[node name="tabs" type="HBoxContainer" parent="hddpanel/VBoxContainer" unique_id=100000031]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="tab_overview" type="Button" parent="hddpanel/VBoxContainer/tabs" unique_id=100000032]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_uekuk")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_hdd")
+text = "Overview"
+
+[node name="tab_howit" type="Button" parent="hddpanel/VBoxContainer/tabs" unique_id=100000033]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_uekuk")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_hdd")
+text = "How It Works"
+
+[node name="tab_facts" type="Button" parent="hddpanel/VBoxContainer/tabs" unique_id=100000034]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_uekuk")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_hdd")
+text = "Fun Facts"
+
 [node name="ScrollContainer" type="ScrollContainer" parent="hddpanel/VBoxContainer" unique_id=462507317]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 
 [node name="desc" type="Label" parent="hddpanel/VBoxContainer/ScrollContainer" unique_id=1716766411]
-custom_minimum_size = Vector2(211, 234)
+custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("8_ma7se")
 theme_override_font_sizes/font_size = 12
-text = "A hard disk drive (HDD) is a non-volatile storage device that uses spinning magnetic platters and read/write heads to store and retrieve digital data. 
+autowrap_mode = 2
 
-An HDD, also called a hard drive or fixed disk, is a traditional mechanical storage device used in computers to store operating systems, applications, and user data. Unlike volatile memory (RAM), HDDs retain data even when the computer is powered off, making them ideal for long-term storage and large media libraries. HDDs are commonly found inside desktops, laptops, and external enclosures, and they are measured in gigabytes (GB) or terabytes (TB) of capacity."
+[node name="desc_howit" type="Label" parent="hddpanel/VBoxContainer/ScrollContainer" unique_id=100000035]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("8_ma7se")
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2
+
+[node name="desc_facts" type="Label" parent="hddpanel/VBoxContainer/ScrollContainer" unique_id=100000036]
+visible = false
+custom_minimum_size = Vector2(211, 210)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("8_ma7se")
+theme_override_font_sizes/font_size = 12
 autowrap_mode = 2
 
 [node name="Next" type="Button" parent="." unique_id=257766956]
@@ -319,5 +572,17 @@ script = ExtResource("9_3fsor")
 [connection signal="toggled" from="mobo" to="." method="_on_mobo_toggled"]
 [connection signal="toggled" from="ram" to="." method="_on_ram_toggled"]
 [connection signal="toggled" from="hdd" to="." method="_on_hdd_toggled"]
+[connection signal="pressed" from="cpupanel/VBoxContainer/tabs/tab_overview" to="." method="_on_cpu_tab_overview_pressed"]
+[connection signal="pressed" from="cpupanel/VBoxContainer/tabs/tab_howit" to="." method="_on_cpu_tab_howit_pressed"]
+[connection signal="pressed" from="cpupanel/VBoxContainer/tabs/tab_facts" to="." method="_on_cpu_tab_facts_pressed"]
+[connection signal="pressed" from="mobopanel/VBoxContainer/tabs/tab_overview" to="." method="_on_mobo_tab_overview_pressed"]
+[connection signal="pressed" from="mobopanel/VBoxContainer/tabs/tab_howit" to="." method="_on_mobo_tab_howit_pressed"]
+[connection signal="pressed" from="mobopanel/VBoxContainer/tabs/tab_facts" to="." method="_on_mobo_tab_facts_pressed"]
+[connection signal="pressed" from="rampanel/VBoxContainer/tabs/tab_overview" to="." method="_on_ram_tab_overview_pressed"]
+[connection signal="pressed" from="rampanel/VBoxContainer/tabs/tab_howit" to="." method="_on_ram_tab_howit_pressed"]
+[connection signal="pressed" from="rampanel/VBoxContainer/tabs/tab_facts" to="." method="_on_ram_tab_facts_pressed"]
+[connection signal="pressed" from="hddpanel/VBoxContainer/tabs/tab_overview" to="." method="_on_hdd_tab_overview_pressed"]
+[connection signal="pressed" from="hddpanel/VBoxContainer/tabs/tab_howit" to="." method="_on_hdd_tab_howit_pressed"]
+[connection signal="pressed" from="hddpanel/VBoxContainer/tabs/tab_facts" to="." method="_on_hdd_tab_facts_pressed"]
 [connection signal="pressed" from="Next" to="Next" method="_on_pressed"]
 [connection signal="pressed" from="Back" to="Back" method="_on_pressed"]
