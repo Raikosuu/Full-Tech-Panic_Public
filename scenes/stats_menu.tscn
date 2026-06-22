@@ -1,0 +1,247 @@
+[gd_scene format=3 uid="uid://dbvt3oj31i8bl"]
+
+[ext_resource type="Script" uid="uid://c13da1pber76e" path="res://scripts/stats_menu.gd" id="1_stats"]
+[ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="2_stats"]
+[ext_resource type="FontFile" uid="uid://can2uc4aidbtp" path="res://mainmenu/font/PixelGamer-Regular.otf" id="3_stats"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.08, 0.08, 0.1, 0.97)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.25, 0.25, 0.28, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_sep"]
+color = Color(0.3, 0.3, 0.35, 1)
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_row"]
+bg_color = Color(0.04, 0.04, 0.06, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.42745098, 0.42745098, 0.42745098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="StatsMenu" type="Panel" unique_id=2125809956]
+offset_left = 111.0
+offset_top = 22.0
+offset_right = 371.0
+offset_bottom = 247.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+script = ExtResource("1_stats")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=11910507]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=597717759]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.05, 0.05, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("3_stats")
+theme_override_font_sizes/font_size = 14
+text = "STATISTICS"
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="VBoxContainer" unique_id=1053640093]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_sep")
+
+[node name="NPCsServedRow" type="PanelContainer" parent="VBoxContainer" unique_id=232012681]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_row")
+
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/NPCsServedRow" unique_id=1287610590]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="NPCsServedLabel" type="Label" parent="VBoxContainer/NPCsServedRow/HBox" unique_id=1581873998]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.75, 0.75, 0.75, 1)
+theme_override_fonts/font = ExtResource("2_stats")
+theme_override_font_sizes/font_size = 11
+text = "  NPCs Served"
+vertical_alignment = 1
+
+[node name="NPCsServedValue" type="Label" parent="VBoxContainer/NPCsServedRow/HBox" unique_id=2135560027]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_fonts/font = ExtResource("2_stats")
+theme_override_font_sizes/font_size = 13
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spacer" type="Label" parent="VBoxContainer/NPCsServedRow/HBox" unique_id=823705784]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "  "
+
+[node name="LossesRow" type="PanelContainer" parent="VBoxContainer" unique_id=1416708922]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_row")
+
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/LossesRow" unique_id=1940243653]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LossesLabel" type="Label" parent="VBoxContainer/LossesRow/HBox" unique_id=1010802482]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.75, 0.75, 0.75, 1)
+theme_override_fonts/font = ExtResource("2_stats")
+theme_override_font_sizes/font_size = 11
+text = "  Minigames Lost"
+vertical_alignment = 1
+
+[node name="LossesValue" type="Label" parent="VBoxContainer/LossesRow/HBox" unique_id=401188214]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_fonts/font = ExtResource("2_stats")
+theme_override_font_sizes/font_size = 13
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spacer" type="Label" parent="VBoxContainer/LossesRow/HBox" unique_id=1024011980]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "  "
+
+[node name="GameOversRow" type="PanelContainer" parent="VBoxContainer" unique_id=593236630]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_row")
+
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/GameOversRow" unique_id=1596439260]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="GameOversLabel" type="Label" parent="VBoxContainer/GameOversRow/HBox" unique_id=1628643447]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.75, 0.75, 0.75, 1)
+theme_override_fonts/font = ExtResource("2_stats")
+theme_override_font_sizes/font_size = 11
+text = "  Game Overs"
+vertical_alignment = 1
+
+[node name="GameOversValue" type="Label" parent="VBoxContainer/GameOversRow/HBox" unique_id=825868210]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_fonts/font = ExtResource("2_stats")
+theme_override_font_sizes/font_size = 13
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spacer" type="Label" parent="VBoxContainer/GameOversRow/HBox" unique_id=67725013]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "  "
+
+[node name="PlaytimeRow" type="PanelContainer" parent="VBoxContainer" unique_id=722139302]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_row")
+
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/PlaytimeRow" unique_id=1434304791]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PlaytimeLabel" type="Label" parent="VBoxContainer/PlaytimeRow/HBox" unique_id=510804092]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.75, 0.75, 0.75, 1)
+theme_override_fonts/font = ExtResource("2_stats")
+theme_override_font_sizes/font_size = 11
+text = "  Total Playtime"
+vertical_alignment = 1
+
+[node name="PlaytimeValue" type="Label" parent="VBoxContainer/PlaytimeRow/HBox" unique_id=1483467285]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_fonts/font = ExtResource("2_stats")
+theme_override_font_sizes/font_size = 13
+text = "00:00:00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spacer" type="Label" parent="VBoxContainer/PlaytimeRow/HBox" unique_id=285852168]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "  "
+
+[node name="Separator2" type="HSeparator" parent="VBoxContainer" unique_id=1184391052]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_sep")
+
+[node name="CloseButton" type="Button" parent="." unique_id=1110899443]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.5
+offset_top = -28.0
+offset_right = 14.5
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_stats")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "Close"
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_pressed"]

@@ -21,6 +21,9 @@ func _ready() -> void:
 	# Set the label from GameState, not from Inspector
 	_update_label(GameState.npcs_served)
 
+	# Record checkpoint at the start of each level so fail_minigame can restore it
+	GameState._save_checkpoint()
+
 func _update_label(count: int) -> void:
 	served_label.text = "%d / %d" % [count, GameState.npcs_to_win]
 
@@ -60,11 +63,12 @@ func _unhandled_input(event: InputEvent) -> void:
 			_do_pause()
 
 func _do_pause() -> void:
-	get_tree().paused = true
+	# Instantiate and add BEFORE pausing so _ready() runs while tree is active
 	_pause_menu = PAUSE_MENU_SCENE.instantiate()
 	_pause_menu.context = "game"
 	_pause_menu.resumed.connect(_do_resume)
 	get_tree().root.add_child(_pause_menu)
+	get_tree().paused = true
 
 func _do_resume() -> void:
 	get_tree().paused = false

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://jof4loc0tlbx" path="res://mainmenu/graphics/settings.png" id="2_wu84c"]
 [ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="4_rtw2f"]
 [ext_resource type="Script" uid="uid://ctnipvdu4axmc" path="res://mainmenu/scripts/audio_control.gd" id="6_rtw2f"]
+[ext_resource type="PackedScene" uid="uid://dbvt3oj31i8bl" path="res://scenes/stats_menu.tscn" id="stats_menu_ref"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
 texture = ExtResource("1_l6cm7")
@@ -94,6 +95,27 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stats_n"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stats_p"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stats_h"]
+bg_color = Color(0.42745098, 0.42745098, 0.42745098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_8ln24"]
 thickness = 4
 
@@ -126,15 +148,23 @@ theme_override_icons/icon = ExtResource("2_wu84c")
 flat = true
 
 [node name="MainButtons" type="VBoxContainer" parent="Panel" unique_id=539774421]
-layout_mode = 0
-offset_left = 184.0
-offset_top = 96.0
-offset_right = 304.0
-offset_bottom = 213.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.5
+offset_top = -55.5
+offset_right = 24.5
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 15
 alignment = 1
 
 [node name="New Game" type="Button" parent="Panel/MainButtons" unique_id=892148338]
+custom_minimum_size = Vector2(110, 20)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_rtw2f")
 theme_override_font_sizes/font_size = 13
@@ -145,6 +175,7 @@ text = "New Game"
 expand_icon = true
 
 [node name="Continue" type="Button" parent="Panel/MainButtons" unique_id=713298395]
+custom_minimum_size = Vector2(110, 20)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_rtw2f")
 theme_override_font_sizes/font_size = 13
@@ -155,6 +186,7 @@ text = "Continue"
 expand_icon = true
 
 [node name="How to Play" type="Button" parent="Panel/MainButtons" unique_id=1274390603]
+custom_minimum_size = Vector2(110, 20)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_rtw2f")
 theme_override_font_sizes/font_size = 13
@@ -164,6 +196,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5dd4i")
 text = "How to Play"
 
 [node name="Learn" type="Button" parent="Panel/MainButtons" unique_id=472298394]
+custom_minimum_size = Vector2(110, 20)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_rtw2f")
 theme_override_font_sizes/font_size = 13
@@ -173,6 +206,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_flqon")
 text = "Learn"
 
 [node name="Exit" type="Button" parent="Panel/MainButtons" unique_id=1077006095]
+custom_minimum_size = Vector2(110, 20)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_rtw2f")
 theme_override_font_sizes/font_size = 13
@@ -180,6 +214,39 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 text = "Exit"
+
+[node name="Statistics" type="Button" parent="Panel" unique_id=2082406679]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 238.0
+offset_right = 115.0
+offset_bottom = 258.0
+theme_override_fonts/font = ExtResource("4_rtw2f")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_stats_n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_stats_p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_stats_h")
+text = "Statistics"
+
+[node name="Delete Save" type="Button" parent="Panel" unique_id=2031027042]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -49.0
+offset_right = -44.0
+offset_bottom = -29.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_rtw2f")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_stats_n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_stats_p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_stats_h")
+text = "Delete Save"
 
 [node name="Label" type="Label" parent="." unique_id=715729967]
 offset_left = 176.0
@@ -206,6 +273,9 @@ theme_override_font_sizes/font_size = 10
 text = "A PC Troubleshooting Game"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="StatsMenu" parent="." unique_id=1020449642 instance=ExtResource("stats_menu_ref")]
+visible = false
 
 [node name="SettingsPanel" type="Panel" parent="." unique_id=909881828]
 visible = false
@@ -267,5 +337,7 @@ text = "Volume"
 [connection signal="pressed" from="Panel/MainButtons/How to Play" to="." method="_on_how_to_play_pressed"]
 [connection signal="pressed" from="Panel/MainButtons/Learn" to="." method="_on_learn_pressed"]
 [connection signal="pressed" from="Panel/MainButtons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Panel/Statistics" to="." method="_on_statistics_pressed"]
+[connection signal="pressed" from="Panel/Delete Save" to="." method="_on_delete_save_pressed"]
 [connection signal="pressed" from="SettingsPanel/Back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="SettingsPanel/AudioControl" to="SettingsPanel/AudioControl" method="_on_value_changed"]
