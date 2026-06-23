@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://bjdlerpse2v8"]
+
+[ext_resource type="Script" uid="uid://5v8awd80cp0n" path="res://scripts/del_save_menu.gd" id="1_q3afy"]
+[ext_resource type="FontFile" uid="uid://c1dh3d4255a1l" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="2_mnybp"]
+[ext_resource type="FontFile" uid="uid://can2uc4aidbtp" path="res://mainmenu/font/PixelGamer-Regular.otf" id="2_q3afy"]
+[ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="3_r2apv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.08, 0.08, 0.1, 0.97)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.25, 0.25, 0.28, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_sep"]
+color = Color(0.3, 0.3, 0.35, 1)
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_row"]
+bg_color = Color(0.04, 0.04, 0.06, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.42745098, 0.42745098, 0.42745098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Delete Save Menu" type="Panel" unique_id=2125809956]
+offset_left = 111.0
+offset_top = 22.0
+offset_right = 371.0
+offset_bottom = 247.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+script = ExtResource("1_q3afy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=11910507]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=597717759]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0.22658296, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.05, 0.05, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_q3afy")
+theme_override_font_sizes/font_size = 16
+text = "Warning! "
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="VBoxContainer" unique_id=1053640093]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_sep")
+
+[node name="Warning Text Box" type="PanelContainer" parent="VBoxContainer" unique_id=232012681]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_row")
+
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/Warning Text Box" unique_id=1287610590]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="DeleteDetails" type="RichTextLabel" parent="VBoxContainer/Warning Text Box/HBox" unique_id=1370767470]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_mnybp")
+theme_override_fonts/bold_font = ExtResource("3_r2apv")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+bbcode_enabled = true
+text = "[b]You are about to delete your save file. Performing this action will delete your in-game checkpoint autosaves and resets your gameplay statistics. This action cannot be undone."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separator2" type="HSeparator" parent="VBoxContainer" unique_id=1184391052]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_sep")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=646994594]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -27.0
+offset_right = 78.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 50
+
+[node name="CloseButton" type="Button" parent="HBoxContainer" unique_id=1110899443]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_r2apv")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "Close"
+
+[node name="DeleteButton" type="Button" parent="HBoxContainer" unique_id=973104854]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_r2apv")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "Delete"
+
+[connection signal="pressed" from="HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/DeleteButton" to="." method="_on_delete_button_pressed"]

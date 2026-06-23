@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://jof4loc0tlbx" path="res://mainmenu/graphics/settings.png" id="2_wu84c"]
 [ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="4_rtw2f"]
 [ext_resource type="Script" uid="uid://ctnipvdu4axmc" path="res://mainmenu/scripts/audio_control.gd" id="6_rtw2f"]
+[ext_resource type="PackedScene" uid="uid://bjdlerpse2v8" path="res://scenes/del_save_menu.tscn" id="6_tbmy8"]
 [ext_resource type="PackedScene" uid="uid://dbvt3oj31i8bl" path="res://scenes/stats_menu.tscn" id="stats_menu_ref"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
@@ -273,6 +274,11 @@ theme_override_font_sizes/font_size = 10
 text = "A PC Troubleshooting Game"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="DeleteSaveMenu" parent="." unique_id=2125809956 instance=ExtResource("6_tbmy8")]
+visible = false
+offset_left = 112.0
+offset_right = 372.0
 
 [node name="StatsMenu" parent="." unique_id=1020449642 instance=ExtResource("stats_menu_ref")]
 visible = false

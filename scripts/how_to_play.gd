@@ -31,6 +31,11 @@ const TUTORIALS = [
 		"res://assets/tutorials/tutorial_rj45a.ogv",
 		"Arrange the wires in T568-A order in the slots, then press CRIMP before the timer runs out."
 	],
+	[
+		"PC Diagnosis and Troubleshooting Tools",
+		"res://assets/tutorials/tutorial_rj45a.ogv",
+		"Read the Tickets on top. Then choose the right troubleshooting tool from the start menu. Scan then choose the right troubleshooting method."
+	],
 ]
 
 const RULES_TEXT = """[b]GAME RULES[/b]

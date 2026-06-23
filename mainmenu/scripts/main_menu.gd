@@ -1,4 +1,5 @@
 # res://mainmenu/scripts/main_menu.gd
+class_name MainMenu
 extends Node2D
 
 @onready var new_game_btn: Button = $"Panel/MainButtons/New Game"
@@ -8,6 +9,7 @@ extends Node2D
 func _ready() -> void:
 	_refresh_save_buttons()
 	BGMManager.play(GameState.BGM_MENU)
+	$DeleteSaveMenu.save_deleted.connect(_refresh_save_buttons)
 
 func _on_continue_pressed() -> void:
 	GameState.load_game()
@@ -47,14 +49,16 @@ func _on_exit_pressed() -> void:
 func _on_settings_pressed() -> void:
 	$SettingsPanel.visible = true
 
-func _on_back_pressed() -> void:
-	$SettingsPanel.visible = false
-	
+func _close_all_panels() -> void:
+	$StatsMenu.hide()
+	$DeleteSaveMenu.hide()
+ 
 func _on_statistics_pressed() -> void:
+	_close_all_panels()
 	$StatsMenu.refresh()
 	$StatsMenu.show()
-	
+ 
 func _on_delete_save_pressed() -> void:
-	GameState.delete_save()
-	_refresh_save_buttons()
+	_close_all_panels()
+	$DeleteSaveMenu.show()
 	
