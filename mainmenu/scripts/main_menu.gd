@@ -13,6 +13,7 @@ func _ready() -> void:
 
 func _on_continue_pressed() -> void:
 	GameState.load_game()
+	BGMManager.play(GameState.BGM_GAME)
 	var intro := GameState.get_intro_cutscene()
 	if intro != "":
 		get_tree().change_scene_to_file(intro)

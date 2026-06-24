@@ -87,6 +87,7 @@ func _ready() -> void:
 	load_game()
 	_session_start_time = Time.get_unix_time_from_system()
 	BGMManager.play(GameState.BGM_GAME)
+	HealthState.game_over.connect(record_game_over)
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

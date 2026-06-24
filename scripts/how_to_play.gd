@@ -33,7 +33,7 @@ const TUTORIALS = [
 	],
 	[
 		"PC Diagnosis and Troubleshooting Tools",
-		"res://assets/tutorials/tutorial_rj45a.ogv",
+		"res://assets/tutorials/tutorial_pc-diagnosis.ogv",
 		"Read the Tickets on top. Then choose the right troubleshooting tool from the start menu. Scan then choose the right troubleshooting method."
 	],
 ]
