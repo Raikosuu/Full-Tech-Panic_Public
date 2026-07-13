@@ -24,16 +24,16 @@ a = Vector2(-81, -44)
 b = Vector2(-80, 47)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ihwr5"]
-a = Vector2(83, 47)
-b = Vector2(-80, 47)
+a = Vector2(90, 47)
+b = Vector2(-88, 47)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_73wum"]
 a = Vector2(81, -44)
 b = Vector2(81, 47)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5v6y6"]
-a = Vector2(81, -44)
-b = Vector2(-81, -44)
+a = Vector2(89, -44)
+b = Vector2(-90, -44)
 
 [sub_resource type="Environment" id="Environment_bbmad"]
 glow_enabled = true
@@ -52,8 +52,8 @@ zoom = Vector2(3, 3)
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1744026704]
 z_index = -1
-position = Vector2(238, 126.25)
-scale = Vector2(0.12357955, 0.13346355)
+position = Vector2(238, 128)
+scale = Vector2(0.14417613, 0.13802083)
 texture = ExtResource("2_kd6cy")
 
 [node name="SU_main" parent="." unique_id=1156604640 instance=ExtResource("3_bxpm2")]
@@ -81,7 +81,7 @@ blocked_by_snap_zone = NodePath("../../SU_main/Panel_snapzone")
 [node name="bound_left" type="StaticBody2D" parent="." unique_id=1334302838]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bound_left" unique_id=281263790]
-position = Vector2(235, 124)
+position = Vector2(227, 124)
 shape = SubResource("SegmentShape2D_jicg2")
 one_way_collision = true
 
@@ -96,6 +96,7 @@ shape = SubResource("SegmentShape2D_ihwr5")
 position = Vector2(235, 124)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bound_right" unique_id=1266216179]
+position = Vector2(8, 0)
 shape = SubResource("SegmentShape2D_73wum")
 
 [node name="bound_top" type="StaticBody2D" parent="." unique_id=330352066]

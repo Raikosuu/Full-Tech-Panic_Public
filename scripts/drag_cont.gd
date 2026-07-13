@@ -16,6 +16,16 @@ var _from_hotbar: bool = false
 
 @export var allow_unsnap: bool = false
 @export var blocked_by_parts: Array[NodePath] = []
+# When true (default), the drag boundary is calculated automatically from
+# whatever Camera2D + viewport this scene actually uses, so the same script
+# works unmodified across the assembly minigame, the disassembly minigame,
+# or any future one — regardless of camera zoom, background size, or the
+# device's screen aspect ratio.
+@export var use_dynamic_bounds: bool = true
+# Optional breathing room between the drag boundary and the true screen edge.
+@export var edge_margin: float = 0.0
+# Manual fallback values — only used if use_dynamic_bounds is false, or if
+# no Camera2D can be found in the scene.
 @export var _drag_min: Vector2 = Vector2(154, 80)
 @export var _drag_max_x: float = 316.0
 @export var hotbar_path: NodePath = NodePath("")
@@ -33,6 +43,7 @@ func _ready() -> void:
 	_default_collision_layer = collision_layer
 	_default_collision_mask = collision_mask
 	_update_bounds()
+	get_viewport().size_changed.connect(_update_bounds)
 	
 func _is_blocked() -> bool:
 	for path in blocked_by_parts:
@@ -218,20 +229,38 @@ func drop() -> void:
 
 
 func _update_bounds() -> void:
-	_drag_max.x = _drag_max_x
+	var cam := get_viewport().get_camera_2d()
+
+	if use_dynamic_bounds and cam:
+		# Compute the camera's visible half-extents in world units, then
+		# derive the true left/top/right/bottom edges of the current screen.
+		# This works no matter what the camera's zoom/position is, or what
+		# size the viewport is — so the same script works unmodified in the
+		# assembly minigame, the disassembly minigame, or any future one.
+		var viewport_size: Vector2 = Vector2(get_viewport().get_visible_rect().size)
+		var half_extents: Vector2 = viewport_size / (2.0 * cam.zoom)
+		var cam_pos: Vector2 = cam.global_position
+
+		_drag_min = Vector2(cam_pos.x - half_extents.x + edge_margin, cam_pos.y - half_extents.y + edge_margin)
+		_drag_max = Vector2(cam_pos.x + half_extents.x - edge_margin, cam_pos.y + half_extents.y - edge_margin)
+	else:
+		# Legacy manual fallback (used if dynamic bounds are disabled, or no
+		# Camera2D exists in this scene).
+		_drag_max.x = _drag_max_x
+		_drag_max.y = 166.0
+
+	# The hotbar's top edge always takes priority for the bottom bound, so
+	# dragged parts can never go behind/under the hotbar UI, regardless of
+	# whether bounds are dynamic or manual.
 	if hotbar_path:
 		var hotbar = get_node_or_null(hotbar_path)
 		if hotbar:
 			var panel = hotbar.get_node_or_null("Panel")
-			if panel:
+			if panel and cam:
 				# Convert hotbar top edge from screen to world space
-				var cam = get_viewport().get_camera_2d()
-				if cam:
-					var screen_top = panel.global_position.y
-					var world_y = cam.global_position.y + (screen_top - get_viewport().get_visible_rect().size.y / 2.0) / cam.zoom.y
-					_drag_max.y = world_y
-					return
-	_drag_max.y = 166.0  # fallback
+				var screen_top = panel.global_position.y
+				var world_y = cam.global_position.y + (screen_top - get_viewport().get_visible_rect().size.y / 2.0) / cam.zoom.y
+				_drag_max.y = world_y
 
 func _get_shape_radius() -> float:
 	for child in get_children():

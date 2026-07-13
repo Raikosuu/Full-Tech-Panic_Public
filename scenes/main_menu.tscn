@@ -9,10 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bjdlerpse2v8" path="res://scenes/del_save_menu.tscn" id="6_tbmy8"]
 [ext_resource type="PackedScene" uid="uid://dbvt3oj31i8bl" path="res://scenes/stats_menu.tscn" id="stats_menu_ref"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
-texture = ExtResource("1_l6cm7")
-modulate_color = Color(0.30980393, 0.30980393, 0.30980393, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
 bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 20
@@ -128,23 +124,49 @@ thickness = 4
 color = Color(0, 0, 0.9607843, 1)
 thickness = 3
 
-[node name="main_menu" type="Node2D" unique_id=2093666471]
+[node name="main_menu" type="Control" unique_id=2093666471]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_8ln24")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1992825698]
-position = Vector2(241, 135)
+[node name="Background" type="TextureRect" parent="." unique_id=-1294967295]
+modulate = Color(0.30980393, 0.30980393, 0.30980393, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -48.0
+offset_right = 156.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_l6cm7")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="Panel" type="Panel" parent="." unique_id=2014494403]
-offset_right = 515.0
-offset_bottom = 287.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Settings" type="Button" parent="Panel" unique_id=1963491529]
 visible = false
-layout_mode = 0
-offset_left = 440.0
-offset_right = 480.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_right = -40.0
 offset_bottom = 40.0
+grow_horizontal = 0
 theme_override_icons/icon = ExtResource("2_wu84c")
 flat = true
 
@@ -155,10 +177,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -49.5
-offset_top = -55.5
-offset_right = 24.5
-offset_bottom = 84.5
+offset_left = -50.0
+offset_top = -57.0
+offset_right = 60.0
+offset_bottom = 103.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
@@ -217,11 +239,15 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 text = "Exit"
 
 [node name="Statistics" type="Button" parent="Panel" unique_id=2082406679]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
 offset_left = 15.0
-offset_top = 238.0
+offset_top = -49.0
 offset_right = 115.0
-offset_bottom = 258.0
+offset_bottom = -29.0
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_rtw2f")
 theme_override_font_sizes/font_size = 11
 theme_override_styles/normal = SubResource("StyleBoxFlat_stats_n")
@@ -236,9 +262,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -144.0
+offset_left = -113.0
 offset_top = -49.0
-offset_right = -44.0
+offset_right = -13.0
 offset_bottom = -29.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -250,10 +276,15 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_stats_h")
 text = "Delete Save"
 
 [node name="Label" type="Label" parent="." unique_id=715729967]
-offset_left = 176.0
-offset_top = 40.0
-offset_right = 312.0
-offset_bottom = 56.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -68.0
+offset_top = 28.0
+offset_right = 68.0
+offset_bottom = 44.0
+grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0, 0.050980393, 0.050980393, 1)
 theme_override_constants/shadow_offset_y = 5
 theme_override_fonts/font = ExtResource("2_ekxnf")
@@ -277,18 +308,48 @@ vertical_alignment = 1
 
 [node name="DeleteSaveMenu" parent="." unique_id=2125809956 instance=ExtResource("6_tbmy8")]
 visible = false
-offset_left = 112.0
-offset_right = 372.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -112.5
+offset_right = 130.0
+offset_bottom = 112.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="StatsMenu" parent="." unique_id=1020449642 instance=ExtResource("stats_menu_ref")]
 visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -112.5
+offset_right = 130.0
+offset_bottom = 112.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="SettingsPanel" type="Panel" parent="." unique_id=909881828]
 visible = false
-offset_left = 160.0
-offset_top = 80.0
-offset_right = 328.0
-offset_bottom = 216.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -68.0
+offset_right = 84.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="SettingsPanel" unique_id=735518619]
 layout_mode = 0

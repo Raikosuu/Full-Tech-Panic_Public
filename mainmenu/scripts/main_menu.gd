@@ -1,6 +1,6 @@
 # res://mainmenu/scripts/main_menu.gd
 class_name MainMenu
-extends Node2D
+extends Control
 
 @onready var new_game_btn: Button = $"Panel/MainButtons/New Game"
 @onready var continue_btn: Button = $Panel/MainButtons/Continue

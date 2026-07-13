@@ -114,9 +114,9 @@ grow_vertical = 2
 color = Color(0.05, 0.05, 0.08, 1)
 
 [node name="MonitorFrame" type="Panel" parent="ScreenUI" unique_id=1250979931]
-offset_left = 20.0
+offset_left = 38.0
 offset_top = 16.0
-offset_right = 460.0
+offset_right = 478.0
 offset_bottom = 262.0
 theme_override_styles/panel = SubResource("Style_MonitorBezel")
 

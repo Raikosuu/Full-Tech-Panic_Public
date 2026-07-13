@@ -52,8 +52,8 @@ zoom = Vector2(3, 3)
 
 [node name="Background" type="Sprite2D" parent="." unique_id=548221223]
 z_index = -1
-position = Vector2(238, 126.25)
-scale = Vector2(0.12357955, 0.13346355)
+position = Vector2(237.99998, 127.99999)
+scale = Vector2(0.13636363, 0.1328125)
 texture = ExtResource("3_dis")
 
 [node name="SU_main" parent="." unique_id=1258341214 instance=ExtResource("4_dis")]
