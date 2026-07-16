@@ -92,9 +92,9 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_xf8m7")
 
 [node name="cpu" type="Button" parent="." unique_id=1489765501]
 layout_mode = 0
-offset_left = 56.0
+offset_left = 67.0
 offset_top = 16.0
-offset_right = 106.0
+offset_right = 117.0
 offset_bottom = 66.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btnp")
@@ -106,10 +106,10 @@ expand_icon = true
 
 [node name="mobo" type="Button" parent="." unique_id=1354053359]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 85.0
-offset_right = 106.0
-offset_bottom = 135.0
+offset_left = 67.0
+offset_top = 78.0
+offset_right = 117.0
+offset_bottom = 128.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btnp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_btnh")
@@ -120,9 +120,9 @@ expand_icon = true
 
 [node name="ram" type="Button" parent="." unique_id=256470728]
 layout_mode = 0
-offset_left = 56.0
+offset_left = 67.0
 offset_top = 144.0
-offset_right = 106.0
+offset_right = 117.0
 offset_bottom = 194.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btnp")
@@ -134,9 +134,9 @@ expand_icon = true
 
 [node name="hdd" type="Button" parent="." unique_id=42375391]
 layout_mode = 0
-offset_left = 56.0
+offset_left = 67.0
 offset_top = 203.0
-offset_right = 106.0
+offset_right = 117.0
 offset_bottom = 253.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btnp")
@@ -149,9 +149,9 @@ expand_icon = true
 [node name="cpupanel" type="Panel" parent="." unique_id=889312261]
 visible = false
 layout_mode = 0
-offset_left = 112.0
+offset_left = 154.0
 offset_top = 9.0
-offset_right = 340.0
+offset_right = 399.0
 offset_bottom = 270.0
 scale = Vector2(0.9771224, 0.9771224)
 
@@ -248,9 +248,9 @@ autowrap_mode = 2
 [node name="mobopanel" type="Panel" parent="." unique_id=853949067]
 visible = false
 layout_mode = 0
-offset_left = 112.0
+offset_left = 154.0
 offset_top = 9.0
-offset_right = 340.0
+offset_right = 399.0
 offset_bottom = 270.0
 scale = Vector2(0.98154056, 0.98154056)
 
@@ -347,9 +347,9 @@ autowrap_mode = 2
 [node name="rampanel" type="Panel" parent="." unique_id=1736708070]
 visible = false
 layout_mode = 0
-offset_left = 112.0
+offset_left = 154.0
 offset_top = 9.0
-offset_right = 340.0
+offset_right = 399.0
 offset_bottom = 270.0
 scale = Vector2(0.98320496, 0.98320496)
 
@@ -446,9 +446,9 @@ autowrap_mode = 2
 [node name="hddpanel" type="Panel" parent="." unique_id=1170350547]
 visible = false
 layout_mode = 0
-offset_left = 112.0
+offset_left = 154.0
 offset_top = 9.0
-offset_right = 340.0
+offset_right = 399.0
 offset_bottom = 270.0
 scale = Vector2(0.98595303, 0.98595303)
 
@@ -544,9 +544,9 @@ autowrap_mode = 2
 
 [node name="Next" type="Button" parent="." unique_id=257766956]
 layout_mode = 0
-offset_left = 352.0
+offset_left = 397.0
 offset_top = 32.0
-offset_right = 448.0
+offset_right = 493.0
 offset_bottom = 56.0
 theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_d33wi")
@@ -557,9 +557,9 @@ script = ExtResource("8_mvlxx")
 
 [node name="Back" type="Button" parent="." unique_id=2070728896]
 layout_mode = 0
-offset_left = 352.0
+offset_left = 397.0
 offset_top = 64.0
-offset_right = 448.0
+offset_right = 493.0
 offset_bottom = 88.0
 theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_d33wi")

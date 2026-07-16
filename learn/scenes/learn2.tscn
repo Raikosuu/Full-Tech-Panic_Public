@@ -93,9 +93,9 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_crsa0")
 
 [node name="Back" type="Button" parent="." unique_id=851002834]
 layout_mode = 0
-offset_left = 352.0
+offset_left = 404.0
 offset_top = 64.0
-offset_right = 448.0
+offset_right = 500.0
 offset_bottom = 88.0
 theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_3kpq2")
@@ -106,9 +106,9 @@ script = ExtResource("2_kgldi")
 
 [node name="Menu" type="Button" parent="." unique_id=1901104992]
 layout_mode = 0
-offset_left = 352.0
+offset_left = 404.0
 offset_top = 93.0
-offset_right = 448.0
+offset_right = 500.0
 offset_bottom = 117.0
 theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_3kpq2")
@@ -119,9 +119,9 @@ script = ExtResource("4_5bjts")
 
 [node name="Next" type="Button" parent="." unique_id=1223011358]
 layout_mode = 0
-offset_left = 352.0
+offset_left = 404.0
 offset_top = 33.0
-offset_right = 448.0
+offset_right = 500.0
 offset_bottom = 57.0
 theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_3kpq2")
@@ -132,9 +132,9 @@ script = ExtResource("13_next2")
 
 [node name="gpu" type="Button" parent="." unique_id=806922488]
 layout_mode = 0
-offset_left = 56.0
+offset_left = 72.0
 offset_top = 14.0
-offset_right = 106.0
+offset_right = 122.0
 offset_bottom = 64.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btnp")
@@ -146,9 +146,9 @@ expand_icon = true
 
 [node name="psu" type="Button" parent="." unique_id=1146976101]
 layout_mode = 0
-offset_left = 56.0
+offset_left = 72.0
 offset_top = 76.0
-offset_right = 106.0
+offset_right = 122.0
 offset_bottom = 126.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btnp")
@@ -160,9 +160,9 @@ expand_icon = true
 
 [node name="coolingfan" type="Button" parent="." unique_id=1500002550]
 layout_mode = 0
-offset_left = 56.0
+offset_left = 72.0
 offset_top = 139.0
-offset_right = 106.0
+offset_right = 122.0
 offset_bottom = 189.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btnp")
@@ -174,9 +174,9 @@ expand_icon = true
 
 [node name="computertower" type="Button" parent="." unique_id=1686385855]
 layout_mode = 0
-offset_left = 56.0
+offset_left = 72.0
 offset_top = 203.0
-offset_right = 106.0
+offset_right = 122.0
 offset_bottom = 253.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_btnp")
@@ -189,9 +189,9 @@ expand_icon = true
 [node name="gpupanel" type="Panel" parent="." unique_id=1228581700]
 visible = false
 layout_mode = 0
-offset_left = 112.0
+offset_left = 154.0
 offset_top = 9.0
-offset_right = 340.0
+offset_right = 399.0
 offset_bottom = 270.0
 scale = Vector2(0.9813122, 0.9813122)
 
@@ -288,9 +288,9 @@ autowrap_mode = 2
 [node name="psupanel" type="Panel" parent="." unique_id=237060255]
 visible = false
 layout_mode = 0
-offset_left = 112.0
+offset_left = 154.0
 offset_top = 9.0
-offset_right = 340.0
+offset_right = 399.0
 offset_bottom = 270.0
 scale = Vector2(0.98145247, 0.98145247)
 
@@ -387,9 +387,9 @@ autowrap_mode = 2
 [node name="coolingfanpanel" type="Panel" parent="." unique_id=439973761]
 visible = false
 layout_mode = 0
-offset_left = 112.0
+offset_left = 154.0
 offset_top = 9.0
-offset_right = 340.0
+offset_right = 399.0
 offset_bottom = 270.0
 scale = Vector2(0.9839294, 0.9839294)
 
@@ -486,9 +486,9 @@ autowrap_mode = 2
 [node name="computertowerpanel" type="Panel" parent="." unique_id=879632036]
 visible = false
 layout_mode = 0
-offset_left = 112.0
+offset_left = 154.0
 offset_top = 9.0
-offset_right = 340.0
+offset_right = 399.0
 offset_bottom = 270.0
 scale = Vector2(0.986845, 0.986845)
 

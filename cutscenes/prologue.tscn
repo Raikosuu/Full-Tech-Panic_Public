@@ -331,8 +331,8 @@ _data = {
 script = ExtResource("1_prol")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1390812207]
-position = Vector2(240, 136.25)
-scale = Vector2(0.3125, 0.26123047)
+position = Vector2(265.5, 136.25)
+scale = Vector2(0.34570313, 0.26123047)
 texture = ExtResource("2_30x7o")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1535867570]
