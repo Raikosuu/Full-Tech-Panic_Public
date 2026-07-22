@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://byl5p4im6fkms" path="res://scripts/how_to_play.gd" id="1_htp"]
 [ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="2_30apa"]
+[ext_resource type="FontFile" uid="uid://bjj6dqwmit5q1" path="res://assets/fonts/Pixelify_Sans/Jersey10-Regular.ttf" id="3_wi5qh"]
 [ext_resource type="FontFile" uid="uid://c1dh3d4255a1l" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="3_xkrkv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_back"]
@@ -99,8 +100,8 @@ text = "← Back"
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.85, 0.85, 0.95, 1)
-theme_override_fonts/font = ExtResource("2_30apa")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("3_wi5qh")
+theme_override_font_sizes/font_size = 14
 text = "How to Play"
 horizontal_alignment = 1
 
@@ -108,8 +109,8 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.55, 0.6, 0.75, 1)
-theme_override_fonts/font = ExtResource("2_30apa")
-theme_override_font_sizes/font_size = 11
+theme_override_fonts/font = ExtResource("3_wi5qh")
+theme_override_font_sizes/font_size = 14
 text = "1 / 5"
 horizontal_alignment = 2
 
@@ -130,16 +131,16 @@ custom_minimum_size = Vector2(525, 215)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("3_xkrkv")
 theme_override_fonts/bold_font = ExtResource("2_30apa")
-theme_override_font_sizes/normal_font_size = 10
-theme_override_font_sizes/bold_font_size = 14
+theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/bold_font_size = 18
 bbcode_enabled = true
 
 [node name="DescLabel" type="Label" parent="VBox" unique_id=1017183484]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.65, 0.7, 0.85, 1)
-theme_override_fonts/font = ExtResource("3_xkrkv")
-theme_override_font_sizes/font_size = 8
+theme_override_fonts/font = ExtResource("3_wi5qh")
+theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
 autowrap_mode = 3
 

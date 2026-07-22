@@ -21,17 +21,17 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Every single one.\nI checked three times.\nI don't know how you did it."
+			"text":    "Every single one. I checked three times.\nI don't know how you did it."
 		},
 		{
 			"speaker": "You",
 			"color":   Color(0.4, 0.8, 1.0),
-			"text":    "Honestly? Neither do I.\nI think I crimped cables\nin my sleep last night."
+			"text":    "Honestly? Neither do I. I think I crimped cables\nin my sleep last night."
 		},
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "That's the spirit.\nThat's exactly the kind of\n[color=#ffdd44]dedication[/color] this floor needs."
+			"text":    "That's the spirit. That's exactly the kind of\n[color=#ffdd44]dedication[/color] this floor needs."
 		},
 		{
 			"speaker": "You",
@@ -51,7 +51,7 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Now? You go home.\nGet some sleep.\nBasti comes back on Monday."
+			"text":    "Now? You go home. Get some sleep.\nBasti comes back on Monday."
 		},
 		{
 			"speaker": "You",
@@ -71,7 +71,7 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "See you Monday.\n[color=#ffdd44]Good work this week.[/color]\nDon't tell anyone I said that."
+			"text":    "See you Monday. [color=#ffdd44]Good work this week.[/color]\nDon't tell anyone I said that."
 		},
 	]
 

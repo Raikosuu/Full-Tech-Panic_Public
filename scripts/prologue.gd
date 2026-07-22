@@ -20,17 +20,17 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Oh good, you came! We've got\n[color=#ff9933]47 tickets[/color] from the users already\n and it's not even 9 AM."
+			"text":    "Oh good, you came! We've got[color=#ff9933] 20 tickets[/color]\n from the users already and it's not even 9 AM."
 		},
 		{
 			"speaker": "You",
 			"color":   Color(0.4, 0.8, 1.0),
-			"text":    "...forty-seven??"
+			"text":    "...twenty??"
 		},
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Michael says his monitor\nis 'breathing.' Basti unplugged the server\nagain. And someone crimped a cable\n[color=#ff4444]with a stapler.[/color]"
+			"text":    "Michael says his monitor is 'breathing.' Basti unplugged the server again.\n And someone crimped a cable[color=#ff4444] with a stapler.[/color]"
 		},
 		{
 			"speaker": "You",
@@ -40,7 +40,7 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "And a good chunk of these aren't even\nbroken hardware. Computers just acting\n[color=#ffdd44]weird.[/color] Slow, crashing, throwing errors.\nYou'll have to actually figure out what's wrong."
+			"text":    "And a good chunk of these aren't even broken hardware. Computers just acting [color=#ffdd44]weird.[/color] \nSlow, crashing, throwing errors. You'll have to actually figure out what's wrong."
 		},
 		{
 			"speaker": "You",
@@ -50,17 +50,17 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Congratulations on the promotion.\nNo raise, though.\nJust use the diagnostic tools on the desktop\nand don't accuse the printer of anything."
+			"text":    "Congratulations on the promotion. No raise, though. Just use the diagnostic tools\non the desktop and don't accuse the printer of anything."
 		},
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Each user has a [color=#ffdd44]patience bar.[/color]\nLet it hit zero — they walk.\nYou get a mark on your record."
+			"text":    "Each user has a [color=#ffdd44]patience bar.[/color]Let it hit zero — they walk.\n You get a mark on your record."
 		},
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Three marks and I have to write up a\nvery strongly-worded email. I hate\nwriting emails. [color=#ff4444]Don't make me do that.[/color]"
+			"text":    "Three marks and I have to write up a very strongly-worded email.\n I hate writing emails. [color=#ff4444]Don't make me do that.[/color]"
 		},
 		{
 			"speaker": "You",

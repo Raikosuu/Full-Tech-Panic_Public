@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://du2epxqpgng6e" path="res://assets/IT_bg.png" id="2_882g8"]
 [ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="3_n4a5v"]
 [ext_resource type="FontFile" uid="uid://chkdc34o58e2w" path="res://assets/fonts/PixelGamer-Regular.otf" id="4_jakss"]
+[ext_resource type="FontFile" uid="uid://bjj6dqwmit5q1" path="res://assets/fonts/Pixelify_Sans/Jersey10-Regular.ttf" id="5_882g8"]
 [ext_resource type="AudioStream" uid="uid://lidvfokl7g86" path="res://sfx/creatorshome-video-game-text-330163.mp3" id="5_mkiby"]
 [ext_resource type="AudioStream" uid="uid://clijxu800jmu3" path="res://sfx/freesound_community-button-8-88355.mp3" id="6_1idle"]
 
@@ -408,8 +409,8 @@ text = "???"
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.9, 0.9, 0.9, 1)
-theme_override_fonts/normal_font = ExtResource("3_n4a5v")
-theme_override_font_sizes/normal_font_size = 9
+theme_override_fonts/normal_font = ExtResource("5_882g8")
+theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
 fit_content = true
 

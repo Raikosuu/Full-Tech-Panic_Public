@@ -21,7 +21,7 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "The [color=#ff4444]entire IT queue[/color] from the last\ntwo weeks landed in my inbox\nat 6 AM this morning.\nAll of it. At once."
+			"text":    "The [color=#ff4444]entire IT queue[/color] from the last two weeks landed\n in my inbox at 6 AM this morning. All of it. At once."
 		},
 		{
 			"speaker": "You",
@@ -41,7 +41,7 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Good idea. Anyway — today you're\nhandling [color=#ffdd44]everything.[/color]\nAssembly, disassembly, cabling, diagnostics.\nAll of it."
+			"text":    "Good idea. Anyway — today you're handling [color=#ffdd44]everything.[/color]\nAssembly, disassembly, cabling, diagnostics. All of it."
 		},
 		{
 			"speaker": "You",
@@ -51,7 +51,7 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "One user needs a PC built from scratch.\nAnother needs theirs stripped for parts.\nThree need cables re-done. [color=#ff4444]Again.[/color]\nAnd a pile of 'it's just acting weird' tickets,\nbecause there's always a pile of those."
+			"text":    "One user needs a PC built from scratch. Another needs theirs stripped for parts. Three need cables re-done. [color=#ff4444]Again.[/color]\nAnd a pile of 'it's just acting weird' tickets, because there's always a pile of those."
 		},
 		{
 			"speaker": "You",
@@ -61,7 +61,7 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Michael is [color=#ff4444]on leave.[/color]\nEffective this morning.\nI wrote a very strongly-worded email."
+			"text":    "Michael is [color=#ff4444]on leave.[/color] Effective this morning.\nI wrote a very strongly-worded email."
 		},
 		{
 			"speaker": "You",
@@ -71,7 +71,7 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "I meant every word.\nNow get out there.\n[color=#ffdd44]They're already lining up.[/color]"
+			"text":    "I meant every word. Now get out there.\n[color=#ffdd44]They're already lining up.[/color]"
 		},
 	]
 

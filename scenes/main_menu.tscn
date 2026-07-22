@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://iglnpyxbxdqh" path="res://mainmenu/graphics/mainmenu bg.png" id="1_l6cm7"]
 [ext_resource type="FontFile" uid="uid://can2uc4aidbtp" path="res://mainmenu/font/PixelGamer-Regular.otf" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://jof4loc0tlbx" path="res://mainmenu/graphics/settings.png" id="2_wu84c"]
-[ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="4_rtw2f"]
+[ext_resource type="FontFile" uid="uid://bjj6dqwmit5q1" path="res://assets/fonts/Pixelify_Sans/Jersey10-Regular.ttf" id="4_tbmy8"]
 [ext_resource type="Script" uid="uid://ctnipvdu4axmc" path="res://mainmenu/scripts/audio_control.gd" id="6_rtw2f"]
 [ext_resource type="PackedScene" uid="uid://bjdlerpse2v8" path="res://scenes/del_save_menu.tscn" id="6_tbmy8"]
 [ext_resource type="PackedScene" uid="uid://dbvt3oj31i8bl" path="res://scenes/stats_menu.tscn" id="stats_menu_ref"]
@@ -177,10 +177,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -57.0
-offset_right = 60.0
-offset_bottom = 103.0
+offset_left = -54.0
+offset_top = -60.0
+offset_right = 56.0
+offset_bottom = 115.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
@@ -189,8 +189,8 @@ alignment = 1
 [node name="New Game" type="Button" parent="Panel/MainButtons" unique_id=892148338]
 custom_minimum_size = Vector2(110, 20)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_rtw2f")
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("4_tbmy8")
+theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_l6cm7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_oa1go")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tbmy8")
@@ -200,8 +200,8 @@ expand_icon = true
 [node name="Continue" type="Button" parent="Panel/MainButtons" unique_id=713298395]
 custom_minimum_size = Vector2(110, 20)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_rtw2f")
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("4_tbmy8")
+theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_l6cm7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_oa1go")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tbmy8")
@@ -211,8 +211,8 @@ expand_icon = true
 [node name="How to Play" type="Button" parent="Panel/MainButtons" unique_id=1274390603]
 custom_minimum_size = Vector2(110, 20)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_rtw2f")
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("4_tbmy8")
+theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jk1qb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5dd4i")
@@ -221,8 +221,8 @@ text = "How to Play"
 [node name="Learn" type="Button" parent="Panel/MainButtons" unique_id=472298394]
 custom_minimum_size = Vector2(110, 20)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_rtw2f")
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("4_tbmy8")
+theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lgwnu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_flqon")
@@ -231,8 +231,8 @@ text = "Learn"
 [node name="Exit" type="Button" parent="Panel/MainButtons" unique_id=1077006095]
 custom_minimum_size = Vector2(110, 20)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_rtw2f")
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("4_tbmy8")
+theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
@@ -248,8 +248,8 @@ offset_top = -49.0
 offset_right = 115.0
 offset_bottom = -29.0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_rtw2f")
-theme_override_font_sizes/font_size = 11
+theme_override_fonts/font = ExtResource("4_tbmy8")
+theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_stats_n")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_stats_p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_stats_h")
@@ -268,8 +268,8 @@ offset_right = -13.0
 offset_bottom = -29.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_rtw2f")
-theme_override_font_sizes/font_size = 11
+theme_override_fonts/font = ExtResource("4_tbmy8")
+theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_stats_n")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_stats_p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_stats_h")

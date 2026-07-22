@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d2bih5roi80vd" path="res://scenes/health_ui.tscn" id="7_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://c8s4hl3jv3c1h" path="res://scenes/touch_controls.tscn" id="9_utbpp"]
 [ext_resource type="AudioStream" uid="uid://xce74cvlx32i" path="res://sfx/freesound_community-gamemusic-6082.mp3" id="10_mw25s"]
+[ext_resource type="FontFile" uid="uid://bjj6dqwmit5q1" path="res://assets/fonts/Pixelify_Sans/Jersey10-Regular.ttf" id="11_rvs2r"]
 [ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="11_tcjrq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rurhu"]
@@ -2741,8 +2742,8 @@ anchor_right = 1.0
 offset_top = 8.0
 offset_bottom = 23.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("11_tcjrq")
-theme_override_font_sizes/font_size = 14
+theme_override_fonts/font = ExtResource("11_rvs2r")
+theme_override_font_sizes/font_size = 23
 text = "0 / 10"
 horizontal_alignment = 1
 

@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bh2nu7snhfd4r" path="res://learn/graphics/mobo.png" id="4_mvlxx"]
 [ext_resource type="Texture2D" uid="uid://saxwpt8bv8bv" path="res://learn/graphics/hdd.png" id="6_ly0op"]
 [ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="7_uekuk"]
-[ext_resource type="FontFile" uid="uid://c1dh3d4255a1l" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="8_ma7se"]
 [ext_resource type="Script" uid="uid://b6hwf7s6a6by0" path="res://learn/scripts/next.gd" id="8_mvlxx"]
 [ext_resource type="Script" uid="uid://w88fxvfyh8q4" path="res://learn/scripts/back.gd" id="9_3fsor"]
+[ext_resource type="FontFile" uid="uid://bjj6dqwmit5q1" path="res://assets/fonts/Pixelify_Sans/Jersey10-Regular.ttf" id="9_ma7se"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xf8m7"]
 texture = ExtResource("1_72gof")
@@ -81,9 +81,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -375.0
+offset_left = -430.0
 offset_top = -92.0
-offset_right = -375.0
+offset_right = -430.0
 offset_bottom = -92.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -181,8 +181,8 @@ theme_override_constants/separation = 2
 [node name="tab_overview" type="Button" parent="cpupanel/VBoxContainer/tabs" unique_id=100000002]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("7_uekuk")
-theme_override_font_sizes/font_size = 9
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
@@ -194,8 +194,8 @@ text = "Overview"
 [node name="tab_howit" type="Button" parent="cpupanel/VBoxContainer/tabs" unique_id=100000003]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("7_uekuk")
-theme_override_font_sizes/font_size = 9
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
@@ -206,8 +206,8 @@ text = "How It Works"
 [node name="tab_facts" type="Button" parent="cpupanel/VBoxContainer/tabs" unique_id=100000004]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("7_uekuk")
-theme_override_font_sizes/font_size = 9
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
@@ -223,8 +223,8 @@ layout_mode = 2
 custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("8_ma7se")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 17
 autowrap_mode = 2
 
 [node name="desc_howit" type="Label" parent="cpupanel/VBoxContainer/ScrollContainer" unique_id=100000005]
@@ -232,8 +232,8 @@ visible = false
 custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("8_ma7se")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 17
 autowrap_mode = 2
 
 [node name="desc_facts" type="Label" parent="cpupanel/VBoxContainer/ScrollContainer" unique_id=100000006]
@@ -241,8 +241,8 @@ visible = false
 custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("8_ma7se")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 17
 autowrap_mode = 2
 
 [node name="mobopanel" type="Panel" parent="." unique_id=853949067]
@@ -280,8 +280,8 @@ theme_override_constants/separation = 2
 [node name="tab_overview" type="Button" parent="mobopanel/VBoxContainer/tabs" unique_id=100000012]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("7_uekuk")
-theme_override_font_sizes/font_size = 9
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
@@ -293,8 +293,8 @@ text = "Overview"
 [node name="tab_howit" type="Button" parent="mobopanel/VBoxContainer/tabs" unique_id=100000013]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("7_uekuk")
-theme_override_font_sizes/font_size = 9
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
@@ -305,8 +305,8 @@ text = "How It Works"
 [node name="tab_facts" type="Button" parent="mobopanel/VBoxContainer/tabs" unique_id=100000014]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("7_uekuk")
-theme_override_font_sizes/font_size = 9
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
@@ -322,8 +322,8 @@ layout_mode = 2
 custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("8_ma7se")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 17
 autowrap_mode = 2
 
 [node name="desc_howit" type="Label" parent="mobopanel/VBoxContainer/ScrollContainer" unique_id=100000015]
@@ -331,8 +331,8 @@ visible = false
 custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("8_ma7se")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 17
 autowrap_mode = 2
 
 [node name="desc_facts" type="Label" parent="mobopanel/VBoxContainer/ScrollContainer" unique_id=100000016]
@@ -340,8 +340,8 @@ visible = false
 custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("8_ma7se")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 17
 autowrap_mode = 2
 
 [node name="rampanel" type="Panel" parent="." unique_id=1736708070]
@@ -379,8 +379,8 @@ theme_override_constants/separation = 2
 [node name="tab_overview" type="Button" parent="rampanel/VBoxContainer/tabs" unique_id=100000022]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("7_uekuk")
-theme_override_font_sizes/font_size = 9
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
@@ -392,8 +392,8 @@ text = "Overview"
 [node name="tab_howit" type="Button" parent="rampanel/VBoxContainer/tabs" unique_id=100000023]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("7_uekuk")
-theme_override_font_sizes/font_size = 9
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
@@ -404,8 +404,8 @@ text = "How It Works"
 [node name="tab_facts" type="Button" parent="rampanel/VBoxContainer/tabs" unique_id=100000024]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("7_uekuk")
-theme_override_font_sizes/font_size = 9
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
@@ -421,8 +421,8 @@ layout_mode = 2
 custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("8_ma7se")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 17
 autowrap_mode = 2
 
 [node name="desc_howit" type="Label" parent="rampanel/VBoxContainer/ScrollContainer" unique_id=100000025]
@@ -430,8 +430,8 @@ visible = false
 custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("8_ma7se")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 17
 autowrap_mode = 2
 
 [node name="desc_facts" type="Label" parent="rampanel/VBoxContainer/ScrollContainer" unique_id=100000026]
@@ -439,8 +439,8 @@ visible = false
 custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("8_ma7se")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 17
 autowrap_mode = 2
 
 [node name="hddpanel" type="Panel" parent="." unique_id=1170350547]
@@ -478,8 +478,8 @@ theme_override_constants/separation = 2
 [node name="tab_overview" type="Button" parent="hddpanel/VBoxContainer/tabs" unique_id=100000032]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("7_uekuk")
-theme_override_font_sizes/font_size = 9
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
@@ -491,8 +491,8 @@ text = "Overview"
 [node name="tab_howit" type="Button" parent="hddpanel/VBoxContainer/tabs" unique_id=100000033]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("7_uekuk")
-theme_override_font_sizes/font_size = 9
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
@@ -503,8 +503,8 @@ text = "How It Works"
 [node name="tab_facts" type="Button" parent="hddpanel/VBoxContainer/tabs" unique_id=100000034]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("7_uekuk")
-theme_override_font_sizes/font_size = 9
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_tabn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tabp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tabh")
@@ -520,8 +520,8 @@ layout_mode = 2
 custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("8_ma7se")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 17
 autowrap_mode = 2
 
 [node name="desc_howit" type="Label" parent="hddpanel/VBoxContainer/ScrollContainer" unique_id=100000035]
@@ -529,8 +529,8 @@ visible = false
 custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("8_ma7se")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 17
 autowrap_mode = 2
 
 [node name="desc_facts" type="Label" parent="hddpanel/VBoxContainer/ScrollContainer" unique_id=100000036]
@@ -538,8 +538,8 @@ visible = false
 custom_minimum_size = Vector2(211, 210)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("8_ma7se")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 17
 autowrap_mode = 2
 
 [node name="Next" type="Button" parent="." unique_id=257766956]
@@ -548,7 +548,8 @@ offset_left = 397.0
 offset_top = 32.0
 offset_right = 493.0
 offset_bottom = 56.0
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_d33wi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_cirn5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_g0vyq")
@@ -561,7 +562,8 @@ offset_left = 397.0
 offset_top = 64.0
 offset_right = 493.0
 offset_bottom = 88.0
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("9_ma7se")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_d33wi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_cirn5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_g0vyq")

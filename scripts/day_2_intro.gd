@@ -21,7 +21,7 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Calmer. His monitor stopped breathing.\nNow his mouse is 'whispering.'\nWe're handling it in stages."
+			"text":    "Calmer. His monitor stopped breathing. Now his mouse is 'whispering.'\nWe're handling it in stages."
 		},
 		{
 			"speaker": "You",
@@ -31,7 +31,7 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Today's a different kind of problem.\nHalf the office can't connect to\nanything. Network cables everywhere."
+			"text":    "Today's a different kind of problem. Half the office can't\n connect to anything. Network cables everywhere."
 		},
 		{
 			"speaker": "You",
@@ -41,7 +41,7 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Some Ethernet Cables are wired [color=#ff4444]T568-A.[/color]\nSome are wired [color=#ff4444]T568-B.[/color]\nBasti mixed up the labeling on half of them\n'to make it more organized.'"
+			"text":    "Some Ethernet Cables are wired [color=#ff4444]T568-A.[/color] Some are wired [color=#ff4444]T568-B.[/color]\nBasti mixed up the labeling on half of them 'to make it more organized.'"
 		},
 		{
 			"speaker": "You",
@@ -51,7 +51,7 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "No! Each ticket tells you which standard\nthat jack needs. Get it wrong and it's\nstill dead on arrival. Just like Basti's logic."
+			"text":    "No! Each ticket tells you which standard that jack needs. Get it wrong \nand it's still dead on arrival. Just like Basti's logic."
 		},
 		{
 			"speaker": "You",
@@ -61,7 +61,7 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "White-Orange, Orange... or White-Green,\nGreen, depending which one you're on.\nDon't mix them up."
+			"text":    "White-Orange, Orange... or White-Green, Green, \ndepending which one you're on. Don't mix them up."
 		},
 		{
 			"speaker": "You",
@@ -71,7 +71,7 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Oh — and the weird-computer tickets\ndidn't stop just because the cables\nexploded. A few are still possessed.\nMichael insists his is one of them."
+			"text":    "Oh — and the weird-computer tickets didn't stop just because the cables\nexploded. A few are still possessed. Michael insists his is one of them."
 		},
 		{
 			"speaker": "You",
@@ -81,7 +81,7 @@ func get_dialogue() -> Array:
 		{
 			"speaker": "Boss",
 			"color":   Color(1.0, 0.6, 0.2),
-			"text":    "Aren't we all.\nNow go [color=#ffdd44]fix it[/color] before the 9 AM\nmeeting that is already ruined."
+			"text":    "Aren't we all. Now go [color=#ffdd44]fix it[/color] before\n the 9 AM meeting that is already ruined."
 		},
 	]
 
