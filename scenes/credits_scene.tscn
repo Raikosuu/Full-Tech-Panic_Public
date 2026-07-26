@@ -146,7 +146,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("2_t4kbm")
 theme_override_fonts/bold_font = ExtResource("3_1pu23")
-theme_override_fonts/bold_italics_font = ExtResource("2_x5wno")
+theme_override_fonts/italics_font = ExtResource("3_1pu23")
 bbcode_enabled = true
 text = "[center] THANK YOU FOR PLAYING!
 
@@ -174,11 +174,11 @@ Pixelrepo
 Playtesters, friends, family
 IT Professionals, Panelists, Advisers
 
-[i]Every machine that runs today
-was once a pile of parts on a desk,
-and someone who didn't walk away.
 
-Thanks for staying at the bench.[/i][/center]"
+[i]\"Your most unhappy customers are your greatest source of learning.\"
+
+- Bill Gates
+[/i][/center]"
 fit_content = true
 scroll_active = false
 vertical_alignment = 1
@@ -205,6 +205,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="TitleLabel" type="Label" parent="TitleOverlay" unique_id=1006827232]
 layout_mode = 1
@@ -215,11 +216,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_x5wno")
 theme_override_font_sizes/font_size = 30
-text = "OVERCLOCKED!"
+text = "FULL-TECH PANIC!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FadeRect" type="Control" parent="." unique_id=1053629385]
+[node name="FadeRect" type="ColorRect" parent="." unique_id=1053629385]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -227,6 +228,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=175310412]
 libraries/ = SubResource("AnimationLibrary_s6411")
+
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]

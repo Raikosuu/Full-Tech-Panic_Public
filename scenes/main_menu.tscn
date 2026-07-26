@@ -289,14 +289,14 @@ theme_override_colors/font_shadow_color = Color(0, 0.050980393, 0.050980393, 1)
 theme_override_constants/shadow_offset_y = 5
 theme_override_fonts/font = ExtResource("2_ekxnf")
 theme_override_font_sizes/font_size = 20
-text = "OVERCLOCKED!"
+text = "Full-Tech Panic!"
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="Label" unique_id=1825113237]
 layout_mode = 0
-offset_left = -16.0
+offset_left = 0.5
 offset_top = 16.0
-offset_right = 157.0
+offset_right = 173.5
 offset_bottom = 39.0
 theme_override_colors/font_shadow_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
 theme_override_constants/shadow_offset_y = 3

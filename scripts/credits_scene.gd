@@ -12,7 +12,6 @@ const BGM_CREDITS = preload("res://sfx/sergequadrado-cool-hip-hop-loop-275527.mp
 var _scroll_tween: Tween
 
 func _ready() -> void:
-	skip_button.pressed.connect(_on_skip_pressed)
 	skip_button.visible = false
 	credits_text.visible = false
 	credits_text.position.y = scroll_clip.size.y
@@ -39,7 +38,7 @@ func _start_scroll() -> void:
 func _on_scroll_done() -> void:
 	anim_player.play("exit_to_menu")
 
-func _on_skip_pressed() -> void:
+func _on_skip_button_pressed() -> void:
 	if _scroll_tween and _scroll_tween.is_valid():
 		_scroll_tween.kill()
 	_on_scroll_done()

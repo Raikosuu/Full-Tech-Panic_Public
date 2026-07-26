@@ -51,6 +51,7 @@ Every User has a [color=#ffdd44]patience bar[/color] that drains while you work.
 [color=#aaddff]PC Disassembly[/color] — Remove all components from the system unit in the proper sequence. Order matters — don't yank the wrong part first.
 [color=#aaddff]RJ45 Crimping (T568-B)[/color] — Arrange the eight wires in T568-B color order inside the connector, then hit CRIMP before the timer expires.
 [color=#aaddff]RJ45 Crimping (T568-A)[/color] — Same as above but wired to the T568-A standard. Know the difference.
+[color=#aaddff]PC Diagnostics[/color] — Read the ticket above and choose the appropriate tool for the problem, then choose the course of action.
 
 [b]Progression[/b]
 Complete a set number of tasks to unlock the next stage. Stages get harder — customers arrive faster and patience drains quicker.
