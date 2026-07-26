@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dppijtm6hdmjw"]
 
 [ext_resource type="Script" uid="uid://8qfbl0lxwsuh" path="res://scripts/epilogue.gd" id="1_iqdro"]
-[ext_resource type="Texture2D" uid="uid://du2epxqpgng6e" path="res://assets/IT_bg.png" id="2_rnp6b"]
+[ext_resource type="Texture2D" uid="uid://cks3t3mio0nti" path="res://assets/BG_frame.png" id="2_rnp6b"]
 [ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="3_w4swx"]
 [ext_resource type="FontFile" uid="uid://chkdc34o58e2w" path="res://assets/fonts/PixelGamer-Regular.otf" id="4_ojige"]
 [ext_resource type="AudioStream" uid="uid://lidvfokl7g86" path="res://sfx/creatorshome-video-game-text-330163.mp3" id="5_pfop7"]
@@ -332,8 +332,8 @@ _data = {
 script = ExtResource("1_iqdro")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1390812207]
-position = Vector2(265.5, 135.75)
-scale = Vector2(0.34570313, 0.2602539)
+position = Vector2(265.99997, 135)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("2_rnp6b")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1535867570]

@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://chkdc34o58e2w" path="res://assets/fonts/PixelGamer-Regular.otf" id="1_font"]
 [ext_resource type="Script" uid="uid://cchqjnahv6a84" path="res://scripts/prologue.gd" id="1_prol"]
-[ext_resource type="Texture2D" uid="uid://du2epxqpgng6e" path="res://assets/IT_bg.png" id="2_30x7o"]
+[ext_resource type="Texture2D" uid="uid://cks3t3mio0nti" path="res://assets/BG_frame.png" id="2_ojphu"]
 [ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="2_y30ld"]
 [ext_resource type="AudioStream" uid="uid://lidvfokl7g86" path="res://sfx/creatorshome-video-game-text-330163.mp3" id="5_0g5x1"]
 [ext_resource type="FontFile" uid="uid://bjj6dqwmit5q1" path="res://assets/fonts/Pixelify_Sans/Jersey10-Regular.ttf" id="5_ojphu"]
@@ -332,9 +332,9 @@ _data = {
 script = ExtResource("1_prol")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1390812207]
-position = Vector2(265.5, 136.25)
-scale = Vector2(0.34570313, 0.26123047)
-texture = ExtResource("2_30x7o")
+position = Vector2(266.38574, 134.99597)
+scale = Vector2(0.9985499, 1.0000299)
+texture = ExtResource("2_ojphu")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1535867570]
 layer = 10
