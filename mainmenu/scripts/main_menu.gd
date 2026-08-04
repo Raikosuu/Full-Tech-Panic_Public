@@ -10,6 +10,7 @@ func _ready() -> void:
 	_refresh_save_buttons()
 	BGMManager.play(GameState.BGM_MENU)
 	$DeleteSaveMenu.save_deleted.connect(_refresh_save_buttons)
+	$note_menu.visible = true
 
 func _on_continue_pressed() -> void:
 	GameState.load_game()

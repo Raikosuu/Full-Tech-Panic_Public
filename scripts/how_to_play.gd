@@ -46,7 +46,7 @@ You work in an institution as a IT Infrastructure support. Users walk in with ta
 [b]Patience Bar[/b]
 Every User has a [color=#ffdd44]patience bar[/color] that drains while you work. If it empties before you finish, the customer leaves and you lose a [color=#ff9933]life.[/color] You only have a limited number of lives per stage — don't waste them.
 
-[b]Mini-Games[/b]
+[b]Minigames[/b]
 [color=#aaddff]PC Assembly[/color] — A User brings in loose parts. Install each component into the system unit in the correct order before time runs out.
 [color=#aaddff]PC Disassembly[/color] — Remove all components from the system unit in the proper sequence. Order matters — don't yank the wrong part first.
 [color=#aaddff]RJ45 Crimping (T568-B)[/color] — Arrange the eight wires in T568-B color order inside the connector, then hit CRIMP before the timer expires.

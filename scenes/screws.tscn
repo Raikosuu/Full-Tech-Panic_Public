@@ -15,3 +15,15 @@ texture = ExtResource("1_ktxl3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1819689467]
 shape = SubResource("RectangleShape2D_x8gdb")
+
+[node name="Line1" type="Line2D" parent="." unique_id=355176458]
+scale = Vector2(0.56, 1)
+points = PackedVector2Array(0, 0, 1, 0, -1, 0)
+width = 0.5
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2" type="Line2D" parent="." unique_id=144600524]
+scale = Vector2(1, 0.64)
+points = PackedVector2Array(0, 0, 0, -1, 0, 1)
+width = 0.5
+default_color = Color(0, 0, 0, 1)

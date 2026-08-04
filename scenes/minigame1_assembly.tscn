@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ccxttvxg0gs8" path="res://scenes/screws.tscn" id="14_ma84e"]
 [ext_resource type="PackedScene" uid="uid://cgu8yawlh8ece" path="res://scenes/patience_bar.tscn" id="15_kd6cy"]
 [ext_resource type="FontFile" uid="uid://castux4fucj02" path="res://assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="18_joesv"]
+[ext_resource type="FontFile" uid="uid://d0tsw22v1n2in" path="res://assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="19_jdc1m"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_jicg2"]
 a = Vector2(-81, -44)
@@ -135,6 +136,23 @@ grow_horizontal = 0
 theme_override_fonts/font = ExtResource("18_joesv")
 theme_override_font_sizes/font_size = 16
 text = "||"
+
+[node name="Panel" type="Panel" parent="." unique_id=1597932824]
+offset_left = 281.0
+offset_top = 94.0
+offset_right = 313.0
+offset_bottom = 103.0
+
+[node name="Label" type="Label" parent="Panel" unique_id=341830493]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 32.0
+offset_bottom = 10.0
+theme_override_fonts/font = ExtResource("19_jdc1m")
+theme_override_font_sizes/font_size = 5
+text = "PC Assembly"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="PauseButtonLayer/PauseButton" to="." method="_on_pause_button_pressed"]
 
