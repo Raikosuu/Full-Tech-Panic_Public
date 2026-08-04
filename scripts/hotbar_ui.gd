@@ -176,7 +176,6 @@ func _on_slot_gui_input(event: InputEvent, i: int) -> void:
 	if _locked_slots.get(i, false):
 		return
 	
-	# Count only instances that are NOT yet snapped (still "live" / unplaced)
 	var placed_count: int = _count_placed(i)
 	var remaining: int = part_counts[i] - placed_count
 	if remaining <= 0:
@@ -205,9 +204,9 @@ func _on_slot_gui_input(event: InputEvent, i: int) -> void:
 	_drag_ghost.z_index      = 200
 	add_child(_drag_ghost)
 	_reposition_ghost(get_viewport().get_mouse_position())
+	# No tooltip yet — it's still inside the hotbar at this point.
 
 	_live[i].append(_drag_instance)
-	# Use tree_exiting to catch both free() and reparenting out of tree
 	_drag_instance.tree_exiting.connect(_on_instance_exiting.bind(i, _drag_instance))
 	_refresh_slot(i)
 
@@ -255,14 +254,31 @@ func _refresh_slot(i: int) -> void:
 	if icon:
 		var is_locked: bool = _locked_slots.get(i, false)
 		icon.modulate.a = 1.0 if (remaining > 0 and not is_locked) else 0.3
+
 func _input(event: InputEvent) -> void:
 	if _drag_slot == -1:
 		return
 
+	var screen_pos: Vector2
+	var moved := false
 	if event is InputEventMouseMotion:
-		_reposition_ghost(event.position)
+		screen_pos = event.position
+		moved = true
 	elif event is InputEventScreenDrag:
-		_reposition_ghost(event.position)
+		screen_pos = event.position
+		moved = true
+
+	if moved:
+		_reposition_ghost(screen_pos)
+
+		var panel: Control = $Panel
+		var panel_rect := Rect2(panel.global_position, panel.size)
+		if panel_rect.has_point(screen_pos):
+			# Still hovering inside the hotbar — not "taken out" yet.
+			TooltipManager.hide_tooltip()
+		else:
+			# Crossed out of the hotbar — this is the moment it's "taken out".
+			TooltipManager.show_for(part_types[_drag_slot], screen_pos)
 
 	var released := false
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
@@ -289,10 +305,11 @@ func _drop_part() -> void:
 	if not panel_rect.has_point(screen_pos):
 		var world_pos: Vector2 = _screen_to_world(screen_pos)
 		if _drag_instance.has_method("grab_from_hotbar"):
-			# Defer so the current mouse-release event finishes propagating
-			# before the new grab starts — prevents immediate self-release
+			# grab_from_hotbar -> _grab() re-fires TooltipManager.show_for,
+			# so the tooltip carries over seamlessly into the field drag.
 			_drag_instance.call_deferred("grab_from_hotbar", world_pos)
 	else:
+		TooltipManager.hide_tooltip()
 		_live[_drag_slot].erase(_drag_instance)
 		_drag_instance.queue_free()
 		_refresh_slot(_drag_slot)

@@ -85,6 +85,13 @@ func _physics_process(_delta: float) -> void:
 		target_pos.x = clamp(target_pos.x, _drag_min.x + radius, _drag_max.x - radius)
 		target_pos.y = clamp(target_pos.y, _drag_min.y + radius, _drag_max.y - radius)
 		global_position = global_position.lerp(target_pos, 0.3)
+		TooltipManager.move_to(_get_pointer_screen_pos())
+		
+func _get_pointer_screen_pos() -> Vector2:
+	if touch_index != -1:
+		return _touch_pos
+	return get_viewport().get_mouse_position()
+	
 func _input(event: InputEvent) -> void:
 	if snapped:
 		if allow_unsnap:
@@ -182,6 +189,7 @@ func _grab() -> void:
 	# Restore sprite and collision visibility — parts hidden by snap zones
 	# (remove_component = true) need to reappear when dragged out.
 	_restore_visibility()
+	TooltipManager.show_for(component_type, _get_pointer_screen_pos())
 
 func _restore_visibility() -> void:
 	for child in get_children():
@@ -206,6 +214,7 @@ func _release() -> void:
 	# Now that this screw is placed in the world, enable input so
 	# the player can pick it up and move it to a snap zone
 	set_process_input(true)
+	TooltipManager.hide_tooltip()
 	emit_signal("released", self)
 
 func snap(target_position: Vector2) -> void:
@@ -223,6 +232,7 @@ func snap(target_position: Vector2) -> void:
 	collision_layer = _default_collision_layer
 	collision_mask = _default_collision_mask
 	set_physics_process(false)
+	TooltipManager.hide_tooltip()
 
 func drop() -> void:
 	pass
